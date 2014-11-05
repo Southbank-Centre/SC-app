@@ -1,0 +1,29 @@
+$susy: (
+  columns: 16,
+  container: 60em,
+  container-position: left,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: after,
+  global-box-sizing: content-box,
+);
+
+@import "compass/typography/vertical_rhythm";
+
+$base-font-size: 18px;
+$base-line-height: 4px;
+
+@include establish-baseline;
+
+.container {
+
+  @include susy-breakpoint($bp-tablet, 16) {
+
+    @include container($susy);
+
+  }
+
+  position: relative;
+
+}

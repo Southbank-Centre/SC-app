@@ -1,17 +1,17 @@
-/* 'use strict';
+'use strict';
 
-describe('Controller: AboutCtrl', function () {
+describe('Controller: HomeCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('scAppApp'));
+  beforeEach(module('wowApp'));
 
-  var AboutCtrl,
+  var HomeCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    AboutCtrl = $controller('AboutCtrl', {
+    HomeCtrl = $controller('HomeCtrl', {
       $scope: scope
     });
   }));
@@ -19,4 +19,4 @@ describe('Controller: AboutCtrl', function () {
   it('should attach a list of awesomeThings to the scope', function () {
     expect(scope.awesomeThings.length).toBe(3);
   });
-}); */
+});

@@ -1,0 +1,66 @@
+/* overlay code */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  opacity: 1;
+  height: 100%;
+  //display: none;
+  pointer-events:none;
+  .container {
+    height: 100%;
+  }
+
+}
+
+.col {
+  
+  @include breakpoint($bp-tablet) {
+    @include span(1);
+  }
+  
+  height: 100%;
+  
+  .overlay & {
+      outline: 1px solid #00f0e9;
+      opacity:0.5;
+  }
+  
+  &.four {
+    @include breakpoint($bp-tablet) {
+      @include span(4);
+    }
+  }
+  
+}
+
+.col:nth-child(16) {
+  @include breakpoint($bp-tablet) {
+    @include span(1 omega);
+  }
+}  
+
+.overlay .horizontal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  
+  & .row {
+    content: '';
+    @include trailing-border(1px, 16);
+    border-color: #00f0e9;
+    width: 100%
+  }
+  
+}
+
+.toggle-grid {
+  position: fixed;
+  right: 1em;
+  bottom: 3em;
+  z-index: 999;
+}

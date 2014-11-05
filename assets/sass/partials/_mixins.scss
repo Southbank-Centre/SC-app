@@ -1,0 +1,9 @@
+@mixin standard-font-style() {
+    @include adjust-leading-to(6);
+    font-family:Helvetica Neue, Helvetica, Arial, sans-serif;
+    color:black;
+    font-style:normal;
+    font-weight:400;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
