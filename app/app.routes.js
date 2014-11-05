@@ -15,12 +15,12 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'components/home/homeView.html',
+        templateUrl: 'app/components/home/homeView.html',
         controller: 'HomeCtrl'
       })
       .state('event', {
         url: '/event',
-        templateUrl: 'components/event/eventView.html',
+        templateUrl: 'app/components/event/eventView.html',
         controller: 'eventCtrl'
       })
       .state('404', {
