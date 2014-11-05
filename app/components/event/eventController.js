@@ -8,7 +8,7 @@
  * Controller of the wowApp
  */
 angular.module('wowApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('eventCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

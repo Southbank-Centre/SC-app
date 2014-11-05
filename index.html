@@ -11,8 +11,8 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <meta name=”fragment” content=”!” /> <!-- for search bots -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- <meta name=”fragment” content=”!” /> --> <!-- for search bots -->
     <!-- endbuild -->
   </head>
   <body ng-app="wowApp">
@@ -25,9 +25,9 @@
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
+          <li><a ng-href="#/event">Event</a></li>
         </ul>
-        <h3 class="text-muted">scApp</h3>
+        <h3 class="text-muted">wowApp</h3>
       </div>
 
       <div ng-view=""></div>
@@ -72,11 +72,10 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <!-- <script src="angular-seo.js"></script> -->
-        <script src="scripts/controllers/terms-conditions.js"></script>
+        <script src="app/app.module.js"></script>
+        <script src="app/app.routes.js"></script>
+        <script src="app/components/home/homeController.js"></script>
+        <script src="app/components/event/eventController.js"></script>
         <!-- endbuild -->
 </body>
 </html>
