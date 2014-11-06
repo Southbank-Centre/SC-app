@@ -1,12 +1,49 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="../assets/imgs/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<div class="event-single" data-ng-controller='EventController'>
+
+<div data-ng-repeat='event in event' id="n-{{ event.id }}">
+
+	<div class="container">
+		<h1>EVENT VIEW</h1>
+
+		<div class="date">
+			{{ event.startDate | date:'EEEE d MMMM h:mm' }}{{ event.startDate | date:'a' | lowercase }} - 
+			{{ event.endDate | date:'h:mm' }}{{ event.endDate | date:'a' | lowercase }}
+		</div>
+		<h1>{{ event.nameTitle }}</h1>
+		<h3>{{ event.nameSuffix }}</h3>
+		<div class="teaser"><p>{{ event.teaserText }}</p></div>
+		<div class="featured-img"><img src="{{ event.image }}" alt=""></div>
+
+		<div class="event-details-container">
+
+			<div class="event-details-content">
+				<h3>Event Details</h3>
+				<ul>
+					<li><label>Venue:</label> {{ event.location }}</li>
+					<li><label>Time:</label> {{ event.startDate | date:'h:mm' }}{{ event.startDate | date:'a' | lowercase }} - 
+			{{ event.endDate | date:'h:mm' }}{{ event.endDate | date:'a' | lowercase }}</li>
+					<li><label>Date:</label> {{ event.startDate | date:'EEEE d MMMM yyyy' }}</li>
+					<li data-ng-repeat='festival in event.festival'><label>Festival:</label> {{ festival.name }}</li>
+					<li><label>Type of event:</label> {{ event.eventType }}</li>
+					<li><label>Age:</label> {{ event.typicalAgeRange }}</li>
+					<li><label>Running Time:</label> {{ event.duration }}</li>
+				</ul>
+			</div>
+
+			<div class="booking-information-content">
+				<h3>Booking Information</h3>
+				<ul>
+					<li><label>Price:</label> {{ event.price }}</li>
+					<li><label>Premiun seats:</label> {{ event.premiumPrice }}</li>
+					<li><label>Concessions:</label> {{ event.duration }}</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div class="description" data-ng-bind-html="event.description">{{ event.description }}</div>
+	</div>
+
 </div>
 
-<div class="row marketing">
-  <h4>Event View</h4>
 </div>

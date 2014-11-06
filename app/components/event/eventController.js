@@ -2,21 +2,20 @@
 
 /**
  * @ngdoc function
- * @name wowApp.controller:MainCtrl
+ * @name wowApp.controller:EventController
  * @description
- * # MainCtrl
- * Controller of the wowApp
+ * # EventController
+ * Controller of a single event
  */
+
+
 angular.module('wowApp')
-  .controller('eventCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-    // SEO REQUIREMENT: 
-	// PhantomJS pre-rendering workflow requires the page to declare, through htmlReady(), that
-	// we are finished with this controller. 
-	// See: http://lawsonry.com/p?11040
-	// $scope.htmlReady();
+  .controller('EventController', function($scope, eventFactory) {
+    
+    eventFactory.getEventAsync(function(results) {
+      console.log('EventController async returned value');
+      $scope.event = results.event;
+      
+    });
+
   });

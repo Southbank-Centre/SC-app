@@ -21,7 +21,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
       .state('event', {
         url: '/event',
         templateUrl: 'app/components/event/eventView.html',
-        controller: 'eventCtrl'
+        controller: 'EventController'
       })
       .state('404', {
         url: '{path:.*}',
