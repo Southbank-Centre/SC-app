@@ -19,6 +19,7 @@ angular.module('wowApp')
       
       //if (event.id == $stateParams.eventId) 
       $scope.events = data;
+      
     });
 
   });
