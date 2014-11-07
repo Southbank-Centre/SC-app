@@ -12,6 +12,7 @@
 angular.module('wowApp')
   .factory('eventFactory', function($http) {
 
-    return $http.get('json-test/event-test.json'); // Will we need to use $resource instead to work with RESTful api?
+    return $http.get('json-test/event-test.json'); 
+    // Will we need to use $resource instead to work with RESTful api?
     
   });

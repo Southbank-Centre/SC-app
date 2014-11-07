@@ -1,9 +1,10 @@
 <div class="event-single" data-ng-controller='EventController'>
 
-<div data-ng-repeat='event in event' id="n-{{ event.id }}">
+<div class="container">
+	
+	<h1>EVENT VIEW</h1>
 
-	<div class="container">
-		<h1>EVENT VIEW</h1>
+	<div data-ng-repeat='event in events' id="n-{{ event.id }}">
 
 		<div class="date">
 			{{ event.startDate | date:'EEEE d MMMM h:mm' }}{{ event.startDate | date:'a' | lowercase }} - 
@@ -12,7 +13,7 @@
 		<h1>{{ event.nameTitle }}</h1>
 		<h3>{{ event.nameSuffix }}</h3>
 		<div class="teaser"><p>{{ event.teaserText }}</p></div>
-		<div class="featured-img"><img src="{{ event.image }}" alt=""></div>
+		<div class="featured-img"><img ng-src="{{ event.image }}" alt=""></div>
 
 		<div class="event-details-container">
 
@@ -41,7 +42,8 @@
 
 		</div>
 
-		<div class="description" data-ng-bind-html="event.description">{{ event.description }}</div>
+		<div class="description" data-ng-bind-html="event.description"></div>
+		
 	</div>
 
 </div>

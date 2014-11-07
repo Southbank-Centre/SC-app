@@ -13,7 +13,12 @@ angular.module('wowApp')
   .controller('EventController', function($scope, eventFactory) {
 
     eventFactory.success(function(data) {
-      $scope.event = data.event;
+      // $scope.events = data;
+
+      // $scope.eventId = $stateParams.eventId;
+      
+      //if (event.id == $stateParams.eventId) 
+      $scope.events = data;
     });
 
   });
