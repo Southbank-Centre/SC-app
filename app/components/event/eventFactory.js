@@ -12,7 +12,17 @@
 angular.module('wowApp')
   .factory('eventFactory', function($http) {
 
-    return $http.get('json-test/event-test.json'); 
-    // Will we need to use $resource instead to work with RESTful api?
+    return {
+
+      getEventSingle: function(eventId, callbackSuccess, callbackError) {
+
+        // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/event/'+eventId
+        $http.get('json-test/event-test-'+eventId+'.json')
+          .success(callbackSuccess)
+          .error(callbackError);
+
+      }
+
+    };
     
   });
