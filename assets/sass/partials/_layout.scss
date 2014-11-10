@@ -46,18 +46,22 @@ article header {
 
 .event-details-container { 
 	@include span(9);
-}
-
-.event-details-content {
-	@include span(5 of 9);
-}
-
-.booking-information-content {
-	@include span(4 of 9);
+	.event-details-content {
+		@include span(5 of 9);
+		padding-left: 20px;
+	}
+	.booking-information-content {
+		@include span(4 of 9 last);
+	}
+	padding: $padding 0;
+	label { 
+		@include span(33.333%);
+	}
 }
 
 .full-description {
 	clear: both;
+	margin: $margin 0;
 	@include span(8);
 	p {
 		margin: 0;
@@ -68,9 +72,20 @@ article header {
 	clear: both;
 	@include span(6);
 	padding: $padding/2 $padding;
+	
 }
 
 .festival-description {
+	padding: $padding 0;
 	clear: both;
+	margin-bottom: 50px;
 	@include span(10);
+	h2 {
+		@include span(8 of 10);
+		padding-left: $padding;
+	}
+	.festival-logo {
+		@include span(1.5 of 10 last);
+		padding-right: $padding;
+	}
 }

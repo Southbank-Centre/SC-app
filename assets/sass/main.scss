@@ -6,14 +6,17 @@
 @import "vendor/_html5doctorreset.min.scss";
 @import "bourbon/bourbon";
 
-/* Globals */
-@import "partials/global";
+/* Variables */
+@import "partials/variables";
 
 /* Mixins */
 @import "partials/mixins";
 
 /* Grid */
 @import "partials/grid";
+
+/* Globals */
+@import "partials/global";
 
 /* Layout */
 @import "partials/layout";

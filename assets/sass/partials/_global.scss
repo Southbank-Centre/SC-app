@@ -1,13 +1,18 @@
-// GLOBAL VARIABLES
-$padding: 20px;
+// GLOBAL STYLES
 
-// SITE COLOURS
-$bg-color: #ECEDEA;
-$white: #FFF;
-$secondary-highlight: #20A151;
+// Links
+a {
+  &:link, &:visited {
+    color: $link-color;
+    text-decoration: none;
+    background: $internal-link-bg;
+  }
+}
 
-// SITE BREAKPOINTS
-$bp-tablet: 569px;
-$bp-small-desktop: 768px;
-$bp-desktop: 1024px;
-$bp-fullwidth: 1174px;
+a {
+  &:hover, &:active {
+    color: $link-color;
+    text-decoration: underline;
+    background: $internal-link-bg;
+  }
+}

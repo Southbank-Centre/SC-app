@@ -1,7 +1,7 @@
 @import "compass/typography/vertical_rhythm";
 
 $base-font-size: 16px;
-$base-line-height: 12px;
+$base-line-height: 13px;
 $rhythm-unit: "rem";
 
 @include establish-baseline;
@@ -64,9 +64,38 @@ p { margin: 1em 0; }
 
 .date { color: $secondary-highlight; }
 
-.teaser { 
+.teaser h2 { 
 	@include adjust-font-size-to(26px);
+  font-weight: normal;
 	// line-height: 1.4;
 	// @include font-size(2.6);
 	font-family: 'SC AkkuratLight';
+}
+
+.event-details-container {
+  h3 {
+    font-weight: normal;
+    font-family: 'SC AkkuratBold';
+  }
+  ul {
+    list-style: none;
+  }
+}
+
+.full-description {
+  h3 {
+      font-weight: normal;
+      font-family: 'SC AkkuratBold';
+    }
+}
+
+.festival-name {
+}
+
+.festival-description {
+  h2 { 
+    @include adjust-font-size-to(26px);
+    font-weight: normal;
+    font-family: 'SC AkkuratLight';
+  }
 }
