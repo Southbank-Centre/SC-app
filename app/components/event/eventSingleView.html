@@ -1,6 +1,6 @@
 <div class="event-single" data-ng-controller='EventController'>
 
-<div class="container">
+<div>
 	
 	<h1>EVENT VIEW</h1>
 
@@ -9,17 +9,24 @@
 		<article>
 
 			<div class="date">
-				{{ event.startDate | date:'EEEE d MMMM h:mm' }}{{ event.startDate | date:'a' | lowercase }} - 
+				<strong>{{ event.startDate | date:'EEEE d MMMM yyyy' }}</strong>
+				{{ event.startDate | date:'h:mm' }}{{ event.startDate | date:'a' | lowercase }} - 
 				{{ event.endDate | date:'h:mm' }}{{ event.endDate | date:'a' | lowercase }}
 			</div>
 
-			<header>
-				<h1>{{ event.nameTitle }}</h1>
-				<h3>{{ event.nameSuffix }}</h3>
-				Full description
+			<header class="container">
+
+				<div class="event-name" id="event-name">
+					<h1>{{ event.nameTitle }}</h1>
+					<h3>{{ event.nameSuffix }}</h3>
+					<a href="#">Full description</a>
+				</div>
+
+				<div class="ticket-box" css-equal-height="event-name">Tickets go here...</div>
+
 			</header>
 
-			<div class="teaser"><p>{{ event.teaserText }}</p></div>
+			<div class="teaser">{{ event.teaserText }}</div>
 
 			<div class="featured-img"><img ng-src="{{ event.image }}" alt=""></div>
 
@@ -52,8 +59,12 @@
 
 			<div class="full-description" data-ng-bind-html="event.description"></div>
 
-			<div class="festival-information">
-				<p>This event is part of SOuthbabnk
+			<div class="festival-name">
+				<div data-ng-repeat='festival in event.festival'>This event is part of Southbank Centre's {{ festival.name }} Festival</div>
+			</div>
+
+			<div class="festival-description">
+				<div data-ng-repeat='festival in event.festival' data-ng-bind-html="festival.description"></div>
 			</div>
 
 		</article>

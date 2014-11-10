@@ -24,7 +24,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
         controller: 'EventController'
       })
       .state('eventSingle', {
-        url: "/event/:eventId",
+        url: '/event/:eventId',
         templateUrl: 'app/components/event/eventSingleView.html',
         controller: 'EventController',
         /* controller: function ($stateParams) {

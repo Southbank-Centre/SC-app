@@ -1,34 +1,13 @@
 // GLOBAL VARIABLES
+$padding: 20px;
 
 // SITE COLOURS
+$bg-color: #ECEDEA;
 $white: #FFF;
+$secondary-highlight: #20A151;
 
 // SITE BREAKPOINTS
 $bp-tablet: 569px;
 $bp-small-desktop: 768px;
 $bp-desktop: 1024px;
 $bp-fullwidth: 1174px;
-
-
-// GLOBAL LAYOUT
-
-body { background: #F5F5F5; }
-
-.date, header, .teaser, .event-details-container, .full-description, .festival-information { background: $white; }
-
-.date { @include span(4 of 12); }
-header { @include span(7 of 12); }
-.featured-img { 
-	@include breakpoint($bp-tablet) {
-		@include span(2 of 12);
-	} 
-	img { width: 100%; height: auto; }
-}
-
-.event-details-container { 
-	@include span(4 of 12 last);
-}
-
-.full-description {
-	clear: both;
-}

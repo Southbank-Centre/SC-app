@@ -1,0 +1,76 @@
+// LAYOUT
+
+body { background-color: $bg-color; }
+
+article { clear: both; }
+
+.date, .teaser, .event-details-container, .full-description, .festival-name, .festival-description { 
+	background: $white; 
+	margin-bottom: 2px;
+	padding: $padding; 
+}
+
+.date { 
+	@include span(4); 
+	padding: $padding/2 $padding; 
+}
+
+article header {
+	margin-bottom: 2px;
+	clear: both;
+	.event-name {
+		@include span(7);
+		background: $white;
+		padding: $padding; 
+	}
+	.ticket-box {
+		@include span(3);
+		background: $white;
+		padding: $padding; 
+	}  
+}
+
+.teaser {
+	@include span(7);
+	clear: both;
+	position: relative;
+}
+
+.featured-img { 
+  @include breakpoint($bp-tablet) {
+    @include span(8);
+  }
+  margin-top: -70px;
+  img { width: 100%; height: auto; }
+}
+
+.event-details-container { 
+	@include span(9);
+}
+
+.event-details-content {
+	@include span(5 of 9);
+}
+
+.booking-information-content {
+	@include span(4 of 9);
+}
+
+.full-description {
+	clear: both;
+	@include span(8);
+	p {
+		margin: 0;
+	}
+}
+
+.festival-name {
+	clear: both;
+	@include span(6);
+	padding: $padding/2 $padding;
+}
+
+.festival-description {
+	clear: both;
+	@include span(10);
+}
