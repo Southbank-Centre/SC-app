@@ -10,15 +10,15 @@
 
 			<div class="date">
 				<strong>{{ event.startDate | date:'EEEE d MMMM yyyy' }}</strong>
-				{{ event.startDate | date:'h:mm' }}{{ event.startDate | date:'a' | lowercase }} - 
-				{{ event.endDate | date:'h:mm' }}{{ event.endDate | date:'a' | lowercase }}
+				{{ event.startDate | date:'h:mm' }}{{ event.startDate | date:'a' | lowercase }}
+				<span ng-show="event.endDate"> - {{ event.endDate | date:'h:mm' }}{{ event.endDate | date:'a' | lowercase }}</span>
 			</div>
 
 			<header class="container">
 
 				<div class="event-name" id="event-name">
 					<h1>{{ event.nameTitle }}</h1>
-					<h3>{{ event.nameSuffix }}</h3>
+					<h3 ng-show="event.nameSuffix">{{ event.nameSuffix }}</h3>
 					<a href="#full-description" du-smooth-scroll class="scroll-link">Full description</a>
 					<div>&nbsp;</div>
 				</div>
@@ -49,35 +49,35 @@
 						<li><label>Time</label> {{ event.startDate | date:'h:mm' }}{{ event.startDate | date:'a' | lowercase }} - 
 				{{ event.endDate | date:'h:mm' }}{{ event.endDate | date:'a' | lowercase }}</li>
 						<li><label>Date</label> {{ event.startDate | date:'EEEE d MMMM yyyy' }}</li>
-						<li data-ng-repeat='festival in event.festival'><label>Festival:</label> {{ festival.name }}</li>
-						<li><label>Type of event</label> {{ event.eventType }}</li>
-						<li><label>Age</label> {{ event.typicalAgeRange }}</li>
-						<li><label>Running Time</label> {{ event.duration }}</li>
+						<li ng-show="festival.name" data-ng-repeat='festival in event.festival'><label>Festival</label> {{ festival.name }}</li>
+						<li ng-show="event.eventType"><label>Type of event</label> {{ event.eventType }}</li>
+						<li ng-show="event.typicalAgeRange"><label>Age</label> {{ event.typicalAgeRange }}</li>
+						<li ng-show="event.duration"><label>Running Time</label> {{ event.duration }}</li>
 					</ul>
 				</div>
 
 				<div class="booking-information-content">
 					<h3>Booking Information</h3>
 					<ul>
-						<li><label>Price</label> {{ event.price }}</li>
-						<li><label>Premium seats</label> {{ event.premiumPrice }}</li>
-						<li><label>Concessions</label> {{ event.duration }}</li>
+						<li ng-show="event.price"><label>Price</label> {{ event.price }}</li>
+						<li ng-show="event.premiumPrice"><label>Premium seats</label> {{ event.premiumPrice }}</li>
+						<li ng-show="event.concessions"><label>Concessions</label> {{ event.concessions }}</li>
 					</ul>
 				</div>
 
 			</div>
 
-			<div class="full-description" id="full-description">
+			<div ng-show="event.description" class="full-description" id="full-description">
 				<h3>Full Description</h3>
 				<div data-ng-bind-html="event.description">
 				</div>
 			</div>
 
-			<div class="festival-name">
+			<div ng-show="festival.name" class="festival-name">
 				<div data-ng-repeat='festival in event.festival'>This event is part of <a href="#">Southbank Centre's {{ festival.name }} Festival</a></div>
 			</div>
 
-			<div class="festival-description" data-ng-repeat='festival in event.festival'>
+			<div ng-show="festival.name" class="festival-description" data-ng-repeat='festival in event.festival'>
 				<h2 data-ng-bind-html="festival.description"></h2>
 				<img ng-src="{{ festival.logo }}" alt="" class="festival-logo">
 			</div>
