@@ -1,0 +1,38 @@
+{
+    "id": "2",
+    "startDate": "2014-03-08T13:30:00",
+    "endDate": "2014-03-08T15:00:00",
+    "nameTitle": "Afro Hair Meet-up 2",
+    "nameSuffix": "Following on from Weave vs Natural? The Politics of Afro Hair talk at 12pm",
+    "teaserText": "Teaser description for event: Are you a budding young feminist? Would you use the F word in the playground? If so, we’ve got the perfect session for you.",
+    "description": "<p>Considering going natural but not sure how&nbsp;to go about it? Been natural for a while and&nbsp;need some new styling tips or inspiration? Join&nbsp;leading natural hair bloggers <a href=\"http://wow.southbankcentre.co.uk/2014/artists/crystal-afro/\">Crystal Afro</a> (United&nbsp;KinKdom), <a href=\"http://wow.southbankcentre.co.uk/2014/artists/angel-dike/\">Angel Dike</a> (The Natural Lounge)&nbsp;and others as they guide you through the best&nbsp;products, salons and the difference between&nbsp;ACV and BC.&nbsp;All hair types welcome!</p>",
+    "image": "http://wow.southbankcentre.co.uk/wp-content/uploads/2014/02/Angel_web.jpg",
+    "offers": [
+        {
+            "name": "Day pass",
+            "url": "http://..."
+        },
+        {
+            "name": "Weekend pass",
+            "url": "http://..."
+        }
+    ],
+    "location": "Level 4 Green Bar at Royal Festival Hall",
+    "duration": "90 mins",
+    "price": "£20.00",
+    "premiumPrice": "£25.00",
+    "bookingFee": "string",
+    "concessions": "£15.00",
+    "festival": [
+        {
+            "@type": "Event",
+            "name": "WOW - Women of the World",
+            "description": "Chunky Description for festival / quote from dolor sit amet, cons ectetur adipiscing elit. In efficitur wow justo vel congue. <a href=\"http://wow.southbankcentre.co.uk/2014/\">Global</a> a qu",
+            "logo": "assets/imgs/wow2015-logo-small.png"
+        }
+    ],
+    "eventType": "Talk",
+    "artForm": "string",
+    "access": "string",
+    "typicalAgeRange": "15 upwards"
+  }

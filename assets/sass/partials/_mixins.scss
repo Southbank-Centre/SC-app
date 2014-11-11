@@ -1,9 +1,14 @@
 @mixin standard-font-style() {
-    @include adjust-leading-to(6);
-    font-family:Helvetica Neue, Helvetica, Arial, sans-serif;
+    // font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     color:black;
     font-style:normal;
     font-weight:400;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+}
+
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
 }

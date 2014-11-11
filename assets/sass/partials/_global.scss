@@ -1,7 +1,60 @@
-// SITE COLOURS
+// GLOBAL STYLES
 
-// SITE BREAKPOINTS
-$bp-tablet: 569px;
-$bp-small-desktop: 768px;
-$bp-desktop: 1024px;
-$bp-fullwidth: 1174px;
+// Links
+a {
+  &:link, &:visited {
+    color: $link-color;
+    text-decoration: none;
+    background: $light-grey;
+  }
+}
+
+a {
+  &:hover, &:active {
+    color: $link-color;
+    text-decoration: underline;
+    background: $light-grey;
+  }
+}
+
+a.book-now-btn {
+	display: block;
+	margin-top: 3px;
+	background-color: $link-color;
+	color: $white;
+	padding: 0px 10px;
+	font-weight: bold;
+	font-family: 'SC AkkuratBold';
+	span {
+		font-weight: normal;
+		font-family: 'SC Akkurat';
+		margin-left: 40px;
+	}
+	background-image: url(../imgs/icon-sprite.png);
+	background-size: 20px auto;
+	background-repeat: no-repeat;
+	background-position: right 0px;
+	line-height: 40px;
+}
+
+a.scroll-link {
+	padding-right: 22px;
+	background-image: url(../imgs/icon-sprite.png);
+	background-size: 20px auto;
+	background-repeat: no-repeat;
+	background-position: right -50px;
+	line-height: 40px;
+}
+
+.full-description a[href^="http://"],
+.full-description a[href^="https://"],
+.festival-description a[href^="http://"],
+.festival-description a[href^="https://"] {
+	padding-right: 22px;
+	background-image: url(../imgs/icon-sprite.png);
+	background-size: 20px auto;
+	background-repeat: no-repeat;
+	background-position: right -92px;
+	// line-height: 40px;
+}
+

@@ -1,3 +1,100 @@
+@import "compass/typography/vertical_rhythm";
+
+$base-font-size: 16px;
+$base-line-height: 13px;
+$rhythm-unit: "rem";
+
+@include establish-baseline;
+
+html { 	
+	//font-size: 62.5%;
+	@include adjust-leading-to(2);
+}
+
 body {
-    @include standard-font-style();
+	@include standard-font-style();
+	// @include font-size(1.6);
+	// line-height: 1.4;
+}
+
+// FONTS
+@font-face {
+  font-family: 'SC Akkurat';
+  src: url('../fonts/sbcakkrgpro1.eot');
+  src: url('../fonts/sbcakkrgpro1.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/sbcakkrgpro1.svg') format('svg'), // load svg first to fix Chrome antialias bug: http://www.fontspring.com/blog/smoother-web-font-rendering-chrome
+  url('../fonts/sbcakkrgpro1.woff') format('woff'),
+  url('../fonts/sbcakkrgpro1.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SC AkkuratBold';
+  src: url('../fonts/sbcakkbdpro1.eot');
+  src: url('../fonts/sbcakkbdpro1.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/sbcakkbdpro1.svg') format('svg'),
+  url('../fonts/sbcakkbdpro1.woff') format('woff'),
+  url('../fonts/sbcakkbdpro1.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+h1 { 
+	margin: 0 0 0.5em; 
+	@include adjust-font-size-to(32px);
+	font-family: 'SC AkkuratBold';
+  letter-spacing: $letter-spacing;
+}
+
+h3 { 
+	margin: 0 0 0.5em;
+	font-weight: normal;
+}
+
+p { margin: 1em 0; }
+
+.date { color: $secondary-highlight; }
+
+.teaser h2 { 
+  @include adjust-font-size-to(18px);
+  @include breakpoint($bp-mobile) {
+	   @include adjust-font-size-to(26px);
+  }
+  font-weight: normal;
+	// line-height: 1.4;
+	// @include font-size(2.6);
+	font-family: 'SC Akkurat';
+  letter-spacing: $letter-spacing;
+}
+
+.event-details-container {
+  h3 {
+    font-weight: normal;
+    font-family: 'SC AkkuratBold';
+  }
+  ul {
+    list-style: none;
+  }
+}
+
+.full-description {
+  h3 {
+      font-weight: normal;
+      font-family: 'SC AkkuratBold';
+    }
+}
+
+.festival-name {
+}
+
+.festival-description {
+  h2 { 
+    @include adjust-font-size-to(18px);
+    @include breakpoint($bp-mobile) {
+      @include adjust-font-size-to(26px);
+    }
+    font-weight: normal;
+    font-family: 'SC Akkurat';
+    letter-spacing: $letter-spacing;
+  }
 }

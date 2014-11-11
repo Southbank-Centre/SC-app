@@ -1,13 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name wowApp
- * @description
- * # wowApp
- *
- * Main module of the application.
- */
 angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
 
     $urlRouterProvider.when('', '/');
@@ -18,10 +10,17 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
         templateUrl: 'app/components/home/homeView.html',
         controller: 'HomeCtrl'
       })
-      .state('event', {
-        url: '/event',
-        templateUrl: 'app/components/event/eventView.html',
-        controller: 'eventCtrl'
+      /*
+      .state('events', {
+        url: '/events',
+        templateUrl: 'app/components/event/eventListView.html',
+        controller: 'EventController'
+      })
+      */
+      .state('eventSingle', {
+        url: '/event/:eventId',
+        templateUrl: 'app/components/event/eventSingleView.html',
+        controller: 'EventSingleCtrl',
       })
       .state('404', {
         url: '{path:.*}',
