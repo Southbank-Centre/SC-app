@@ -38,6 +38,16 @@ body {
   font-weight: bold;
   font-style: normal;
 }
+@font-face {
+  font-family: 'SC AkkuratLight';
+  src: url('../fonts/lineto-akkurat-pro-light.eot');
+  src: url('../fonts/lineto-akkurat-pro-light.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/lineto-akkurat-pro-light.svg') format('svg'),
+  url('../fonts/lineto-akkurat-pro-light.woff') format('woff'),
+  url('../fonts/lineto-akkurat-pro-light.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 
 h1 { 
 	margin: 0 0 0.5em; 
@@ -63,7 +73,7 @@ p { margin: 1em 0; }
   font-weight: normal;
 	// line-height: 1.4;
 	// @include font-size(2.6);
-	font-family: 'SC Akkurat';
+	font-family: 'SC AkkuratLight';
   letter-spacing: $letter-spacing;
 }
 
@@ -94,7 +104,7 @@ p { margin: 1em 0; }
       @include adjust-font-size-to(26px);
     }
     font-weight: normal;
-    font-family: 'SC Akkurat';
+    font-family: 'SC AkkuratLight';
     letter-spacing: $letter-spacing;
   }
 }
