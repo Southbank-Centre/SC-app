@@ -38,21 +38,12 @@ body {
   font-weight: bold;
   font-style: normal;
 }
-@font-face {
-  font-family: 'SC AkkuratLight';
-  src: url('../fonts/lineto-akkurat-pro-light.eot');
-  src: url('../fonts/lineto-akkurat-pro-light.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/lineto-akkurat-pro-light.svg#AkkuratProLight') format('svg'),
-  url('../fonts/lineto-akkurat-pro-light.woff') format('woff'),
-  url('../fonts/lineto-akkurat-pro-light.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
 h1 { 
 	margin: 0 0 0.5em; 
 	@include adjust-font-size-to(32px);
 	font-family: 'SC AkkuratBold';
+  letter-spacing: $letter-spacing;
 }
 
 h3 { 
@@ -65,11 +56,15 @@ p { margin: 1em 0; }
 .date { color: $secondary-highlight; }
 
 .teaser h2 { 
-	@include adjust-font-size-to(26px);
+  @include adjust-font-size-to(18px);
+  @include breakpoint($bp-mobile) {
+	   @include adjust-font-size-to(26px);
+  }
   font-weight: normal;
 	// line-height: 1.4;
 	// @include font-size(2.6);
-	font-family: 'SC AkkuratLight';
+	font-family: 'SC Akkurat';
+  letter-spacing: $letter-spacing;
 }
 
 .event-details-container {
@@ -94,8 +89,12 @@ p { margin: 1em 0; }
 
 .festival-description {
   h2 { 
-    @include adjust-font-size-to(26px);
+    @include adjust-font-size-to(18px);
+    @include breakpoint($bp-mobile) {
+      @include adjust-font-size-to(26px);
+    }
     font-weight: normal;
-    font-family: 'SC AkkuratLight';
+    font-family: 'SC Akkurat';
+    letter-spacing: $letter-spacing;
   }
 }

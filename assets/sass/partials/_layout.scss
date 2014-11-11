@@ -41,8 +41,24 @@ article header {
 			@include span(3);
 		}
 		background: $light-grey;
-		padding: $padding; 
+		padding: 0; 
+		.ticket-option:first-child { 
+			border-bottom: 2px solid $bg-color;
+		}
+		.ticket-option {
+			padding: $padding/2 $padding $padding;
+		}
+		a.book-now-btn {
+			max-width: 100%;
+			@include breakpoint($bp-mobile) {
+				max-width: 50%;
+			}
+			@include breakpoint($bp-small-desktop) {
+				max-width: 100%;
+			}
+		}
 	}  
+
 }
 
 .teaser {
@@ -116,11 +132,17 @@ article header {
 		@include span(10);
 	}
 	h2 {
-		@include span(8 of 10);
+		@include span(7 of 12);
+		@include breakpoint($bp-small-desktop) {
+			@include span(8 of 10);
+		}
 		padding-left: $padding;
 	}
 	.festival-logo {
-		@include span(1.5 of 10 last);
+		@include span(4 of 12 last);
+		@include breakpoint($bp-small-desktop) {
+			@include span(2 of 10 last);
+		}
 		padding-right: $padding;
 	}
 }
