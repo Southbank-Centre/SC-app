@@ -13,3 +13,8 @@ angular.module('wowApp').directive('cssEqualHeight', function () {
         }
     };
 });
+
+/* $.expr[':'].external = function(obj) {
+    return !obj.href.match(/^mailto\:/) && (obj.hostname != location.hostname);
+};
+$('a:external').addClass('external'); */

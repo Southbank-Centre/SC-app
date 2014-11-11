@@ -5,7 +5,7 @@ a {
   &:link, &:visited {
     color: $link-color;
     text-decoration: none;
-    background: $internal-link-bg;
+    background: $light-grey;
   }
 }
 
@@ -13,6 +13,54 @@ a {
   &:hover, &:active {
     color: $link-color;
     text-decoration: underline;
-    background: $internal-link-bg;
+    background: $light-grey;
   }
 }
+
+.ticket-option {
+	:first-child { 
+		margin-bottom: $margin/2;
+	}
+}
+
+a.book-now-btn {
+	display: block;
+	margin-top: $margin/4;
+	background-color: $link-color;
+	color: $white;
+	padding: 0px 10px;
+	font-weight: bold;
+	font-family: 'SC AkkuratBold';
+	span {
+		font-weight: normal;
+		font-family: 'SC AkkuratLight';
+		margin-left: 40px;
+	}
+	background-image: url(../imgs/icon-sprite.png);
+	background-size: 20px auto;
+	background-repeat: no-repeat;
+	background-position: right 0px;
+	line-height: 40px;
+}
+
+a.scroll-link {
+	padding-right: 22px;
+	background-image: url(../imgs/icon-sprite.png);
+	background-size: 20px auto;
+	background-repeat: no-repeat;
+	background-position: right -50px;
+	line-height: 40px;
+}
+
+.full-description a[href^="http://"],
+.full-description a[href^="https://"],
+.festival-description a[href^="http://"],
+.festival-description a[href^="https://"] {
+	padding-right: 22px;
+	background-image: url(../imgs/icon-sprite.png);
+	background-size: 20px auto;
+	background-repeat: no-repeat;
+	background-position: right -92px;
+	line-height: 40px;
+}
+

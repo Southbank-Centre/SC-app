@@ -19,10 +19,18 @@
 				<div class="event-name" id="event-name">
 					<h1>{{ event.nameTitle }}</h1>
 					<h3>{{ event.nameSuffix }}</h3>
-					<a href="#">Full description</a>
+					<a href="#full-description" du-smooth-scroll class="scroll-link">Full description</a>
+					<div>&nbsp;</div>
 				</div>
 
-				<div class="ticket-box" css-equal-height="event-name">Tickets go here...</div>
+				<div class="ticket-box" css-equal-height="event-name">
+					<div data-ng-repeat='offers in event.offers' class="ticket-option">
+						Ticket type: {{ offers.name }}
+						<a ng-href="{{ offers.url }}" class="book-now-btn">
+							Book Now <span>{{ offers.price }}</span>
+						</a>
+					</div>
+				</div>
 
 			</header>
 
@@ -59,7 +67,7 @@
 
 			</div>
 
-			<div class="full-description">
+			<div class="full-description" id="full-description">
 				<h3>Full Description</h3>
 				<div data-ng-bind-html="event.description">
 				</div>

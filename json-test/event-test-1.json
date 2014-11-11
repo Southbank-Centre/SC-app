@@ -10,11 +10,13 @@
     "offers": [
         {
             "name": "Day pass",
-            "url": "http://..."
+            "url": "http://wow.southbankcentre.co.uk/2014/event/afro-hair-meet-up/",
+            "price": "£10.00"
         },
         {
             "name": "Weekend pass",
-            "url": "http://..."
+            "url": "http://wow.southbankcentre.co.uk/2014/event/afro-hair-meet-up/",
+            "price": "£20.00"
         }
     ],
     "location": "Level 4 Green Bar at Royal Festival Hall",

@@ -16,6 +16,7 @@ angular
     // 'ngRoute', replaced with ui.router
     'ngSanitize',
     'ngTouch',
-    'ui.router'
+    'ui.router',
+    'duScroll'
     // 'seo'
   ]); 
