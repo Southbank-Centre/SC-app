@@ -9,7 +9,7 @@ angular.module('wowApp').directive('cssEqualHeight', function () {
             var elementToCopyProperty = attr.cssEqualHeight,
                 source = document.getElementById(elementToCopyProperty.toString());
             //set height
-            element[0].style.height = source.clientHeight + 'px';
+            element[0].style.maxHeight = source.clientHeight + 'px';
         }
     };
 });

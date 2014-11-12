@@ -24,7 +24,7 @@
 				</div>
 
 				<div class="ticket-box" css-equal-height="event-name">
-					<div data-ng-repeat='offers in event.offers' class="ticket-option">
+					<div data-ng-repeat='offers in event.offers' class="ticket-option" ng-show="offers.name && offers.url">
 						Ticket type: {{ offers.name }}
 						<a ng-href="{{ offers.url }}" class="book-now-btn">
 							Book Now <span>{{ offers.price }}</span>
@@ -44,25 +44,42 @@
 
 				<div class="event-details-content">
 					<h3>Event Details</h3>
-					<ul>
-						<li><label>Venue</label> {{ event.location }}</li>
-						<li><label>Time</label> {{ event.startDate | date:'h:mm' }}{{ event.startDate | date:'a' | lowercase }} - 
-				{{ event.endDate | date:'h:mm' }}{{ event.endDate | date:'a' | lowercase }}</li>
-						<li><label>Date</label> {{ event.startDate | date:'EEEE d MMMM yyyy' }}</li>
-						<li ng-show="festival.name" data-ng-repeat='festival in event.festival'><label>Festival</label> {{ festival.name }}</li>
-						<li ng-show="event.eventType"><label>Type of event</label> {{ event.eventType }}</li>
-						<li ng-show="event.typicalAgeRange"><label>Age</label> {{ event.typicalAgeRange }}</li>
-						<li ng-show="event.duration"><label>Running Time</label> {{ event.duration }}</li>
-					</ul>
+					<dl>
+						<dt ng-show="event.location">Venue</dt>
+						<dd ng-show="event.location">{{ event.location }}</dd>
+
+						<dt ng-show="event.startDate">Time</dt>
+						<dd ng-show="event.startDate">{{ event.startDate | date:'h:mm' }}{{ event.startDate | date:'a' | lowercase }} - {{ event.endDate | date:'h:mm' }}{{ event.endDate | date:'a' | lowercase }}</dd>
+
+						<dt ng-show="event.startDate">Date</dt>
+						<dd ng-show="event.startDate">{{ event.startDate | date:'EEEE d MMMM yyyy' }}</dd>
+
+						<dt ng-show="event.festival.length > 0">Festival</dt>
+						<dd ng-show="event.festival.length > 0"><span ng-show="festival.name" data-ng-repeat='festival in event.festival'>{{festival.name}}{{{true: '', false: ', '}[$last]}}</span></dd>
+
+						<dt ng-show="event.eventType">Type of event</dt>
+						<dd ng-show="event.eventType">{{ event.eventType }}</dd>
+
+						<dt ng-show="event.typicalAgeRange">Age</dt>
+						<dd ng-show="event.typicalAgeRange">{{ event.typicalAgeRange }}</dd>
+
+						<dt ng-show="event.duration">Running Time</dt>
+						<dd ng-show="event.duration">{{ event.duration }}</dd>
+					</dl>
 				</div>
 
 				<div class="booking-information-content">
 					<h3>Booking Information</h3>
-					<ul>
-						<li ng-show="event.price"><label>Price</label> {{ event.price }}</li>
-						<li ng-show="event.premiumPrice"><label>Premium seats</label> {{ event.premiumPrice }}</li>
-						<li ng-show="event.concessions"><label>Concessions</label> {{ event.concessions }}</li>
-					</ul>
+					<dl>
+						<dt ng-show="event.price">Price</dt>
+						<dd ng-show="event.price">{{ event.price }}</dd>
+
+						<dt ng-show="event.premiumPrice">Premium seats</dt>
+						<dd ng-show="event.premiumPrice">{{ event.premiumPrice }}</dd>
+
+						<dt ng-show="event.concessions">Concessions</dt>
+						<dd ng-show="event.concessions">{{ event.concessions }}</dd>
+					</dl>
 				</div>
 
 			</div>
