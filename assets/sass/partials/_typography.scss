@@ -2,20 +2,23 @@
 
 $base-font-size: 16px; // 16px for tablet and up
 $base-line-height: 13px; // 13px for tablet and up
-$rhythm-unit: "rem";
+// $rhythm-unit: "rem";
 
 @include establish-baseline;
 
 html { 	
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
 	//font-size: 62.5%;
 	@include adjust-leading-to(2);
 }
 
-* {
+body {
 	@include standard-font-style;
 
   @include adjust-font-size-to(14px);
-  @include breakpoint($bp-mobile) {
+  
+  @include breakpoint($bp-tablet) {
      @include adjust-font-size-to(16px);
   }
 	// @include font-size(1.6);

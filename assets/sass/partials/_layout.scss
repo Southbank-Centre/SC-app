@@ -35,6 +35,9 @@ article header {
 		padding: $padding; 
 	}
 	.ticket-box {
+		@include breakpoint($bp-mobile-max) {
+			max-height: none !important; // override max-height set on ticket-box to match header for desktop view
+		}
 		@include breakpoint($bp-small-desktop) {
 			@include span(4 last);
 		}
@@ -72,9 +75,9 @@ article header {
 
 .featured-img { 
   @include breakpoint($bp-small-desktop) {
+  	margin-top: -70px;
     @include span(8);
   }
-  margin-top: -70px;
   img { width: 100%; height: auto; }
 }
 
