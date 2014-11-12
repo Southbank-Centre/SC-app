@@ -9,8 +9,8 @@
  */
 angular.module('wowApp')
   .controller('CoreCtrl', function($scope, $location, $anchorScroll) {
-   $scope.scrollTo = function(id) {
+    $scope.scrollTo = function(id) {
       $location.hash(id);
       $anchorScroll();
-   }
+    };
 });
