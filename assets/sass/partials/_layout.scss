@@ -98,8 +98,17 @@ article header {
 		}
 	}
 	padding: $padding 0;
-	label { 
+
+	dt {
 		@include span(33.333%);
+		float:left;
+		display:inline-block;
+		clear:left;
+	}
+
+	dd {
+		overflow:hidden;
+		margin-right:$margin;
 	}
 }
 
