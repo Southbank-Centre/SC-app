@@ -1,7 +1,7 @@
 @import "compass/typography/vertical_rhythm";
 
-$base-font-size: 16px;
-$base-line-height: 13px;
+$base-font-size: 16px; // 16px for tablet and up
+$base-line-height: 13px; // 13px for tablet and up
 $rhythm-unit: "rem";
 
 @include establish-baseline;
@@ -11,8 +11,13 @@ html {
 	@include adjust-leading-to(2);
 }
 
-body {
-	@include standard-font-style();
+* {
+	@include standard-font-style;
+
+  @include adjust-font-size-to(14px);
+  @include breakpoint($bp-mobile) {
+     @include adjust-font-size-to(16px);
+  }
 	// @include font-size(1.6);
 	// line-height: 1.4;
 }
@@ -51,7 +56,10 @@ body {
 
 h1 { 
 	margin: 0 0 0.5em; 
-	@include adjust-font-size-to(32px);
+	@include adjust-font-size-to(26px);
+  @include breakpoint($bp-mobile) {
+     @include adjust-font-size-to(32px);
+  }
 	font-family: 'SC AkkuratBold';
   letter-spacing: $letter-spacing;
 }
@@ -72,6 +80,7 @@ h3 {
   font-family: 'SC AkkuratBold';
 }
 
-p { margin: 1em 0; }
+p { 
+  margin: 1em 0; 
+}
 
-.date { color: $secondary-highlight; }

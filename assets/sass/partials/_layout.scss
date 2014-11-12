@@ -17,6 +17,7 @@ article { clear: both; }
 	@include breakpoint($bp-desktop) {
 		@include span(4); 
 	}
+	color: $secondary-highlight;
 	padding: $padding/2 $padding; 
 }
 
@@ -83,15 +84,15 @@ article header {
 		@include span(9);
 	}
 	.event-details-content {
-		@include breakpoint($bp-small-desktop) {
-			@include span(5 of 9);
+		@include breakpoint($bp-mobile) {
+			@include span(5 of 9); 
 		}
 		padding-left: 20px;
 	}
 	.booking-information-content {
 		padding-left: 20px;
 		margin-top: $margin;
-		@include breakpoint($bp-small-desktop) {
+		@include breakpoint($bp-mobile) {
 			@include span(4 of 9 last);
 			padding-left: 0;
 			margin-top: 0;
