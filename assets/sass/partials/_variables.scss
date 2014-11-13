@@ -1,6 +1,6 @@
 $margin: 20px;
 $padding: 20px;
-$letter-spacing: -1px;
+$letter-spacing: -0.05em;
 
 // SITE COLOURS
 $bg-color: #ECEDEA;
@@ -10,7 +10,7 @@ $link-color: #0080FF;
 $secondary-highlight: #20A151;
 
 // SITE BREAKPOINTS
-$bp-mobile: 667px;
+$bp-mobile: 480px;
 $bp-mobile-max: max-width 667px;
 $bp-tablet: 700px;
 $bp-small-desktop: 768px;
