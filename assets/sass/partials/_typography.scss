@@ -1,18 +1,26 @@
 @import "compass/typography/vertical_rhythm";
 
-$base-font-size: 16px;
-$base-line-height: 13px;
-$rhythm-unit: "rem";
+$base-font-size: 16px; // 16px for tablet and up
+$base-line-height: 13px; // 13px for tablet and up
+// $rhythm-unit: "rem";
 
 @include establish-baseline;
 
 html { 	
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
 	//font-size: 62.5%;
 	@include adjust-leading-to(2);
 }
 
 body {
-	@include standard-font-style();
+	@include standard-font-style;
+
+  @include adjust-font-size-to(14px);
+  
+  @include breakpoint($bp-tablet) {
+     @include adjust-font-size-to(16px);
+  }
 	// @include font-size(1.6);
 	// line-height: 1.4;
 }
@@ -38,63 +46,44 @@ body {
   font-weight: bold;
   font-style: normal;
 }
+@font-face {
+  font-family: 'SC AkkuratLight';
+  src: url('../fonts/lineto-akkurat-pro-light.eot');
+  src: url('../fonts/lineto-akkurat-pro-light.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/lineto-akkurat-pro-light.svg') format('svg'),
+  url('../fonts/lineto-akkurat-pro-light.woff') format('woff'),
+  url('../fonts/lineto-akkurat-pro-light.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 
 h1 { 
 	margin: 0 0 0.5em; 
-	@include adjust-font-size-to(32px);
+	@include adjust-font-size-to(26px);
+  @include breakpoint($bp-mobile) {
+     @include adjust-font-size-to(32px);
+  }
 	font-family: 'SC AkkuratBold';
+  letter-spacing: $letter-spacing;
+}
+
+h2 { 
+  @include adjust-font-size-to(18px);
+  @include breakpoint($bp-mobile) {
+     @include adjust-font-size-to(26px);
+  }
+  font-weight: normal;
+  font-family: 'SC AkkuratLight';
   letter-spacing: $letter-spacing;
 }
 
 h3 { 
 	margin: 0 0 0.5em;
 	font-weight: normal;
+  font-family: 'SC AkkuratBold';
 }
 
-p { margin: 1em 0; }
-
-.date { color: $secondary-highlight; }
-
-.teaser h2 { 
-  @include adjust-font-size-to(18px);
-  @include breakpoint($bp-mobile) {
-	   @include adjust-font-size-to(26px);
-  }
-  font-weight: normal;
-	// line-height: 1.4;
-	// @include font-size(2.6);
-	font-family: 'SC Akkurat';
-  letter-spacing: $letter-spacing;
+p { 
+  margin: 1em 0; 
 }
 
-.event-details-container {
-  h3 {
-    font-weight: normal;
-    font-family: 'SC AkkuratBold';
-  }
-  ul {
-    list-style: none;
-  }
-}
-
-.full-description {
-  h3 {
-      font-weight: normal;
-      font-family: 'SC AkkuratBold';
-    }
-}
-
-.festival-name {
-}
-
-.festival-description {
-  h2 { 
-    @include adjust-font-size-to(18px);
-    @include breakpoint($bp-mobile) {
-      @include adjust-font-size-to(26px);
-    }
-    font-weight: normal;
-    font-family: 'SC Akkurat';
-    letter-spacing: $letter-spacing;
-  }
-}
