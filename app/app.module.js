@@ -13,10 +13,8 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    // 'ngRoute', replaced with ui.router
     'ngSanitize',
     'ngTouch',
     'ui.router',
     'duScroll'
-    // 'seo'
   ]); 

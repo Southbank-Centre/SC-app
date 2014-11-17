@@ -8,7 +8,6 @@
  * Factory for a single event to load in JSON data
  */
 
-
 angular.module('wowApp')
   .factory('eventFactory', function($http) {
 
