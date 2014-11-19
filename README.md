@@ -2,25 +2,27 @@
 
 ## Setting up development environment
 
+
 ### Requirements
 
 - Ruby >= 2.0.0p353
 - bundler (http://bundler.io/)
-- node.js
+- node.js and npm (http://nodejs.org/)
 - grunt-cli (http://gruntjs.com/getting-started)
 - bower (http://bower.io/#install-bower)
 
-### Installation
 
-After installing the dependencies listed in the requirements above, run the following to install the correct ruby gems.
+### Dependency installation
+
+Node mudules, Bower components and Ruby Gems are already included in this repository, so there is no need to install them. However if you do need to install them again please follow the steps below:
+
+After installing the software listed in the requirements above, run the following to install the correct dependencies for the app.
 
 Run the following in the base directory:
 
     $ npm install
 
-_Note: If you already have any of the ruby gems listed in the Gemfile installed, they will be overwritten by the following command. This can cause issues with gem version dependencies. Using bundler allows you to ensure bundles of gems are installed together._
-
-    $ bundle install
+    $ bundle install --deployment
 
     $ bower install
 
