@@ -5,7 +5,7 @@
  * @name wowApp.factory:EventFactory
  * @description
  * # EventFactory
- * Factory for a single event to load in JSON data
+ * Factory for loading event data into the wowApp
  */
 
 angular.module('wowApp')
