@@ -1,11 +1,38 @@
-<div class="jumbotron">
-  <h1>WOW - Women of the World Festival</h1>
-</div>
+<div class="home" data-ng-controller='HomeCtrl'>
 
-<div class="row marketing">
-  <h4>Events</h4>
-  <ul>
-    <li><a href="#/event/1">Event 1</a></li>
-    <li><a href="#/event/2">Event 2</a></li>
-  </ul>
+  <h1>Festival homepage</h1>
+
+  <article>
+
+    <header class="container" style="background-color:{{ festival.colors.background }};background-image:url('{{ festival.image }}');color:{{ festival.colors.text }};">
+
+      <h1 class="large-heading" id="large-heading">
+        <span class="festival-name-large">{{ festival.festivalName }}</span>
+        <span class="festival-location">London</span>
+        <span class="festival-year">{{ festival.startDate | date:'y' }}</span>
+      </h1>
+
+      <div class="festival-logo-container">
+        <img src="{{festival.logo.large}}" class="festival-logo" alt="{{festival.festivalName}} Logo" css-equal-height="large-heading"/>
+      </div>
+
+      <div class="festival-date" style="background-color:{{festival.colors.highlight}};color:{{festival.colors.textHighlight}};">
+        {{ festival.startDate | date:'EEEE d MMMM' }} &mdash; {{ festival.endDate | date:'EEEE d MMMM' }}
+      </div>
+
+      <div class="festival-description-container" style="background-color:{{festival.colors.highlight}};color:{{festival.colors.textHighlight}};">
+        <h2 class="festival-description-home" data-ng-bind-html="festival.description"></h2>
+        <div>
+          <a href="#full-events-listing" du-smooth-scroll class="scroll-link">Full events listing</a>
+        </div>
+      </div>
+
+      <div id="full-events-listing">
+
+      </div>
+
+    </header>
+
+  </article>
+
 </div>

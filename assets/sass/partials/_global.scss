@@ -46,10 +46,8 @@ a.scroll-link {
   line-height: 40px;
 }
 
-.full-description a[href^="http://"],
-.full-description a[href^="https://"],
-.festival-description a[href^="http://"],
-.festival-description a[href^="https://"] {
+a[href^="http://"],
+a[href^="https://"] {
   padding-right: 22px;
   background-image: url(../imgs/icon-sprite.png);
   background-size: 20px auto;

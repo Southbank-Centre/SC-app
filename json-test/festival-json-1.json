@@ -4,14 +4,16 @@
   "subheading": "A yearly festival held at Southbank Centre with partner festivals around the world, celebrating and exploring the lives of women",
   "startDate": "2015-03-01T00:00:00",
   "endDate": "2015-03-08T00:00:00",
-  "image": "",
+  "image": "http://jonmack60.files.wordpress.com/2012/07/071212-sunset-pamorama-00-a_c-web.jpg",
   "logo": {
     "large": "http://www.justthewomen.com/wp-content/uploads/2013/01/WOW13_logo.gif",
     "small": "http://www.southbankcentre.co.uk/sites/default/files/imagecache/medium_tile/festival-intro-tile_0.jpg"
   },
   "colors": {
     "background": "#FF0000",
-    "highlight": "#000000"
+    "highlight": "#FFFFFF",
+    "text": "#FFFFFF",
+    "textHighlight": "#000000"
   },
   "socialMedia": {
     "twitterId": "@wowtweetuk",
@@ -19,5 +21,5 @@
     "tumblrId": "",
     "youtubeId": ""
   },
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu metus eu lacus tincidunt faucibus. Nam semper arcu ut leo pulvinar facilisis. <a href=\"http://google.com\" target=\"_blank\">Etiam efficitur</a> sapien eu nibh pellentesque gravida. Maecenas quis tempor magna. Ut efficitur dictum porttitor. Vivamus viverra enim a tempus bibendum. Etiam a finibus velit, ac tempus velit. Morbi pretium lorem mi, quis ullamcorper massa hendrerit eu. Phasellus eget interdum turpis. Proin id urna interdum, <a href=\"#/event/3\">posuere mi sit amet</a>, euismod libero. Vestibulum eu ligula ultrices, pellentesque nibh a, elementum ligula."
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu metus eu lacus tincidunt faucibus. Nam semper arcu ut leo pulvinar facilisis. <a href=\"http://google.com\" target=\"_blank\">Etiam efficitur</a> sapien eu nibh pellentesque gravida. Maecenas quis tempor magna."
 }
