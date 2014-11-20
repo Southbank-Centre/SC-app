@@ -2,21 +2,27 @@
   
   header {
 
+    @include clearfix;
+
     background-repeat: no-repeat;
     background-attachment:top center;
     background-size:100% auto;
 
     .large-heading {
 
-      @include adjust-font-size-to(60px);
-      margin: 1em 0;
+      @include adjust-font-size-to(40px);
+      
+      @include breakpoint($bp-small-desktop) {
+        @include adjust-font-size-to(60px);
+      }
+      margin: 0.8em 0;
 
       @include span(first 8);
       padding:$padding;
 
       .festival-location,
       .festival-year {
-        font-weight:normal;
+        font-family: 'SC AkkuratLight';
       }
 
       .festival-location:after {
@@ -27,7 +33,7 @@
 
     .festival-logo-container {
       @include span(last 4);
-      padding:$padding;
+      padding:0;
       overflow:hidden;
 
       .festival-logo {
@@ -38,17 +44,26 @@
     }
 
     .festival-date {
-      @include span(first 4);
-      padding:$padding;
-      margin-right:gutter(8);
-      margin-bottom:rhythm(0.25);
+      clear: both;
+      @include breakpoint($bp-small-desktop) {
+        @include span(first 4);
+        clear: none;
+      }
+      padding:$padding/2 $padding;
+      // margin-right:gutter(8);
+      // margin-bottom:rhythm(0.25);
+      margin-bottom: 2px;
       font-weight:bold;
     }
 
     .festival-description-container {
-      @include span(first 8);
+      clear: both;
+      @include breakpoint($bp-small-desktop) {
+        @include span(first 8);
+        clear: none;
+      }
       padding:$padding;
-      margin-right:gutter(4);
+      // margin-right:gutter(4);
 
       .festival-description-home {
         margin-bottom:$margin/2;
@@ -57,4 +72,9 @@
 
   }
 
+}
+
+
+#featured-events {
+  h2 { margin: 70px 0 $padding; }
 }

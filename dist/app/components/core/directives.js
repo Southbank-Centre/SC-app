@@ -1,5 +1,6 @@
 'use strict';
 
+// use to get the height of an adjacent element to create equal height columns
 angular.module('wowApp').directive('cssEqualHeight', function () {
   return {
     restrict: 'A',

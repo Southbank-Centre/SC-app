@@ -9,7 +9,7 @@
  */
 
 angular.module('wowApp')
-  .factory('eventFactory', function($http) {
+  .factory('eventSingleFactory', function($http) {
 
     return {
 
