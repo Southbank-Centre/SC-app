@@ -9,22 +9,22 @@
  */
 
 angular.module('wowApp')
-  .controller('EventSingleCtrl', function($rootScope, $scope, $stateParams, eventFactory) {
+  .controller('EventListCtrl', function($rootScope, $scope, $stateParams, eventsFactory) {
 
     /**
      * Method for getting one event from the API
      */
-    eventFactory.getEventSingle($stateParams.eventId, function(data) {
+    eventListFactory.getEventList( function(data) {
 
       // Validation
       // Location, event name and start date must be present for the event to display
-      if (!data.location || !data.startDate || !data.nameTitle) {
-        $rootScope.$broadcast('event:pageNotFound');
-      }
+      // if (!data.location || !data.startDate || !data.nameTitle) {
+      //   $rootScope.$broadcast('event:pageNotFound');
+      // }
 
       // Success
       // Attach the event data to the scope
-      $scope.event = data;
+      $scope.events = data;
 
     }, function(data, status) {
 
