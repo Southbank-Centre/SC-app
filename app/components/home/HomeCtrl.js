@@ -15,7 +15,7 @@ angular.module('wowApp')
      */
     
     // ID of WOW Festival stored in the backend
-    var festivalId = 1;
+    var festivalId = 2;
 
     festivalFactory.getFestivalSingle(festivalId, function(data) {
 
