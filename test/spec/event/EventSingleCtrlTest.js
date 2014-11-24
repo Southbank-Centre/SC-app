@@ -35,7 +35,7 @@ describe('Controller: EventSingleCtrl', function() {
 
       // create EventSingleCtrl
       EventSingleCtrl = $controller('EventSingleCtrl', {$rootScope: scope, $scope: scope, $stateParams: stateParams, eventFactory:mockEventFactorySuccess});
- 
+
       // the 'event:pageNotFound' event should have been broadcast
       expect(scope.$broadcast).toHaveBeenCalledWith('event:pageNotFound');
     })
@@ -53,7 +53,7 @@ describe('Controller: EventSingleCtrl', function() {
 
       // create EventSingleCtrl
       EventSingleCtrl = $controller('EventSingleCtrl', {$rootScope: scope, $scope: scope, $stateParams: stateParams, eventFactory:mockEventFactorySuccess});
- 
+
       // the 'event:pageNotFound' event should have been broadcast
       expect(scope.$broadcast).toHaveBeenCalledWith('event:pageNotFound');
     })
@@ -71,7 +71,7 @@ describe('Controller: EventSingleCtrl', function() {
 
       // create EventSingleCtrl
       EventSingleCtrl = $controller('EventSingleCtrl', {$rootScope: scope, $scope: scope, $stateParams: stateParams, eventFactory:mockEventFactorySuccess});
- 
+
       // the 'event:pageNotFound' event should have been broadcast
       expect(scope.$broadcast).toHaveBeenCalledWith('event:pageNotFound');
     })
@@ -89,7 +89,7 @@ describe('Controller: EventSingleCtrl', function() {
 
       // create EventSingleCtrl
       EventSingleCtrl = $controller('EventSingleCtrl', {$rootScope: scope, $scope: scope, $stateParams: stateParams, eventFactory:mockEventFactorySuccess});
- 
+
       // the 'event:pageNotFound' event should have been broadcast
       expect(scope.$broadcast).toHaveBeenCalledWith('event:pageNotFound');
     })
@@ -104,7 +104,7 @@ describe('Controller: EventSingleCtrl', function() {
 
       // while creating the controller we have to inject the dependencies too.
       EventSingleCtrl = $controller('EventSingleCtrl', {$rootScope: scope, $scope: scope, $stateParams: stateParams, eventFactory:mockEventFactorySuccess});
- 
+
       // the event object should be defined
       expect(scope.event).toBeDefined();
     })
@@ -133,7 +133,7 @@ describe('Controller: EventSingleCtrl', function() {
 
       // create EventSingleCtrl
       EventSingleCtrl = $controller('EventSingleCtrl', {$rootScope: scope, $scope: scope, $stateParams: stateParams, eventFactory:mockEventFactoryFailure});
- 
+
       // the 'event:pageNotFound' event should have been broadcast
       expect(scope.$broadcast).toHaveBeenCalledWith('event:pageNotFound');
     })

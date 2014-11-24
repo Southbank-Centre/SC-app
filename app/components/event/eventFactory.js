@@ -9,7 +9,7 @@
  */
 
 angular.module('wowApp')
-  .factory('eventSingleFactory', function($http) {
+  .factory('eventFactory', function($http) {
 
     return {
 
@@ -19,6 +19,15 @@ angular.module('wowApp')
         $http.get('json-test/event-test-'+eventId+'.json')
           .success(callbackSuccess)
           .error(callbackError);
+
+      },
+
+      getEventList: function (callbackSuccess, callbackError){
+
+        // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/events/'
+        $http.get('json-test/events-list-test.json')
+          .success(callbackSuccess)
+          .error(callbackError)
 
       }
 
