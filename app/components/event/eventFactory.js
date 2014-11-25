@@ -42,7 +42,6 @@ angular.module('wowApp')
                 // using the URL of the ticket offer's paragraph JSON endpoint
                 // NB this should be in a for loop to load all available JSONs
                 // $http.get('json-test/'+performance.field_production.field_offers[0].id+'.json')
-                performance.field_production.field_offers = [];
                 $http.get('/json/paragraphs_item/'+production.field_offers[0].id+'.json')
                   .success(function(tickets) {
 
