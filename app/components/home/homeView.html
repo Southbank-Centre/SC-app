@@ -2,7 +2,7 @@
 
   <h1>Festival homepage</h1>
 
-    <header class="container">
+    <header class="container" ng-style="{'background-color':festival.colors.background, 'background-image':'url(\''+festival.image+'\')', 'color':festival.colors.text}">
 
       <div class="festival-logo-container" ng-show="festival.logo.large">
         <img src="{{festival.logo.large}}" class="festival-logo" alt="{{festival.festivalName}} Logo" />
@@ -14,11 +14,11 @@
         <span class="festival-year">{{ festival.startDate | date:'y' }}</span>
       </h1>
 
-      <div class="festival-date">
+      <div class="festival-date" ng-style="{'background-color':festival.colors.highlight, 'color':festival.colors.textHighlight}">
         {{ festival.startDate | date:'EEEE d MMMM' }} <span ng-show="festival.endDate">&mdash; {{ festival.endDate | date:'EEEE d MMMM y' }}</span>
       </div>
 
-      <div class="festival-description-container">
+      <div class="festival-description-container" ng-style="{'background-color':festival.colors.highlight, 'color':festival.colors.textHighlight}">
         <h2 class="festival-description-home" ng-show="festival.description" data-ng-bind-html="festival.description"></h2>
         <!--
         <div>
