@@ -4,9 +4,12 @@
 
     @include clearfix;
 
+    background-color: #FF0000;
+    color: #FFFFFF;
+    background-image: ('../imgs/wow2015-poster.png');
     background-repeat: no-repeat;
-    background-attachment:top center;
-    background-size:100% auto;
+    background-attachment: top center;
+    background-size: 100% auto;
 
     .large-heading {
 
@@ -49,6 +52,9 @@
 
     .festival-date {
       clear: both;
+      background-color: #000000;
+      color: #FFFFFF;
+
       @include breakpoint($bp-small-desktop) {
         @include span(first 4);
         clear: none;
@@ -62,6 +68,9 @@
 
     .festival-description-container {
       clear: both;
+      background-color: #000000;
+      color: #FFFFFF;
+      
       @include breakpoint($bp-small-desktop) {
         @include span(first 8);
         clear: none;
