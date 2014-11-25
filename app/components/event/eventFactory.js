@@ -26,13 +26,13 @@ angular.module('wowApp')
 
         // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/event/'+eventId
         // $http.get('json-test/'+eventId+'.json')
-        $http.get('/json/node/'+eventId+'.json')
+        $http.get('/json/api/performance/'+eventId+'.json')
           .success(function(performance) {
 
             // Make a second call to get the performance's related production
             // using the URL of the production's JSON endpoint
             // $http.get('json-test/'+performance.field_production.id+'.json')
-            $http.get('/json/node/'+performance.field_production.id+'.json')
+            $http.get('/json/api/production/'+performance.field_production.id+'.json')
               .success(function(production) {
 
                 // inject production data into the event scope
