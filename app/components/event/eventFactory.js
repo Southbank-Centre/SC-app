@@ -42,12 +42,12 @@ angular.module('wowApp')
                 // using the URL of the ticket offer's paragraph JSON endpoint
                 // NB this should be in a for loop to load all available JSONs
                 // $http.get('json-test/'+performance.field_production.field_offers[0].id+'.json')
-                performance.field_offers = [];
+                performance.field_production.field_offers = [];
                 $http.get('/json/paragraphs_item/'+production.field_offers[0].id+'.json')
                   .success(function(tickets) {
 
                     // inject ticket data into the event scope
-                    performance.field_offers[0] = tickets;
+                    performance.field_production.field_offers[0] = tickets;
 
                     // Make a fourth (?!) call to get the performance's available tickets
                     // using the URL of the ticket offer's paragraph JSON endpoint
@@ -56,7 +56,7 @@ angular.module('wowApp')
                       .success(function(tickets) {
 
                         // inject ticket data into the event scope
-                        performance.field_offers[1] = tickets;
+                        performance.field_production.field_offers[1] = tickets;
                         
                         var event = performance;
                         // Call the callback which is passed in from EventSingleCtrl
