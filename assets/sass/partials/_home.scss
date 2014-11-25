@@ -10,7 +10,11 @@
 
     .large-heading {
 
-      @include adjust-font-size-to(40px);
+      @include adjust-font-size-to(32px);
+
+      @include breakpoint($bp-tablet) {
+        @include adjust-font-size-to(40px);
+      }
       
       @include breakpoint($bp-small-desktop) {
         @include adjust-font-size-to(60px);

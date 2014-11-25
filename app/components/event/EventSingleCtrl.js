@@ -9,12 +9,12 @@
  */
 
 angular.module('wowApp')
-  .controller('EventSingleCtrl', function($rootScope, $scope, $stateParams, eventSingleFactory) {
+  .controller('EventSingleCtrl', function($rootScope, $scope, $stateParams, eventFactory) {
 
     /**
      * Method for getting one event from the API
      */
-    eventSingleFactory.getEventSingle($stateParams.eventId, function(data) {
+    eventFactory.getEventSingle($stateParams.eventId, function(data) {
 
       // Validation
       // Location, event name and start date must be present for the event to display
