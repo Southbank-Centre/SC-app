@@ -24,10 +24,10 @@
         </div>
 
         <div class="ticket-box" css-equal-height="event-name">
-          <div data-ng-repeat='field_offers in event.field_offers' class="ticket-option" ng-show="field_offers.field_offer_name && field_offers.field_offer_url">
+          <div data-ng-repeat='field_offers in event.field_production.field_offers' class="ticket-option">
             Ticket type: {{ field_offers.field_offer_name }}
             <a ng-href="{{ field_offers.field_offer_url }}" class="book-now-btn">
-              Book Now <span>{{ field_offers.field_offer_price }}</span>
+              Book Now <span>£{{ field_offers.field_offer_price }}</span>
             </a>
           </div>
         </div>
