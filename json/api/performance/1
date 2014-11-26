@@ -1,48 +1,38 @@
 {
-  "body": {
-    "value": "<p>A desctripion<\/p>\n",
-    "summary": "",
-    "format": "plain_text"
-  },
-  "field_artifax_updated": "1416587445",
-  "field_end_time": "1416587400",
+  "field_artifax_updated": "1416936630",
+  "field_end_time": "1425904200",
   "field_event_id": null,
-  "field_programme_copy": null,
+  "field_programme_copy": "Dame Vivienne Westwood talks with Liberty’s director Shami Chakrabarti about human rights and using fashion to speak out about what matters.",
   "field_programme_id": null,
-  "field_start_time": "1416587400",
+  "field_start_time": "1425900600",
   "field_tessitura_performance_id": null,
   "field_tessitura_production_id": null,
-  "field_description": [
-    
-  ],
+  "field_description": {
+    "value": "<p>Dame Vivienne Westwood is a living legend – not only one of the most recognised and influential fashion designers of the late twentieth century, but also an active campaigner on social and environmental issues such as nuclear disarmament, climate change, and most recently the anti-fracking campaign at Balcombe. She states that one of her proudest moments was being named a trustee of human rights organization Liberty – and here, Vivienne talks with Liberty’s director Shami Chakrabarti about human rights and using fashion to speak out about what matters.</p>\n<p>Dame Vivienne Westwood is a living legend – not only one of the most recognised and influential fashion designers of the late twentieth century, but also an active campaigner on social and environmental issues such as nuclear disarmament, climate change, and most recently the anti-fracking campaign at Balcombe. She states that one of her proudest moments was being named a trustee of human rights organization Liberty – and here, Vivienne talks with Liberty’s director Shami Chakrabarti about human rights and using fashion to speak out about what matters.</p>\n<p>Dame Vivienne Westwood is a living legend – not only one of the most recognised and influential fashion designers of the late twentieth century, but also an active campaigner on social and environmental issues such as nuclear disarmament, climate change, and most recently the anti-fracking campaign at Balcombe. She states that one of her proudest moments was being named a trustee of human rights organization Liberty – and here, Vivienne talks with Liberty’s director Shami Chakrabarti about human rights and using fashion to speak out about what matters.</p>\n",
+    "format": "plain_text"
+  },
   "field_production": {
-    "uri": "http:\/\/dev.api.southbankcentre.london\/node\/2",
+    "uri": "http://dev.api.southbankcentre.london/node/4",
     "id": "2",
     "resource": "node",
-    "url": "http:\/\/dev.api.southbankcentre.london\/api\/production\/2"
+    "url": "http://dev.api.southbankcentre.london/api/production/4"
   },
-  "field_teaser": [
-    
-  ],
+  "field_teaser": {
+    "value": "<p>Dame Vivienne Westwood talks with Liberty’s director Shami Chakrabarti about human rights and using fashion to speak out about what matters.</p>\n",
+    "format": "plain_text"
+  },
   "nid": "1",
   "vid": "1",
   "is_new": false,
   "type": "performance",
-  "title": "A title",
+  "title": "Vivienne Westwood in conversation with Shami Chakrabarti",
   "language": "und",
-  "url": "http:\/\/dev.api.southbankcentre.london\/api\/performance\/1",
-  "edit_url": "http:\/\/dev.api.southbankcentre.london\/node\/1\/edit",
+  "url": "http://dev.api.southbankcentre.london/api/performance/5",
+  "edit_url": "http://dev.api.southbankcentre.london/node/5/edit",
   "status": "1",
   "promote": "0",
   "sticky": "0",
-  "created": "1416587698",
-  "changed": "1416911132",
-  "author": {
-    "uri": "http:\/\/dev.api.southbankcentre.london\/user\/1",
-    "id": "1",
-    "resource": "user",
-    "url": "http:\/\/dev.api.southbankcentre.london\/user\/1.json"
-  },
-  "log": "",
-  "revision": null
+  "created": "1416937179",
+  "changed": "1416938238",
+  "body": []
 }
