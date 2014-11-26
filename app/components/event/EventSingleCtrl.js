@@ -23,13 +23,6 @@ angular.module('wowApp')
       } */
 
       // SUCCESS
-      // Correct date format for start and end dates
-      if (data.field_start_time) {
-        data.field_start_time = data.field_start_time * 1000;
-      }
-      if (data.field_end_time) {
-        data.field_end_time = data.field_end_time * 1000;
-      }
       // Attach the event data to the scope
       $scope.event = data;
 

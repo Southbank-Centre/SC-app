@@ -13,21 +13,20 @@ angular.module('wowApp')
 
     return {
 
-      /* getEventSingle: function(eventId, callbackSuccess, callbackError) {
-
-        // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/event/'+eventId
-        $http.get('json-test/event-test-'+eventId+'.json')
-          .success(callbackSuccess)
-          .error(callbackError);
-
-      }, */
-
       getEventSingle: function(eventId, callbackSuccess, callbackError) {
 
         // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/event/'+eventId
         // $http.get('json-test/'+eventId+'.json')
         $http.get('/json/api/performance/'+eventId)
           .success(function(performance) {
+
+            // Correct date format for start and end dates
+            if (performance.field_start_time) {
+              performance.field_start_time = performance.field_start_time * 1000;
+            }
+            if (performance.field_end_time) {
+              performance.field_end_time = performance.field_end_time * 1000;
+            }
 
             // Make a second call to get the performance's related production
             // using the URL of the production's JSON endpoint
@@ -48,7 +47,7 @@ angular.module('wowApp')
                       ticketsJSON[key] = ticket;
 
                       // Only run the success callback if we have all of the tickets
-                      if (ticketsJSON.length == production.field_offers.length) {
+                      if (ticketsJSON.length === production.field_offers.length) {
                         // inject ticket data into the event scope
                         performance.field_production.field_offers = ticketsJSON;
                         var event = performance;
