@@ -39,24 +39,31 @@ angular.module('wowApp')
 
                 // Make a third call to get the performance's available tickets
                 // using the URL of the ticket offer's paragraph JSON endpoint
-                var ticketsJSON = [];
-                angular.forEach(production.field_offers, function(value, key) {
-                  $http.get('/json/paragraphs_item/'+production.field_offers[key].id+'.json')
-                    .success(function(ticket) {
+                if (production.field_offers.length > 0) {
+                  var ticketsJSON = [];
+                  angular.forEach(production.field_offers, function(value, key) {
+                    $http.get('/json/paragraphs_item/'+production.field_offers[key].id+'.json')
+                      .success(function(ticket) {
 
-                      ticketsJSON[key] = ticket;
+                        ticketsJSON[key] = ticket;
 
-                      // Only run the success callback if we have all of the tickets
-                      if (ticketsJSON.length === production.field_offers.length) {
-                        // inject ticket data into the event scope
-                        performance.field_production.field_offers = ticketsJSON;
-                        var event = performance;
-                        // Call the callback which is passed in from EventSingleCtrl
-                        callbackSuccess(event);
-                      }
+                        // Only run the success callback if we have all of the tickets
+                        if (ticketsJSON.length === production.field_offers.length) {
+                          // inject ticket data into the event scope
+                          performance.field_production.field_offers = ticketsJSON;
 
-                    });
-                });
+                          // Call the callback which is passed in from EventSingleCtrl
+                          var event = performance;
+                          callbackSuccess(event);
+                        }
+
+                      });
+                  });
+                } else {
+                  // Call the callback which is passed in from EventSingleCtrl
+                  var event = performance;
+                  callbackSuccess(event);
+                }
 
               });
 
