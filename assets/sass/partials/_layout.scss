@@ -87,6 +87,10 @@ article header {
     @include span(7);
   }
 
+  p {
+    margin:0;
+  }
+
   clear: both;
   position: relative;
 }
@@ -150,8 +154,12 @@ article header {
     @include span(8);
   }
 
-  p {
-    margin: 0;
+  p:first-of-type {
+    margin-top: 0;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
   }
 }
 
