@@ -40,30 +40,24 @@ angular.module('wowApp')
 
                 // Make a third call to get the performance's available tickets
                 // using the URL of the ticket offer's paragraph JSON endpoint
-                // NB this should be in a for loop to load all available JSONs
-                // $http.get('json-test/'+performance.field_production.field_offers[0].id+'.json')
-                $http.get('/json/paragraphs_item/'+production.field_offers[0].id+'.json')
-                  .success(function(tickets) {
+                var ticketsJSON = [];
+                angular.forEach(production.field_offers, function(value, key) {
+                  $http.get('/json/paragraphs_item/'+production.field_offers[key].id+'.json')
+                    .success(function(ticket) {
 
-                    // inject ticket data into the event scope
-                    performance.field_production.field_offers[0] = tickets;
+                      ticketsJSON[key] = ticket;
 
-                    // Make a fourth (?!) call to get the performance's available tickets
-                    // using the URL of the ticket offer's paragraph JSON endpoint
-                    // $http.get('json-test/'+performance.field_production.field_offers[1].id+'.json')
-                    $http.get('/json/paragraphs_item/'+production.field_offers[1].id+'.json')
-                      .success(function(tickets) {
-
+                      // Only run the success callback if we have all of the tickets
+                      if (ticketsJSON.length == production.field_offers.length) {
                         // inject ticket data into the event scope
-                        performance.field_production.field_offers[1] = tickets;
-                        
+                        performance.field_production.field_offers = ticketsJSON;
                         var event = performance;
                         // Call the callback which is passed in from EventSingleCtrl
                         callbackSuccess(event);
+                      }
 
-                      });
-
-                  });
+                    });
+                });
 
               });
 
