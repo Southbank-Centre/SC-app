@@ -28,44 +28,8 @@ angular.module('wowApp')
               performance.field_end_time = performance.field_end_time * 1000;
             }
 
-            // Make a second call to get the performance's related production
-            // using the URL of the production's JSON endpoint
-            // $http.get('json-test/'+performance.field_production.id+'.json')
-            $http.get('/json/api/production/'+performance.field_production.id)
-              .success(function(production) {
-
-                // inject production data into the event scope
-                performance.field_production = production;
-
-                // Make a third call to get the performance's available tickets
-                // using the URL of the ticket offer's paragraph JSON endpoint
-                if (production.field_offers.length > 0) {
-                  var ticketsJSON = [];
-                  angular.forEach(production.field_offers, function(value, key) {
-                    $http.get('/json/paragraphs_item/'+production.field_offers[key].id+'.json')
-                      .success(function(ticket) {
-
-                        ticketsJSON[key] = ticket;
-
-                        // Only run the success callback if we have all of the tickets
-                        if (ticketsJSON.length === production.field_offers.length) {
-                          // inject ticket data into the event scope
-                          performance.field_production.field_offers = ticketsJSON;
-
-                          // Call the callback which is passed in from EventSingleCtrl
-                          var event = performance;
-                          callbackSuccess(event);
-                        }
-
-                      });
-                  });
-                } else {
-                  // Call the callback which is passed in from EventSingleCtrl
-                  var event = performance;
-                  callbackSuccess(event);
-                }
-
-              });
+            var event = performance;
+            callbackSuccess(event);
 
           })
 
