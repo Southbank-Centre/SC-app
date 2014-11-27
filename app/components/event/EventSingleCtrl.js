@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name wowApp.controller:EventController
+ * @name wowApp.controller:EventSingleCtrl
  * @description
- * # EventController
+ * # EventSingleCtrl
  * Controller of a single event
  */
 
