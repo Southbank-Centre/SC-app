@@ -73,7 +73,7 @@ article header {
     padding: 0; 
 
     .ticket-option {
-      padding: $padding/2 $padding $padding;
+      padding: ($padding/4)*3 $padding;
       border-top: 2px solid $bg-color;
       &:first-child { 
         border-top: none;
@@ -82,6 +82,7 @@ article header {
 
     a.book-now-btn {
       max-width: 100%;
+      margin-top: $margin/2;
 
       @include breakpoint($bp-mobile) {
         max-width: 50%;
