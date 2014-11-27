@@ -30,14 +30,20 @@ article {
 article header {
   margin-bottom: 2px;
   clear: both;
+  @include breakpoint($bp-small-desktop) {
+    display: table; width: 100%; // set equal height columns for multi-column breakpoints
+  }
+
 
   .event-name {
     @include breakpoint($bp-small-desktop) {
       @include span(8);
+      float: none; display: table-cell; // set equal height columns for multi-column breakpoints
     }
 
     @include breakpoint($bp-desktop) {
       @include span(7);
+      float: none; display: table-cell; // set equal height columns for multi-column breakpoints
     }
 
     background: $white;
@@ -51,10 +57,16 @@ article header {
 
     @include breakpoint($bp-small-desktop) {
       @include span(4 last);
+      float: none; display: table-cell; // set equal height columns for multi-column breakpoints
+      border-left: 2px solid $bg-color;
+      padding-top: 0 ;
     }
 
     @include breakpoint($bp-desktop) {
       @include span(3);
+      float: none; display: table-cell; // set equal height columns for multi-column breakpoints
+      border-left: 2px solid $bg-color;
+      padding-top: 0;
     }
 
     background: $light-grey;
@@ -84,6 +96,9 @@ article header {
 
 .teaser {
   @include breakpoint($bp-small-desktop) {
+    @include span(8);
+  }
+  @include breakpoint($bp-desktop) {
     @include span(7);
   }
 

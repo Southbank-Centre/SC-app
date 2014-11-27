@@ -1,6 +1,8 @@
 'use strict';
 
-// use to get the height of an adjacent element to create equal height columns
+// directive to get the height of an adjacent element to create equal height columns
+// NB - not currently used - use css table-cell property instead if possible
+
 angular.module('wowApp').directive('cssEqualHeight', function () {
   return {
     restrict: 'A',
