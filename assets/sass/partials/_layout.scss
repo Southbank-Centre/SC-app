@@ -68,16 +68,16 @@ article header {
       border-left: 2px solid $bg-color;
       padding-top: 0;
     }
-
+    vertical-align: top;
     background: $light-grey;
     padding: 0; 
 
-    .ticket-option:first-child { 
-      border-bottom: 2px solid $bg-color;
-    }
-
     .ticket-option {
       padding: $padding/2 $padding $padding;
+      border-top: 2px solid $bg-color;
+      &:first-child { 
+        border-top: none;
+      }
     }
 
     a.book-now-btn {
