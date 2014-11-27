@@ -38,6 +38,14 @@
       "url": "http:\/\/dev.api.southbankcentre.london\/paragraphs_item\/2.json"
     }
   ],
+  "field_image": {
+    "file": {
+      "uri": "http://dev.api.southbankcentre.london/file/3",
+      "id": "5",
+      "resource": "file",
+      "url": "http://dev.api.southbankcentre.london/sites/default/files/Kathy_web-1024x576-%20club-18%2080.jpg"
+    }
+  },
   "nid": "2",
   "vid": "2",
   "is_new": false,
