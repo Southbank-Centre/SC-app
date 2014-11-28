@@ -53,7 +53,7 @@
             </dd>
 
             <dt ng-show="event.field_start_time">Time</dt>
-            <dd ng-show="event.field_start_time">{{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }} - {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</dd>
+            <dd ng-show="event.field_start_time">{{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }}<span ng-show="event.field_end_time"> - {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span></dd>
 
             <dt ng-show="event.field_start_time">Date</dt>
             <dd ng-show="event.field_start_time">{{ event.field_start_time | date:'EEEE d MMMM yyyy' }}</dd>
