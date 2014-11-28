@@ -17,14 +17,14 @@
       <header class="container">
 
         <div class="event-name" id="event-name">
-          <h1>{{ event.field_production.title }}</h1>
-          <h3 ng-show="event.field_production.field_subheading">{{ event.field_production.field_subheading }}</h3>
+          <h1>{{ event.title }}</h1>
+          <h3 ng-show="event.field_subheading">{{ event.field_subheading }}</h3>
           <a href="#full-description" du-smooth-scroll class="scroll-link">Full description</a>
           <div>&nbsp;</div>
         </div>
 
         <div class="ticket-box">
-          <div data-ng-repeat='field_offers in event.field_production.field_offers' class="ticket-option">
+          <div data-ng-repeat='field_offers in event.field_offers' class="ticket-option">
             Ticket type: {{ field_offers.field_offer_name }}
             <a ng-href="{{ field_offers.field_offer_url }}" class="book-now-btn">
               Book Now <span>£{{ field_offers.field_offer_price }}</span>
@@ -38,7 +38,7 @@
         <h2 data-ng-bind-html="event.field_teaser.value"></h2>
       </div>
 
-      <div class="featured-img"><img ng-src="{{ event.field_production.field_image.file.url }}" alt=""></div>
+      <div class="featured-img"><img ng-src="{{ event.field_image.file.url }}" alt=""></div>
 
       <div class="event-details-container">
 
@@ -71,14 +71,14 @@
         <div class="booking-information-content">
           <h3>Booking Information</h3>
           <dl>
-            <dt ng-show="event.field_production.field_ticket_prices">Price</dt>
-            <dd ng-show="event.field_production.field_ticket_prices">{{ event.field_production.field_ticket_prices }}</dd>
+            <dt ng-show="event.field_ticket_prices">Price</dt>
+            <dd ng-show="event.field_ticket_prices">{{ event.field_ticket_prices }}</dd>
 
             <dt ng-show="event.premiumPrice">Premium seats</dt>
             <dd ng-show="event.premiumPrice">{{ event.premiumPrice }}</dd>
 
-            <dt ng-show="event.field_production.field_concessions">Concessions</dt>
-            <dd ng-show="event.field_production.field_concessions">{{ event.field_production.field_concessions }}</dd>
+            <dt ng-show="event.field_concessions">Concessions</dt>
+            <dd ng-show="event.field_concessions">{{ event.field_concessions }}</dd>
           </dl>
         </div>
 
