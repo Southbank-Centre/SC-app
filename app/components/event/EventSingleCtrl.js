@@ -14,7 +14,7 @@ angular.module('wowApp')
     /**
      * Method for getting one event from the API
      */
-    eventFactory.getEventSingle($stateParams.eventId, function(data, duration) {
+    eventFactory.getEventSingle($stateParams.eventId, function(data) {
 
       // Validation
       // Location, event name and start date must be present for the event to display
@@ -25,7 +25,6 @@ angular.module('wowApp')
       // SUCCESS
       // Attach the event data to the scope
       $scope.event = data;
-      $scope.event.duration = duration;
 
     }, function(data, status) {
 
