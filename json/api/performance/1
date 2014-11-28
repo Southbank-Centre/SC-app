@@ -11,16 +11,50 @@
     "value": "<p>Dame Vivienne Westwood is a living legend – not only one of the most recognised and influential fashion designers of the late twentieth century, but also an active campaigner on social and environmental issues such as nuclear disarmament, climate change, and most recently the anti-fracking campaign at Balcombe. She states that one of her proudest moments was being named a trustee of human rights organization Liberty – and here, Vivienne talks with Liberty’s director Shami Chakrabarti about human rights and using fashion to speak out about what matters.</p>\n<p>Dame Vivienne Westwood is a living legend – not only one of the most recognised and influential fashion designers of the late twentieth century, but also an active campaigner on social and environmental issues such as nuclear disarmament, climate change, and most recently the anti-fracking campaign at Balcombe. She states that one of her proudest moments was being named a trustee of human rights organization Liberty – and here, Vivienne talks with Liberty’s director Shami Chakrabarti about human rights and using fashion to speak out about what matters.</p>\n<p>Dame Vivienne Westwood is a living legend – not only one of the most recognised and influential fashion designers of the late twentieth century, but also an active campaigner on social and environmental issues such as nuclear disarmament, climate change, and most recently the anti-fracking campaign at Balcombe. She states that one of her proudest moments was being named a trustee of human rights organization Liberty – and here, Vivienne talks with Liberty’s director Shami Chakrabarti about human rights and using fashion to speak out about what matters.</p>\n",
     "format": "plain_text"
   },
-  "field_production": {
-    "uri": "http://dev.api.southbankcentre.london/node/4",
-    "id": "2",
-    "resource": "node",
-    "url": "http://dev.api.southbankcentre.london/api/production/4"
-  },
   "field_teaser": {
     "value": "<p>Dame Vivienne Westwood talks with Liberty’s director Shami Chakrabarti about human rights and using fashion to speak out about what matters.</p>\n",
     "format": "plain_text"
   },
+  "field_offers": [
+    {
+      "field_offer_name": "Day Pass",
+      "field_offer_url": "http://www.google.com",
+      "field_offer_price": "15",
+      "item_id": "1",
+      "revision_id": "1",
+      "bundle": "offers",
+      "field_name": "field_offers",
+      "archived": "0",
+      "url": "http://drupal.sprint2-1.wow/"
+    },
+    {
+      "field_offer_name": "Weekend Pass",
+      "field_offer_url": "http://www.google.com",
+      "field_offer_price": "20",
+      "item_id": "1",
+      "revision_id": "1",
+      "bundle": "offers",
+      "field_name": "field_offers",
+      "archived": "0",
+      "url": "http://drupal.sprint2-1.wow/"
+    }
+  ],
+  "field_image": {
+    "file": {
+      "uri": "http://dev.api.southbankcentre.london/file/3",
+      "id": "5",
+      "resource": "file",
+      "url": "http://dev.api.southbankcentre.london/sites/default/files/Kathy_web-1024x576-%20club-18%2080.jpg"
+    }
+  },
+  "field_age_recommended": null,
+  "field_arrangement_id": null,
+  "field_concessions": "\u00a310",
+  "field_free_event": false,
+  "field_prefix": null,
+  "field_subheading": null,
+  "field_ticket_prices": "\u00a315 - \u00a320",
+  "field_ticket_required": false,
   "nid": "1",
   "vid": "1",
   "is_new": false,
