@@ -30,14 +30,20 @@ article {
 article header {
   margin-bottom: 2px;
   clear: both;
+  @include breakpoint($bp-small-desktop) {
+    display: table; width: 100%; // set equal height columns for multi-column breakpoints
+  }
+
 
   .event-name {
     @include breakpoint($bp-small-desktop) {
       @include span(8);
+      float: none; display: table-cell; // set equal height columns for multi-column breakpoints
     }
 
     @include breakpoint($bp-desktop) {
       @include span(7);
+      float: none; display: table-cell; // set equal height columns for multi-column breakpoints
     }
 
     background: $white;
@@ -51,25 +57,32 @@ article header {
 
     @include breakpoint($bp-small-desktop) {
       @include span(4 last);
+      float: none; display: table-cell; // set equal height columns for multi-column breakpoints
+      border-left: 2px solid $bg-color;
+      padding-top: 0 ;
     }
 
     @include breakpoint($bp-desktop) {
       @include span(3);
+      float: none; display: table-cell; // set equal height columns for multi-column breakpoints
+      border-left: 2px solid $bg-color;
+      padding-top: 0;
     }
-
+    vertical-align: top;
     background: $light-grey;
     padding: 0; 
 
-    .ticket-option:first-child { 
-      border-bottom: 2px solid $bg-color;
-    }
-
     .ticket-option {
-      padding: $padding/2 $padding $padding;
+      padding: ($padding/4)*3 $padding;
+      border-top: 2px solid $bg-color;
+      &:first-child { 
+        border-top: none;
+      }
     }
 
     a.book-now-btn {
       max-width: 100%;
+      margin-top: $margin/2;
 
       @include breakpoint($bp-mobile) {
         max-width: 50%;
@@ -84,7 +97,14 @@ article header {
 
 .teaser {
   @include breakpoint($bp-small-desktop) {
+    @include span(8);
+  }
+  @include breakpoint($bp-desktop) {
     @include span(7);
+  }
+
+  p {
+    margin:0;
   }
 
   clear: both;
@@ -150,8 +170,12 @@ article header {
     @include span(8);
   }
 
-  p {
-    margin: 0;
+  p:first-of-type {
+    margin-top: 0;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
   }
 }
 

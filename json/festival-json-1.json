@@ -11,9 +11,9 @@
   },
   "colors": {
     "background": "#FF0000",
-    "highlight": "#FFFFFF",
+    "highlight": "#000000",
     "text": "#FFFFFF",
-    "textHighlight": "#000000"
+    "textHighlight": "#FFFFFF"
   },
   "socialMedia": {
     "twitterId": "@wowtweetuk",

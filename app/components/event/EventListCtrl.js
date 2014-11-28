@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name wowApp.controller:EventController
+ * @name wowApp.controller:EventListCtrl
  * @description
- * # EventController
+ * # EventListCtrl
  * Controller of a single event
  */
 

@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name wowApp.controller:EventController
+ * @name wowApp.controller:EventSingleCtrl
  * @description
- * # EventController
+ * # EventSingleCtrl
  * Controller of a single event
  */
 
@@ -18,11 +18,11 @@ angular.module('wowApp')
 
       // Validation
       // Location, event name and start date must be present for the event to display
-      if (!data.location || !data.startDate || !data.nameTitle) {
+      /* if (!data.location || !data.startDate || !data.nameTitle) {
         $rootScope.$broadcast('event:pageNotFound');
-      }
+      } */
 
-      // Success
+      // SUCCESS
       // Attach the event data to the scope
       $scope.event = data;
 
