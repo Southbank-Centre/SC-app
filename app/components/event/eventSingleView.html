@@ -67,8 +67,8 @@
             <dt ng-show="event.field_production.field_age_recommended">Age</dt>
             <dd ng-show="event.field_production.field_age_recommended">{{ event.field_production.field_age_recommended }}</dd>
 
-            <dt ng-show="event.field_start_time">Running Time</dt>
-            <dd ng-show="event.field_start_time">{{ (event.field_end_time/60000) - (event.field_start_time/60000) }} mins</dd>
+            <dt ng-show="event.duration">Running Time</dt>
+            <dd ng-show="event.duration">{{ event.duration }} mins</dd>
           </dl>
         </div>
 

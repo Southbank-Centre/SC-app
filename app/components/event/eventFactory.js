@@ -29,7 +29,9 @@ angular.module('wowApp')
             }
 
             var event = performance;
-            callbackSuccess(event);
+            var duration = (performance.field_end_time/60000) - (performance.field_start_time/60000);
+
+            callbackSuccess(event, duration);
 
           })
 
