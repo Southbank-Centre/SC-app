@@ -49,22 +49,24 @@ angular.module('wowApp')
         $http.get('/json/events-list-test.json')
           //.success(callbackSuccess)
 
-          .success(function(performance) {
+          .success(function(performances) {
 
-            /* angular.forEach(performances, function(performance, list) {
-
+            angular.forEach(performances.list, function(item) {
+              
               // Correct date format for start and end dates
-              if (performance.list.field_start_time) {
-                performance.list.field_start_time = performance.list.field_start_time * 1000;
+              if (item.field_start_time) {
+                item.field_start_time = item.field_start_time * 1000;
               }
-              if (performance.list.field_end_time) {
-                performance.list.field_end_time = performance.list.field_end_time * 1000;
+              if (item.field_end_time) {
+                item.field_end_time = item.field_end_time * 1000;
               }
 
-            } */
+            });
 
-            var event = performance;
-            callbackSuccess(event);
+            // console.log(performances);
+
+            var eventList = performances;
+            callbackSuccess(eventList);
 
           })
 
