@@ -20,7 +20,7 @@
           </div>
 
           <div class="event-list-date"ng-show="event.field_start_time">
-            {{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }}<span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span>
+            {{ event.field_start_time | date:'EEE h:mm' }}{{ event.field_start_time | date:'a' | lowercase }}<span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | date:'EEE h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span>
           </div>
 
           <div data-ng-bind-html="event.field_teaser.value"></div>

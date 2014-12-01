@@ -47,7 +47,27 @@ angular.module('wowApp')
         // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/events/'
         // $http.get('/node.json?type=performance&sort=field_start_time&direction=ASC')
         $http.get('/json/events-list-test.json')
-          .success(callbackSuccess)
+          //.success(callbackSuccess)
+
+          .success(function(performance) {
+
+            /* angular.forEach(performances, function(performance, list) {
+
+              // Correct date format for start and end dates
+              if (performance.list.field_start_time) {
+                performance.list.field_start_time = performance.list.field_start_time * 1000;
+              }
+              if (performance.list.field_end_time) {
+                performance.list.field_end_time = performance.list.field_end_time * 1000;
+              }
+
+            } */
+
+            var event = performance;
+            callbackSuccess(event);
+
+          })
+
           .error(callbackError)
 
       }
