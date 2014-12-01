@@ -45,6 +45,7 @@ angular.module('wowApp')
       getEventList: function (callbackSuccess, callbackError){
 
         // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/events/'
+        // $http.get('/node.json?type=performance&sort=field_start_time&direction=ASC')
         $http.get('/json/events-list-test.json')
           .success(callbackSuccess)
           .error(callbackError)
