@@ -52,11 +52,11 @@ article header {
     float: none; display: table-cell; // set equal height columns for multi-column breakpoints
     vertical-align: bottom;
     border-left: 2px solid $bg-color;
-    padding-top: 0 ;
+    padding-top: 0;
   }
 
   @include breakpoint($bp-desktop) {
-    @include span(3);
+    @include span(3 last);
     float: none; display: table-cell; // set equal height columns for multi-column breakpoints
     vertical-align: bottom;
     border-left: 2px solid $bg-color;
