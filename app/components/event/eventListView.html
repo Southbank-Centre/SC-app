@@ -7,32 +7,39 @@
       <div class="event-list-container container" ng-repeat="event in events.list" id="event-name">
 
         <div class="event-list-img">
-          <img ng-src="{{ event.image }}" alt="">
+          <img ng-src="{{ event.field_production.field_image.file.url }}" alt="">
         </div>
 
-        <div class="event-list-teaser">
-          <h1>{{ event.title }}</h1>
-          <p ng-show="event.nameSuffix">{{ event.field_programme_copy}}</p>
+        <div class="event-list-details">
+
+          <h2>{{ event.title }}</h2>
+          <h3 ng-show="event.field_production.field_subheading">{{ event.field_production.field_subheading }}</h3>
+
+          <div ng-show="event.field_production.field_venue">
+              {{ event.field_production.field_venue.name }} <span data-ng-repeat='parent in event.field_production.field_venue.parent'> at {{ parent.name }}</span>
+          </div>
+
+          <div class="event-list-date"ng-show="event.field_start_time">
+            {{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }}<span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span>
+          </div>
+
+          <div data-ng-bind-html="event.field_teaser.value"></div>
+
+          <a ng-click="isDescriptionOpen = !isDescriptionOpen" class="scroll-link">Full description</a>
+
+          <div ng-show="isDescriptionOpen" class="slidedown slideup" data-ng-bind-html="event.field_description.value "></div>
+
         </div>
 
-        <div class="event-list-details-content">
+        <div class="ticket-box">
 
-          <p class="event-list-location" ng-show="event.location">{{ event.location }}</p>
-
-          <p class="event-list-date"ng-show="event.startDate">
-            {{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }} - {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}
-          </p>
-
-          <p>{{ event.teaserText }}</p>
-          <a href="#full-description" du-smooth-scroll class="scroll-link">Full description</a>
-        </div>
-
-        <div class="event-list-ticket-box" css-equal-height="event-name">
-          <div data-ng-repeat='offers in event.offers' class="ticket-option" ng-show="offers.name && offers.url">
-            Ticket type: {{ offers.name }}
-            <a ng-href="{{ offers.url }}" class="book-now-btn">Book Now <span>{{ offers.price }}</span>
+          <div data-ng-repeat='field_wristband_ticket in event.field_wristband_ticket' class="ticket-option" ng-show="field_wristband_ticket">
+            Ticket type: {{ field_wristband_ticket.name }}
+            <a ng-href="{{ field_wristband_ticket.url }}" class="book-now-btn">
+              Book Now <span>£{{ field_wristband_ticket.field_ticket_price }}</span>
             </a>
           </div>
+
         </div>
 
       </div>
