@@ -1,0 +1,42 @@
+<div class="events-list" data-ng-controller='EventListCtrl'>
+  
+  <h1>Events List</h1>
+
+    <article>
+      
+      <div class="event-list-container container" ng-repeat="event in events.list" id="event-name">
+
+        <div class="event-list-img">
+          <img ng-src="{{ event.image }}" alt="">
+        </div>
+
+        <div class="event-list-teaser">
+          <h1>{{ event.title }}</h1>
+          <p ng-show="event.nameSuffix">{{ event.field_programme_copy}}</p>
+        </div>
+
+        <div class="event-list-details-content">
+
+          <p class="event-list-location" ng-show="event.location">{{ event.location }}</p>
+
+          <p class="event-list-date"ng-show="event.startDate">
+            {{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }} - {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}
+          </p>
+
+          <p>{{ event.teaserText }}</p>
+          <a href="#full-description" du-smooth-scroll class="scroll-link">Full description</a>
+        </div>
+
+        <div class="event-list-ticket-box" css-equal-height="event-name">
+          <div data-ng-repeat='offers in event.offers' class="ticket-option" ng-show="offers.name && offers.url">
+            Ticket type: {{ offers.name }}
+            <a ng-href="{{ offers.url }}" class="book-now-btn">Book Now <span>{{ offers.price }}</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    
+    </article>
+
+</div>
