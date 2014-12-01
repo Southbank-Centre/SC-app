@@ -11,7 +11,7 @@
       <div class="date">
         <strong>{{ event.field_start_time | date:'EEEE d MMMM yyyy' }}</strong>
         {{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }}
-        <span ng-show="event.field_end_time"> - {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span>
+        <span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span>
       </div>
 
       <header class="container">
@@ -20,7 +20,6 @@
           <h1>{{ event.title }}</h1>
           <h3 ng-show="event.field_subheading">{{ event.field_subheading }}</h3>
           <a href="#full-description" du-smooth-scroll class="scroll-link">Full description</a>
-          <div>&nbsp;</div>
         </div>
 
         <div class="ticket-box">
@@ -47,13 +46,11 @@
           <dl>
             <dt ng-show="event.field_production.field_venue">Venue</dt>
             <dd ng-show="event.field_production.field_venue">
-              <span data-ng-repeat='parent in event.field_production.field_venue.parent'>{{ parent.name }} </span>
-              - 
-              {{ event.field_production.field_venue.name }}
+              {{ event.field_production.field_venue.name }} <span data-ng-repeat='parent in event.field_production.field_venue.parent'> at {{ parent.name }}</span>
             </dd>
 
             <dt ng-show="event.field_start_time">Time</dt>
-            <dd ng-show="event.field_start_time">{{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }}<span ng-show="event.field_end_time"> - {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span></dd>
+            <dd ng-show="event.field_start_time">{{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }}<span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span></dd>
 
             <dt ng-show="event.field_start_time">Date</dt>
             <dd ng-show="event.field_start_time">{{ event.field_start_time | date:'EEEE d MMMM yyyy' }}</dd>
