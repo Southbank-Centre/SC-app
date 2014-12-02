@@ -17,7 +17,7 @@ angular.module('wowApp')
 
       // Validation
       // Location, event name and start date must be present for the event to display
-      if (!data.field_start_time || !data.title) {
+      if (!data.field_date_start || !data.title) {
         $rootScope.$broadcast('event:pageNotFound');
       }
 

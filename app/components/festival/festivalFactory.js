@@ -20,11 +20,11 @@ angular.module('wowApp')
           .success(function(festival) {
 
             // Correct date format for start and end dates
-            if (festival.field_start_time) {
-              festival.field_start_time = festival.field_start_time * 1000;
+            if (festival.field_date_start) {
+              festival.field_date_start = festival.field_date_start * 1000;
             }
-            if (festival.field_end_time) {
-              festival.field_end_time = festival.field_end_time * 1000;
+            if (festival.field_date_end) {
+              festival.field_date_end = festival.field_date_end * 1000;
             }
 
             callbackSuccess(festival);
