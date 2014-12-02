@@ -9,14 +9,12 @@
  */
 
 angular.module('wowApp')
-  .factory('eventFactory', function($http, $filter) {
+  .factory('eventFactory', function($http, $rootScope) {
 
     return {
 
       getEventSingle: function(eventId, callbackSuccess, callbackError) {
 
-        // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/event/'+eventId
-        // $http.get('json-test/'+eventId+'.json')
         $http.get('/json/api/performance/'+eventId)
           .success(function(performance) {
 
@@ -51,7 +49,7 @@ angular.module('wowApp')
 
           .success(function(performances) {
 
-            angular.forEach(performances.list, function(item, $filter) {
+            angular.forEach(performances.list, function(item) {
               
               // Correct date format for start and end dates
               if (item.field_start_time) {
@@ -87,7 +85,22 @@ angular.module('wowApp')
 
           })
 
-          .error(callbackError)
+          .error(callbackError);
+
+      },
+
+      getEventCount: function(callbackSuccess, callbackError) {
+
+        // $http.get('/json/node.json?type=performance&field_festival='+$rootScope.festivalId)
+        $http.get('/json/node.json?type=performance&field_festival='+$rootScope.festivalId)
+
+          .success(function(eventCount) {
+
+            callbackSuccess(eventCount.count);
+
+          })
+
+          .error(callbackError);
 
       }
 

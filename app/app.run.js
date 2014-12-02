@@ -12,4 +12,7 @@ angular
 
     });
 
+    // ID of WOW Festival stored in the backend
+    scope.festivalId = 1;
+
   }]);

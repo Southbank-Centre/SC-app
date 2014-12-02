@@ -8,16 +8,12 @@
  * Controller of the wowApp
  */
 angular.module('wowApp')
-  .controller('HomeCtrl', function ($rootScope, $scope, festivalFactory) {
+  .controller('HomeCtrl', function ($rootScope, $scope, festivalFactory, eventFactory) {
     
     /**
      * Method for getting one festival from the API
      */
-    
-    // ID of WOW Festival stored in the backend
-    var festivalId = 1;
-
-    festivalFactory.getFestivalSingle(festivalId, function(data) {
+    festivalFactory.getFestivalSingle(function(data) {
 
       // Validation
       // Location, event name and start date must be present for the event to display
@@ -37,6 +33,16 @@ angular.module('wowApp')
         // Broadcast the pageNotFound event
         $rootScope.$broadcast('event:pageNotFound');
       }
+
+    });
+
+
+    /**
+     * Method for getting the count of events for this festival from the API
+     */
+    eventFactory.getEventCount(function(eventCount) {
+
+      $scope.eventCount = eventCount;
 
     });
 
