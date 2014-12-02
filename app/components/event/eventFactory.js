@@ -9,7 +9,7 @@
  */
 
 angular.module('wowApp')
-  .factory('eventFactory', function($http, $rootScope) {
+  .factory('eventFactory', function($http, $rootScope, $filter) {
 
     return {
 
@@ -60,20 +60,11 @@ angular.module('wowApp')
               }
               
               // Get day from event start time for use in view filter
-              if (item.field_start_time) {
-                
-                var eventDate = new Date(item.field_start_time);
-                var day = eventDate.getDay();
-                var date = eventDate.getDate();
-                var month = eventDate.getMonth();
-                var year = eventDate.getFullYear();
-                item.field_start_day = day + " " + date + " " + month + " " + year;
-
-                // Use angular date filter instead
-                // $filter(item.field_start_time)(new Date(), 'yyyy-MM-01');
-                // var dateFilter = $filter('date');
-                // var filteredDate = dateFilter(new Date(), 'yyyy-MM');
-                // item.field_start_day = filteredDate;
+              if (item.field_start_time) {              
+                // Use angular date filter
+                var eventTimestamp = item.field_start_time;
+                var eventStartDate = $filter('date')(eventTimestamp, 'EEEE dd MMMM yyyy');
+                item.field_start_day = eventStartDate;
               }
 
             });
