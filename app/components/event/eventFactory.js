@@ -9,14 +9,12 @@
  */
 
 angular.module('wowApp')
-  .factory('eventFactory', function($http) {
+  .factory('eventFactory', function($http, $rootScope) {
 
     return {
 
       getEventSingle: function(eventId, callbackSuccess, callbackError) {
 
-        // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/event/'+eventId
-        // $http.get('json-test/'+eventId+'.json')
         $http.get('/json/api/performance/'+eventId)
           .success(function(performance) {
 
@@ -44,10 +42,8 @@ angular.module('wowApp')
 
       getEventList: function (callbackSuccess, callbackError){
 
-        // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/events/'
-        // $http.get('/node.json?type=performance&sort=field_start_time&direction=ASC')
-        $http.get('/json/events-list-test.json')
-          //.success(callbackSuccess)
+        // $http.get('/json/node.json?type=performance&sort=field_start_time&direction=ASC')
+        $http.get('/json/node.json?type=performance&sort=field_start_time&direction=ASC')
 
           .success(function(performances) {
 
@@ -63,14 +59,27 @@ angular.module('wowApp')
 
             });
 
-            // console.log(performances);
-
             var eventList = performances;
             callbackSuccess(eventList);
 
           })
 
-          .error(callbackError)
+          .error(callbackError);
+
+      },
+
+      getEventCount: function(callbackSuccess, callbackError) {
+
+        // $http.get('/json/node.json?type=performance&field_festival='+$rootScope.festivalId)
+        $http.get('/json/event-count-test.json')
+
+          .success(function(eventCount) {
+
+            callbackSuccess(eventCount.count);
+
+          })
+
+          .error(callbackError);
 
       }
 

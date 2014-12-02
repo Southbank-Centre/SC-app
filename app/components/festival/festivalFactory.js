@@ -16,7 +16,7 @@ angular.module('wowApp')
       getFestivalSingle: function(festivalId, callbackSuccess, callbackError) {
 
         // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/festival/'+festivalId
-        $http.get('/json/festival-json-'+festivalId+'.json')
+        $http.get('/json/api/fesitval/'+festivalId)
           .success(callbackSuccess)
           .error(callbackError);
 
