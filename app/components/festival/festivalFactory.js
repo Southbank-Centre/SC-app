@@ -17,7 +17,19 @@ angular.module('wowApp')
 
         // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/festival/'+festivalId
         $http.get('/json/api/festival/'+$rootScope.festivalId)
-          .success(callbackSuccess)
+          .success(function(festival) {
+
+            // Correct date format for start and end dates
+            if (festival.field_start_time) {
+              festival.field_start_time = festival.field_start_time * 1000;
+            }
+            if (festival.field_end_time) {
+              festival.field_end_time = festival.field_end_time * 1000;
+            }
+
+            callbackSuccess(festival);
+
+           })
           .error(callbackError);
 
       }

@@ -13,7 +13,7 @@
         <h1 class="large-heading" id="large-heading">
           <span class="festival-name-large">{{ festival.festivalName }} Festival: </span>
           <span class="festival-location">London</span>
-          <span class="festival-year">{{ festival.startDate | date:'y' }}</span>
+          <span class="festival-year">{{ festival.field_start_time | date:'y' }}</span>
         </h1>
 
       </div>
@@ -21,7 +21,7 @@
       <div class="container">
 
         <div class="festival-date" ng-style="{'background-color':festival.colors.highlight, 'color':festival.colors.textHighlight}">
-          {{ festival.startDate | date:'EEEE d MMMM' }} <span ng-show="festival.endDate">&mdash; {{ festival.endDate | date:'EEEE d MMMM y' }}</span>
+          {{ festival.field_start_time | date:'EEEE d MMMM' }} <span ng-show="festival.field_end_time">&mdash; {{ festival.field_end_time | date:'EEEE d MMMM y' }}</span>
         </div>
 
       </div>

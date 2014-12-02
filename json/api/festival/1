@@ -1,9 +1,9 @@
 {
   "id":"1",
-  "festivalName": "WOW - Women of the World",
+  "title": "WOW - Women of the World",
   "subheading": "A yearly festival held at Southbank Centre with partner festivals around the world, celebrating and exploring the lives of women",
-  "startDate": "2015-03-01T00:00:00",
-  "endDate": "2015-03-08T00:00:00",
+  "field_start_time": "1425907800",
+  "field_end_time": "1425907800",
   "image": "../assets/imgs/wow2015-poster.png",
   "logo": {
     "large": "../assets/imgs/wow2015-logo.png",
