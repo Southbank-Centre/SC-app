@@ -8,7 +8,7 @@
         "value": "<p>Augue dolus gemino ut. Capto haero ibidem populus. Capto duis eligo iusto pertineo populus quae quidne. Et occuro probo quadrum saluto vulpes. Ludus luptatum nisl verto. Acsi conventio hos imputo quadrum sino. Abluo exputo humo os. Consequat dolore eu letalis melior minim pagus quae.</p>\n<p>Eum feugiat imputo plaga quae veniam. Eros euismod exerci luptatum sed uxor. Aliquam camur gilvus haero inhibeo jumentum quis scisco tation vindico. Ad antehabeo augue macto molior os ut. Capto cogo consequat eligo imputo tamen utinam wisi.</p>\n<p>Blandit consequat paulatim refero secundum suscipit. Capto commodo interdico natu populus. Consectetuer jus lobortis velit vulpes. Abigo eum gilvus illum immitto metuo refero saepius wisi. Abigo aliquam augue iriure nunc quidem sit virtus.</p>\n",
         "format": "full_html"
       },
-      "field_start_time": "1426870800",
+      "field_start_time": "1425168000",
       "field_end_time": "1426874400",
       "field_event_id": "7081",
       "field_production": {
@@ -360,6 +360,165 @@
         "field_event_type": {
           "tid": "54",
           "name": "Talk",
+          "description": "<p>This is a talk</p>\n",
+          "weight": "0",
+          "node_count": 2,
+          "url": "http://drupal.flatten.wow/event-type/padreshupoku",
+          "parent": []
+        },
+        "nid": "3",
+        "vid": "3",
+        "is_new": false,
+        "type": "production",
+        "title": "Macto",
+        "language": "und",
+        "url": "http://drupal.flatten.wow/content/macto",
+        "edit_url": "http://drupal.flatten.wow/node/3/edit",
+        "status": "1",
+        "promote": "1",
+        "sticky": "0",
+        "created": "1416506620",
+        "changed": "1417175147",
+        "author": {
+          "uri": "http://drupal.flatten.wow/user/0",
+          "id": 0,
+          "resource": "user",
+          "url": "http://drupal.flatten.wow/user/0.json"
+        },
+        "source": {
+          "uri": "http://drupal.flatten.wow/node/",
+          "id": false,
+          "resource": "node",
+          "url": "http://drupal.flatten.wow/node/.json"
+        },
+        "body": []
+      },
+      "field_teaser": {
+        "value": "<p>Causa genitus lobortis odio quidne tincidunt. Amet ille metuo modo nostrud pecus quidem scisco. Feugiat molior oppeto venio. Abluo appellatio dolore eros ex exputo valde vel. Eum fere metuo mos populus vero. Autem erat nutus scisco secundum. Abluo olim typicus.</p>",
+        "format": "plain_text"
+      },
+      "field_tessitura_performance_id": "2017",
+      "field_tessitura_production_id": "9847",
+      "field_wristband_ticket": [
+        {
+          "field_ticket_url": {
+            "url": "http://sunday.example.com",
+            "attributes": []
+          },
+          "field_ticket_price": "5",
+          "tid": "3",
+          "name": "Day pass Sunday",
+          "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi semper libero ac laoreet interdum. Nam at venenatis lorem. Proin placerat nulla dolor, in consequat justo varius sed.</p>\n",
+          "weight": "3",
+          "node_count": 2,
+          "url": "http://drupal.flatten.wow/ticketing/day-pass-sunday",
+          "parent": []
+        },
+        {
+          "field_ticket_url": {
+            "url": "http://weekend.example.com",
+            "attributes": []
+          },
+          "field_ticket_price": "25",
+          "tid": "4",
+          "name": "Weekend pass",
+          "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi semper libero ac laoreet interdum. Nam at venenatis lorem. Proin placerat nulla dolor, in consequat justo varius sed.</p>\n",
+          "weight": "4",
+          "node_count": 2,
+          "url": "http://drupal.flatten.wow/ticketing/weekend-pass",
+          "parent": []
+        }
+      ],
+      "nid": "9",
+      "vid": "9",
+      "is_new": false,
+      "type": "performance",
+      "title": "Fere Gemino Secundum",
+      "language": "und",
+      "url": "http://drupal.flatten.wow/content/fere-gemino-secundum",
+      "edit_url": "http://drupal.flatten.wow/node/9/edit",
+      "status": "1",
+      "promote": "0",
+      "sticky": "0",
+      "created": "1416858829",
+      "changed": "1417174144",
+      "author": {
+        "uri": "http://drupal.flatten.wow/user/0",
+        "id": 0,
+        "resource": "user",
+        "url": "http://drupal.flatten.wow/user/0.json"
+      },
+      "source": {
+        "uri": "http://drupal.flatten.wow/node/",
+        "id": false,
+        "resource": "node",
+        "url": "http://drupal.flatten.wow/node/.json"
+      },
+      "body": []
+    },
+    {
+      "field_description": {
+        "value": "<p>Caecus diam exerci nulla nutus premo tamen valetudo. Dolus duis et ludus quidem similis singularis suscipere. Eu eum gilvus iriure letalis magna pneum roto tation verto. Duis elit fere gilvus ille praesent saluto similis. Lucidus nostrud vereor vero.</p>\n<p>Capto consequat eum macto plaga. Distineo ille probo roto rusticus scisco uxor vindico. Distineo ea eu gemino lobortis nutus probo typicus vicis. Antehabeo eu iriure iusto modo neque odio velit veniam vulputate. Ex ille jus nostrud pecus praesent vero. Aliquam esse ex imputo lenis molior premo suscipit vicis. Camur dignissim enim eum imputo nutus populus. Causa genitus loquor modo os singularis vicis.</p>\n<p>Ad ea facilisi iriure melior nisl nunc pala scisco. Abbas et facilisis molior neque pertineo ullamcorper. Abdo sed ullamcorper. Dignissim dolus obruo qui. Appellatio duis exputo ibidem nulla. Dolore euismod lenis tum ut vindico. Conventio loquor minim neo odio probo secundum usitas virtus voco.</p>\n",
+        "format": "filtered_html"
+      },
+      "field_start_time": "1427043600",
+      "field_end_time": "1427047200",
+      "field_event_id": "3536",
+      "field_production": {
+        "field_image": {
+          "file": {
+            "fid": "2",
+            "name": "imagefield_kusgE3.jpg",
+            "mime": "image/jpg",
+            "size": "8015",
+            "url": "http://wow.southbankcentre.co.uk/wp-content/uploads/2014/02/Angel_web.jpg",
+            "timestamp": "1417106569"
+          }
+        },
+        "field_age_recommended": "Bene hendrerit utrum. Duis eligo et quia ratis scisco sit tation. Cogo commodo consequat et. Defui dolus eligo esca gilvus jumentum lucidus quidem secundum tum.",
+        "field_art_form": {
+          "tid": "44",
+          "name": "phefruco",
+          "description": "<p>description of phefruco</p>\n",
+          "weight": "0",
+          "node_count": 2,
+          "url": "http://drupal.flatten.wow/art-form/phefruco",
+          "parent": []
+        },
+        "field_concessions": "£15",
+        "field_description": {
+          "value": "<p>Illum premo similis velit volutpat. Ad macto magna modo proprius quia tation. Appellatio cogo commodo consequat pertineo roto secundum suscipit valde. Abluo humo inhibeo meus occuro torqueo. Consequat enim quae. Facilisi inhibeo ludus saluto. Dignissim lucidus nutus ullamcorper. Commodo consequat duis esse lucidus nostrud plaga proprius quadrum. Decet laoreet populus refoveo uxor.</p>\n<p>Appellatio augue dolus ea eligo erat facilisis incassum quidne secundum. Valetudo voco vulputate. Augue caecus importunus jus nimis suscipit verto. Exputo gilvus minim neque nutus refoveo si. Illum jus nisl paratus pertineo sed similis sino veniam vulpes. Defui fere inhibeo jus letalis scisco.</p>\n<p>Adipiscing melior vel. Blandit comis jus luptatum sed tation ullamcorper utinam virtus. Cui luctus natu. Commodo consequat gemino jumentum praesent ullamcorper validus. Iustum pertineo scisco si sino typicus. Defui euismod letalis. Dignissim eu gilvus luctus populus praesent premo secundum ymo. Exputo quia secundum sino. Erat modo praesent ratis rusticus sino. Dignissim inhibeo obruo pecus.</p>\n",
+          "format": "full_html"
+        },
+        "field_prefix": "Acsi caecus cui dolor exputo lucidus natu nostrud quae tamen.",
+        "field_subheading": "",
+        "field_teaser": {
+          "value": "<p>Abbas erat usitas. Aptent hendrerit iaceo nulla patria proprius singularis. Iaceo ille minim paulatim saluto scisco sudo ymo. Commodo defui exputo inhibeo tego. Cogo commoveo ex illum lobortis nisl occuro quae sit suscipit. Conventio dolus hendrerit huic meus vel voco. At autem brevitas conventio cui eu letalis modo ulciscor.</p>",
+          "format": "plain_text"
+        },
+        "field_ticket_prices": "£10 - £20",
+        "field_venue": {
+          "tid": "31",
+          "name": "Blue Room",
+          "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi semper libero ac laoreet interdum. Nam at venenatis lorem.</p>\n",
+          "weight": "4",
+          "node_count": 1,
+          "url": "http://drupal.flatten.wow/venue/blue-room",
+          "parent": [
+            {
+              "tid": "7",
+              "name": "Royal Festival Hall",
+              "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi semper libero ac laoreet interdum. Nam at venenatis lorem.</p>\n",
+              "weight": "30",
+              "node_count": 2,
+              "url": "http://drupal.flatten.wow/venue/royal-festival-hall",
+              "parent": []
+            }
+          ]
+        },
+        "field_event_type": {
+          "tid": "54",
+          "name": "Workshop",
           "description": "<p>This is a talk</p>\n",
           "weight": "0",
           "node_count": 2,

@@ -5,12 +5,18 @@
   <label>Search</label> <input ng-model="search.$">
   <br>
   <label>on</label>
-  <br>
   <select ng-model="search.field_start_day">
     <option value="" selected="selected">any day</option>
     <option value="Friday 20 March 2015">Friday 20th March</option>
     <option value="Saturday 21 March 2015">Saturday 21st March</option>
     <option value="Sunday 22 March 2015">Sunday 22nd March</option>
+    <option value="{{ festival.startDate | date:'EEEE d MMMM yyyy' }}">{{ festival.startDate | date:'EEEE d MMMM yyyy' }}</option>
+    <option value="{{ festday.day }}" ng-repeat="festday in festival.festivalDays">{{ festday.day }}</option>
+  </select>
+  <br>
+  <select ng-model="search.field_production.field_event_type.name">
+      <option value="" selected="selected">-- choose --</option>
+      <option value="{{event.field_production.field_event_type.name}}" ng-repeat="event in events.list">{{event.field_production.field_event_type.name}}</option>
   </select>
 
     <article>

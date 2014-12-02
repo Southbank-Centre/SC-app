@@ -63,7 +63,7 @@ angular.module('wowApp')
               if (item.field_start_time) {              
                 // Use angular date filter
                 var eventTimestamp = item.field_start_time;
-                var eventStartDate = $filter('date')(eventTimestamp, 'EEEE dd MMMM yyyy');
+                var eventStartDate = $filter('date')(eventTimestamp, 'EEEE d MMMM yyyy');
                 item.field_start_day = eventStartDate;
               }
 
@@ -71,8 +71,8 @@ angular.module('wowApp')
 
             // console.log(performances);
 
-            var eventList = performances;
-            callbackSuccess(eventList);
+            // var eventList = performances;
+            callbackSuccess(performances);
 
           })
 
