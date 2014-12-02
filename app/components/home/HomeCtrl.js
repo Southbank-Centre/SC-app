@@ -13,7 +13,7 @@ angular.module('wowApp')
     /**
      * Method for getting one festival from the API
      */
-    festivalFactory.getFestivalSingle($rootScope.festivalId, function(data) {
+    festivalFactory.getFestivalSingle(function(data) {
 
       // Validation
       // Location, event name and start date must be present for the event to display

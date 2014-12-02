@@ -71,7 +71,7 @@ angular.module('wowApp')
       getEventCount: function(callbackSuccess, callbackError) {
 
         // $http.get('/json/node.json?type=performance&field_festival='+$rootScope.festivalId)
-        $http.get('/json/event-count-test.json')
+        $http.get('/json/node.json?type=performance&field_festival='+$rootScope.festivalId)
 
           .success(function(eventCount) {
 
