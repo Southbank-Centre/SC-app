@@ -9,7 +9,7 @@
  */
 
 angular.module('wowApp')
-  .factory('eventFactory', function($http) {
+  .factory('eventFactory', function($http, $filter) {
 
     return {
 
@@ -46,12 +46,12 @@ angular.module('wowApp')
 
         // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/events/'
         // $http.get('/node.json?type=performance&sort=field_start_time&direction=ASC')
-        $http.get('/json/events-list-test.json')
+        $http.get('/json-test/events-list-test.json')
           //.success(callbackSuccess)
 
           .success(function(performances) {
 
-            angular.forEach(performances.list, function(item) {
+            angular.forEach(performances.list, function(item, $filter) {
               
               // Correct date format for start and end dates
               if (item.field_start_time) {
@@ -59,6 +59,23 @@ angular.module('wowApp')
               }
               if (item.field_end_time) {
                 item.field_end_time = item.field_end_time * 1000;
+              }
+              
+              // Get day from event start time for use in view filter
+              if (item.field_start_time) {
+                
+                var eventDate = new Date(item.field_start_time);
+                var day = eventDate.getDay();
+                var date = eventDate.getDate();
+                var month = eventDate.getMonth();
+                var year = eventDate.getFullYear();
+                item.field_start_day = day + " " + date + " " + month + " " + year;
+
+                // Use angular date filter instead
+                // $filter(item.field_start_time)(new Date(), 'yyyy-MM-01');
+                // var dateFilter = $filter('date');
+                // var filteredDate = dateFilter(new Date(), 'yyyy-MM');
+                // item.field_start_day = filteredDate;
               }
 
             });
