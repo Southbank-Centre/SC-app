@@ -35,11 +35,9 @@ angular.module('wowApp')
               var e = new Date(festival.endDate);
               var a = [];
 
-              a.push();
-              while (s < e) {
-                //a.push(s);
+              while (s <= e) {
                 a.push({ 
-                  "day" : s.toString()
+                  'day' : s.toJSON()
                 });
                 s = new Date(s.setDate(
                   s.getDate() + 1
