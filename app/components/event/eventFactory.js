@@ -43,9 +43,7 @@ angular.module('wowApp')
       getEventList: function (callbackSuccess, callbackError){
 
         // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/events/'
-        // $http.get('/node.json?type=performance&sort=field_start_time&direction=ASC')
-        $http.get('/json-test/events-list-test.json')
-          //.success(callbackSuccess)
+        $http.get('/json/node.json?type=performance&sort=field_start_time&direction=ASC')
 
           .success(function(performances) {
 
@@ -69,8 +67,6 @@ angular.module('wowApp')
 
             });
 
-            // console.log(performances);
-
             var eventList = performances;
             callbackSuccess(eventList);
 
@@ -82,8 +78,7 @@ angular.module('wowApp')
 
       getEventCount: function(callbackSuccess, callbackError) {
 
-        $http.get('/json/event-count-test.json')
-        // $http.get('/json/node.json?type=performance&field_festival='+$rootScope.festivalId)
+        $http.get('/json/node.count?type=performance&field_festival='+$rootScope.festivalId)
 
           .success(function(eventCount) {
 
