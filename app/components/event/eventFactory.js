@@ -48,17 +48,13 @@ angular.module('wowApp')
           .success(function(performances) {
 
             angular.forEach(performances.list, function(item) {
-              
+
               // Correct date format for start and end dates
-              if (item.field_start_time) {
-                item.field_start_time = item.field_start_time * 1000;
-              }
-              if (item.field_end_time) {
-                item.field_end_time = item.field_end_time * 1000;
-              }
+              item.field_start_time = utilities.timestampSecondsToMS(item.field_start_time);
+              item.field_end_time = utilities.timestampSecondsToMS(item.field_end_time);
               
               // Get day from event start time for use in view filter
-              if (item.field_start_time) {              
+              if (item.field_start_time) {
                 // Use angular date filter
                 var eventTimestamp = item.field_start_time;
                 var eventStartDate = $filter('date')(eventTimestamp, 'EEEE dd MMMM yyyy');
