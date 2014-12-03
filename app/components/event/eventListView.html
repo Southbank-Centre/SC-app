@@ -12,7 +12,8 @@
   <br>
   <select ng-model="search.field_production.field_event_type.name">
       <option value="" selected="selected">-- choose --</option>
-      <option value="{{event.field_production.field_event_type.name}}" ng-repeat="event in events.list">{{event.field_production.field_event_type.name}}</option>
+      <!-- <option value="{{ event.field_production.field_event_type.name }}" ng-repeat="event in events.list | filterBy: ['field_production.field_event_type.name']: 'Talk'">{{ event.field_production.field_event_type.name }}</option> -->
+      <option value="{{ event.field_production.field_event_type.name }}" ng-repeat="event in events.list | unique: 'field_production.field_event_type.name'">{{ event.field_production.field_event_type.name }}</option>
   </select>
 
     <article>

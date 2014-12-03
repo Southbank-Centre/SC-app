@@ -54,7 +54,7 @@
           "parent": []
         },
         "field_event_type": {
-          "tid": "56",
+          "tid": "5",
           "name": "Workshop",
           "description": "<p>This is a workshop</p>\n",
           "weight": "0",
@@ -199,7 +199,7 @@
           ]
         },
         "field_event_type": {
-          "tid": "54",
+          "tid": "6",
           "name": "Debate",
           "description": "<p>This is a debate</p>\n",
           "weight": "0",
@@ -358,7 +358,7 @@
           ]
         },
         "field_event_type": {
-          "tid": "54",
+          "tid": "7",
           "name": "Talk",
           "description": "<p>This is a talk</p>\n",
           "weight": "0",
@@ -517,8 +517,8 @@
           ]
         },
         "field_event_type": {
-          "tid": "54",
-          "name": "Workshop",
+          "tid": "7",
+          "name": "Talk",
           "description": "<p>This is a talk</p>\n",
           "weight": "0",
           "node_count": 2,
