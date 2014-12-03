@@ -69,7 +69,7 @@
           </dl>
         </div>
 
-        <div class="booking-information-content">
+        <div class="booking-information-content" ng-show="event.field_production.field_ticket_prices || event.field_production.premiumPrice || event.field_production.field_concessions">
           <h3>Booking Information</h3>
           <dl>
             <dt ng-show="event.field_production.field_ticket_prices">Price</dt>
