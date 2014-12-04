@@ -2,7 +2,7 @@
 
 angular
   .module('wowApp')
-  .run(['$rootScope', '$state', function(scope, state) {
+  .run(['$rootScope', '$state', 'festivalFactory', function(scope, state, festivalFactory) {
 
     // Setup pageNotFound event
     scope.$on('event:pageNotFound', function() {
@@ -14,5 +14,31 @@ angular
 
     // ID of WOW Festival stored in the backend
     scope.festivalId = 1;
+
+    /**
+     * Method for getting one festival from the API
+     */
+    festivalFactory.getFestivalSingle(function(data) {
+
+      // Validation
+      // Location, event name and start date must be present for the event to display
+      if (!data.field_date_start || !data.title) {
+        scope.$broadcast('event:pageNotFound');
+      }
+
+      // Success
+      // Attach the event data to the scope
+      scope.festival = data;
+
+    }, function(data, status) {
+
+      // Failure
+      // If event not found
+      if (status === 404) {
+        // Broadcast the pageNotFound event
+        scope.$broadcast('event:pageNotFound');
+      }
+
+    });
 
   }]);

@@ -15,17 +15,12 @@ angular.module('wowApp')
 
       getFestivalSingle: function (callbackSuccess, callbackError) {
 
-        // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/festival/'+festivalId
-        $http.get('/json-test/festival-json-' + $rootScope.festivalId + '.json')
-          .success(function (festival) {
+        $http.get('/json/api/festival/'+$rootScope.festivalId)
+          .success(function(festival) {
 
             // Correct date format for start and end dates
-            if (festival.field_date_start) {
-              // festival.field_date_start = festival.field_date_start * 1000;
-            }
-            if (festival.field_date_end) {
-              // festival.field_date_end = festival.field_date_end * 1000;
-            }
+            festival.field_date_start = utilities.timestampSecondsToMS(festival.field_date_start);
+            festival.field_date_end = utilities.timestampSecondsToMS(festival.field_date_end);
 
             // Convert festival duration into array of days for use by events list filter
             // function getAllDays() {

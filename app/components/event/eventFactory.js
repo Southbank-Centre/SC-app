@@ -43,24 +43,18 @@ angular.module('wowApp')
       getEventList: function (callbackSuccess, callbackError){
 
         // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/events/'
-        // $http.get('/node.json?type=performance&sort=field_start_time&direction=ASC')
-        $http.get('/json-test/events-list-test.json')
-          //.success(callbackSuccess)
+        $http.get('/json/node.json?type=performance&sort=field_start_time&direction=ASC')
 
           .success(function(performances) {
 
             angular.forEach(performances.list, function(item) {
-              
+
               // Correct date format for start and end dates
-              if (item.field_start_time) {
-                item.field_start_time = item.field_start_time * 1000;
-              }
-              if (item.field_end_time) {
-                item.field_end_time = item.field_end_time * 1000;
-              }
+              item.field_start_time = utilities.timestampSecondsToMS(item.field_start_time);
+              item.field_end_time = utilities.timestampSecondsToMS(item.field_end_time);
               
               // Get day from event start time for use in view filter
-              if (item.field_start_time) {              
+              if (item.field_start_time) {
                 // Use angular date filter
                 var eventTimestamp = item.field_start_time;
                 var eventStartDate = $filter('date')(eventTimestamp, 'EEEE d MMMM yyyy');
@@ -82,8 +76,7 @@ angular.module('wowApp')
 
       getEventCount: function(callbackSuccess, callbackError) {
 
-        $http.get('/json/event-count-test.json')
-        // $http.get('/json/node.json?type=performance&field_festival='+$rootScope.festivalId)
+        $http.get('/json/node.count?type=performance&field_festival='+$rootScope.festivalId)
 
           .success(function(eventCount) {
 

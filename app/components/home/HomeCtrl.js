@@ -8,35 +8,8 @@
  * Controller of the wowApp
  */
 angular.module('wowApp')
-  .controller('HomeCtrl', function ($rootScope, $scope, festivalFactory, eventFactory) {
+  .controller('HomeCtrl', function ($rootScope, $scope, eventFactory) {
     
-    /**
-     * Method for getting one festival from the API
-     */
-    festivalFactory.getFestivalSingle(function(data) {
-
-      // Validation
-      // Location, event name and start date must be present for the event to display
-      if (!data.startDate || !data.festivalName) {
-        $rootScope.$broadcast('event:pageNotFound');
-      }
-
-      // Success
-      // Attach the event data to the scope
-      $scope.festival = data;
-
-    }, function(data, status) {
-
-      // Failure
-      // If event not found
-      if (status === 404) {
-        // Broadcast the pageNotFound event
-        $rootScope.$broadcast('event:pageNotFound');
-      }
-
-    });
-
-
     /**
      * Method for getting the count of events for this festival from the API
      */
