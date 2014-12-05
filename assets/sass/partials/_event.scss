@@ -277,6 +277,7 @@ article header {
     @include span(3);
   }
   @include adjust-font-size-to(24px);
+  text-transform: lowercase;
   padding: $padding/4 $padding;
   background: $white;
   margin: $margin*2 0 $margin/4;

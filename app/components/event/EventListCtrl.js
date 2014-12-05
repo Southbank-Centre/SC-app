@@ -14,7 +14,7 @@ angular.module('wowApp')
     /**
      * Method for getting one festival from the API
      */
-    festivalFactory.getFestivalSingle(function(festData) {
+    festivalFactory.getFestivalSingle(function(data) {
 
       // Validation
       // Location, event name and start date must be present for the event to display
@@ -24,7 +24,7 @@ angular.module('wowApp')
 
       // Success
       // Attach the event data to the scope
-      $scope.festival = festData;
+      $scope.festival = data;
 
     }, function(festData, status) {
 
