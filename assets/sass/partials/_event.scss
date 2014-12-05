@@ -48,7 +48,7 @@ article header {
   }
 
   @include breakpoint($bp-small-desktop) {
-    @include span(4 last);
+    @include span(4 last wide);
     float: none; display: table-cell; // set equal height columns for multi-column breakpoints
     vertical-align: bottom;
     border-left: 2px solid $bg-color;
@@ -56,7 +56,7 @@ article header {
   }
 
   @include breakpoint($bp-desktop) {
-    @include span(3 last);
+    @include span(3 last wide);
     float: none; display: table-cell; // set equal height columns for multi-column breakpoints
     vertical-align: bottom;
     border-left: 2px solid $bg-color;
@@ -301,7 +301,7 @@ article header {
   .event-list-details {
     vertical-align: top;
     @include breakpoint($bp-small-desktop) {
-      @include span(6);
+      @include span(6 wide);
       float: none; display: table-cell; // set equal height columns for multi-column breakpoints
       border-left: 2px solid $bg-color;
     }
