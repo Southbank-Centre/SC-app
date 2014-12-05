@@ -27,8 +27,12 @@ angular
       }
 
       // Success
-      // Attach the event data to the scope
+      // Attach the festival data to the scope
       scope.festival = data;
+
+      // Set festivalDataLoaded to true and broadcast the festivalDataLoaded event
+      scope.festivalDataLoaded = true;
+      scope.$broadcast('event:festivalDataLoaded');
 
     }, function(data, status) {
 

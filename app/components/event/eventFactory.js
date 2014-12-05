@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name wowApp.factory:EventFactory
+ * @name wowApp.factory:eventFactory
  * @description
- * # EventFactory
+ * # eventFactory
  * Factory for loading event data into the wowApp
  */
 
@@ -42,8 +42,8 @@ angular.module('wowApp')
 
       getEventList: function (callbackSuccess, callbackError){
 
-        // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/events/'
-        $http.get('/json/node.json?type=performance&sort=field_start_time&direction=ASC')
+        var loadData = function() {
+          $http.get('/json/node.json?type=performance&sort=field_start_time&direction=ASC')
 
           .success(function(performances) {
 
@@ -78,6 +78,17 @@ angular.module('wowApp')
           })
 
           .error(callbackError);
+        };
+
+        // If festival data already loaded, load event list data
+        if ($rootScope.festivalDataLoaded) {
+          loadData();
+        // If not, wait for festival data to be loaded before loading event list data
+        } else {
+          $rootScope.$on('event:festivalDataLoaded', function() {
+            loadData();
+          });
+        }
 
       },
 
