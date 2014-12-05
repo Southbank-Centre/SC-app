@@ -216,6 +216,72 @@ article header {
 
 // Events List
 
+.events-list-filters {
+
+  background: $light-grey;
+  padding: 0 $padding;
+  line-height: 50px;
+
+  label {
+    @include adjust-font-size-to(20px);
+    line-height: 50px;
+  }
+
+  select { 
+    -webkit-appearance: none;
+    margin: 0 5px;
+    padding: 0 $padding*2 0 $padding/2;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    @include adjust-font-size-to(20px);
+    line-height: 50px;
+    background-color: $white;
+    background-image: url(../imgs/icon-sprite.png);
+    background-size: 20px auto;
+    background-repeat: no-repeat;
+    background-position: right -35px;
+    border-right: 10px solid $white;
+  }
+
+  .event-type-filter {
+    text-transform: lowercase;
+  }
+
+  input {
+    margin: 0 5px;
+    padding: 0 $padding*2 0 $padding/2;
+    border: none;
+    @include adjust-font-size-to(16px);
+    line-height: 50px;
+    color: $black;
+    background-color: $white;
+    background-image: url(../imgs/icon-sprite.png);
+    background-size: 20px auto;
+    background-repeat: no-repeat;
+    background-position: right -115px;
+    border-right: 10px solid $white;
+  }
+
+  ::-webkit-input-placeholder {
+    color: $black;
+  }
+  ::-moz-input-placeholder {
+    color: $black;
+  }
+
+}
+
+.event-hour { 
+  @include breakpoint($bp-small-desktop) {
+    @include span(3);
+  }
+  @include adjust-font-size-to(24px);
+  padding: $padding/4 $padding;
+  background: $white;
+  margin: $margin*2 0 $margin/4;
+}
+
 .event-list-container {
   margin-bottom: 2px;
   clear: both;
@@ -253,9 +319,9 @@ article header {
     }
     p {
       @include adjust-font-size-to(16px);
-      font-family: "Helvetica";
     }
   }
-
   
 } 
+
+.no-events { padding: $padding; }
