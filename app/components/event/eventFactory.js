@@ -53,19 +53,26 @@ angular.module('wowApp')
               item.field_start_time = utilities.timestampSecondsToMS(item.field_start_time);
               item.field_end_time = utilities.timestampSecondsToMS(item.field_end_time);
               
-              // Get day from event start time for use in view filter
+              // Get time from event start time for use in view filters
               if (item.field_start_time) {
-                // Use angular date filter
+                
+                // Use angular date filters
+
+                // add event day to scope for use in event list view filter  
                 var eventTimestamp = item.field_start_time;
                 var eventStartDate = $filter('date')(eventTimestamp, 'EEEE d MMMM yyyy');
                 item.field_start_day = eventStartDate;
+
+                // add event hour to scope for use in event list hour grouping  
+                var eventHour = $filter('date')(eventTimestamp, 'ha');
+                item.field_start_hour = eventHour;
+
               }
 
             });
 
             // console.log(performances);
 
-            // var eventList = performances;
             callbackSuccess(performances);
 
           })

@@ -2,62 +2,77 @@
   
   <h1>Events List</h1>
 
-  <label>Search</label> <input ng-model="search.$">
-  <br>
-  <label>on</label>
-  <select ng-model="search.field_start_day">
-    <option value="" selected="selected">any day</option>
-    <option value="{{ festivalDay.day | date:'EEEE d MMMM yyyy' }}" ng-repeat="festivalDay in festival.festivalDays">{{ festivalDay.day | date:'EEEE d MMMM yyyy' }}</option>
-  </select>
-  <br>
-  <select ng-model="search.field_production.field_event_type.name">
-      <option value="" selected="selected">-- choose --</option>
-      <!-- <option value="{{ event.field_production.field_event_type.name }}" ng-repeat="event in events.list | filterBy: ['field_production.field_event_type.name']: 'Talk'">{{ event.field_production.field_event_type.name }}</option> -->
-      <option value="{{ event.field_production.field_event_type.name }}" ng-repeat="event in events.list | unique: 'field_production.field_event_type.name'">{{ event.field_production.field_event_type.name }}</option>
-  </select>
+  <div class="events-list-filters">
+
+    <label>I want to see:</label>
+    <select class="event-type-filter" ng-model="search.field_production.field_event_type.name">
+        <option value="" selected="selected">all events</option>
+        <option value="{{ event.field_production.field_event_type.name }}" ng-repeat="event in events.list | unique: 'field_production.field_event_type.name'">{{ event.field_production.field_event_type.name }}s</option>
+    </select>
+
+    <label>on</label>
+    <select 
+      ng-model="search.field_start_day"
+      ng-init="search.field_start_day='Sunday 1 March 2015'"
+    >
+      <!-- <option value="">Sunday 1 - Sunday 8 March</option> -->
+      <option value="{{ festivalDay.day | date:'EEEE d MMMM yyyy' }}" ng-repeat="festivalDay in festival.festivalDays track by festivalDay.day">{{ festivalDay.day | date:'EEEE d MMMM yyyy' }}</option>
+    </select>
+
+    <input ng-model="search.$" placeholder="Search for events">
+
+  </div>
 
     <article>
-      
-      <div class="event-list-container container repeat-animation" ng-repeat="event in events.list | filter:search:strict" id="event-name">
+  
+      <div class="repeat-animation" ng-repeat="(field_start_hour, event) in events.list | filter:search:strict | groupBy: 'field_start_hour'" id="event-name">
 
-        <div class="event-list-img">
-          <img ng-src="{{ event.field_production.field_image.file.url }}" alt="">
-        </div>
+        <div class="event-hour">{{ field_start_hour }}</div>
 
-        <div class="event-list-details">
+        <div class="event-list-container container" ng-repeat="event in event">
 
-          <h2>{{ event.title }}</h2>
-          <h3 ng-show="event.field_production.field_subheading">{{ event.field_production.field_subheading }}</h3>
-
-          <div ng-show="event.field_production.field_venue">
-              {{ event.field_production.field_venue.name }} <span data-ng-repeat='parent in event.field_production.field_venue.parent'> at {{ parent.name }}</span>
+          <div class="event-list-img">
+            <img ng-src="{{ event.field_production.field_image.file.url }}" alt="">
           </div>
 
-          <div class="event-list-date"ng-show="event.field_start_time">
-            <strong>{{ event.field_start_time | date:'EEEE d MMMM yyyy' }}</strong>
-            {{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }}<span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span>
+          <div class="event-list-details">
+
+            <h2>{{ event.title }}</h2>
+            <h3 ng-show="event.field_production.field_subheading">{{ event.field_production.field_subheading }}</h3>
+
+            <div ng-show="event.field_production.field_venue">
+                {{ event.field_production.field_venue.name }} <span data-ng-repeat='parent in event.field_production.field_venue.parent'> at {{ parent.name }}</span>
+            </div>
+
+            <div class="event-list-date" ng-show="event.field_start_time">
+              <strong>{{ event.field_start_time | date:'EEEE d MMMM yyyy' }}</strong>
+              {{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }}<span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span>
+            </div>
+
+            <div class="event-list-type"><a href="">{{ event.field_production.field_event_type.name }}</a></div>
+
+            <div data-ng-bind-html="event.field_teaser.value"></div>
+
+            <a ng-href="/#/event/{{ event.nid }}" class="scroll-link">Read more</a>
+
           </div>
 
-          <div data-ng-bind-html="event.field_teaser.value"></div>
+          <div class="ticket-box">
 
-          <a ng-click="isDescriptionOpen = !isDescriptionOpen" class="scroll-link">Full description</a>
+            <div data-ng-repeat='field_wristband_ticket in event.field_wristband_ticket' class="ticket-option" ng-show="field_wristband_ticket">
+              Ticket type: {{ field_wristband_ticket.name }}
+              <a ng-href="{{ field_wristband_ticket.url }}" class="book-now-btn">
+                Book Now <span>£{{ field_wristband_ticket.field_ticket_price }}</span>
+              </a>
+            </div>
 
-          <div ng-show="isDescriptionOpen" class="slidedown slideup" data-ng-bind-html="event.field_description.value "></div>
-
-        </div>
-
-        <div class="ticket-box">
-
-          <div data-ng-repeat='field_wristband_ticket in event.field_wristband_ticket' class="ticket-option" ng-show="field_wristband_ticket">
-            Ticket type: {{ field_wristband_ticket.name }}
-            <a ng-href="{{ field_wristband_ticket.url }}" class="book-now-btn">
-              Book Now <span>£{{ field_wristband_ticket.field_ticket_price }}</span>
-            </a>
           </div>
 
         </div>
 
       </div>
+
+      <div class="no-events" ng-show="(events.list | filter:search).length == 0">No events found.</div>
     
     </article>
 
