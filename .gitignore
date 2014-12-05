@@ -2,4 +2,4 @@
 .tmp
 .sass-cache
 .bundle
-dist/
+/dist/

@@ -2,41 +2,38 @@
 
 /**
  * @ngdoc function
- * @name wowApp.controller:MainCtrl
+ * @name wowApp.controller:HomeCtrl
  * @description
- * # MainCtrl
- * Controller of the wowApp
+ * # HomeCtrl
+ * Controller for the WOW homepage
  */
 angular.module('wowApp')
-  .controller('HomeCtrl', function ($rootScope, $scope, festivalFactory) {
-    
+  .controller('HomeCtrl', function ($rootScope, $scope, homeFactory, eventFactory) {
+
     /**
-     * Method for getting one festival from the API
+     * Method for getting the homepage landing page for this festival from the API
      */
-    
-    // ID of WOW Festival stored in the backend
-    var festivalId = 1;
+    homeFactory.getHomepageSingle(function(homepage) {
 
-    festivalFactory.getFestivalSingle(festivalId, function(data) {
-
-      // Validation
-      // Location, event name and start date must be present for the event to display
-      if (!data.startDate || !data.festivalName) {
-        $rootScope.$broadcast('event:pageNotFound');
-      }
-
-      // Success
-      // Attach the event data to the scope
-      $scope.festival = data;
+      $scope.homepage = homepage;
 
     }, function(data, status) {
 
       // Failure
-      // If event not found
+      // If homepage not found
       if (status === 404) {
         // Broadcast the pageNotFound event
         $rootScope.$broadcast('event:pageNotFound');
       }
+
+    });
+    
+    /**
+     * Method for getting the count of events for this festival from the API
+     */
+    eventFactory.getEventCount(function(eventCount) {
+
+      $scope.eventCount = eventCount;
 
     });
 

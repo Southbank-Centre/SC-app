@@ -7,6 +7,9 @@
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
 
+// Import the grunt-connect-proxy
+var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
+
 module.exports = function (grunt) {
 
   // Load grunt tasks automatically
@@ -20,6 +23,7 @@ module.exports = function (grunt) {
     app: require('./bower.json').appPath || __dirname,
     dist: 'dist'
   };
+
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -69,14 +73,26 @@ module.exports = function (grunt) {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
         // hostname: 'localhost',
-        hostname: '0.0.0.0',
-        livereload: 35729
+        hostname: 'localhost',
+        livereload: 35729,
       },
+      proxies: [
+        {
+          context: '/json/',
+          host: 'localhost',
+          port: 8181,
+          changeOrigin: true,
+          rewrite: {
+            '^/json' : ''
+          }
+        }
+      ],
       livereload: {
         options: {
           open: true,
           middleware: function (connect) {
             return [
+              proxySnippet,
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -400,6 +416,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
+      'configureProxies',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',

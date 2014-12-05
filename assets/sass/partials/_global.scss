@@ -1,6 +1,16 @@
 // GLOBAL STYLES
 
+body {
+  background-color: $bg-color;
+}
+
+article {
+  clear: both;
+}
+
+
 // Links
+
 a {
   &:link, &:visited {
     color: $link-color;
@@ -44,6 +54,8 @@ a.scroll-link {
   background-repeat: no-repeat;
   background-position: right -50px;
   line-height: 40px;
+  color: $link-color;
+  cursor: pointer;
 }
 
 a[href^="http://"],
@@ -53,4 +65,80 @@ a[href^="https://"] {
   background-size: 20px auto;
   background-repeat: no-repeat;
   background-position: right -92px;
+}
+
+
+// Animations 
+
+.slidedown,
+.slideup {
+  -webkit-transition:all 1s;
+  -moz-transition:all 1s;
+  -o-transition:all 1s;
+  transition:all 1s;
+}
+
+.slidedown.ng-hide-remove,
+.slideup.ng-hide-add.ng-hide-add-active {
+  max-height: 0;
+  display: block !important;
+}
+
+.slideup.ng-hide-add,
+.slidedown.ng-hide-remove.ng-hide-remove-active {
+  max-height: 500px; // max-height work-around for unknown height (set max-height to value greater than any expected content) more here: http://n12v.com/css-transition-to-from-auto/ - may need to use javascript animation instead?
+  overflow-y: hidden;
+  display: block !important;
+}
+
+/*  ng-repeat Animation  */
+.repeat-animation.ng-enter,
+.repeat-animation.ng-leave,
+.repeat-animation.ng-move {
+  -webkit-transition: all linear 0.5s;
+  -moz-transition: all linear 0.5s;
+  -o-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+    
+  // position:relative;
+  // left:5px;
+}
+.repeat-animation.ng-enter {
+  opacity: 0;
+}
+.repeat-animation.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+.repeat-animation.ng-leave {
+  opacity: 1;
+}
+.repeat-animation.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+.repeat-animation.ng-move {
+  // left:2px;
+  opacity: 0.5;
+}
+.repeat-animation.ng-move.ng-move-active {
+  // left:0;
+  opacity: 1;
+}
+
+/*  ng-hide Animation  */
+.hide-fade.ng-hide-add, .hide-fade.ng-hide-remove {
+  -webkit-transition:all linear 0.5s;
+  -moz-transition:all linear 0.5s;
+  -o-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+  display:block!important;
+}
+
+.hide-fade.ng-hide-add.ng-hide-add-active,
+.hide-fade.ng-hide-remove {
+  opacity:0;
+}
+
+.hide-fade.ng-hide-add,
+.hide-fade.ng-hide-remove.ng-hide-remove-active {
+  opacity:1;
 }

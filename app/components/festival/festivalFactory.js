@@ -9,19 +9,46 @@
  */
 
 angular.module('wowApp')
-  .factory('festivalFactory', function($http) {
+  .factory('festivalFactory', function ($http, $rootScope) {
 
     return {
 
-      getFestivalSingle: function(festivalId, callbackSuccess, callbackError) {
+      getFestivalSingle: function (callbackSuccess, callbackError) {
 
-        // Get request URL will be something like: 'http://wow.southbankcentre.co.uk/api/festival/'+festivalId
-        $http.get('/json/festival-json-'+festivalId+'.json')
-          .success(callbackSuccess)
+        $http.get('/json/api/festival/'+$rootScope.festivalId)
+          .success(function(festival) {
+
+            // Correct date format for start and end dates
+            festival.field_date_start = utilities.timestampSecondsToMS(festival.field_date_start);
+            festival.field_date_end = utilities.timestampSecondsToMS(festival.field_date_end);
+
+            // Convert festival duration into array of days for use by events list filter
+            // function getAllDays() {
+              var s = new Date(Number(festival.field_date_start));
+              var e = new Date(Number(festival.field_date_end));
+              var a = [];
+
+              while (s <= e) {
+                a.push({ 
+                  'day' : s.toJSON()
+                });
+                s = new Date(s.setDate(
+                  s.getDate() + 1
+                ));
+              }
+              // return a;
+            // }
+            festival.festivalDays = a;
+
+
+            callbackSuccess(festival);
+
+
+          })
           .error(callbackError);
 
       }
 
     };
-    
+
   });
