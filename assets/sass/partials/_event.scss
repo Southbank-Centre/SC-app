@@ -7,8 +7,11 @@
 }
 
 .date { 
+  @include adjust-font-size-to(12px);
+
   @include breakpoint($bp-small-desktop) {
     @include span(6); 
+    @include adjust-font-size-to(14px);
   }
 
   @include breakpoint($bp-desktop) {
@@ -28,24 +31,22 @@ article header {
 }
 
 .event-name {
+  background: $white;
+  padding: $padding $padding 0; 
+
   @include breakpoint($bp-small-desktop) {
     @include span(8);
     float: none; display: table-cell; // set equal height columns for multi-column breakpoints
+    padding: $padding;
   }
 
   @include breakpoint($bp-desktop) {
     @include span(7);
     float: none; display: table-cell; // set equal height columns for multi-column breakpoints
   }
-
-  background: $white;
-  padding: $padding; 
 }
 
 .ticket-box {
-  @include breakpoint($bp-mobile-max) {
-    max-height: none !important; // override max-height set on ticket-box to match header for desktop view
-  }
 
   @include breakpoint($bp-small-desktop) {
     @include span(4 last wide);
@@ -115,9 +116,12 @@ article header {
 
 .event-details-container {
   @include clearfix;
+  @include adjust-font-size-to(12px);
+  line-height: 1.6;
 
   @include breakpoint($bp-small-desktop) {
     @include span(9);
+    @include adjust-font-size-to(14px);
   }
 
   .event-details-content {
@@ -158,9 +162,12 @@ article header {
 .full-description {
   clear: both;
   margin: $margin 0;
+  @include adjust-font-size-to(12px);
+  line-height: 1.6;
 
   @include breakpoint($bp-small-desktop) {
     @include span(8);
+    @include adjust-font-size-to(14px);
   }
 
   p:first-of-type {
@@ -220,43 +227,43 @@ article header {
   @include clearfix;
 
   .event-type-filter-label {
+    margin: 0 0 $margin/2;
     padding-left: $padding;
-    @include breakpoint($bp-small-desktop) {
-      @include span(4);
-    }
   }
   .festival-day-filter-label {
-    margin-top: 10px;
-    padding: 0 $padding;
+    margin: 0 0 $margin/2;
+    padding-left: $padding;
     @include breakpoint($bp-small-desktop) {
-      @include span(5);
-      margin: 0;
-      padding: 0;
+
     }
   }
   .search-filter-label {
-    padding: 0 $padding;
-    margin-top: 10px;
+    margin: 0 0 $margin/2;
+    padding-left: $padding;
     @include breakpoint($bp-small-desktop) {
-      @include span(3 last);
-      padding-right: $padding;
-      margin: 0;
+
     }
   }
 
   background: $light-grey;
-  padding: $padding/2 0;
+  padding: $padding/2 0 0;
   line-height: 40px;
 
   label {
-    @include adjust-font-size-to(20px);
-    display: block;
+    @include adjust-font-size-to(14px);
+
+    @include breakpoint($bp-mobile) {
+      @include adjust-font-size-to(20px);
+      line-height: 40px;
+    }
+
+    float: left;
     line-height: 40px;
-    white-space: nowrap;
   }
 
   select { 
     @include adjust-font-size-to(20px);
+
     font-family: 'SC AkkuratBold';
     -webkit-appearance: none;
     margin: 0;
@@ -321,16 +328,22 @@ article header {
 }
 
 .event-list-container {
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   clear: both;
   @include breakpoint($bp-small-desktop) {
     display: table; width: 100%; // set equal height columns for multi-column breakpoints
+    margin-bottom: 2px;
   }
 
   .event-list-img { 
+    @include span(4);
+    float: none; display: table-cell;
+    border-bottom: 2px solid $bg-color;
+
     @include breakpoint($bp-small-desktop) {
       @include span(3);
       float: none; display: table-cell;
+      border-bottom: 0;
     }
     img { width: 100%; height: auto; display: block; }
     background: $light-grey;
@@ -338,10 +351,29 @@ article header {
 
   .event-list-details {
     vertical-align: top;
+    @include span(8);
+    float: none; display: table-cell;
+    border-left: 2px solid $bg-color;
+    border-bottom: 2px solid $bg-color;
+    
+    @include adjust-font-size-to(12px);
+    line-height: 1.6;
+
+    @include breakpoint($bp-mobile) { 
+      @include adjust-font-size-to(14px);      
+    }
+
     @include breakpoint($bp-small-desktop) {
+      @include span(5 wide);
+      float: none; display: table-cell; // set equal height columns for multi-column breakpoints
+      border-left: 2px solid $bg-color;
+      border-bottom: 0;
+    }
+    @include breakpoint($bp-desktop) {
       @include span(6 wide);
       float: none; display: table-cell; // set equal height columns for multi-column breakpoints
       border-left: 2px solid $bg-color;
+      border-bottom: 0;
     }
     background-color: white;
     padding: $padding $padding/2 $padding/2 $padding;
@@ -356,8 +388,12 @@ article header {
         font-weight: normal; 
     }
     p {
-      @include adjust-font-size-to(16px);
+      // @include adjust-font-size-to(16px);
     }
+    .event-list-type {
+      margin: 0 0 0.5em;
+    }
+
   }
   
 } 
