@@ -9,33 +9,7 @@
  */
 
 angular.module('wowApp')
-  .controller('EventListCtrl', function($rootScope, $scope, $stateParams, festivalFactory, eventFactory) {
-
-    /**
-     * Method for getting one festival from the API
-     */
-    festivalFactory.getFestivalSingle(function(data) {
-
-      // Validation
-      // Location, event name and start date must be present for the event to display
-      /* if (!data.startDate || !data.festivalName) {
-        $rootScope.$broadcast('event:pageNotFound');
-      } */
-
-      // Success
-      // Attach the event data to the scope
-      $scope.festival = data;
-
-    }, function(festData, status) {
-
-      // Failure
-      // If event not found
-      if (status === 404) {
-        // Broadcast the pageNotFound event
-        $rootScope.$broadcast('event:pageNotFound');
-      }
-
-    });
+  .controller('EventListCtrl', function($rootScope, $scope, $stateParams, eventFactory) {
 
     /**
      * Method for getting one event from the API
@@ -52,6 +26,8 @@ angular.module('wowApp')
       // Attach the event data to the scope
       $scope.events = data;
 
+      $scope.search = {field_start_day: $rootScope.festival.festivalDays[0].day};
+
     }, function(data, status) {
 
       // Failure
@@ -62,6 +38,5 @@ angular.module('wowApp')
       }
 
     });
-
 
   });

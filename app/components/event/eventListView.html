@@ -7,24 +7,14 @@
     <label>I want to see:</label>
     <select class="event-type-filter" ng-model="search.field_production.field_event_type.name">
         <option value="" selected="selected">all events</option>
-        <option value="{{ event.field_production.field_event_type.name }}" ng-repeat="event in events.list | unique: 'field_production.field_event_type.name'">{{ event.field_production.field_event_type.name }}</option>
+        <option value="{{ event.field_production.field_event_type.name }}" ng-repeat="event in events.list | unique: 'field_production.field_event_type.name'">{{ event.field_production.field_event_type.name }}s</option>
     </select>
 
     <label>on</label>
-    
-    <!-- <select 
-      ng-model="search.field_start_day"
-      ng-options="festivalDay.day for festivalDay in festival.festivalDays track by festivalDay.day"
-      ng-init="search.field_start_day = day"
-    >
-    </select> -->
-
     <select 
       ng-model="search.field_start_day"
-      ng-init="search.field_start_day='Sunday 1 March 2015'"
+      ng-options="festivalDay.day as festivalDay.day | date:'EEEE d MMMM yyyy' for festivalDay in festival.festivalDays"
     >
-      <!-- <option value="">Sunday 1 - Sunday 8 March</option> -->
-      <option value="{{ festivalDay.day | date:'EEEE d MMMM yyyy' }}" ng-repeat="festivalDay in festival.festivalDays track by festivalDay.day">{{ festivalDay.day | date:'EEEE d MMMM yyyy' }}</option>
     </select>
 
     <input ng-model="search.$" placeholder="Search for events">
