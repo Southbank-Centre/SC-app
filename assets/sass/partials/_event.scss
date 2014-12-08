@@ -264,7 +264,7 @@ article header {
     border: 0;
     border-radius: 0;
     cursor: pointer;
-    line-height: 40px;
+    height: 40px;
     background-color: $bg-color;
     background-image: url('../imgs/icon-sprite.png');
     background-size: 20px auto;
@@ -273,6 +273,10 @@ article header {
     border-right: 10px solid $bg-color;
     // width: 100%;
     vertical-align: top;
+  }
+
+  select::-ms-expand {
+    display: none;
   }
 
   .event-type-filter {
@@ -284,7 +288,7 @@ article header {
     padding: 0 $padding*2 0 $padding/2;
     border: none;
     @include adjust-font-size-to(12px);
-    line-height: 40px;
+    height: 40px;
     color: $black;
     background-color: $bg-color;
     background-image: url(../imgs/icon-sprite.png);
@@ -359,3 +363,19 @@ article header {
 } 
 
 .no-events { padding: $padding; }
+
+.lt-ie10 {
+
+  .events-list-filters {
+
+    select {
+
+      background-image:none;
+      padding-right:0;
+      border-right:0;
+
+    }
+
+  }
+
+}
