@@ -84,13 +84,13 @@
         <div data-ng-bind-html="event.field_description.value"></div>
       </div>
 
-      <div ng-show="festival.name" class="festival-name">
-        <div data-ng-repeat='festival in event.festival'>This event is part of <a href="#">Southbank Centre's {{ festival.name }} Festival</a></div>
+      <div ng-show="festival.title" class="festival-name">
+        <div>This event is part of <a href="#">Southbank Centre's {{ festival.title }} Festival</a></div>
       </div>
 
-      <div ng-show="festival.name" class="festival-description" data-ng-repeat='festival in event.festival'>
-        <h2 data-ng-bind-html="festival.description"></h2>
-        <img ng-src="{{ festival.logo }}" alt="" class="festival-logo">
+      <div ng-show="festival.field_description.value" class="festival-description">
+        <h2 data-ng-bind-html="festival.field_description.value"></h2>
+        <img ng-show="festival.field_image_logo_small.file.url" ng-src="{{ festival.field_image_logo_small.file.url }}" alt="" class="festival-logo">
       </div>
 
     </article>
