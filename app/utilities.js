@@ -2,7 +2,7 @@
 
 var utilities = utilities || {
 
-  /* Returns a timestamp given in seconds to a timestamp in milliseconds */
+  /* Given a timestamp in seconds, returns a timestamp in milliseconds */
   timestampSecondsToMS: function(timestamp) {
     var timestampMS = timestamp;
 

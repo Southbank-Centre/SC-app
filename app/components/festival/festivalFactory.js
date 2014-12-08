@@ -23,21 +23,19 @@ angular.module('wowApp')
             festival.field_date_end = utilities.timestampSecondsToMS(festival.field_date_end);
 
             // Convert festival duration into array of days for use by events list filter
-            // function getAllDays() {
-              var s = new Date(Number(festival.field_date_start));
-              var e = new Date(Number(festival.field_date_end));
-              var a = [];
+            var s = new Date(Number(festival.field_date_start));
+            var e = new Date(Number(festival.field_date_end));
+            var a = [];
 
-              while (s <= e) {
-                a.push({ 
-                  'day' : s.toJSON()
-                });
-                s = new Date(s.setDate(
-                  s.getDate() + 1
-                ));
-              }
-              // return a;
-            // }
+            while (s <= e) {
+              a.push({ 
+                'day' : new Date(s.toDateString()).getTime().toString()
+              });
+              s = new Date(s.setDate(
+                s.getDate() + 1
+              ));
+            }
+            console.log(a);
             festival.festivalDays = a;
 
 

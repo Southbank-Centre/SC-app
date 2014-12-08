@@ -61,7 +61,7 @@ angular.module('wowApp')
                 // add event day to scope for use in event list view filter  
                 var eventTimestamp = item.field_start_time;
                 var eventStartDate = $filter('date')(eventTimestamp, 'EEEE d MMMM yyyy');
-                item.field_start_day = eventStartDate;
+                item.field_start_day = new Date(eventStartDate).getTime().toString();
 
                 // add event hour to scope for use in event list hour grouping  
                 var eventHour = $filter('date')(eventTimestamp, 'ha');

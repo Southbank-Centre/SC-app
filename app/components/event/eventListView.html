@@ -11,22 +11,12 @@
       </select>
     </label>
 
-    <label class="festival-day-filter-label">on
-    
-      <!-- <select 
-        ng-model="search.field_start_day"
-        ng-options="festivalDay.day for festivalDay in festival.festivalDays track by festivalDay.day"
-        ng-init="search.field_start_day = day"
-      >
-      </select> -->
-
-      <select 
-        ng-model="search.field_start_day"
-        ng-init="search.field_start_day='Sunday 1 March 2015'"
-      >
-        <!-- <option value="">Sunday 1 - Sunday 8 March</option> -->
-        <option value="{{ festivalDay.day | date:'EEEE d MMMM yyyy' }}" ng-repeat="festivalDay in festival.festivalDays track by festivalDay.day">{{ festivalDay.day | date:'EEEE d MMMM yyyy' }}</option>
-      </select>
+    <label>on</label>
+    <select 
+      ng-model="search.field_start_day"
+      ng-options="festivalDay.day as festivalDay.day | date:'EEEE d MMMM yyyy' for festivalDay in festival.festivalDays"
+    >
+    </select>
 
     </label>
 
