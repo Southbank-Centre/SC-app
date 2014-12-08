@@ -12,22 +12,26 @@ article {
 // Links
 
 a {
-  &:link, &:visited {
+
+  &:link, 
+  &:visited {
+    background-color: $light-grey;
     color: $link-color;
     text-decoration: none;
-    background: $light-grey;
   }
-}
 
-a {
-  &:hover, &:active {
+  &:hover, 
+  &:active {
+    background-color: $light-grey;
     color: $link-color;
     text-decoration: underline;
-    background: $light-grey;
   }
+
 }
 
-a.book-now-btn, a.book-now-btn[href^="http://"], a.book-now-btn[href^="https://"] {
+a.book-now-btn, 
+a.book-now-btn[href^="http://"], 
+a.book-now-btn[href^="https://"] {
   display: block;
   margin-top: 3px;
   background-color: $link-color;
@@ -47,7 +51,7 @@ a.book-now-btn, a.book-now-btn[href^="http://"], a.book-now-btn[href^="https://"
   line-height: 40px;
 }
 
-a.scroll-link {
+.scroll-link {
   padding-right: 22px;
   background-image: url(../imgs/icon-sprite.png);
   background-size: 20px auto;
@@ -56,6 +60,17 @@ a.scroll-link {
   line-height: 40px;
   color: $link-color;
   cursor: pointer;
+}
+.read-more-link {
+  padding-right: 22px;
+  background-image: url(../imgs/icon-sprite.png);
+  background-size: 20px auto;
+  background-repeat: no-repeat;
+  background-position: right -170px;
+  line-height: 40px;
+  color: $link-color;
+  cursor: pointer;
+  padding-bottom: 2px;
 }
 
 a[href^="http://"],

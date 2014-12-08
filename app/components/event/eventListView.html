@@ -1,10 +1,10 @@
 <div class="events-list" data-ng-controller='EventListCtrl'>
   
-  <h1>Events List</h1>
+  <h1>What&rsquo;s On</h1>
 
   <div class="events-list-filters">
 
-    <label>I want to see:</label>
+    <label>I want to see</label>
     <select class="event-type-filter" ng-model="search.field_production.field_event_type.name">
         <option value="" selected="selected">all events</option>
         <option value="{{ event.field_production.field_event_type.name }}" ng-repeat="event in events.list | unique: 'field_production.field_event_type.name'">{{ event.field_production.field_event_type.name }}</option>
@@ -61,7 +61,7 @@
 
             <div data-ng-bind-html="event.field_teaser.value"></div>
 
-            <a ng-href="/#/event/{{ event.nid }}" class="scroll-link">Read more</a>
+            <a ng-href="/#/event/{{ event.nid }}" class="read-more-link">Read more</a>
 
           </div>
 

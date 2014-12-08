@@ -219,29 +219,31 @@ article header {
 .events-list-filters {
 
   background: $light-grey;
-  padding: 0 $padding;
-  line-height: 50px;
+  padding: $padding/2 $padding;
+  line-height: 40px;
 
   label {
     @include adjust-font-size-to(20px);
-    line-height: 50px;
+    line-height: 40px;
   }
 
   select { 
+    @include adjust-font-size-to(20px);
+    font-family: 'SC AkkuratBold';
     -webkit-appearance: none;
     margin: 0 5px;
     padding: 0 $padding*2 0 $padding/2;
-    border: none;
+    border: 0;
     border-radius: 0;
     cursor: pointer;
-    @include adjust-font-size-to(20px);
-    line-height: 50px;
-    background-color: $white;
-    background-image: url(../imgs/icon-sprite.png);
+    line-height: 40px;
+    background-color: $bg-color;
+    background-image: url('../imgs/icon-sprite.png');
     background-size: 20px auto;
     background-repeat: no-repeat;
-    background-position: right -35px;
-    border-right: 10px solid $white;
+    background-position: right -40px;
+    border-right: 10px solid $bg-color;
+    vertical-align: top;
   }
 
   .event-type-filter {
@@ -252,15 +254,16 @@ article header {
     margin: 0 5px;
     padding: 0 $padding*2 0 $padding/2;
     border: none;
-    @include adjust-font-size-to(16px);
-    line-height: 50px;
+    @include adjust-font-size-to(12px);
+    line-height: 40px;
     color: $black;
-    background-color: $white;
+    background-color: $bg-color;
     background-image: url(../imgs/icon-sprite.png);
     background-size: 20px auto;
     background-repeat: no-repeat;
-    background-position: right -115px;
-    border-right: 10px solid $white;
+    background-position: right -120px;
+    border-right: 10px solid $bg-color;
+    vertical-align: top;
   }
 
   ::-webkit-input-placeholder {
@@ -280,7 +283,7 @@ article header {
   text-transform: lowercase;
   padding: $padding/4 $padding;
   background: $white;
-  margin: $margin*2 0 $margin/4;
+  margin: $margin 0 $margin/4;
 }
 
 .event-list-container {

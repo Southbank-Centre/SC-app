@@ -6,9 +6,9 @@ $base-line-height: 13px; // 13px for tablet and up
 @include establish-baseline;
 
 html {
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
   @include adjust-leading-to(2);
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -56,33 +56,35 @@ body {
 }
 
 h1 {
-  margin: 0 0 0.5em;
   @include adjust-font-size-to(26px);
+  font-family: 'SC AkkuratBold';
+  font-weight: normal;
+  letter-spacing: $letter-spacing;
+  margin: 0;
+  padding: $padding $padding $padding/2;
 
   @include breakpoint($bp-mobile) {
-     @include adjust-font-size-to(32px);
+    @include adjust-font-size-to(50px);
   }
 
-  font-family: 'SC AkkuratBold';
-  letter-spacing: $letter-spacing;
 }
 
 h2 {
   @include adjust-font-size-to(18px);
+  font-family: 'SC AkkuratLight';
+  font-weight: normal;
+  letter-spacing: $letter-spacing; 
 
   @include breakpoint($bp-mobile) {
-     @include adjust-font-size-to(26px);
+    @include adjust-font-size-to(26px);
   }
 
-  font-weight: normal;
-  font-family: 'SC AkkuratLight';
-  letter-spacing: $letter-spacing;
 }
 
 h3 {
-  margin: 0 0 0.5em;
-  font-weight: normal;
   font-family: 'SC AkkuratBold';
+  font-weight: normal;
+  margin: 0 0 .5em;
 }
 
 p {
