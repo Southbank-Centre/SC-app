@@ -56,15 +56,14 @@ body {
 }
 
 h1 {
-  @include adjust-font-size-to(32px);
+  @include adjust-font-size-to(26px);
   font-family: 'SC AkkuratBold';
   font-weight: normal;
   letter-spacing: $letter-spacing;
-  margin: 0;
-  padding: $padding $padding $padding/2;
+  margin: 0 0 0.5em;
 
   @include breakpoint($bp-mobile) {
-    @include adjust-font-size-to(50px);
+    @include adjust-font-size-to(40px);
   }
 
 }
@@ -89,3 +88,14 @@ h3 {
 p {
   margin: 1em 0; 
 }
+
+.page-heading {
+  @include adjust-font-size-to(32px);
+  padding: $padding/2 $padding 0;
+  
+  @include breakpoint($bp-mobile) {
+    @include adjust-font-size-to(50px);
+  }
+
+}
+

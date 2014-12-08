@@ -1,6 +1,6 @@
 <div class="events-list" data-ng-controller='EventListCtrl'>
   
-  <h1>What&rsquo;s On</h1>
+  <h1 class="page-heading">What&rsquo;s On</h1>
 
   <div class="events-list-filters">
 
@@ -11,7 +11,7 @@
       </select>
     </label>
 
-    <label>on</label>
+    <label class="festival-day-filter-label">on
     <select 
       ng-model="search.field_start_day"
       ng-options="festivalDay.day as festivalDay.day | date:'EEEE d MMMM yyyy' for festivalDay in festival.festivalDays"
