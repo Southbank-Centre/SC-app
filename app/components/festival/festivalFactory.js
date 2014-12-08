@@ -35,9 +35,8 @@ angular.module('wowApp')
                 s.getDate() + 1
               ));
             }
-            console.log(a);
-            festival.festivalDays = a;
 
+            festival.festivalDays = a;
 
             callbackSuccess(festival);
 
