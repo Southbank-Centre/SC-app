@@ -39,4 +39,17 @@ angular.module('wowApp')
 
     });
 
+    /**
+     * Define filter comparator which includes all items
+     * if the filter option is null, but is strict if 
+     * the filter option is not null
+     */
+    $scope.strictOrAll = function(expected, actual){
+      if (actual === null) {
+        return true;
+      } else {
+        return angular.equals(expected, actual);
+      }
+    }
+
   });

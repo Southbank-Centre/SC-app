@@ -16,6 +16,7 @@
       ng-model="search.field_start_day"
       ng-options="festivalDay.day as festivalDay.day | date:'EEEE d MMMM yyyy' for festivalDay in festival.festivalDays"
     >
+      <option value="">all events</option>
     </select>
 
     </label>
@@ -28,7 +29,7 @@
 
     <article>
   
-      <div class="repeat-animation" ng-repeat="(field_start_hour, event) in events.list | filter:search:strict | groupBy: 'field_start_hour'" id="event-name">
+      <div class="repeat-animation" ng-repeat="(field_start_hour, event) in events.list | filter:search:strictOrAll | groupBy: 'field_start_hour'" id="event-name">
 
         <div class="event-hour">{{ field_start_hour }}</div>
 
@@ -75,7 +76,7 @@
 
       </div>
 
-      <div class="no-events repeat-animation" ng-show="(events.list | filter:search).length == 0">No events found.</div>
+      <div class="no-events repeat-animation" ng-show="(events.list | filter:search:strictOrAll).length == 0">No events found.</div>
     
     </article>
 
