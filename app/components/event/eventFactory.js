@@ -67,6 +67,9 @@ angular.module('wowApp')
                 var eventHour = $filter('date')(eventTimestamp, 'ha');
                 item.field_start_hour = eventHour;
 
+                // *temporary* - add event type to first level of scope as cannot access from nested json
+                item.eventType = item.field_production.field_event_type.name;
+                
               }
 
             });

@@ -6,8 +6,8 @@
 
     <label class="event-type-filter-label">I want to see
       <select class="event-type-filter" 
-        ng-model="search.field_production.field_event_type.name"
-        ng-options="event.field_production.field_event_type.name for event in events.list | unique: 'field_production.field_event_type.name'"
+        ng-model="search.eventType"
+        ng-options="event.field_production.field_event_type.name as event.field_production.field_event_type.name for event in events.list | unique: 'field_production.field_event_type.name'"
         >
           <option value="">all events</option> 
           <!-- <option value="{{ event.field_production.field_event_type.name }}" ng-repeat="event in events.list | unique: 'field_production.field_event_type.name'">{{ event.field_production.field_event_type.name }}</option> -->
