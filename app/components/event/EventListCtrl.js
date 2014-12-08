@@ -40,16 +40,30 @@ angular.module('wowApp')
     });
 
     /**
-     * Define filter comparator which includes all items
-     * if the filter option is null, but is strict if 
-     * the filter option is not null
-     */
+    * Define filter comparator which includes all items
+    * if the filter option is null, but is strict if 
+    * the filter option is not null
+    */
     $scope.strictOrAll = function(expected, actual){
-      if (actual === null) {
-        return true;
-      } else {
-        return angular.equals(expected, actual);
-      }
+    if (actual === null) {
+
+    return true;
+
+    } else {
+
+    // Only compare strings and numbers
+    if (typeof expected !== 'string' && typeof expected !== 'number') {
+    return false;
     }
+
+    // Convert numbers to strings so that they can be compared
+    if (typeof expected === 'number') {
+    expected = expected.toString();
+    }
+
+    // Search for a match
+    return expected.match(new RegExp(actual, 'i')) !== null;
+    }
+    };
 
   });
