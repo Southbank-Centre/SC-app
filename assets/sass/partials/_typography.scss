@@ -56,7 +56,7 @@ body {
 }
 
 h1 {
-  @include adjust-font-size-to(26px);
+  @include adjust-font-size-to(32px);
   font-family: 'SC AkkuratBold';
   font-weight: normal;
   letter-spacing: $letter-spacing;
