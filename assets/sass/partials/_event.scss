@@ -227,26 +227,26 @@ article header {
   @include clearfix;
 
   .event-type-filter-label {
-    margin: 0 0 $margin/2;
+    margin: 0 0 $margin/4*3;
     padding-left: $padding;
   }
   .festival-day-filter-label {
-    margin: 0 0 $margin/2;
+    margin: 0 0 $margin/4*3;
     padding-left: $padding;
     @include breakpoint($bp-small-desktop) {
 
     }
   }
   .search-filter-label {
-    margin: 0 0 $margin/2;
+    margin: 0 0 $margin/4*3;
     padding-left: $padding;
     @include breakpoint($bp-small-desktop) {
 
     }
   }
 
-  background: $light-grey;
-  padding: $padding/2 0 0;
+  background: $white;
+  padding: $padding/4*3 0 0;
   line-height: 40px;
 
   label {
