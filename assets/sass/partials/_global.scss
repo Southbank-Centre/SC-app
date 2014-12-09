@@ -156,3 +156,14 @@ a[href^="https://"] {
 .hide-fade.ng-hide-remove.ng-hide-remove-active {
   opacity:1;
 }
+
+/* page loading spinner */
+.page-loading {
+  position:fixed;
+  z-index:99999;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  background:url('../imgs/spinner.gif') no-repeat center center;
+}
