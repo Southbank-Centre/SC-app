@@ -45,25 +45,25 @@ angular.module('wowApp')
     * the filter option is not null
     */
     $scope.strictOrAll = function(expected, actual){
-    if (actual === null) {
+     if (actual === null) {
 
-    return true;
+       return true;
 
-    } else {
+     // Only compare strings and numbers
+     } else if (typeof expected !== 'string' && typeof expected !== 'number') {
 
-    // Only compare strings and numbers
-    if (typeof expected !== 'string' && typeof expected !== 'number') {
-    return false;
-    }
+       return false;
 
-    // Convert numbers to strings so that they can be compared
-    if (typeof expected === 'number') {
-    expected = expected.toString();
-    }
+     } else {
 
-    // Search for a match
-    return expected.match(new RegExp(actual, 'i')) !== null;
-    }
-    };
+       // Convert numbers to strings so that they can be compared
+       if (typeof expected === 'number') {
+         expected = expected.toString();
+       }
+
+       // Search for a match
+       return expected.match(new RegExp(actual, 'i')) !== null;
+     }
+   }
 
   });

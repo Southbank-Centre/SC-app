@@ -47,29 +47,38 @@ angular.module('wowApp')
 
           .success(function(performances) {
 
-            angular.forEach(performances.list, function(item) {
+            angular.forEach(performances.list, function(item, i) {
 
-              // Correct date format for start and end dates
-              item.field_start_time = utilities.timestampSecondsToMS(item.field_start_time);
-              item.field_end_time = utilities.timestampSecondsToMS(item.field_end_time);
-              
-              // Get time from event start time for use in view filters
-              if (item.field_start_time) {
+              // Remove item if it isn't related to a production
+              if (!item.field_production) {
+
+                performances.list.splice(i, 1);
+
+              } else {
+
+                // Correct date format for start and end dates
+                item.field_start_time = utilities.timestampSecondsToMS(item.field_start_time);
+                item.field_end_time = utilities.timestampSecondsToMS(item.field_end_time);
                 
-                // Use angular date filters
+                // Get time from event start time for use in view filters
+                if (item.field_start_time) {
+                  
+                  // Use angular date filters
 
-                // add event day to scope for use in event list view filter  
-                var eventTimestamp = item.field_start_time;
-                var eventStartDate = $filter('date')(eventTimestamp, 'EEEE d MMMM yyyy');
-                item.field_start_day = new Date(eventStartDate).getTime().toString();
+                  // add event day to scope for use in event list view filter  
+                  var eventTimestamp = item.field_start_time;
+                  var eventStartDate = $filter('date')(eventTimestamp, 'EEEE d MMMM yyyy');
+                  item.field_start_day = new Date(eventStartDate).getTime().toString();
 
-                // add event hour to scope for use in event list hour grouping  
-                var eventHour = $filter('date')(eventTimestamp, 'ha');
-                item.field_start_hour = eventHour;
+                  // add event hour to scope for use in event list hour grouping  
+                  var eventHour = $filter('date')(eventTimestamp, 'ha');
+                  item.field_start_hour = eventHour;
 
-                // *temporary* - add event type to first level of scope as cannot access from nested json
-                var eventType = item.field_production.field_event_type.name;
-                item.eventType = eventType;
+                  // *temporary* - add event type to first level of scope as cannot access from nested json
+                  var eventType = item.field_production.field_event_type.name;
+                  item.eventType = eventType;
+
+                }
 
               }
 
