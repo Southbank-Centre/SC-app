@@ -38,7 +38,7 @@
     .festival-logo-container {
       @include span(last 4);
       padding:0;
-      overflow:hidden;
+      max-height:300px;
 
       .festival-logo {
         float:right;
