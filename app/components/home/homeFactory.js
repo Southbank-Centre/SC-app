@@ -17,7 +17,32 @@ angular.module('wowApp')
 
         var loadData = function() {
           $http.get('/json/api/landing/'+$rootScope.festival.field_homepage.id)
-            .success(callbackSuccess)
+
+            // .success(callbackSuccess)
+
+            // Loop through component JSON and correct date format for event start and end dates
+            .success(function(components) {
+
+              angular.forEach(components.field_component, function(fieldComponent) {            
+
+                angular.forEach(fieldComponent.field_component_list.field_content_list, function(event) {
+
+                  if (event.field_start_time) {
+                    event.field_start_time = utilities.timestampSecondsToMS(event.field_start_time);
+                  }
+                  if (event.field_end_time) {
+                    event.field_end_time = utilities.timestampSecondsToMS(event.field_end_time);
+                  }
+
+                });
+
+              });
+
+              callbackSuccess(components);
+
+            })
+
+
             .error(callbackError);
         };
 
