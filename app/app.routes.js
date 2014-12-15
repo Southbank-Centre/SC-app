@@ -48,9 +48,20 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
         url: '{path:.*}',
         views: {
           '': {
-            template: '<div ui-view="festivalMenu"><div>NOT FOUND!</div>'
+            template: '<div ui-view="festivalMenu"></div><div>NOT FOUND!</div>'
           },
           'festivalMenu@404' : {
+            templateUrl: 'app/components/festival/festivalMenuView.html',
+            controller: 'FestivalMenuCtrl'
+          }
+        }
+      }).state('500', {
+        url: '{path:.*}',
+        views: {
+          '': {
+            template: '<div ui-view="festivalMenu"></div><div>WEBSITE ERROR!</div>'
+          },
+          'festivalMenu@500' : {
             templateUrl: 'app/components/festival/festivalMenuView.html',
             controller: 'FestivalMenuCtrl'
           }

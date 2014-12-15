@@ -44,6 +44,14 @@ angular.module('wowApp')
           })
           .error(callbackError);
 
+      },
+
+      getMenus: function (callbackSuccess, callbackError) {
+
+        $http.get('/json/node.json?type=navigation&field_festival='+$rootScope.festivalId)
+          .success(callbackSuccess)
+          .error(callbackError);
+
       }
 
     };
