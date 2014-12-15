@@ -7,8 +7,11 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'app/components/home/homeView.html',
-        controller: 'HomeCtrl'
+        controller: 'HomeCtrl',
+        views: {
+          '': { templateUrl: 'app/components/home/homeView.html' },
+          'componentFeaturedEvents@home': { templateUrl: 'app/components/content_components/featuredEventsView.html' }
+        }
       })
       .state('eventSingle', {
         url: '/event/:eventId',
