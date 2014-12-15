@@ -7,22 +7,54 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'app/components/home/homeView.html',
-        controller: 'HomeCtrl'
+        views: {
+          '': {
+            templateUrl: 'app/components/home/homeView.html',
+            controller: 'HomeCtrl'
+          },
+          'festivalMenu@home' : {
+            templateUrl: 'app/components/festival/festivalMenuView.html',
+            controller: 'FestivalMenuCtrl'
+          }
+        }
       })
       .state('eventSingle', {
         url: '/event/:eventId',
-        templateUrl: 'app/components/event/eventSingleView.html',
-        controller: 'EventSingleCtrl',
+        views: {
+          '': {
+            templateUrl: 'app/components/event/eventSingleView.html',
+            controller: 'EventSingleCtrl',
+          },
+          'festivalMenu@eventSingle' : {
+            templateUrl: 'app/components/festival/festivalMenuView.html',
+            controller: 'FestivalMenuCtrl'
+          }
+        }
       })
       .state('eventList', {
         url: '/whats-on',
-        templateUrl: 'app/components/event/eventListView.html',
-        controller: 'EventListCtrl'
+        views: {
+          '': {
+            templateUrl: 'app/components/event/eventListView.html',
+            controller: 'EventListCtrl'
+          },
+          'festivalMenu@eventList' : {
+            templateUrl: 'app/components/festival/festivalMenuView.html',
+            controller: 'FestivalMenuCtrl'
+          }
+        }
       })
       .state('404', {
         url: '{path:.*}',
-        template: '<div>NOT FOUND!</div>'
+        views: {
+          '': {
+            template: '<div ui-view="festivalMenu"><div>NOT FOUND!</div>'
+          },
+          'festivalMenu@404' : {
+            templateUrl: 'app/components/festival/festivalMenuView.html',
+            controller: 'FestivalMenuCtrl'
+          }
+        }
       });
 
   });
