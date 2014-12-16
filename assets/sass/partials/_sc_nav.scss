@@ -1,6 +1,7 @@
 .sc-nav {
 
   background-color:white;
+  height:79px;
 
   .search-button {
     float:right;
@@ -12,6 +13,7 @@
 
   img {
     max-height: 59px;
+    max-width:201px;
     margin:$margin/2 $margin;
     vertical-align:middle;
   }
