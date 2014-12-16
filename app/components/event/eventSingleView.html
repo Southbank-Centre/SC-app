@@ -1,9 +1,10 @@
 <div class="event-single" data-ng-controller='EventSingleCtrl'>
 
-  <div ui-view="festivalMenu"></div>
+  <div ui-view="scMenu"></div>
 
-  <a ng-href="/#/" style="padding: 0 20px;">Home</a> 
-  <a ng-href="/#/whats-on" style="padding: 0 20px;">What's On</a>
+  <div ui-view="festivalName"></div>
+  
+  <div ui-view="festivalMenu"></div>
 
   <article ng-show="event">
 

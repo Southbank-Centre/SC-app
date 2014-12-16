@@ -7,13 +7,13 @@ angular
     // Setup pageNotFound event
     scope.$on('event:pageNotFound', function() {
       // Show 404 state
-      state.go('404');
+      state.go('wow.404');
     });
 
     // Setup serverError event
     scope.$on('event:serverError', function() {
       // Show 500 state
-      state.go('500');
+      state.go('wow.500');
     });
 
     // ID of WOW Festival stored in the backend
@@ -50,11 +50,9 @@ angular
      */
     festivalFactory.getMenus(function(data) {
 
-      console.log(data);
-
       // Failure
       // If there is no menu for this festival, show website error
-      if (data.list.length > 0) {
+      if (data.festivalNav.length > 0) {
         scope.menus = data;
       } else {
         // Broadcast the serverError event

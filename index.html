@@ -26,6 +26,12 @@
     <!-- Add your site or application content here -->
     <div class="container">
 
+      <div ui-view="scNav"></div>
+      
+      <div ui-view="festivalBanner"></div>
+
+      <div ui-view="festivalNav"></div>
+
       <div ui-view></div>
 
     </div>
@@ -102,7 +108,7 @@
 
     <!-- Festival -->
     <script src="app/components/festival/festivalFactory.js"></script>
-    <script src="app/components/festival/FestivalMenuCtrl.js"></script>
+    <script src="app/components/festival/FestivalNavCtrl.js"></script>
 
     <!-- Home -->
     <script src="app/components/home/homeFactory.js"></script>

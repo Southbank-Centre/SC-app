@@ -49,7 +49,20 @@ angular.module('wowApp')
       getMenus: function (callbackSuccess, callbackError) {
 
         $http.get('/json/node.json?type=navigation&field_festival='+$rootScope.festivalId)
-          .success(callbackSuccess)
+          .success(function(data) {
+
+            if (data.list[0]) {
+              var menus = {
+                festivalNav: data.list[0].field_navigation_link
+              };
+              
+              callbackSuccess(menus);
+            } else {
+              $rootScope.$broadcast('event:serverError');
+            }
+
+
+          })
           .error(callbackError);
 
       }

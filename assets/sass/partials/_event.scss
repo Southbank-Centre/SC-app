@@ -10,7 +10,7 @@
   @include adjust-font-size-to(12px);
 
   @include breakpoint($bp-small-desktop) {
-    @include span(6); 
+    @include span(6);
     @include adjust-font-size-to(14px);
   }
 
