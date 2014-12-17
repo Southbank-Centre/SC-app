@@ -38,7 +38,8 @@
   } 
 
   .featured-thumbnail {
-    position: relative; 
+    position: relative;
+    display: block; 
     .featured { position: absolute; bottom: 0; margin: 0; background: $secondary-highlight; color: $white; padding: $padding/2 $padding; }
     img { width: 100%; display: block; }
   }
