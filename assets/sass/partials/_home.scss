@@ -102,7 +102,7 @@
 
   .featured-thumbnail {
     position: relative; 
-    .featured { position: absolute; bottom: 0; background: $secondary-highlight; color: $white; padding: $padding/2 $padding; }
+    .featured { position: absolute; bottom: 0; margin: 0; background: $secondary-highlight; color: $white; padding: $padding/2 $padding; }
     img { width: 100%; display: block; }
   }
   .featured-content { background: $white; padding: $padding; }
