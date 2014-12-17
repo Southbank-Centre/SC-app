@@ -1,0 +1,157 @@
+.festival-name-bar {
+
+  position:relative;
+
+  &.homepagenav {
+    display:none;
+  }
+
+  @include adjust-font-size-to(26px);
+  font-family: 'SC AkkuratLight';
+  letter-spacing: $letter-spacing;
+  background-repeat: no-repeat;
+  background-attachment:top center;
+  background-size:100% auto;
+  overflow:hidden;
+
+  .background-img {
+    position:absolute;
+    max-width:100%;
+    opacity:0.4;
+    z-index:1;
+  }
+
+  .festival-name-bar-content {
+
+    position:relative;
+    z-index:2;
+
+    .festival-name-bar-logo-container {
+
+      float:left;
+
+      .festival-name-bar-logo {
+        max-height: 75px;
+        margin:2px $margin;
+        vertical-align:middle;
+      }
+
+    }
+
+    .festival-name-bar-text {
+
+      overflow:hidden;
+      padding:$padding 0;
+
+      .festival-name-bar-name {
+        font-family: 'SC AkkuratBold';
+      }
+
+    }
+
+  }
+
+}
+
+.festival-nav {
+
+  background-color:white;
+
+  a {
+    background:white;
+    color:black;
+    padding-right:0;
+
+    &:hover {
+      text-decoration:underline;
+    }
+  }
+
+  nav {
+
+    position:absolute;
+    top:0px;
+    left:0px;
+    height:74px;
+    overflow:hidden;
+
+    &.navOpen {
+      height:auto;
+      overflow:visible;
+      width:100%;
+    }
+
+    @include breakpoint($bp-tablet) {
+      @include span(8 of 12);
+      position:static;
+      padding:$padding;
+      width:auto;
+      height:auto;
+      overflow:visible;
+    }
+
+    @include breakpoint($bp-desktop) {
+      @include span(9 of 12);
+    }
+
+    a {
+      display:block;
+      padding:$padding;
+      padding-bottom:0;
+      line-height:2.438em;
+
+      &:last-of-type {
+        padding-bottom:$padding;
+      }
+      
+      @include breakpoint($bp-tablet) {
+        display:inline-block;
+        padding:0;
+        margin-right:$margin*2;
+
+        &:last-of-type {
+          padding-bottom:0;
+        }
+
+      }
+
+      &.active {
+        text-decoration:underline;
+        font-weight:500;
+      }
+
+      &.hamburger {
+        @include adjust-font-size-to(31px);
+        -webkit-font-smoothing: none;
+        cursor:pointer;
+        display:inline-block;
+
+        @include breakpoint($bp-tablet) {
+          display:none;
+        }
+
+        &:hover {
+          text-decoration:none;
+        }
+      }
+    }
+  }
+
+  .twitter-hashtag {
+
+    @include breakpoint($bp-tablet) {
+      @include span(4 of 12 last);
+    }
+    
+    @include breakpoint($bp-desktop) {
+      @include span(3 of 12 last);
+    }
+    padding:$padding;
+    @include adjust-font-size-to(26px);
+    text-align:right;
+    font-family: 'SC AkkuratLight';
+    letter-spacing: $letter-spacing;
+    border-left:solid 1px $bg-color;
+  }
+
+}

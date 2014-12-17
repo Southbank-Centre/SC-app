@@ -1,0 +1,21 @@
+.sc-nav {
+
+  background-color:white;
+  height:79px;
+
+  .search-button {
+    float:right;
+    background-color:$dark-grey;
+    width:79px;
+    height:79px;
+    display:inline-block;
+  }
+
+  img {
+    max-height: 59px;
+    max-width:201px;
+    margin:$margin/2 $margin;
+    vertical-align:middle;
+  }
+
+}

@@ -20,10 +20,10 @@ angular.module('wowApp')
 
             // Correct date format for start and end dates
             if (performance.field_start_time) {
-              performance.field_start_time = performance.field_start_time * 1000;
+              performance.field_start_time = utilities.timestampSecondsToMS(performance.field_start_time);
             }
             if (performance.field_end_time) {
-              performance.field_end_time = performance.field_end_time * 1000;
+              performance.field_end_time = utilities.timestampSecondsToMS(performance.field_end_time);
             }
 
             // Calculate event duration and attach to event data
@@ -31,8 +31,8 @@ angular.module('wowApp')
               performance.duration = (performance.field_end_time/60000) - (performance.field_start_time/60000);
             }
 
-            var event = performance;
-            callbackSuccess(event);
+            // var event = performance;
+            callbackSuccess(performance);
 
           })
 

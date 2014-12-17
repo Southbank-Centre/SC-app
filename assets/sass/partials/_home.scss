@@ -1,89 +1,44 @@
 .home {
-  
-  header {
 
-    @include clearfix;
+  #featured-events {
 
-    background-repeat: no-repeat;
-    background-attachment:top center;
-    background-size:100% auto;
+    margin-top: $section-margin-top;
 
-    .large-heading {
-
-      @include adjust-font-size-to(32px);
-
-      @include breakpoint($bp-tablet) {
-        @include adjust-font-size-to(40px);
-      }
-      
-      @include breakpoint($bp-small-desktop) {
-        @include adjust-font-size-to(60px);
-      }
-      margin: 0.8em 0;
-
-      @include span(first 8);
-      padding:$padding;
-
-      .festival-location,
-      .festival-year {
-        font-family: 'SC AkkuratLight';
-      }
-
-      .festival-location:after {
-        content:",";
-      }
-
-    }
-
-    .festival-logo-container {
-      @include span(last 4);
-      padding:0;
-      max-height:300px;
-
-      .festival-logo {
-        float:right;
-        max-width:100%;
-        max-height:100%;
-      }
-    }
-
-    .festival-date {
-      clear: both;
-      @include breakpoint($bp-small-desktop) {
-        @include span(first 4);
-        clear: none;
-      }
-      padding:$padding/2 $padding;
-      // margin-right:gutter(8);
-      // margin-bottom:rhythm(0.25);
-      margin-bottom: 2px;
-      font-weight:bold;
-    }
-
-    .festival-description-container {
-      clear: both;
-      @include breakpoint($bp-small-desktop) {
-        @include span(first 8);
-        clear: none;
-      }
-      padding:$padding;
-      // margin-right:gutter(4);
-
-      .festival-description-home {
-        margin-bottom:$margin/2;
-      }
+    h2 { 
+      margin: 0 $margin;
     }
 
   }
 
 }
 
-#featured-events {
+// Components styling - consider moving these to separate stylesheets if the component list grows and they are required to feature on pages other than the home page
 
-  margin-top: $section-margin-top;
+.component-featured-events {
 
-  h2 { 
-    margin: 0 $margin;
+  position: relative;
+  min-height: 50px;
+  @include clearfix;
+  margin: $section-margin-top 0 $margin;
+  h2 { margin: 0 $margin $margin; }
+
+  article {
+    @include breakpoint($bp-mobile) {
+      @include span(4);
+      &:last-child { @include last; }
+      clear: none;
+    }
+    h3 {
+      margin-bottom: $margin;
+      a { color: $black; background: none; }
+    }
+  } 
+
+  .featured-thumbnail {
+    position: relative; 
+    .featured { position: absolute; bottom: 0; margin: 0; background: $secondary-highlight; color: $white; padding: $padding/2 $padding; }
+    img { width: 100%; display: block; }
   }
+  .featured-content { background: $white; padding: $padding; }
 
 }
