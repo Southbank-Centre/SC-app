@@ -1,6 +1,6 @@
 @import "compass/typography/vertical_rhythm";
 
-$base-font-size: 16px; // 16px for tablet and up
+$base-font-size: 14px; // 16px for tablet and up
 $base-line-height: 13px; // 13px for tablet and up
 
 @include establish-baseline;
@@ -14,8 +14,6 @@ html {
 body {
   @include standard-font-style;
 
-  @include adjust-font-size-to(14px);
-  
   @include breakpoint($bp-tablet) {
     @include adjust-font-size-to(16px);
   }
@@ -68,6 +66,13 @@ h1 {
 
 }
 
+.event-single h1 {
+  @include adjust-font-size-to(24px);
+  @include breakpoint($bp-mobile) {
+    @include adjust-font-size-to(32px);
+  }
+}
+
 h2 {
   @include adjust-font-size-to(18px);
   font-family: 'SC AkkuratLight';
@@ -83,6 +88,27 @@ h2 {
 h3 {
   margin: 0 0 0.5em;
   font-weight: bold;
+  @include adjust-font-size-to(16px);
+  /* font-family: 'SC AkkuratLight';
+  font-weight: normal;
+  letter-spacing: $letter-spacing; */
+
+  @include breakpoint($bp-mobile) {
+    @include adjust-font-size-to(21px);
+  }
+}
+
+h4 {
+  margin: 0 0 1em;
+  font-weight: bold;
+  @include adjust-font-size-to(12px);
+  /* font-family: 'SC AkkuratLight';
+  font-weight: normal;
+  letter-spacing: $letter-spacing; */
+
+  @include breakpoint($bp-mobile) {
+    @include adjust-font-size-to(15px);
+  }
 }
 
 p {

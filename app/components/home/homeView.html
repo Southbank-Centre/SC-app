@@ -1,14 +1,5 @@
 <div class="home" data-ng-controller='HomeCtrl'>
 
-  <div id="featured-events" data-ng-controller='EventListCtrl' ng-show="eventCount">
-
-    <h2>Festival Events <a href="#/whats-on">({{ eventCount }} upcoming)</a></h2>
-    <!--
-    <article class="featured-event" data-ng-repeat='event in events'>
-        <img ng-src="{{ event.image }}" alt="">
-        <h3>{{ event.nameTitle }}</h3>
-    </article>
-    -->
-  </div>
+  <div ui-view="componentFeaturedEvents" class="component-featured-events"></div>
 
 </div>
