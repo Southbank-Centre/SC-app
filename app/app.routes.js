@@ -23,7 +23,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
           'festivalBanner@': {
             templateUrl: 'app/components/home/festivalBannerView.html'
           },
-          'componentFeaturedEvents@': { 
+          'componentFeaturedEvents@wow.home': { 
             templateUrl: 'app/components/content_components/featuredEventsView.html' 
           },
           '@': {
