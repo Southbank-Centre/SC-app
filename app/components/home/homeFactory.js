@@ -20,12 +20,12 @@ angular.module('wowApp')
 
             // .success(callbackSuccess)
 
-            // Loop through component JSON and correct date format for event start and end dates
+            // Loop through component perfomance list (featured events) JSON and correct date format for event start and end dates
             .success(function(components) {
 
               angular.forEach(components.field_component, function(fieldComponent) {            
 
-                angular.forEach(fieldComponent.field_component_list.field_content_list, function(event) {
+                angular.forEach(fieldComponent.field_component_performance_list.field_performance_list, function(event) {
 
                   if (event.field_start_time) {
                     event.field_start_time = utilities.timestampSecondsToMS(event.field_start_time);
