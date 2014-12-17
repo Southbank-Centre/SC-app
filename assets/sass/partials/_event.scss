@@ -226,38 +226,18 @@ article header {
 .events-list {
 
   .page-heading {
-
     margin-top:$margin*2.5;
-
   }
 
   .events-list-filters {
     @include clearfix;
-
-    .event-type-filter-label {
-      margin: 0 0 $margin/4*3;
-      padding-left: $padding;
-    }
-    .festival-day-filter-label {
-      margin: 0 0 $margin/4*3;
-      padding-left: $padding;
-      @include breakpoint($bp-small-desktop) {
-
-      }
-    }
-    .search-filter-label {
-      margin: 0 0 $margin/4*3;
-      padding-left: $padding;
-      @include breakpoint($bp-small-desktop) {
-
-      }
-    }
 
     background: $white;
     padding: $padding/4*3 0 0;
     line-height: 40px;
 
     label {
+      font-family: 'SC AkkuratLight';
       @include adjust-font-size-to(14px);
 
       @include breakpoint($bp-mobile) {
@@ -267,10 +247,12 @@ article header {
 
       float: left;
       line-height: 40px;
+      margin: 0 0 $margin/4*3 $margin;
     }
 
     select { 
-      @include adjust-font-size-to(20px);
+      //@include adjust-font-size-to(20px);
+      font-size: inherit;
 
       font-family: 'SC AkkuratBold';
       -webkit-appearance: none;
@@ -303,6 +285,10 @@ article header {
       padding: 0 $padding*2 0 $padding/2;
       border: none;
       @include adjust-font-size-to(12px);
+      @include breakpoint($bp-mobile) {
+        @include adjust-font-size-to(14px);
+      }
+      float: left;
       height: 40px;
       color: $black;
       background-color: $bg-color;
@@ -313,6 +299,7 @@ article header {
       border-right: 10px solid $bg-color;
       // width: 100%;
       vertical-align: top;
+      margin: 0 0 $margin/4*3 $margin;
     }
 
     ::-webkit-input-placeholder {

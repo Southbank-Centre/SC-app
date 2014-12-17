@@ -19,13 +19,16 @@
   position: relative;
   min-height: 50px;
   @include clearfix;
-  margin: $section-margin-top 0 $margin;
-  h2 { margin: 0 $margin $margin; }
+  margin: 0 0 $margin;
+  h2 { margin: $section-margin-top $margin $margin; }
 
   article {
     @include breakpoint($bp-mobile) {
       @include span(4);
-      &:last-child { @include last; }
+      &:last-child { 
+        @include last;
+        float: left;
+      }
       clear: none;
     }
     h3 {
@@ -35,7 +38,8 @@
   } 
 
   .featured-thumbnail {
-    position: relative; 
+    position: relative;
+    display: block; 
     .featured { position: absolute; bottom: 0; margin: 0; background: $secondary-highlight; color: $white; padding: $padding/2 $padding; }
     img { width: 100%; display: block; }
   }
