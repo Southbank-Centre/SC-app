@@ -5,27 +5,62 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
     $urlRouterProvider.when('', '/');
 
     $stateProvider
-      .state('home', {
-        url: '/',
-        controller: 'HomeCtrl',
+      .state('wow', {
+        url: '',
         views: {
-          '': { templateUrl: 'app/components/home/homeView.html' },
-          'componentFeaturedEvents@home': { templateUrl: 'app/components/content_components/featuredEventsView.html' }
+          'scNav' : {
+            templateUrl: 'app/components/festival/scNavView.html'
+          },
+          'festivalNav' : {
+            templateUrl: 'app/components/festival/festivalNavView.html',
+            controller: 'FestivalNavCtrl'
+          }
         }
       })
-      .state('eventSingle', {
-        url: '/event/:eventId',
-        templateUrl: 'app/components/event/eventSingleView.html',
-        controller: 'EventSingleCtrl',
+      .state('wow.home', {
+        url: '/',
+        views: {
+          'festivalBanner@': {
+            templateUrl: 'app/components/home/festivalBannerView.html'
+          },
+          '@': {
+            templateUrl: 'app/components/home/homeView.html',
+            controller: 'HomeCtrl'
+          }
+        }
       })
-      .state('eventList', {
-        url: '/whats-on',
-        templateUrl: 'app/components/event/eventListView.html',
-        controller: 'EventListCtrl'
+      .state('wow.eventSingle', {
+        url: '^/event/:eventId',
+        views: {
+          '@': {
+            templateUrl: 'app/components/event/eventSingleView.html',
+            controller: 'EventSingleCtrl',
+          }
+        }
       })
-      .state('404', {
+      .state('wow.eventList', {
+        url: '^/whats-on',
+        views: {
+          '@': {
+            templateUrl: 'app/components/event/eventListView.html',
+            controller: 'EventListCtrl'
+          }
+        }
+      })
+      .state('wow.500', {
+        views: {
+          '@': {
+            template: '<div ui-view="festivalMenu"></div><div>WEBSITE ERROR!</div>'
+          }
+        }
+      })
+      .state('wow.404', {
         url: '{path:.*}',
-        template: '<div>NOT FOUND!</div>'
+        views: {
+          '': {
+            template: '<div ui-view="festivalMenu"></div><div>NOT FOUND!</div>'
+          }
+        }
       });
 
   });

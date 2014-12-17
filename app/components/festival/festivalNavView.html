@@ -1,0 +1,29 @@
+<div class="festival-name-bar" id="navTop" ng-class="{homepagenav: isActiveNav('/')}" ng-show="festival" ng-style="{'background-color':festival.field_color_background, 'color':festival.field_color_text}">
+
+  <img src="{{festival.field_image_background.file.url}}" class="background-img" />
+
+  <div class="festival-name-bar-content">
+    <div class="festival-name-bar-logo-container">
+      <img src="{{festival.field_image_logo_small.file.url}}" class="festival-name-bar-logo" alt="{{festival.title}} Logo" />
+    </div>
+    <div class="festival-name-bar-text">
+      <span class="festival-name-bar-name">{{ festival.title }} Festival: </span>
+      <span class="festival-name-bar-location">London</span>
+      <span class="festival-name-bar-year">{{ festival.field_date_start | date:'y' }}</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="container festival-nav" ng-init="navOpen = false">
+
+  <nav ng-class="{'navOpen':navOpen === true}">
+    <a class="hamburger" ng-click="navOpen = !navOpen">☰</a>
+    <a data-ng-repeat="navItem in menus.festivalNav" ng-class="{active: isActiveNav(navItem.url)}" href="{{ navItem.url }}">{{ navItem.title }}</a>
+  </nav>
+
+  <div ng-show="festival" class="twitter-hashtag">
+    <a href="https://twitter.com/hashtag/wowfest2015" ng-style="{'color':festival.field_color_background}">#wowfest2015</a>
+  </div>
+
+</div>
