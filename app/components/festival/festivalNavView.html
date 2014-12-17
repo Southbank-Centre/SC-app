@@ -22,8 +22,8 @@
     <a data-ng-repeat="navItem in menus.festivalNav" ng-class="{active: isActiveNav(navItem.url)}" href="{{ navItem.url }}">{{ navItem.title }}</a>
   </nav>
 
-  <div ng-show="festival" class="twitter-hashtag">
-    <a href="https://twitter.com/hashtag/wowfest2015" ng-style="{'color':festival.field_color_background}">#wowfest2015</a>
+  <div ng-show="festival" class="twitter-hashtag" ng-style="{'color':festival.field_color_background}">
+    #wowfest2015
   </div>
 
 </div>

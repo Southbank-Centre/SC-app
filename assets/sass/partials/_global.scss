@@ -167,3 +167,8 @@ a[href^="https://"] {
   height:100%;
   background:url('../imgs/spinner.gif') no-repeat center center;
 }
+
+/* container of festival nav view on base template */
+.festival-nav-view-container {
+  margin-bottom:$margin/2;
+}

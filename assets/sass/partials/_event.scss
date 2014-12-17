@@ -222,193 +222,207 @@ article header {
 
 
 // Events List
+// 
+.events-list {
 
-.events-list-filters {
-  @include clearfix;
+  .page-heading {
 
-  .event-type-filter-label {
-    margin: 0 0 $margin/4*3;
-    padding-left: $padding;
+    margin-top:$margin*2.5;
+
   }
-  .festival-day-filter-label {
-    margin: 0 0 $margin/4*3;
-    padding-left: $padding;
-    @include breakpoint($bp-small-desktop) {
 
+  .events-list-filters {
+    @include clearfix;
+
+    .event-type-filter-label {
+      margin: 0 0 $margin/4*3;
+      padding-left: $padding;
     }
-  }
-  .search-filter-label {
-    margin: 0 0 $margin/4*3;
-    padding-left: $padding;
-    @include breakpoint($bp-small-desktop) {
+    .festival-day-filter-label {
+      margin: 0 0 $margin/4*3;
+      padding-left: $padding;
+      @include breakpoint($bp-small-desktop) {
 
+      }
     }
-  }
+    .search-filter-label {
+      margin: 0 0 $margin/4*3;
+      padding-left: $padding;
+      @include breakpoint($bp-small-desktop) {
 
-  background: $white;
-  padding: $padding/4*3 0 0;
-  line-height: 40px;
+      }
+    }
 
-  label {
-    @include adjust-font-size-to(14px);
+    background: $white;
+    padding: $padding/4*3 0 0;
+    line-height: 40px;
 
-    @include breakpoint($bp-mobile) {
-      @include adjust-font-size-to(20px);
+    label {
+      @include adjust-font-size-to(14px);
+
+      @include breakpoint($bp-mobile) {
+        @include adjust-font-size-to(20px);
+        line-height: 40px;
+      }
+
+      float: left;
       line-height: 40px;
     }
 
-    float: left;
-    line-height: 40px;
+    select { 
+      @include adjust-font-size-to(20px);
+
+      font-family: 'SC AkkuratBold';
+      -webkit-appearance: none;
+      margin: 0;
+      padding: 0 $padding*2 0 $padding/2;
+      border: 0;
+      border-radius: 0;
+      cursor: pointer;
+      height: 40px;
+      background-color: $bg-color;
+      background-image: url('../imgs/icon-sprite.png');
+      background-size: 20px auto;
+      background-repeat: no-repeat;
+      background-position: right -40px;
+      border-right: 10px solid $bg-color;
+      // width: 100%;
+      vertical-align: top;
+    }
+
+    select::-ms-expand {
+      display: none;
+    }
+
+    .event-type-filter {
+      text-transform: lowercase;
+    }
+
+    input {
+      margin: 0;
+      padding: 0 $padding*2 0 $padding/2;
+      border: none;
+      @include adjust-font-size-to(12px);
+      height: 40px;
+      color: $black;
+      background-color: $bg-color;
+      background-image: url(../imgs/icon-sprite.png);
+      background-size: 20px auto;
+      background-repeat: no-repeat;
+      background-position: right -120px;
+      border-right: 10px solid $bg-color;
+      // width: 100%;
+      vertical-align: top;
+    }
+
+    ::-webkit-input-placeholder {
+      color: $black;
+    }
+    ::-moz-input-placeholder {
+      color: $black;
+    }
+
   }
 
-  select { 
-    @include adjust-font-size-to(20px);
-
-    font-family: 'SC AkkuratBold';
-    -webkit-appearance: none;
-    margin: 0;
-    padding: 0 $padding*2 0 $padding/2;
-    border: 0;
-    border-radius: 0;
-    cursor: pointer;
-    height: 40px;
-    background-color: $bg-color;
-    background-image: url('../imgs/icon-sprite.png');
-    background-size: 20px auto;
-    background-repeat: no-repeat;
-    background-position: right -40px;
-    border-right: 10px solid $bg-color;
-    // width: 100%;
-    vertical-align: top;
-  }
-
-  select::-ms-expand {
-    display: none;
-  }
-
-  .event-type-filter {
-    text-transform: lowercase;
-  }
-
-  input {
-    margin: 0;
-    padding: 0 $padding*2 0 $padding/2;
-    border: none;
-    @include adjust-font-size-to(12px);
-    height: 40px;
-    color: $black;
-    background-color: $bg-color;
-    background-image: url(../imgs/icon-sprite.png);
-    background-size: 20px auto;
-    background-repeat: no-repeat;
-    background-position: right -120px;
-    border-right: 10px solid $bg-color;
-    // width: 100%;
-    vertical-align: top;
-  }
-
-  ::-webkit-input-placeholder {
-    color: $black;
-  }
-  ::-moz-input-placeholder {
-    color: $black;
-  }
-
-}
-
-.event-hour { 
-  @include breakpoint($bp-small-desktop) {
-    @include span(3);
-  }
-  @include adjust-font-size-to(24px);
-  text-transform: lowercase;
-  padding: $padding/4 $padding;
-  background: $white;
-  margin: $margin 0 $margin/4;
-}
-
-.event-list-container {
-  margin-bottom: 5px;
-  clear: both;
-  @include breakpoint($bp-small-desktop) {
-    display: table; width: 100%; // set equal height columns for multi-column breakpoints
-    margin-bottom: 2px;
-  }
-
-  .event-list-img { 
-    @include span(4);
-    float: none; display: table-cell;
-    border-bottom: 2px solid $bg-color;
-
+  .event-hour { 
     @include breakpoint($bp-small-desktop) {
       @include span(3);
-      float: none; display: table-cell;
-      border-bottom: 0;
     }
-    img { width: 100%; height: auto; display: block; }
-    background: $light-grey;
+    @include adjust-font-size-to(24px);
+    text-transform: lowercase;
+    padding: $padding/4 $padding;
+    background: $white;
+    margin: $margin 0 $margin/4;
   }
 
-  .event-list-details {
-    vertical-align: top;
-    @include span(8);
-    float: none; display: table-cell;
-    border-left: 2px solid $bg-color;
-    border-bottom: 2px solid $bg-color;
-    
-    @include adjust-font-size-to(12px);
-    line-height: 1.6;
-
-    @include breakpoint($bp-mobile) { 
-      @include adjust-font-size-to(14px);      
-    }
-
+  .event-list-container {
+    margin-bottom: 5px;
+    clear: both;
     @include breakpoint($bp-small-desktop) {
-      @include span(5 wide);
-      float: none; display: table-cell; // set equal height columns for multi-column breakpoints
-      border-left: 2px solid $bg-color;
-      border-bottom: 0;
-    }
-    @include breakpoint($bp-desktop) {
-      @include span(6 wide);
-      float: none; display: table-cell; // set equal height columns for multi-column breakpoints
-      border-left: 2px solid $bg-color;
-      border-bottom: 0;
-    }
-    background-color: white;
-    padding: $padding $padding/2 $padding/2 $padding;
-    margin-bottom: 1px;
-    h2 {
-      @include adjust-font-size-to(21px);
-      font-family: 'SC AkkuratBold';
-      margin-bottom: 0.5em; 
-    }
-    h3 {
-      @include adjust-font-size-to(15px);
-        font-weight: normal; 
-    }
-    p {
-      // @include adjust-font-size-to(16px);
-    }
-    .event-list-type {
-      margin: 0 0 0.5em;
+      display: table; width: 100%; // set equal height columns for multi-column breakpoints
+      margin-bottom: 2px;
     }
 
+    .event-list-img { 
+      @include span(4);
+      float: none; display: table-cell;
+      border-bottom: 2px solid $bg-color;
+
+      @include breakpoint($bp-small-desktop) {
+        @include span(3);
+        float: none; display: table-cell;
+        border-bottom: 0;
+      }
+      img { width: 100%; height: auto; display: block; }
+      background: $light-grey;
+    }
+
+    .event-list-details {
+      vertical-align: top;
+      @include span(8);
+      float: none; display: table-cell;
+      border-left: 2px solid $bg-color;
+      border-bottom: 2px solid $bg-color;
+      
+      @include adjust-font-size-to(12px);
+      line-height: 1.6;
+
+      @include breakpoint($bp-mobile) { 
+        @include adjust-font-size-to(14px);      
+      }
+
+      @include breakpoint($bp-small-desktop) {
+        @include span(5 wide);
+        float: none; display: table-cell; // set equal height columns for multi-column breakpoints
+        border-left: 2px solid $bg-color;
+        border-bottom: 0;
+      }
+      @include breakpoint($bp-desktop) {
+        @include span(6 wide);
+        float: none; display: table-cell; // set equal height columns for multi-column breakpoints
+        border-left: 2px solid $bg-color;
+        border-bottom: 0;
+      }
+      background-color: white;
+      padding: $padding $padding/2 $padding/2 $padding;
+      margin-bottom: 1px;
+      h2 {
+        @include adjust-font-size-to(21px);
+        font-family: 'SC AkkuratBold';
+        margin-bottom: 0.5em; 
+      }
+      h3 {
+        @include adjust-font-size-to(15px);
+          font-weight: normal; 
+      }
+      p {
+        // @include adjust-font-size-to(16px);
+      }
+      .event-list-type {
+        margin: 0 0 0.5em;
+      }
+
+    }
+    
   }
-  
-} 
+
+}
 
 .no-events { padding: $padding; }
 
 .lt-ie10 {
 
-  .events-list-filters {
+  .events-list {
 
-    select {
+    .events-list-filters {
 
-      background-image:none;
-      padding-right:0;
-      border-right:0;
+      select {
+
+        background-image:none;
+        padding-right:0;
+        border-right:0;
+
+      }
 
     }
 
