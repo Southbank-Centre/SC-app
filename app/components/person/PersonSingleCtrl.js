@@ -8,6 +8,6 @@
  * Controller for the WOW homepage
  */
 angular.module('wowApp')
-  .controller('PersonCtrl', function () {
+  .controller('PersonSingleCtrl', function () {
 
   });
