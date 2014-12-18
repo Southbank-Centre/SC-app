@@ -35,14 +35,23 @@
       margin-bottom: $margin;
       a { color: $black; background: none; }
     }
-  } 
-
-  .featured-thumbnail {
-    position: relative;
-    display: block; 
-    .featured { position: absolute; bottom: 0; margin: 0; background: $secondary-highlight; color: $white; padding: $padding/2 $padding; }
-    img { width: 100%; display: block; }
   }
-  .featured-content { background: $white; padding: $padding; }
+
+  .featured-events-container {
+
+    display:inline-block;
+
+    .featured-thumbnail {
+      position: relative;
+      display: block; 
+      .featured { position: absolute; bottom: 0; margin: 0; background: $secondary-highlight; color: $white; padding: $padding/2 $padding; }
+      img { width: 100%; display: block; }
+    }
+
+    .featured-content {
+      background: $white; padding: $padding;
+    }
+
+  }
 
 }
