@@ -43,9 +43,28 @@
 
     .featured-thumbnail {
       position: relative;
-      display: block; 
-      .featured { position: absolute; bottom: 0; margin: 0; background: $secondary-highlight; color: $white; padding: $padding/2 $padding; }
-      img { width: 100%; display: block; }
+      display: block;
+
+      .featured {
+        position: absolute;
+        bottom: 0;
+        margin: 0;
+        background: $secondary-highlight;
+        color: $white;
+        padding: $padding/2 $padding;
+
+        @include breakpoint($bp-mobile) {
+          padding: $padding/4 $padding/2;
+        }
+        
+        @include breakpoint($bp-desktop) {
+          padding: $padding/2 $padding;
+        }
+      }
+
+      img {
+        width: 100%; display: block;
+      }
     }
 
     .featured-content {
