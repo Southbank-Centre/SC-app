@@ -1,0 +1,51 @@
+.person-single {
+
+  .person-name {
+    @include breakpoint($bp-small-desktop) {
+      @include span(6);
+    }
+
+    background-color:white;
+    padding: $padding;
+    margin-bottom:0;
+  }
+
+  .person-image-container {
+
+    position:relative;
+    overflow:hidden;
+    margin-bottom:$margin/2;
+
+    @include breakpoint($bp-small-desktop) {
+      @include span(8);
+    }
+
+    img {
+      max-width:100%;
+      display:block;
+    }
+
+    figcaption {
+      background-color:white;
+      padding:$padding/2 $padding;
+      position:absolute;
+      bottom:0px;
+
+      @include span(6 of 8);
+
+      @include breakpoint($bp-desktop) {
+        @include span(3 of 8);
+      }
+    }
+
+  }
+
+  .person-bio-container {
+    padding:$padding/2 $padding;
+    background-color:white;
+    @include breakpoint($bp-small-desktop) {
+      @include span(7);
+    }
+  }
+
+}

@@ -9,7 +9,7 @@
  */
 
 angular.module('wowApp')
-  .factory('personFactory', function ($http, $rootScope) {
+  .factory('personFactory', function ($http) {
 
     return {
 
