@@ -16,7 +16,7 @@ angular.module('wowApp')
       getPage: function(pageId, callbackSuccess, callbackError) {
 
         $http.get('/json/api/content-page/'+pageId)
-          .success(callbackSuccess})
+          .success(callbackSuccess)
           .error(callbackError);
 
       }
