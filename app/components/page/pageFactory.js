@@ -15,7 +15,7 @@ angular.module('wowApp')
 
       getPage: function(pageId, callbackSuccess, callbackError) {
 
-        $http.get('/json-test/'+pageId)
+        $http.get('/json/api/content-page/'+pageId)
           .success(function(page) {
 
             // Correct date format for start and end dates
