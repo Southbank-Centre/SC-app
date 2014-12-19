@@ -50,6 +50,15 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
           }
         }
       })
+      .state('wow.page', {
+        url: '^/page/:pageId',
+        views: {
+          '@': {
+            templateUrl: 'app/components/page/pageView.html',
+            controller: 'PageCtrl',
+          }
+        }
+      })
       .state('wow.500', {
         views: {
           '@': {
