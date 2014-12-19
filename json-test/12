@@ -1,0 +1,185 @@
+{
+   "self": "http://sc.fnord/node?type=content_page",
+   "first": "http://sc.fnord/node?type=content_page&page=0",
+   "last": "http://sc.fnord/node?type=content_page&page=0",
+   "list": [
+   {
+       "field_component": [
+           {
+               "field_subheading": "Find out how to build a Content Page with this crazy trick discovered by a MOM!!",
+               "field_subheading_level": "2",
+               "item_id": "2",
+               "revision_id": "2",
+               "bundle": "subheading",
+               "field_name": "field_component",
+               "archived": "0",
+               "url": "http://sc.fnord/"
+           },
+           {
+               "field_text": {
+                   "value": "Thus we were weaving and weaving away when I started at a sound so strange, long drawn, and musically wild and unearthly, that the ball of free will dropped from my hand, and I stood gazing up at the clouds whence that voice dropped like a wing. High aloft in the cross-trees was that mad Gay-Header, Tashtego. His body was reaching eagerly forward, his hand stretched out like a wand, and at brief sudden intervals he continued his cries. To be sure the same sound was that very moment perhaps being heard all over the seas, from hundreds of whalemen's look-outs perched as high in the air; but from few of those lungs could that accustomed old cry have derived such a marvellous cadence as from Tashtego the Indian's.",
+                   "format": "limited_html"
+               },
+               "item_id": "4",
+               "revision_id": "4",
+               "bundle": "long_text",
+               "field_name": "field_component",
+               "archived": "0",
+               "url": "http://sc.fnord/"
+           },
+           {
+               "field_quote": {
+                   "value": "I could barely believe it, but I managed to put together a page out of a number of disparate elements in a totally fuss-free way. Thanks Drupal!",
+                   "format": "limited_html"
+               },
+               "field_quote_attribution": "A Mom",
+               "item_id": "5",
+               "revision_id": "5",
+               "bundle": "pull_quote",
+               "field_name": "field_component",
+               "archived": "0",
+               "url": "http://sc.fnord/"
+           },
+           {
+               "field_text": {
+               "value": "<p>As he stood hovering over you half suspended in air, so wildly and eagerly peering towards the horizon, you would have thought him some prophet or seer beholding the shadows of Fate, and by those wild cries announcing their coming.</p><p>There she blows! there! there! there! she blows! she blows!</p><p>Where-away?</p><p>On the lee-beam, about two miles off! a school of them! As he stood hovering over you half suspended in air, so wildly and eagerly peering towards the horizon, you would have thought him some prophet or seer beholding the shadows of Fate, and by those wild cries announcing their coming.\n\n\"There she blows! there! there! there! she blows! she blows!</p><p>Where-away?</p><p>On the lee-beam, about two miles off! a school of them!</p>",
+                   "format": "limited_html"
+               },
+               "item_id": "7",
+               "revision_id": "7",
+               "bundle": "long_text",
+               "field_name": "field_component",
+               "archived": "0",
+               "url": "http://sc.fnord/"
+           },
+           {
+               "field_subheading": "Related links",
+               "field_subheading_level": "3",
+               "item_id": "8",
+               "revision_id": "8",
+               "bundle": "subheading",
+               "field_name": "field_component",
+               "archived": "0",
+               "url": "http://sc.fnord/"
+           },
+           {
+               "field_link": [
+                   {
+                       "title": "Cogapp",
+                       "url": "http://www.cogapp.com",
+                       "attributes": []
+                   },
+                   {
+                       "title": "Southbank Centre",
+                       "url": "http://www.southbankcentre.co.uk",
+                       "attributes": []
+                   }
+               ],
+               "item_id": "3",
+               "revision_id": "3",
+               "bundle": "link",
+               "field_name": "field_component",
+               "archived": "0",
+               "url": "http://sc.fnord/"
+           },
+           {
+               "field_subheading": "Related media",
+               "field_subheading_level": "3",
+               "item_id": "9",
+               "revision_id": "9",
+               "bundle": "subheading",
+               "field_name": "field_component",
+               "archived": "0",
+               "url": "http://sc.fnord/"
+           },
+           {
+               "field_subheading": "Audio",
+               "field_subheading_level": "4",
+               "item_id": "10",
+               "revision_id": "10",
+               "bundle": "subheading",
+               "field_name": "field_component",
+               "archived": "0",
+               "url": "http://sc.fnord/"
+           },
+           {
+               "field_soundcloud_embed_code": {
+                   "value": "<iframe width=\"100%\" height=\"450\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/156075705&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true\"></iframe>",
+                   "format": "iframe_html"
+               },
+               "field_caption": {
+                   "value": "<strong>Grimes</strong> - Go",
+                   "format": "limited_html"
+               },
+               "item_id": "11",
+               "revision_id": "11",
+               "bundle": "soundcloud_embed",
+               "field_name": "field_component",
+               "archived": "0",
+               "url": "http://sc.fnord/"
+           },
+           {
+               "field_subheading": "Video",
+               "field_subheading_level": "4",
+               "item_id": "12",
+               "revision_id": "12",
+               "bundle": "subheading",
+               "field_name": "field_component",
+               "archived": "0",
+               "url": "http://sc.fnord/"
+           },
+           {
+               "field_caption": {
+                   "value": "<strong>Nils Frahm</strong> live",
+                   "format": "limited_html"
+               },
+               "field_youtube_embed_code": {
+                   "value": "<iframe width=\"560\" height=\"315\" src=\"//www.youtube.com/embed/Aln6DztAsMQ\" frameborder=\"0\" allowfullscreen=\"\"></iframe>",
+                   "format": "iframe_html"
+               },
+               "item_id": "13",
+               "revision_id": "13",
+               "bundle": "youtube_embed",
+               "field_name": "field_component",
+               "archived": "0",
+               "url": "http://sc.fnord/"
+           }
+       ],
+       "nid": "12",
+       "vid": "12",
+       "is_new": false,
+       "type": "content_page",
+       "title": "Test content page",
+       "language": "und",
+       "url": "http://sc.fnord/content-page/12",
+       "edit_url": "http://sc.fnord/node/12/edit",
+       "status": "1",
+       "promote": "1",
+       "sticky": "0",
+       "created": "1418832998",
+       "changed": "1418904472",
+       "author": {
+           "uid": "1",
+           "name": "admin",
+           "mail": "alexb@cogapp.com",
+           "url": "http://sc.fnord/user/1",
+           "edit_url": "http://sc.fnord/user/1/edit",
+           "last_access": "1418904373",
+           "last_login": "1417525230",
+           "created": "1417525142",
+           "roles": [
+               2,
+               3
+           ],
+           "status": "1",
+           "theme": "seven",
+           "uuid": "b782bd29-0670-4850-841b-a1ef2944374c"
+       },
+       "log": "",
+       "revision": null,
+       "body": [],
+       "uuid": "b72bfdc3-82eb-4462-8e85-ab24aebb10f5",
+       "vuuid": "33d0a31c-717d-467e-a422-093113f8c782"
+   }
+]
+}
