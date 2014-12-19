@@ -2,6 +2,31 @@
 
 angular
   .module('wowApp')
+  
+
+  /*
+     Whitelist urls to allow iframe embeds (ng-bind-html sanitizes html by default)
+     NB only works if iframe defined in view template (they aren't currently)
+  */
+
+  .config(function($sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+      // Allow same origin resource loads.
+      'self',
+      // Allow loading from our assets domain.  Notice the difference between * and **.
+      '*://www.youtube.com/**'
+    ]);
+  })
+  // $sceProvider.enabled(false);
+
+
+  /* 
+    Filter to allow ng-bind-html to accept iframes (just add '| unsafe' to bind)
+  */
+  .filter('unsafe', function($sce) { return $sce.trustAsHtml; })
+
+
+
   .run(['$rootScope', '$state', 'festivalFactory', function(scope, state, festivalFactory) {
 
     // Setup pageNotFound event
@@ -69,3 +94,4 @@ angular
     });
 
   }]);
+
