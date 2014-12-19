@@ -82,7 +82,6 @@
   }
   q {
     display: block;
-    // text-indent: 1em;
     font-family: 'SC AkkuratLight';
     @include adjust-font-size-to(21px);
     @include breakpoint($bp-small-desktop) {
@@ -106,12 +105,10 @@
     width: 100%;
     height: 0;
     padding-bottom: 56.25%; // 9/16
-    // padding-bottom: 66.6667%; // 2/3
     iframe {
       position: absolute;
       top: 0;
       left: 0;
-      /* make the iframe/embed fill the wrapper */
       height: 100%;
       width: 100%;
     }
@@ -126,17 +123,36 @@
     @include post(4);
   }
   .soundcloud-player {
-    // responsive embeds - see http://www.smashingmagazine.com/2014/02/27/making-embedded-content-work-in-responsive-design/
     position: relative;
     width: 100%;
     height: 0;
     padding-bottom: 56.25%; // 9/16
-    // padding-bottom: 20%; // 2/3
     iframe {
       position: absolute;
       top: 0;
       left: 0;
-      /* make the iframe/embed fill the wrapper */
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .caption { background: $white; padding: $padding; }
+}
+
+.flickr-container {
+  margin: 0 0 $margin*4;
+  @include breakpoint($bp-small-desktop) {
+    @include span(8);
+    @include post(4);
+  }
+  .flickr-player {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 66.6667%; // 2/3
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       height: 100%;
       width: 100%;
     }
