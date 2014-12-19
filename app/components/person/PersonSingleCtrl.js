@@ -15,17 +15,7 @@ angular.module('wowApp')
      */
     personFactory.getPersonSingle($stateParams.personId, function(person) {
 
-      /* TEMPORARY */
-      person.field_image = {
-        file: {
-          url: 'http://collider.com/wp-content/uploads/die-hard-with-a-vengeance-bruce-willis.jpg'
-        },
-        caption: 'Yippeekiyay Yippeekiyay Yippeekiyay'
-      }
-
       $scope.person = person;
-
-      console.log($scope.person);
 
     }, function(data, status) {
 
