@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name wowApp.controller:EventSingleCtrl
+ * @name wowApp.controller:PageCtrl
  * @description
- * # EventSingleCtrl
- * Controller of a single event
+ * # PageCtrl
+ * Controller of a content page
  */
 
 angular.module('wowApp')
@@ -16,14 +16,8 @@ angular.module('wowApp')
      */
     pageFactory.getPage($stateParams.pageId, function(data) {
 
-      // Validation
-      // Location, event name and start date must be present for the event to display
-      /* if (!data.location || !data.startDate || !data.nameTitle) {
-        $rootScope.$broadcast('event:pageNotFound');
-      } */
-
       // SUCCESS
-      // Attach the event data to the scope
+      // Attach the page data to the scope
       $scope.page = data;
 
     }, function(data, status) {

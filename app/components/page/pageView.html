@@ -6,7 +6,6 @@
   
   <div ui-view="festivalMenu"></div>
 
-  <!-- <article ng-show="page" ng-repeat="page in page.list"> -->
   <article>
 
     <header class="container">
@@ -18,8 +17,6 @@
     </header>
 
     <div ng-repeat="paragraph in page.field_component">
-
-      <!-- {{ paragraph.bundle }} -->
 
       <div ng-switch="paragraph.bundle == 'subheading'">
         <div ng-switch-when="true">
@@ -70,9 +67,6 @@
       </div>
 
     </div>
-
-  <!-- <h3>The first method:</h3>
-  <div first-method ctrl="ParaCtrl" tpl="'paraView.html'"></div> -->
 
   </article>
   

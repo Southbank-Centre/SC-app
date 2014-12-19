@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name wowApp.controller:EventSingleCtrl
+ * @name wowApp.controller:HeadingCtrl
  * @description
- * # EventSingleCtrl
- * Controller of a single event
+ * # HeadingCtrl
+ * Controller of a sub-heading component
  */
 
 angular.module('wowApp')
@@ -16,31 +16,13 @@ angular.module('wowApp')
      */
     pageFactory.getPage($stateParams.pageId, function(data) {
 
-      // Validation
-      // Location, event name and start date must be present for the event to display
-      /* if (!data.location || !data.startDate || !data.nameTitle) {
-        $rootScope.$broadcast('event:pageNotFound');
-      } */
-
-      // SUCCESS
-      // Attach the page data to the scope
-      //$scope.heading = data.list.field_component_field_subheading;
       $scope.page = data;
 
-        //angular.forEach($scope.paragraph, function(item) {
+      if ($scope.paragraph.bundle === 'subheading') {
 
-          if ($scope.paragraph.bundle === 'subheading') {
+        $scope.paragraph.field_subheading  = ('<h' + $scope.paragraph.field_subheading_level + '>' + $scope.paragraph.field_subheading + '</h' + $scope.paragraph.field_subheading_level + '>');
 
-            $scope.paragraph.field_subheading  = ('<h' + $scope.paragraph.field_subheading_level + '>' + $scope.paragraph.field_subheading + '</h' + $scope.paragraph.field_subheading_level + '>');
-
-            // console.log($scope.paragraph);
-
-          } else {
-            // console.log($scope.paragraph);
-          }
-
-        // });
-
+      }
 
     }, function(data, status) {
 
