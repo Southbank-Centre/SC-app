@@ -1,0 +1,66 @@
+<div class="page" data-ng-controller='PageCtrl'>
+
+  <div ui-view="scMenu"></div>
+
+  <div ui-view="festivalName"></div>
+  
+  <div ui-view="festivalMenu"></div>
+
+  <article ng-show="page" ng-repeat="page in page.list">
+
+    <header class="container">
+
+      <div class="page-name" id="page-name">
+        <h1>{{ page.title }}</h1>
+      </div>
+
+    </header>
+
+    <div ng-repeat="paragraph in page.field_component">
+
+      <!-- {{ paragraph.bundle }} -->
+
+      <div ng-switch="paragraph.bundle == 'subheading'">
+        <div ng-switch-when="true">
+          <div ng-include="'app/components/content_components/headingView.html'"></div>
+        </div>
+      </div>
+
+      <div ng-switch="paragraph.bundle == 'long_text'">
+        <div ng-switch-when="true">
+          <div ng-include="'app/components/content_components/longTextView.html'"></div>
+        </div>
+      </div>
+
+      <div ng-switch="paragraph.bundle == 'soundcloud_embed'">
+        <div ng-switch-when="true">
+          <div ng-include="'app/components/content_components/soundcloudView.html'"></div>
+        </div>
+      </div>
+
+      <div ng-switch="paragraph.bundle == 'youtube_embed'">
+        <div ng-switch-when="true">
+          <div ng-include="'app/components/content_components/youtubeView.html'"></div>
+        </div>
+      </div>
+
+      <div ng-switch="paragraph.bundle == 'pull_quote'">
+        <div ng-switch-when="true">
+          <div ng-include="'app/components/content_components/pullQuoteView.html'"></div>
+        </div>
+      </div>
+
+      <div ng-switch="paragraph.bundle == 'link'">
+        <div ng-switch-when="true">
+          <div ng-include="'app/components/content_components/linkView.html'"></div>
+        </div>
+      </div>
+
+    </div>
+
+  <!-- <h3>The first method:</h3>
+  <div first-method ctrl="ParaCtrl" tpl="'paraView.html'"></div> -->
+
+  </article>
+  
+</div>
