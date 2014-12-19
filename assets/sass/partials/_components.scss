@@ -1,0 +1,156 @@
+// Components styling
+
+.component-featured-events {
+
+  position: relative;
+  min-height: 50px;
+  @include clearfix;
+  margin: 0 0 $margin;
+  h2 { margin: $section-margin-top $margin $margin; }
+
+  article {
+    @include breakpoint($bp-mobile) {
+      @include span(4);
+      &:last-child { 
+        @include last;
+        float: left;
+      }
+      clear: none;
+    }
+    h3 {
+      margin-bottom: $margin;
+      a { color: $black; background: none; }
+    }
+  }
+
+  .featured-events-container {
+
+    display:inline-block;
+
+    .featured-thumbnail {
+      position: relative;
+      display: block; 
+      .featured { position: absolute; bottom: 0; margin: 0; background: $secondary-highlight; color: $white; padding: $padding/2 $padding; }
+      img { width: 100%; display: block; }
+    }
+
+    .featured-content {
+      background: $white; padding: $padding;
+    }
+
+  }
+
+}
+
+// Content paragraphs
+
+.sub-heading { 
+  background: $white;
+  padding: $padding;
+  margin: 0 0 2px;
+  @include breakpoint($bp-small-desktop) {
+    @include span(10);
+    @include post(2);
+  }
+  h2,h3,h4 { 
+    font-family: 'SC AkkuratLight';
+    margin: 0; 
+  }
+}
+
+.text-container { 
+  background: $white;
+  padding: $padding;
+  margin: 0 0 $margin*4;
+  @include breakpoint($bp-small-desktop) {
+    @include span(10);
+    @include post(2);
+  }
+  p {
+    &:first-of-type { margin-top: 0; }
+    &:last-of-type { margin-bottom: 0; }
+  }
+}
+
+.pullquote-container {
+  background: $white;
+  padding: $padding;
+  margin: 0 0 2px;
+  @include breakpoint($bp-small-desktop) {
+    @include span(10);
+    @include post(2);
+  }
+  q {
+    display: block;
+    // text-indent: 1em;
+    font-family: 'SC AkkuratLight';
+    @include adjust-font-size-to(21px);
+    @include breakpoint($bp-small-desktop) {
+      @include adjust-font-size-to(28px);
+    }
+    quotes: "\201C" "\201D" "\2018" "\2019";
+    &:before { content: open-quote; margin-left: -0.4em; }
+    &:after { content: close-quote; }
+  }
+}
+
+.youtube-container {
+  margin: 0 0 $margin*4;
+  @include breakpoint($bp-small-desktop) {
+    @include span(8);
+    @include post(4);
+  }
+  .youtube-player {
+    // responsive embeds - see http://www.smashingmagazine.com/2014/02/27/making-embedded-content-work-in-responsive-design/
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; // 9/16
+    // padding-bottom: 66.6667%; // 2/3
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* make the iframe/embed fill the wrapper */
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .caption { background: $white; padding: $padding; }
+} 
+
+.soundcloud-container {
+  margin: 0 0 $margin*4;
+  @include breakpoint($bp-small-desktop) {
+    @include span(8);
+    @include post(4);
+  }
+  .soundcloud-player {
+    // responsive embeds - see http://www.smashingmagazine.com/2014/02/27/making-embedded-content-work-in-responsive-design/
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; // 9/16
+    // padding-bottom: 20%; // 2/3
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* make the iframe/embed fill the wrapper */
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .caption { background: $white; padding: $padding; }
+}
+
+.link-container {
+  background: $white;
+  padding: $padding;
+  margin: 0 0 $margin*4;
+  @include breakpoint($bp-small-desktop) {
+    @include span(10);
+    @include post(2);
+  }
+}
+
