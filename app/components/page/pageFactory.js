@@ -26,6 +26,8 @@ angular.module('wowApp')
               performance.field_end_time = utilities.timestampSecondsToMS(performance.field_end_time);
             } */
 
+            console.log(page);
+
             callbackSuccess(page);
 
           })
