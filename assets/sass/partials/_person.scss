@@ -1,6 +1,6 @@
 .person-single {
 
-  .person-name {
+  .person-name-container {
     @include breakpoint($bp-small-desktop) {
       @include span(6);
     }
@@ -8,6 +8,7 @@
     background-color:white;
     padding: $padding;
     margin-bottom:0;
+    @include word-wrap(normal);
   }
 
   .person-bio-container {
