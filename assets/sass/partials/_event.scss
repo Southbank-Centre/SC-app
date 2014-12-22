@@ -198,9 +198,14 @@
 
   figure { margin: 0; }
 
-  .container { background: $white; margin-bottom: 2px; }
+  .container { 
+    @include clearfix;
+    background: $white; 
+    margin-bottom: 2px; 
+  }
 
   .person-image-container {
+    @include span(4 of 9);
     @include breakpoint($bp-small-desktop) {
       @include span(3 of 9);
     }
@@ -213,12 +218,13 @@
   }
 
   .person-info-container {
+    @include span(5 of 9 last);
+    padding:$padding;
+    h3 a {
+      color: $black; background: none;
+    }
     @include breakpoint($bp-small-desktop) {
       @include span(6 of 9 last);
-      padding:$padding;
-      h3 a {
-        color: $black; background: none;
-      }
     }
   }
 }
