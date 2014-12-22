@@ -84,6 +84,21 @@
       <div data-ng-bind-html="event.field_description.value"></div>
     </div>
 
+    <div ng-show="event.field_people.length > 0" class="event-speakers-artists">
+      <h4>Speakers & Artists</h4>
+      <div data-ng-repeat="person in event.field_people" class="container">
+        <div class="event-person-image">
+          <a href="#/person/{{ person.nid }}"><img src="http://collider.com/wp-content/uploads/die-hard-with-a-vengeance-bruce-willis.jpg" /></a>
+        </div>
+        <a href="#/person/{{ person.nid }}">
+          <h3 class="event-person-name">
+            <span class="event-person-first-name">{{ person.field_first_name }}</span>
+            <span class="event-person-last-name">{{ person.field_last_name }}</span>
+          </h3>
+        </a>
+      </div>
+    </div>
+
     <div ng-show="festival.title" class="festival-name">
       <div>This event is part of <strong>Southbank Centre's {{ festival.title }} Festival</strong></div>
     </div>

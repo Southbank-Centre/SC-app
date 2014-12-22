@@ -1,6 +1,6 @@
 // Event
 
-.date, .teaser, .event-details-container, .full-description, .festival-name, .festival-description { 
+.date, .teaser, .event-details-container, .full-description, .event-speakers-artists, .festival-name, .festival-description {
   background: $white; 
   margin-bottom: 2px;
   padding: $padding; 
@@ -180,6 +180,39 @@
 
   p:last-of-type {
     margin-bottom: 0;
+  }
+}
+
+.event-speakers-artists {
+  clear: both;
+  margin: $margin 0;
+  @include adjust-font-size-to(12px);
+  line-height: 1.6;
+
+  a {
+    color:black;
+  }
+
+  @include breakpoint($bp-small-desktop) {
+    @include span(7);
+    @include adjust-font-size-to(14px);
+  }
+
+  .event-person-image {
+    @include breakpoint($bp-small-desktop) {
+      @include span(2 of 7);
+    }
+
+    img {
+      max-width:100%;
+    }
+  }
+
+  .event-person-name {
+    @include breakpoint($bp-small-desktop) {
+      @include span(5 of 7 last);
+      padding-left:$padding/2;
+    }
   }
 }
 
