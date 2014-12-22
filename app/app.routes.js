@@ -56,6 +56,9 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
           '@': {
             templateUrl: 'app/components/person/personSingleView.html',
             controller: 'PersonSingleCtrl'
+          }
+        }
+      })
       .state('wow.page', {
         url: '^/page/:pageId',
         views: {
