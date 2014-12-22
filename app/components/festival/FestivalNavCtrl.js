@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name wowApp.controller:HomeCtrl
+ * @name wowApp.controller:FestivalNavCtrl
  * @description
- * # HomeCtrl
- * Controller for the WOW homepage
+ * # FestivalNavCtrl
+ * Controller for the WOW festival navigation
  */
 angular.module('wowApp')
   .controller('FestivalNavCtrl', function ($scope, $location) {

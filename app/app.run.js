@@ -2,6 +2,7 @@
 
 angular
   .module('wowApp')
+  
   .run(['$rootScope', '$state', 'festivalFactory', function(scope, state, festivalFactory) {
 
     // Setup pageNotFound event
@@ -69,3 +70,4 @@ angular
     });
 
   }]);
+
