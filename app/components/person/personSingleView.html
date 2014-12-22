@@ -11,14 +11,14 @@
         </h1>
       </div>
 
-      <figure class="person-image-container">
+      <figure class="person-image-container" ng-show="person.field_photo.field_image_file.field_image.file.url">
         <img src="{{ person.field_photo.field_image_file.field_image.file.url }}" alt="{{ person.field_photo.field_image_file.field_image.alt }}" title="{{ person.field_photo.field_image_file.field_image.title }}" />
-        <figcaption>{{ person.field_photo.field_caption.value }}</figcaption>
+        <figcaption ng-show="person.field_photo.field_caption.value">{{ person.field_photo.field_caption.value }}</figcaption>
       </figure>
 
     </header>
 
-    <div class="person-bio-container">
+    <div class="person-bio-container" ng-show="person.field_biography.value">
       <div data-ng-bind-html="person.field_biography.value"></div>
     </div>
 
