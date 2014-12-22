@@ -2,7 +2,15 @@
 
   .person-name-container {
     @include breakpoint($bp-small-desktop) {
+      @include span(9);
+    }
+
+    @include breakpoint($bp-desktop) {
       @include span(6);
+    }
+
+    h1 {
+      margin:0;
     }
 
     background-color:white;
@@ -15,6 +23,10 @@
     padding:$padding/2 $padding;
     background-color:white;
     @include breakpoint($bp-small-desktop) {
+      @include span(10);
+    }
+
+    @include breakpoint($bp-desktop) {
       @include span(7);
     }
   }
