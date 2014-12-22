@@ -50,6 +50,12 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
           }
         }
       })
+      .state('wow.person', {
+        url: '^/person/:personId',
+        views: {
+          '@': {
+            templateUrl: 'app/components/person/personSingleView.html',
+            controller: 'PersonSingleCtrl'
       .state('wow.page', {
         url: '^/page/:pageId',
         views: {
@@ -69,7 +75,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
       .state('wow.404', {
         url: '{path:.*}',
         views: {
-          '': {
+          '@': {
             template: '<div ui-view="festivalMenu"></div><div>NOT FOUND!</div>'
           }
         }
