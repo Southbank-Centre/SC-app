@@ -1,6 +1,6 @@
 // Event
 
-.date, .teaser, .event-details-container, .full-description, .event-speakers-artists, .festival-name, .festival-description {
+.date, .teaser, .event-details-container, .full-description, .festival-name, .festival-description {
   background: $white; 
   margin-bottom: 2px;
   padding: $padding; 
@@ -185,33 +185,40 @@
 
 .event-speakers-artists {
   clear: both;
-  margin: $margin 0;
+  margin: $margin 0 $margin*2;
   @include adjust-font-size-to(12px);
   line-height: 1.6;
 
-  a {
-    color:black;
-  }
-
   @include breakpoint($bp-small-desktop) {
-    @include span(7);
+    @include span(9);
     @include adjust-font-size-to(14px);
   }
 
-  .event-person-image {
+  h2 { margin: 0 $margin $margin; }
+
+  figure { margin: 0; }
+
+  .container { background: $white; margin-bottom: 2px; }
+
+  .person-image-container {
     @include breakpoint($bp-small-desktop) {
-      @include span(2 of 7);
+      @include span(3 of 9);
     }
 
     img {
-      max-width:100%;
+      max-width: 100%;
+      min-width: 100%;
+      display: block;
     }
   }
 
-  .event-person-name {
+  .person-info-container {
     @include breakpoint($bp-small-desktop) {
-      @include span(5 of 7 last);
-      padding-left:$padding/2;
+      @include span(6 of 9 last);
+      padding:$padding;
+      h3 a {
+        color: $black; background: none;
+      }
     }
   }
 }
