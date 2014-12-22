@@ -167,6 +167,6 @@
     @include span(10);
     @include post(2);
   }
-  ul { list-style: none; }
+  ul { list-style: none; margin-left: 0; }
 }
 
