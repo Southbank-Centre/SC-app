@@ -8,7 +8,7 @@
     background-color:white;
     padding: $padding;
     margin-bottom:0;
-    @include word-wrap(normal);
+    word-wrap:break-word
   }
 
   .person-bio-container {
