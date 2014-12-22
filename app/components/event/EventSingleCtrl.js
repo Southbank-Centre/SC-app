@@ -30,7 +30,7 @@ angular.module('wowApp')
 
       // Failure
       // If event not found
-      if (status === 404) {
+      if (status === 404 || status === 403) {
         // Broadcast the pageNotFound event
         $rootScope.$broadcast('event:pageNotFound');
       }

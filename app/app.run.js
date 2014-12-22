@@ -40,7 +40,7 @@ angular
     }, function(data, status) {
       // Failure
       // If festival not found
-      if (status === 404) {
+      if (status === 404 || status === 403) {
         // Broadcast the pageNotFound event
         scope.$broadcast('event:pageNotFound');
       }
@@ -63,7 +63,7 @@ angular
     }, function(data, status) {
       // Failure
       // If 404 from API
-      if (status === 404) {
+      if (status === 404 || status === 403) {
         // Broadcast the pageNotFound event
         scope.$broadcast('event:pageNotFound');
       }
