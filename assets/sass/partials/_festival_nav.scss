@@ -6,7 +6,12 @@
     display:none;
   }
 
-  @include adjust-font-size-to(26px);
+  @include adjust-font-size-to(18px);
+
+  @include breakpoint($bp-mobile) {
+    @include adjust-font-size-to(26px);
+  }
+
   font-family: 'SC AkkuratLight';
   letter-spacing: $letter-spacing;
   background-repeat: no-repeat;
@@ -57,7 +62,7 @@
 
   background-color:white;
   height:79px;
-  overflow:hidden;
+  // overflow:hidden;
 
   a {
     background:white;

@@ -2,8 +2,13 @@
 @import "susy";
 @import "breakpoint/breakpoint";
 
-/* Vendor */
+/* Reset */
 @import "vendor/_html5doctorreset.min.scss";
+
+/* Grid */
+@import "partials/grid";
+
+/* Bourbon mixins */
 @import "bourbon/bourbon";
 
 /* Variables */
@@ -11,9 +16,6 @@
 
 /* Mixins */
 @import "partials/mixins";
-
-/* Grid */
-@import "partials/grid";
 
 /* Globals */
 @import "partials/global";

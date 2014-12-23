@@ -121,7 +121,6 @@
 .event-details-container {
   @include clearfix;
   @include adjust-font-size-to(12px);
-  line-height: 1.6;
 
   @include breakpoint($bp-small-desktop) {
     @include span(9);
@@ -167,7 +166,6 @@
   clear: both;
   margin: $margin 0;
   @include adjust-font-size-to(12px);
-  line-height: 1.6;
 
   @include breakpoint($bp-small-desktop) {
     @include span(8);
@@ -187,7 +185,6 @@
   clear: both;
   margin: $margin 0 $margin*2;
   @include adjust-font-size-to(12px);
-  line-height: 1.6;
 
   @include breakpoint($bp-small-desktop) {
     @include span(9);
@@ -402,7 +399,6 @@
       border-bottom: 2px solid $bg-color;
       
       @include adjust-font-size-to(12px);
-      line-height: 1.6;
 
       @include breakpoint($bp-mobile) { 
         @include adjust-font-size-to(14px);      

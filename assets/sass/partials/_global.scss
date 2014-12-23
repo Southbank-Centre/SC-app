@@ -12,6 +12,14 @@ ul {
   list-style-position: inside;
 }
 
+.container {
+  @include susy-breakpoint($bp-tablet, 12) {
+    @include container($susy);
+  }
+  @include clearfix;
+  position: relative;
+}
+
 
 // Links
 
