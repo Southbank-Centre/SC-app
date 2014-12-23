@@ -22,12 +22,16 @@
   padding: $padding/2 $padding; 
 }
 
-article header {
-  margin-bottom: 2px;
-  clear: both;
-  @include breakpoint($bp-small-desktop) {
-    display: table; width: 100%; // set equal height columns for multi-column breakpoints
+.event-single {
+
+  article header {
+    margin-bottom: 2px;
+    clear: both;
+    @include breakpoint($bp-small-desktop) {
+      display: table; width: 100%; // set equal height columns for multi-column breakpoints
+    }
   }
+
 }
 
 .event-name {

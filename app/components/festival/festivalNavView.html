@@ -18,7 +18,7 @@
 <div class="container festival-nav" ng-init="navOpen = false">
 
   <nav ng-class="{'navOpen':navOpen === true}">
-    <a class="hamburger" ng-click="navOpen = !navOpen">☰</a>
+    <a class="hamburger" ng-click="navOpen = !navOpen"></a>
     <a data-ng-repeat="navItem in menus.festivalNav" ng-class="{active: isActiveNav(navItem.url)}" href="{{ navItem.url }}">{{ navItem.title }}</a>
   </nav>
 

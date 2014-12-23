@@ -11,7 +11,7 @@ angular.module('wowApp')
   .controller('PersonSingleCtrl', function ($rootScope, $scope, $stateParams, personFactory) {
 
     /**
-     * Method for getting the homepage landing page for this festival from the API
+     * Method for getting a single person from the API
      */
     personFactory.getPersonSingle($stateParams.personId, function(person) {
 
@@ -20,8 +20,8 @@ angular.module('wowApp')
     }, function(data, status) {
 
       // Failure
-      // If homepage not found
-      if (status === 404) {
+      // If person not found
+      if (status === 404 || status === 403) {
         // Broadcast the pageNotFound event
         $rootScope.$broadcast('event:pageNotFound');
       }
