@@ -1,11 +1,12 @@
 'use strict';
 
 /**
- * @ngdoc function
+ * @ngdoc controller
  * @name wowApp.controller:PersonSingleCtrl
+ * @controller
+ *
  * @description
- * # PersonSingleCtrl
- * Controller for the single person page
+ * Defines the state and behaviour of the $scope for the personSingleView state
  */
 angular.module('wowApp')
   .controller('PersonSingleCtrl', function ($rootScope, $scope, $stateParams, personFactory) {

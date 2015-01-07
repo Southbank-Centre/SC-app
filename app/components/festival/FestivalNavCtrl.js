@@ -1,11 +1,12 @@
 'use strict';
 
 /**
- * @ngdoc function
+ * @ngdoc controller
  * @name wowApp.controller:FestivalNavCtrl
+ * @controller
+ *
  * @description
- * # FestivalNavCtrl
- * Controller for the WOW festival navigation
+ * Defines the state and behaviour of the $scope for the festivalNavView state
  */
 angular.module('wowApp')
   .controller('FestivalNavCtrl', function ($scope, $location) {

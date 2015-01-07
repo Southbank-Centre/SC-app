@@ -1,11 +1,12 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name wowApp.controller:MainCtrl
+ * @ngdoc controller
+ * @name wowApp.controller:CoreCtrl
+ * @controller
+ *
  * @description
- * # MainCtrl
- * Controller of the wowApp
+ * Defines the state and behaviour of the $scope for the base state
  */
 angular.module('wowApp')
   .controller('CoreCtrl', function($scope, $location, $anchorScroll) {

@@ -1,11 +1,12 @@
 'use strict';
 
 /**
- * @ngdoc function
+ * @ngdoc controller
  * @name wowApp.controller:HomeCtrl
+ * @controller
+ *
  * @description
- * # HomeCtrl
- * Controller for the WOW homepage
+ * Defines the state and behaviour of the $scope for the homeView state
  */
 angular.module('wowApp')
   .controller('HomeCtrl', function ($rootScope, $scope, homeFactory, eventFactory) {

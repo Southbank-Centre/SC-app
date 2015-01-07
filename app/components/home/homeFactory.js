@@ -1,11 +1,12 @@
 'use strict';
 
 /**
- * @ngdoc function
+ * @ngdoc service
  * @name wowApp.factory:homeFactory
+ * @factory
+ *
  * @description
- * # homeFactory
- * Factory for loading festival homepage data into the wowApp
+ * Factory for loading homepage data into the wowApp
  */
 
 angular.module('wowApp')
@@ -13,6 +14,17 @@ angular.module('wowApp')
 
     return {
 
+      /**
+       * @ngdoc method
+       * @methodOf wowApp.factory:homeFactory
+       * @name wowApp.factory:homeFactory#getHomepageSingle
+       * @returns {undefined} Undefined
+       * @param {function} callbackSuccess The function to call when the HTTP request succeeds
+       * @param {function} callbackError The function to call when the HTTP request fails
+       *
+       * @description
+       * For getting data for a single homepage based on the landing page id stored in $rootScope.festival.field_homepage.id
+       */
       getHomepageSingle: function (callbackSuccess, callbackError) {
 
         var loadData = function() {
