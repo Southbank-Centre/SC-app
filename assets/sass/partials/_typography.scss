@@ -55,7 +55,7 @@ body {
 
 h1 {
   @include adjust-font-size-to(26px);
-  font-family: 'SC AkkuratBold', Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: 'SC AkkuratBold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: normal;
   letter-spacing: $letter-spacing;
   margin: 0 0 0.5em;
@@ -75,7 +75,7 @@ h1 {
 
 h2 {
   @include adjust-font-size-to(18px);
-  font-family: 'SC AkkuratLight', Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: 'SC AkkuratLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: normal;
   letter-spacing: $letter-spacing; 
 

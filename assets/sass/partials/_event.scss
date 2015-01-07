@@ -121,16 +121,15 @@
 .event-details-container {
   @include clearfix;
   @include adjust-font-size-to(12px);
-  line-height: 1.6;
 
   @include breakpoint($bp-small-desktop) {
-    @include span(9);
+    @include span(10);
     @include adjust-font-size-to(14px);
   }
 
   .event-details-content {
     @include breakpoint($bp-mobile) {
-      @include span(5 of 9); 
+      @include span(5 of 10); 
     }
 
     padding-left: 20px;
@@ -141,7 +140,7 @@
     margin-top: $margin;
 
     @include breakpoint($bp-mobile) {
-      @include span(4 of 9 last);
+      @include span(5 of 10 last);
       padding-left: 0;
       margin-top: 0;
     }
@@ -151,7 +150,7 @@
   padding: $padding 0;
 
   dt {
-    @include span(33.333%);
+    @include span(35%);
     float:left;
     display:inline-block;
     clear:left;
@@ -167,7 +166,6 @@
   clear: both;
   margin: $margin 0;
   @include adjust-font-size-to(12px);
-  line-height: 1.6;
 
   @include breakpoint($bp-small-desktop) {
     @include span(8);
@@ -187,7 +185,6 @@
   clear: both;
   margin: $margin 0 $margin*2;
   @include adjust-font-size-to(12px);
-  line-height: 1.6;
 
   @include breakpoint($bp-small-desktop) {
     @include span(9);
@@ -402,7 +399,6 @@
       border-bottom: 2px solid $bg-color;
       
       @include adjust-font-size-to(12px);
-      line-height: 1.6;
 
       @include breakpoint($bp-mobile) { 
         @include adjust-font-size-to(14px);      

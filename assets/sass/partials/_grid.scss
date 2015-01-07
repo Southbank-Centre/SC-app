@@ -7,16 +7,10 @@ $susy: (
   math: fluid,
   output: float,
   global-box-sizing: border-box
+  /* debug: (
+    image: show,
+    color: blue,
+    output: overlay,
+    toggle: bottom right
+  ) */
 );
-
-.container {
-
-  @include susy-breakpoint($bp-tablet, 12) {
-
-    @include container($susy); 
-
-  }
-
-  position: relative;
-
-}

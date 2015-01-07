@@ -12,6 +12,14 @@ ul {
   list-style-position: inside;
 }
 
+.container {
+  @include susy-breakpoint($bp-tablet, 12) {
+    @include container($susy);
+  }
+  @include clearfix;
+  position: relative;
+}
+
 
 // Links
 
@@ -41,11 +49,11 @@ a.book-now-btn[href^="https://"] {
   background-color: $link-color;
   color: $white;
   padding: 0px 10px;
-  font-weight: bold;
-  font-family: 'SC AkkuratBold';
+  font-weight: normal;
+  font-family: 'SC AkkuratBold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   span {
     font-weight: normal;
-    font-family: 'SC Akkurat';
+    font-family: 'SC Akkurat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin-left: 40px;
   }
   background-image: url(../imgs/icon-sprite.png);
