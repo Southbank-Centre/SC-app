@@ -455,7 +455,7 @@ module.exports = function (grunt) {
         options: {
         dest: 'docs',
         html5Mode: false,
-        title: 'My Awesome Docs',
+        title: 'WOW Festival Website Front-end Documentation',
         bestMatch: true,
       },
       api: {
