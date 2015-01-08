@@ -10,7 +10,7 @@
  */
 
 angular.module('wowApp')
-  .factory('homeFactory', function ($http, $rootScope) {
+  .factory('homeFactory', function ($http, $rootScope, utilitiesFactory) {
 
     return {
 
@@ -40,10 +40,10 @@ angular.module('wowApp')
                 angular.forEach(fieldComponent.field_component_performance_list.field_performance_list, function(event) {
 
                   if (event.field_start_time) {
-                    event.field_start_time = utilities.timestampSecondsToMS(event.field_start_time);
+                    event.field_start_time = utilitiesFactory.timestampSecondsToMS(event.field_start_time);
                   }
                   if (event.field_end_time) {
-                    event.field_end_time = utilities.timestampSecondsToMS(event.field_end_time);
+                    event.field_end_time = utilitiesFactory.timestampSecondsToMS(event.field_end_time);
                   }
 
                 });

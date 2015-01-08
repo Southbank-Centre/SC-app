@@ -68,10 +68,10 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
           }
         }
       })
-      .state('wow.500', {
+      .state('wow.error', {
         views: {
           '@': {
-            template: '<div ui-view="festivalMenu"></div><div>WEBSITE ERROR!</div>'
+            template: '<div ui-view="festivalMenu"></div><div>It looks like something went wrong...</div>'
           }
         }
       })
