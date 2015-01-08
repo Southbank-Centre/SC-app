@@ -1,9 +1,16 @@
 'use strict';
 
-// directive to get the height of an adjacent element to create equal height columns
-// NB - not currently used - use css table-cell property instead if possible
-
 angular.module('wowApp')
+  /**
+   * @ngdoc directive
+   * @name wowApp.directive:cssEqualHeight
+   * @directive
+   *
+   * @description
+   * To get the height of an adjacent element to create equal height columns
+   * 
+   * NB - not currently used - use css table-cell property instead if possible
+   */
   .directive('cssEqualHeight', function () {
     return {
       restrict: 'A',

@@ -39,7 +39,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
+        tasks: ['newer:jshint:all', 'ngdocs'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -61,6 +61,7 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.app %>/**/*.html',
+          '!<%= yeoman.app %>/docs/**/*',
           '.tmp/assets/css/{,*/}*.css',
           'assets/imgs/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
@@ -150,6 +151,16 @@ module.exports = function (grunt) {
     // Empties folders to start fresh
     clean: {
       dist: {
+        files: [{
+          dot: true,
+          src: [
+            '.tmp',
+            '<%= yeoman.dist %>/{,*/}*',
+            '!<%= yeoman.dist %>/.git*'
+          ]
+        }]
+      },
+      dev: {
         files: [{
           dot: true,
           src: [
@@ -359,8 +370,36 @@ module.exports = function (grunt) {
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
             'fonts/*',
+            'app/**'
+          ]
+        }, {
+          expand: true,
+          cwd: '.tmp/assets/imgs',
+          dest: '<%= yeoman.dist %>/assets/imgs',
+          src: ['generated/*']
+        },
+        {
+          expand: true,
+          cwd: 'assets/fonts',
+          dest: '<%= yeoman.dist %>/assets/fonts',
+          src: ['*']
+        }]
+      },
+      dev: {
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: '<%= yeoman.app %>',
+          dest: '<%= yeoman.dist %>',
+          src: [
+            '*.{ico,png,txt}',
+            '.htaccess',
+            '*.html',
+            'views/{,*/}*.html',
+            'images/{,*/}*.{webp}',
+            'fonts/*',
             'app/**',
-            'json-test/**'
+            'docs/**'
           ]
         }, {
           expand: true,
@@ -395,6 +434,11 @@ module.exports = function (grunt) {
         'compass:dist',
         'imagemin',
         'svgmin'
+      ],
+      dev: [
+        'compass:dist',
+        'imagemin',
+        'svgmin'
       ]
     },
 
@@ -403,6 +447,20 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'test/karma.conf.js',
         singleRun: true
+      }
+    },
+
+    // Docular documentation
+    ngdocs: {
+        options: {
+        dest: 'docs',
+        html5Mode: false,
+        title: 'WOW Festival Website Front-end Documentation',
+        bestMatch: true,
+      },
+      api: {
+        src: ['<%= yeoman.app %>/app/{,**/}*.js'],
+        title: 'Angular App Documentation'
       }
     }
   });
@@ -437,22 +495,30 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
-  grunt.registerTask('build', [
-    'clean:dist',
-    'wiredep',
-    'useminPrepare',
-    'concurrent:dist',
-    'autoprefixer',
-    'concat',
-    'ngAnnotate',
-    'copy:dist',
-    'cdnify',
-    'cssmin',
-    'uglify',
-    'filerev',
-    'usemin',
-    'htmlmin'
-  ]);
+  grunt.registerTask('build', 'Build the app for distribution', function(target) {
+
+    if (!target) {
+      target = 'dist';
+    }
+
+    grunt.task.run([
+      'clean:' + target,
+      'wiredep',
+      'ngdocs',
+      'useminPrepare',
+      'concurrent:' + target,
+      'autoprefixer',
+      'concat',
+      'ngAnnotate',
+      'copy:' + target,
+      'cdnify',
+      'cssmin',
+      'uglify',
+      'filerev',
+      'usemin',
+      'htmlmin'
+    ]);
+  });
 
   grunt.registerTask('default', [
     'newer:jshint',

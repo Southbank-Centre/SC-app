@@ -1,11 +1,12 @@
 'use strict';
 
 /**
- * @ngdoc function
+ * @ngdoc controller
  * @name wowApp.controller:HeadingCtrl
+ * @controller
+ *
  * @description
- * # HeadingCtrl
- * Controller of a sub-heading component
+ * Defines the state and behaviour of the $scope for the HeadingView state
  */
 
 angular.module('wowApp')

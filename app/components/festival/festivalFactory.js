@@ -1,10 +1,11 @@
 'use strict';
 
 /**
- * @ngdoc function
+ * @ngdoc service
  * @name wowApp.factory:festivalFactory
+ * @factory
+ *
  * @description
- * # festivalFactory
  * Factory for loading festival data into the wowApp
  */
 
@@ -13,6 +14,17 @@ angular.module('wowApp')
 
     return {
 
+      /**
+       * @ngdoc method
+       * @methodOf wowApp.factory:festivalFactory
+       * @name wowApp.factory:festivalFactory#getFestivalSingle
+       * @returns {undefined} Undefined
+       * @param {function} callbackSuccess The function to call when the HTTP request succeeds
+       * @param {function} callbackError The function to call when the HTTP request fails
+       *
+       * @description
+       * For getting data for the app's festival, using the festival ID stored in $rootScope.festivalId
+       */
       getFestivalSingle: function (callbackSuccess, callbackError) {
 
         $http.get('/json/api/festival/'+$rootScope.festivalId)
@@ -46,6 +58,17 @@ angular.module('wowApp')
 
       },
 
+      /**
+       * @ngdoc method
+       * @methodOf wowApp.factory:festivalFactory
+       * @name wowApp.factory:festivalFactory#getMenus
+       * @returns {undefined} Undefined
+       * @param {function} callbackSuccess The function to call when the HTTP request succeeds
+       * @param {function} callbackError The function to call when the HTTP request fails
+       *
+       * @description
+       * For getting menu data for the app's festival
+       */
       getMenus: function (callbackSuccess, callbackError) {
 
         $http.get('/json/node.json?type=navigation&field_festival='+$rootScope.festivalId)

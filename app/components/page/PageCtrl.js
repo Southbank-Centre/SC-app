@@ -1,11 +1,12 @@
 'use strict';
 
 /**
- * @ngdoc function
+ * @ngdoc controller
  * @name wowApp.controller:PageCtrl
+ * @controller
+ *
  * @description
- * # PageCtrl
- * Controller of a content page
+ * Defines the state and behaviour of the $scope for the pageView state
  */
 
 angular.module('wowApp')

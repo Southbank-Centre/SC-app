@@ -1,11 +1,12 @@
 'use strict';
 
 /**
- * @ngdoc function
+ * @ngdoc controller
  * @name wowApp.controller:EventSingleCtrl
+ * @controller
+ *
  * @description
- * # EventSingleCtrl
- * Controller of a single event
+ * Defines the state and behaviour of the $scope for the eventSingleView state
  */
 
 angular.module('wowApp')

@@ -4,9 +4,8 @@
  * @ngdoc overview
  * @name wowApp
  * @description
- * # wowApp
  *
- * Main module of the application.
+ * WOW - Women of the World Festival website AngularJS application.
  */
 angular
   .module('wowApp', [

@@ -1,10 +1,10 @@
 'use strict';
 
 /**
- * @ngdoc function
+ * @ngdoc service
  * @name wowApp.factory:eventFactory
+ *
  * @description
- * # eventFactory
  * Factory for loading event data into the wowApp
  */
 
@@ -13,6 +13,18 @@ angular.module('wowApp')
 
     return {
 
+      /**
+       * @ngdoc method
+       * @methodOf wowApp.factory:eventFactory
+       * @name wowApp.factory:eventFactory#getEventSingle
+       * @returns {undefined} Undefined
+       * @param {string} eventId The ID of the event
+       * @param {function} callbackSuccess The function to call when the HTTP request succeeds
+       * @param {function} callbackError The function to call when the HTTP request fails
+       *
+       * @description
+       * For getting data for a single event by event ID
+       */
       getEventSingle: function(eventId, callbackSuccess, callbackError) {
 
         $http.get('/json/api/performance/'+eventId)
@@ -40,6 +52,17 @@ angular.module('wowApp')
 
       },
 
+      /**
+       * @ngdoc method
+       * @methodOf wowApp.factory:eventFactory
+       * @name wowApp.factory:eventFactory#getEventList
+       * @returns {undefined} Undefined
+       * @param {function} callbackSuccess The function to call when the HTTP request succeeds
+       * @param {function} callbackError The function to call when the HTTP request fails
+       *
+       * @description
+       * For getting data about all published events, sorted by start time ascending
+       */
       getEventList: function (callbackSuccess, callbackError){
 
         var loadData = function() {
@@ -84,8 +107,6 @@ angular.module('wowApp')
 
             });
 
-            // console.log(performances);
-
             callbackSuccess(performances);
 
           })
@@ -105,6 +126,17 @@ angular.module('wowApp')
 
       },
 
+      /**
+       * @ngdoc method
+       * @methodOf wowApp.factory:eventFactory
+       * @name wowApp.factory:eventFactory#getEventCount
+       * @returns {undefined} Undefined
+       * @param {function} callbackSuccess The function to call when the HTTP request succeeds
+       * @param {function} callbackError The function to call when the HTTP request fails
+       *
+       * @description
+       * For getting the count of all published events for this festival
+       */
       getEventCount: function(callbackSuccess, callbackError) {
 
         $http.get('/json/node.count?type=performance&field_festival='+$rootScope.festivalId)
