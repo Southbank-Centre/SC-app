@@ -3,7 +3,7 @@
 angular
   .module('wowApp')
   
-  .run(['$rootScope', '$state', 'festivalFactory', function(scope, state, festivalFactory) {
+  .run(['$rootScope', '$state', 'festivalFactory', 'utilitiesFactory', function (scope, state, festivalFactory, utilitiesFactory) {
 
     // Setup pageNotFound event
     scope.$on('event:pageNotFound', function() {
@@ -12,9 +12,9 @@ angular
     });
 
     // Setup serverError event
-    scope.$on('event:serverError', function() {
+    scope.$on('event:error', function() {
       // Show 500 state
-      state.go('wow.500');
+      state.go('wow.error');
     });
 
     // ID of WOW Festival stored in the backend
@@ -37,14 +37,7 @@ angular
       // Set festivalDataLoaded to true and broadcast the festivalDataLoaded event
       scope.festivalDataLoaded = true;
       scope.$broadcast('event:festivalDataLoaded');
-    }, function(data, status) {
-      // Failure
-      // If festival not found
-      if (status === 404 || status === 403) {
-        // Broadcast the pageNotFound event
-        scope.$broadcast('event:pageNotFound');
-      }
-    });
+    }, utilitiesFactory.genericHTTPCallbackError);
 
     /**
      * Method for getting the menus for the festival from the API
@@ -57,17 +50,10 @@ angular
         scope.menus = data;
       } else {
         // Broadcast the serverError event
-        scope.$broadcast('event:serverError');
+        scope.$broadcast('event:error');
       }
 
-    }, function(data, status) {
-      // Failure
-      // If 404 from API
-      if (status === 404 || status === 403) {
-        // Broadcast the pageNotFound event
-        scope.$broadcast('event:pageNotFound');
-      }
-    });
+    }, utilitiesFactory.genericHTTPCallbackError);
 
   }]);
 

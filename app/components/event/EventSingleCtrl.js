@@ -9,7 +9,7 @@
  */
 
 angular.module('wowApp')
-  .controller('EventSingleCtrl', function($rootScope, $scope, $stateParams, eventFactory) {
+  .controller('EventSingleCtrl', function ($rootScope, $scope, $stateParams, eventFactory, utilitiesFactory) {
 
     /**
      * Method for getting one event from the API
@@ -26,15 +26,6 @@ angular.module('wowApp')
       // Attach the event data to the scope
       $scope.event = data;
 
-    }, function(data, status) {
-
-      // Failure
-      // If event not found
-      if (status === 404 || status === 403) {
-        // Broadcast the pageNotFound event
-        $rootScope.$broadcast('event:pageNotFound');
-      }
-
-    });
+    }, utilitiesFactory.genericHTTPCallbackError);
 
   });

@@ -9,7 +9,7 @@
  */
 
 angular.module('wowApp')
-  .controller('EventListCtrl', function($rootScope, $scope, $stateParams, eventFactory) {
+  .controller('EventListCtrl', function ($rootScope, $scope, $stateParams, eventFactory, utilitiesFactory) {
 
     /**
      * Method for getting one event from the API
@@ -28,16 +28,7 @@ angular.module('wowApp')
 
       $scope.search = {field_start_day: $rootScope.festival.festivalDays[0].day};
 
-    }, function(data, status) {
-
-      // Failure
-      // If events not found
-      if (status === 404 || status === 403) {
-        // Broadcast the pageNotFound event
-        $rootScope.$broadcast('event:pageNotFound');
-      }
-
-    });
+    }, utilitiesFactory.genericHTTPCallbackError);
 
     /**
     * Define filter comparator which includes all items

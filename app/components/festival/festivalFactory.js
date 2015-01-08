@@ -9,7 +9,7 @@
  */
 
 angular.module('wowApp')
-  .factory('festivalFactory', function ($http, $rootScope) {
+  .factory('festivalFactory', function ($http, $rootScope, utilitiesFactory) {
 
     return {
 
@@ -19,8 +19,8 @@ angular.module('wowApp')
           .success(function(festival) {
 
             // Correct date format for start and end dates
-            festival.field_date_start = utilities.timestampSecondsToMS(festival.field_date_start);
-            festival.field_date_end = utilities.timestampSecondsToMS(festival.field_date_end);
+            festival.field_date_start = utilitiesFactory.timestampSecondsToMS(festival.field_date_start);
+            festival.field_date_end = utilitiesFactory.timestampSecondsToMS(festival.field_date_end);
 
             // Convert festival duration into array of days for use by events list filter
             var s = new Date(Number(festival.field_date_start));
@@ -57,10 +57,12 @@ angular.module('wowApp')
               };
               
               callbackSuccess(menus);
-            } else {
-              $rootScope.$broadcast('event:serverError');
-            }
 
+            } else {
+
+              $rootScope.$broadcast('event:error');
+
+            }
 
           })
           .error(callbackError);

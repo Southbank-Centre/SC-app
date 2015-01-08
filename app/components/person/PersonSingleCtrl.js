@@ -8,7 +8,7 @@
  * Controller for the single person page
  */
 angular.module('wowApp')
-  .controller('PersonSingleCtrl', function ($rootScope, $scope, $stateParams, personFactory) {
+  .controller('PersonSingleCtrl', function ($rootScope, $scope, $stateParams, personFactory, utilitiesFactory) {
 
     /**
      * Method for getting a single person from the API
@@ -17,15 +17,6 @@ angular.module('wowApp')
 
       $scope.person = person;
 
-    }, function(data, status) {
-
-      // Failure
-      // If person not found
-      if (status === 404 || status === 403) {
-        // Broadcast the pageNotFound event
-        $rootScope.$broadcast('event:pageNotFound');
-      }
-
-    });
+    }, utilitiesFactory.genericHTTPCallbackError);
 
   });
