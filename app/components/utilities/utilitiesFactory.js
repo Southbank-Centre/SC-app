@@ -15,8 +15,8 @@ angular.module('wowApp')
 
       /**
        * @ngdoc method
-       * @methodOf wowApp.interface:utilities
-       * @name wowApp.interface:utilities#timestampSecondsToMS
+       * @methodOf wowApp.factory:utilitiesFactory
+       * @name wowApp.factory:utilitiesFactory#timestampSecondsToMS
        * @returns {string} timestampMS The timestamp in milliseconds
        * @param {string | number} timestamp A timestamp in seconds
        *
@@ -40,8 +40,8 @@ angular.module('wowApp')
 
       /**
        * @ngdoc method
-       * @methodOf wowApp.interface:utilities
-       * @name wowApp.interface:utilities#genericHTTPCallbackError
+       * @methodOf wowApp.factory:utilitiesFactory
+       * @name wowApp.factory:utilitiesFactory#genericHTTPCallbackError
        * @returns {undefined} Undefined
        * @param {object} data The data returned by the server
        * @param {number} status The status code returned by the server
