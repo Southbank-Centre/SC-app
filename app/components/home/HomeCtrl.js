@@ -16,6 +16,20 @@ angular.module('wowApp')
      */
     homeFactory.getHomepageSingle(function(homepage) {
 
+      if (homepage.field_component) {
+        angular.forEach(homepage.field_component, function(component_list, i) {
+
+          // Create an array on homepage based on the component list's bundle name,
+          // if the object didn't already exist.
+          // E.g. homepage.component_performance_list
+          homepage[component_list.bundle] = homepage[component_list.bundle] || [];
+
+          // Add the component list to the array
+          homepage[component_list.bundle].push(component_list['field_' + component_list.bundle]);
+
+        });
+      }
+
       $scope.homepage = homepage;
 
     }, utilitiesFactory.genericHTTPCallbackError);
