@@ -66,7 +66,7 @@ angular.module('wowApp')
       getEventList: function (callbackSuccess, callbackError){
 
         var loadData = function() {
-          $http.get('/json/node.json?type=performance&sort=field_start_time&direction=ASC')
+          $http.get('/json/node.json?type=performance&sort=field_start_time&direction=ASC&field_festival=' + $rootScope.festivalId)
 
           .success(function(performances) {
 
