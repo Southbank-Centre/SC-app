@@ -26,13 +26,17 @@
     <!-- Add your site or application content here -->
     <div class="container">
 
-      <div ui-view="scNav"></div>
-      
-      <div ui-view="festivalBanner"></div>
+      <headroom tolerance='0' offset='0' classes="{pinned:'headroom--pinned',unpinned:'headroom--unpinned',initial:'headroom'}">
 
-      <div ui-view="festivalNav" class="festival-nav-view-container"></div>
+          <div ui-view="scNav"></div>
+          <div ui-view="festivalBanner"></div>
+          <div ui-view="festivalNav" class="festival-nav-view-container"></div>
 
-      <div ui-view></div>
+      </headroom>
+
+      <article class="base-article">
+          <div ui-view></div>
+      </article>
 
     </div>
 
@@ -97,6 +101,8 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-scroll/angular-scroll.min.js"></script>
     <script src="bower_components/angular-filter/dist/angular-filter.js"></script>
+    <script src="bower_components/headroom.js/dist/headroom.js"></script>
+    <script src="bower_components/headroom.js/dist/angular.headroom.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

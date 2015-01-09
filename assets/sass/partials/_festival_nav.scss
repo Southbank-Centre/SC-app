@@ -1,10 +1,30 @@
+.headroom--top {
+
+  .festival-name-bar {
+
+    &.homepagenav {
+      display:none;
+    }
+
+  }
+
+}
+
+.headroom--not-top {
+
+  .festival-name-bar {
+
+    &.homepagenav {
+      display:block;
+    }
+
+  }
+
+}
+
 .festival-name-bar {
 
   position:relative;
-
-  &.homepagenav {
-    display:none;
-  }
 
   @include adjust-font-size-to(18px);
 
@@ -61,7 +81,7 @@
 .festival-nav {
 
   background-color:white;
-  height:79px;
+  height:78px;
   // overflow:hidden;
 
   a {
@@ -164,7 +184,7 @@
     @include breakpoint($bp-desktop) {
       @include span(3 of 12 last);
     }
-    padding:$padding;
+    padding:17px;
     @include adjust-font-size-to(26px);
     text-align:right;
     font-family: 'SC AkkuratLight';

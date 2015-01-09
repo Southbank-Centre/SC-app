@@ -16,5 +16,6 @@ angular
     'ngTouch',
     'ui.router',
     'angular.filter',
-    'duScroll'
+    'duScroll',
+    'headroom'
   ]); 

@@ -216,3 +216,24 @@ figure {
   }
 
 }
+
+/* HEADER */
+
+.headroom {
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1;
+  width:100%;
+  transition: transform 200ms linear;
+}
+.headroom--pinned {
+  transform: translateY(0px);
+}
+.headroom--unpinned {
+  transform: translateY(-79px);
+}
+
+.base-article {
+  margin-top: 247px;
+}
