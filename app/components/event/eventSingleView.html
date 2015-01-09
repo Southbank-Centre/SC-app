@@ -20,7 +20,7 @@
         <div data-ng-repeat='field_wristband_ticket in event.field_wristband_ticket' class="ticket-option">
           Ticket type: {{ field_wristband_ticket.name }}
           <a ng-href="{{ field_wristband_ticket.field_ticket_url.url }}" class="book-now-btn">
-            Book Now <span>£{{ field_wristband_ticket.field_ticket_price }}</span>
+            Book Now <span>{{ field_wristband_ticket.field_ticket_price | currency:"£" }}</span>
           </a>
         </div>
       </div>
