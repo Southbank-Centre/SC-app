@@ -1,8 +1,18 @@
+.headroom {
+
+  .festival-banner {
+
+      transition: max-height 200ms linear;
+
+  }
+
+}
+
 .headroom--top {
 
   .festival-banner {
 
-      display:block;
+      max-height:1000px;
 
   }
 
@@ -12,13 +22,15 @@
 
   .festival-banner {
 
-      display:none;
+      max-height:0;
 
   }
 
 }
 
 .festival-banner {
+
+  overflow:hidden;
 
   header {
 
