@@ -1,9 +1,21 @@
+.headroom {
+
+  .festival-name-bar {
+
+    &.homepagenav {
+      transition: max-height 200ms linear;
+    }
+
+  }
+
+}
+
 .headroom--top {
 
   .festival-name-bar {
 
     &.homepagenav {
-      display:none;
+      max-height:0;
     }
 
   }
@@ -15,7 +27,8 @@
   .festival-name-bar {
 
     &.homepagenav {
-      display:block;
+      max-height:100px;
+      transition-delay: 200ms;
     }
 
   }
