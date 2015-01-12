@@ -26,14 +26,12 @@ angular.module('wowApp')
   })
   /**
    * @ngdoc directive
-   * @name wowApp.directive:lazyLoad
+   * @name wowApp.directive:lazy
    * @directive
    *
    * @description
    * Lazy load list pages images that have a class of 'lazy'
-   * NB - add 'onkeyup="$('body,html').scroll();"' to any free text filter 
-   * to invoke lazy load again 
-   * (see http://stackoverflow.com/questions/16692779/trigger-lazyload-with-fake-scrolling)
+   * NB - add 'key-up-lazy' direction to any free text filter (see keyUpLazy)
    *
    */
   .directive('lazy', function($timeout) {
@@ -55,7 +53,7 @@ angular.module('wowApp')
    * @directive
    *
    * @description
-   * Triggers scroll on keydown
+   * Triggers scroll on keydown so that lazy-loaded images load
    *
    */
   .directive('keyUpLazy', function() {
