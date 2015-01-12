@@ -21,16 +21,6 @@ angular.module('wowApp')
       // Attach the person data to the scope
       $scope.persons = data;
 
-      console.log(data);
-
-      // custom search filter to search by either first or last name not required as we can use the title field which already combines the two)
-      /* $scope.search = function (person){
-        if (person.field_first_name.indexOf($scope.nameFilter)!==-1 || person.field_last_name.indexOf($scope.nameFilter)!==-1) {
-                return true;
-            }
-            return false;
-      }; */
-
     }, function(data, status) {
 
       // Failure
