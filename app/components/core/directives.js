@@ -23,20 +23,29 @@ angular.module('wowApp')
         
       }
     };
-  });
-  /*
-  .directive('scroll', function($window) {
-    return function(scope, element, attrs) {
-      angular.element($window).bind("scroll", function() {
-        var $el = angular.element( document.querySelector('#' + attrs.scroll))[0];
-        console.log($el.offsetTop)
-        if (this.pageYOffset >= $el.offsetTop) {
-          scope.scrolledDown = true;
-        } else {
-          scope.scrolledDown = false;
-        }
-        scope.$apply();
-      });
+  })
+  /**
+   * @ngdoc directive
+   * @name wowApp.directive:lazyLoad
+   * @directive
+   *
+   * @description
+   * Lazy load list pages images that have a class of 'lazy'
+   * NB - add 'onkeyup="$('body,html').scroll();"' to any free text filter 
+   * to invoke lazy load again 
+   * (see http://stackoverflow.com/questions/16692779/trigger-lazyload-with-fake-scrolling)
+   *
+   */
+  .directive('lazy', function($timeout) {
+    return {
+      restrict: 'C',
+      link: function (scope, element) {
+          $timeout(function() { 
+            element.lazyload({
+                threshold : 0,
+                effect : 'fadeIn'
+            }); 
+          }, 0); 
+      }
     };
   });
-  */
