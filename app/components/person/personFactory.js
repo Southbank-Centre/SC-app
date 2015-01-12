@@ -48,7 +48,7 @@ angular.module('wowApp')
       getPersonList: function (callbackSuccess, callbackError){
 
         var loadData = function() {
-          $http.get('/json/node.json?type=person&sort=field_last_name&direction=ASC')
+          $http.get('/json/node.json?type=person&sort=field_last_name&direction=ASC&field_festival=' + $rootScope.festivalId)
 
           .success(function(persons) {
 
