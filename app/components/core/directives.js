@@ -48,4 +48,23 @@ angular.module('wowApp')
           }, 0); 
       }
     };
+  })
+  /**
+   * @ngdoc directive
+   * @name wowApp.directive:keyUpLazy
+   * @directive
+   *
+   * @description
+   * Triggers scroll on keydown
+   *
+   */
+  .directive('keyUpLazy', function() {
+    return {
+      restrict: 'A',
+      link: function (scope, element, attr) {
+        element.on('keyup', function(event) {
+          angular.element('html,body').scroll();
+        });
+      }
+    };
   });
