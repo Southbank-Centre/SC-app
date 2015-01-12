@@ -7,14 +7,15 @@
   <article class="featured-page" 
       data-ng-repeat="page in page_list.field_content_page_list | limitTo:4">
 
+      <div class="featured-content">
+        <h3><a ng-href="/#/page/{{ page.nid }}">{{ page.title }}</a></h3>
+        <p ng-show="page.subtitle" class="subtitle">{{ page.subtitle }}</p>
+        <a ng-href="/#/page/{{ page.nid }}" class="read-more-link">Read more</a>
+      </div>
+
       <a ng-href="/#/page/{{ page.nid }}" ng-show="page.field_image" class="featured-thumbnail">
         <img ng-src="{{ page.field_image.file.url }}" alt="">
       </a>
-
-      <div class="featured-content">
-        <h3><a ng-href="/#/page/{{ page.nid }}">{{ page.title }}</a></h3>
-        <a ng-href="/#/page/{{ page.nid }}" class="read-more-link">Read more</a>
-      </div>
 
   </article>
 
