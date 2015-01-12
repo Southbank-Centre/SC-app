@@ -1,0 +1,44 @@
+<div class="person-list" data-ng-controller='PersonListCtrl'>
+
+  <div class="page-loading" ng-hide="persons"></div>
+  
+  <h1 class="page-heading">Speakers &amp; Artists</h1>
+
+  <div class="search-filters" ng-show="persons">
+
+    <input ng-model="search.title" placeholder="Search by first or last name" class="search-filter" key-up-lazy>
+
+  </div>
+
+    <section class="person-list-section">
+  
+      <div class="person-list-repeat repeat-animation" ng-repeat="(characterHeading, person) in persons.list | filter:search | groupBy: 'characterHeading'">
+
+        <h3 class="person-surname-heading">
+          <span>{{ characterHeading }}</span>
+        </h3>
+
+        <article class="person-list-container container" ng-repeat="person in person">
+
+          <div class="person-list-img">
+            <a ng-href="/#/person/{{ person.nid }}">
+              <img class="lazy" src="/assets/imgs/placeholder-16x9.gif" data-original="{{ person.field_photo.field_image_file.field_image.file.url}}" alt="" />
+            </a>
+          </div>
+
+          <div class="person-list-details">
+
+            <h2><a ng-href="/#/person/{{ person.nid }}">{{ person.title }}</a></h2>
+            <div class="person-credentials">{{ person.field_credentials }}</div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+      <div class="no-results repeat-animation" ng-show="(persons.list | filter:search.title).length == 0">No speakers or artists found.</div>
+    
+    </section>
+
+</div>
