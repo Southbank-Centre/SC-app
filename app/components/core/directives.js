@@ -23,20 +23,46 @@ angular.module('wowApp')
         
       }
     };
-  });
-  /*
-  .directive('scroll', function($window) {
-    return function(scope, element, attrs) {
-      angular.element($window).bind("scroll", function() {
-        var $el = angular.element( document.querySelector('#' + attrs.scroll))[0];
-        console.log($el.offsetTop)
-        if (this.pageYOffset >= $el.offsetTop) {
-          scope.scrolledDown = true;
-        } else {
-          scope.scrolledDown = false;
-        }
-        scope.$apply();
-      });
+  })
+  /**
+   * @ngdoc directive
+   * @name wowApp.directive:lazy
+   * @directive
+   *
+   * @description
+   * Lazy load list pages images that have a class of 'lazy'
+   * NB - add 'key-up-lazy' direction to any free text filter (see keyUpLazy)
+   *
+   */
+  .directive('lazy', function($timeout) {
+    return {
+      restrict: 'C',
+      link: function (scope, element) {
+          $timeout(function() { 
+            element.lazyload({
+                threshold : 0,
+                effect : 'fadeIn'
+            }); 
+          }, 0); 
+      }
+    };
+  })
+  /**
+   * @ngdoc directive
+   * @name wowApp.directive:keyUpLazy
+   * @directive
+   *
+   * @description
+   * Triggers scroll on keydown so that lazy-loaded images load
+   *
+   */
+  .directive('keyUpLazy', function() {
+    return {
+      restrict: 'A',
+      link: function (scope, element, attr) {
+        element.on('keyup', function(event) {
+          angular.element('html,body').scroll();
+        });
+      }
     };
   });
-  */

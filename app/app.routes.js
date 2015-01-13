@@ -59,6 +59,15 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
           }
         }
       })
+      .state('wow.personList', {
+        url: '^/speakers-artists',
+        views: {
+          '@': {
+            templateUrl: 'app/components/person/personListView.html',
+            controller: 'PersonListCtrl'
+          }
+        }
+      })
       .state('wow.page', {
         url: '^/page/:pageId',
         views: {

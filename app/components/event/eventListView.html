@@ -4,7 +4,7 @@
   
   <h1 class="page-heading">What&rsquo;s On</h1>
 
-  <div class="events-list-filters" ng-show="events">
+  <div class="search-filters" ng-show="events">
 
     <label class="event-type-filter-label">I want to see
       <select class="event-type-filter" 
@@ -78,7 +78,7 @@
 
       </div>
 
-      <div class="no-events repeat-animation" ng-show="(events.list | filter:search:strictOrAll).length == 0">No events found.</div>
+      <div class="no-results repeat-animation" ng-show="(events.list | filter:search:strictOrAll).length == 0">No events found.</div>
     
     </article>
 
