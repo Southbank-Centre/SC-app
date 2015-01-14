@@ -9,7 +9,7 @@
  * Defines the state and behaviour of the $scope for the homeView state
  */
 angular.module('wowApp')
-  .controller('HomeCtrl', function ($rootScope, $scope, homeFactory, eventFactory, utilitiesFactory) {
+  .controller('HomeCtrl', function ($rootScope, $scope, homeFactory, eventFactory, personFactory, utilitiesFactory) {
 
     /**
      * Method for getting the homepage landing page for this festival from the API
@@ -44,6 +44,19 @@ angular.module('wowApp')
     }, function() {
 
       $scope.eventCount = 0;
+
+    });
+
+    /**
+     * Method for getting the count of persons for this festival from the API
+     */
+    personFactory.getPersonCount(function(personCount) {
+
+      $scope.personCount = personCount;
+
+    }, function() {
+
+      $scope.personCount = 0;
 
     });
 
