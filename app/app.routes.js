@@ -26,6 +26,9 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
           'componentFeaturedEvents@wow.home': { 
             templateUrl: 'app/components/content_components/featuredEventsView.html' 
           },
+          'componentFeaturedPersons@wow.home': { 
+            templateUrl: 'app/components/content_components/featuredPersonsView.html' 
+          },
           '@': {
             templateUrl: 'app/components/home/homeView.html',
             controller: 'HomeCtrl'
