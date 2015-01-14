@@ -35,20 +35,43 @@ angular.module('wowApp')
             // Loop through component perfomance list (featured events) JSON and correct date format for event start and end dates
             .success(function(components) {
 
-              angular.forEach(components.field_component, function(fieldComponent) {            
+              angular.forEach(components.field_component, function(fieldComponent) { 
 
-                angular.forEach(fieldComponent.field_component_performance_list.field_performance_list, function(event) {
+                if (fieldComponent.hasOwnProperty('field_component_performance_list')) {
 
-                  if (event.field_start_time) {
-                    event.field_start_time = utilitiesFactory.timestampSecondsToMS(event.field_start_time);
-                  }
-                  if (event.field_end_time) {
-                    event.field_end_time = utilitiesFactory.timestampSecondsToMS(event.field_end_time);
-                  }
+                  angular.forEach(fieldComponent.field_component_performance_list.field_performance_list, function(event) {
 
-                });
+                    if (event.field_start_time) {
+                      event.field_start_time = utilitiesFactory.timestampSecondsToMS(event.field_start_time);
+                    }
+                    if (event.field_end_time) {
+                      event.field_end_time = utilitiesFactory.timestampSecondsToMS(event.field_end_time);
+                    }
+
+                  });
+
+                }
 
               });
+
+              /* angular.forEach(components.field_component, function(fieldComponent) {  
+
+                // if (fieldComponent.field_component_performance_list !== null) {         
+
+                  angular.forEach(fieldComponent, function(event) {
+
+                    if (event.field_component_performance_list.field_start_time) {
+                      event.field_component_performance_list.field_performance_list.field_start_time = utilitiesFactory.timestampSecondsToMS(event.field_component_performance_list.field_performance_list.field_start_time);
+                    }
+                    if (event.field_end_time) {
+                      event.field_end_time = utilitiesFactory.timestampSecondsToMS(event.field_end_time);
+                    }
+
+                  });
+
+                // }
+
+              }); */
 
               callbackSuccess(components);
 
