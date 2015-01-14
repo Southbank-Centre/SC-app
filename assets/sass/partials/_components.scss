@@ -1,12 +1,19 @@
 // Components styling
 
-.component-featured-events {
+
+.component-featured {
 
   position: relative;
   min-height: 50px;
   @include clearfix;
   margin: 0 0 $margin;
-  h2 { margin: $section-margin-top $margin $margin; }
+  h2 {
+    margin: $section-margin-top $margin $margin;
+  }
+
+}
+
+.component-featured-events {
 
   article {
     @include breakpoint($bp-mobile) {
@@ -36,6 +43,44 @@
 
     .featured-content {
       background: $white; padding: $padding;
+    }
+
+  }
+
+}
+
+.component-featured-pages {
+
+  article {
+    @include breakpoint($bp-mobile) {
+      @include span(3);
+      &:last-child { 
+        @include last;
+        float: left;
+      }
+      clear: none;
+    }
+    h3 {
+      a { color: $black; background: none; }
+      margin-bottom:0;
+    }
+  }
+
+  .featured-pages-container {
+
+    .featured-thumbnail {
+      position: relative;
+      display: block; 
+      .featured { position: absolute; bottom: 0; margin: 0; background: $secondary-highlight; color: $white; padding: $padding/2 $padding; }
+      img { width: 100%; display: block; }
+    }
+
+    .featured-content {
+      background: $white; padding: $padding;
+
+      .subtitle {
+        margin-top:0;
+      }
     }
 
   }

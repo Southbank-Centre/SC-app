@@ -1,11 +1,11 @@
-<div class="page-loading" ng-hide="homepage.field_component" style="position: absolute;"></div>
+<div class="page-loading" ng-hide="homepage" style="position: absolute;"></div>
 
-<div data-ng-repeat="component in homepage.field_component" ng-show="homepage.field_component" class="container featured-events-container">
+<div data-ng-repeat="performance_list in homepage.component_list_performance" ng-show="homepage.component_list_performance" class="container featured-events-container">
 
-  <h2>{{ component.field_component_performance_list.title }} <a ng-show="eventCount" href="#/whats-on">({{ eventCount }} upcoming)</a></h2>
+  <h2>{{ performance_list.title }} <a href="#/whats-on">({{ eventCount }} upcoming)</a></h2>
 
   <article class="featured-event" 
-      data-ng-repeat="event in component.field_component_performance_list.field_performance_list | limitTo:3">
+      data-ng-repeat="event in performance_list.field_performance_list | limitTo:3">
 
       <a ng-href="/#/event/{{ event.nid }}" class="featured-thumbnail">
         <img ng-src="{{ event.field_production.field_image.file.url }}" alt="">

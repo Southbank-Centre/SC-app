@@ -43,7 +43,6 @@ angular.module('wowApp')
               performance.duration = (performance.field_end_time/60000) - (performance.field_start_time/60000);
             }
 
-            // var event = performance;
             callbackSuccess(performance);
 
           })
