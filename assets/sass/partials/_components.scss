@@ -12,6 +12,7 @@
 
 }
 
+
 .component-featured-events {
 
   article {
@@ -47,6 +48,44 @@
   }
 
 }
+
+
+.component-featured-persons {
+
+  article {
+    @include breakpoint($bp-mobile) {
+      @include span(6);
+      &:last-child { 
+        @include last;
+        float: left;
+      }
+      clear: none;
+    }
+    h3 {
+      margin-bottom: $margin;
+      a { color: $black; background: none; }
+    }
+  }
+
+  .featured-persons-container {
+
+    display:inline-block;
+
+    .featured-thumbnail {
+      position: relative;
+      display: block; 
+      .featured { position: absolute; bottom: 0; margin: 0; background: $secondary-highlight; color: $white; padding: $padding/2 $padding; }
+      img { width: 100%; display: block; }
+    }
+
+    .featured-content {
+      background: $white; padding: $padding;
+    }
+
+  }
+
+}
+
 
 .component-featured-pages {
 
