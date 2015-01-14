@@ -30,23 +30,27 @@ angular.module('wowApp')
         var loadData = function() {
           $http.get('/json/api/landing/'+$rootScope.festival.field_homepage.id)
 
-            // .success(callbackSuccess)
-
             // Loop through component perfomance list (featured events) JSON and correct date format for event start and end dates
             .success(function(components) {
 
-              angular.forEach(components.field_component, function(fieldComponent) {            
+              console.log(components);
 
-                angular.forEach(fieldComponent.field_component_performance_list.field_performance_list, function(event) {
+              angular.forEach(components.field_component, function(fieldComponent) {
 
-                  if (event.field_start_time) {
-                    event.field_start_time = utilitiesFactory.timestampSecondsToMS(event.field_start_time);
-                  }
-                  if (event.field_end_time) {
-                    event.field_end_time = utilitiesFactory.timestampSecondsToMS(event.field_end_time);
-                  }
+                if (fieldComponent.hasOwnProperty('field_list_performance')) {
 
-                });
+                  angular.forEach(fieldComponent.field_list_performance.field_performance_list, function(event) {
+
+                    if (event.field_start_time) {
+                      event.field_start_time = utilitiesFactory.timestampSecondsToMS(event.field_start_time);
+                    }
+                    if (event.field_end_time) {
+                      event.field_end_time = utilitiesFactory.timestampSecondsToMS(event.field_end_time);
+                    }
+
+                  });
+
+                }
 
               });
 
