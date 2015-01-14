@@ -1,6 +1,6 @@
 <div class="page-loading" ng-hide="homepage" style="position: absolute;"></div>
 
-<div data-ng-repeat="page_list in homepage.component_content_page_list" ng-show="homepage.component_content_page_list" class="container featured-pages-container">
+<div data-ng-repeat="page_list in homepage.component_list_content_page" ng-show="homepage.component_list_content_page" class="container featured-pages-container">
 
   <h2>{{ page_list.title }}</h2>
 
@@ -8,13 +8,13 @@
       data-ng-repeat="page in page_list.field_content_page_list | limitTo:4">
 
       <div class="featured-content">
-        <h3><a ng-href="/#/page/{{ page.nid }}">{{ page.title }}</a></h3>
+        <h3><a ng-href="/#/page/{{ page.field_content_page.nid }}">{{ page.field_content_page.title }}</a></h3>
         <p ng-show="page.subtitle" class="subtitle">{{ page.subtitle }}</p>
-        <a ng-href="/#/page/{{ page.nid }}" class="read-more-link">Read more</a>
+        <a ng-href="/#/page/{{ page.field_content_page.nid }}" class="read-more-link">Read more</a>
       </div>
 
-      <a ng-href="/#/page/{{ page.nid }}" ng-show="page.field_image" class="featured-thumbnail">
-        <img ng-src="{{ page.field_image.file.url }}" alt="">
+      <a ng-href="/#/page/{{ page.field_content_page.nid }}" ng-show="page.field_content_page.field_image" class="featured-thumbnail">
+        <img ng-src="{{ page.field_content_page.field_image.file.url }}" alt="">
       </a>
 
   </article>

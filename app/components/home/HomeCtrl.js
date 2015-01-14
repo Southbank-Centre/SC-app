@@ -25,7 +25,7 @@ angular.module('wowApp')
           homepage[component_list.bundle] = homepage[component_list.bundle] || [];
 
           // Add the component list to the array
-          homepage[component_list.bundle].push(component_list['field_' + component_list.bundle]);
+          homepage[component_list.bundle].push(component_list[component_list.bundle.replace('component_', 'field_')]);
 
         });
       }
