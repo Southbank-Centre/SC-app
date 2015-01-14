@@ -231,7 +231,12 @@ figure {
   transform: translateY(0px);
 }
 .headroom--unpinned {
-  transform: translateY(-79px);
+
+  transform: translateY(-60px);
+
+  @include breakpoint($bp-small-desktop) {
+    transform: translateY(-79px);
+  }
 }
 
 .base-article {
