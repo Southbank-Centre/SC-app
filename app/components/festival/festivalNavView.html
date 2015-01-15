@@ -1,6 +1,6 @@
 <div class="festival-name-bar" id="navTop" ng-class="{homepagenav: isActiveNav('/')}" ng-show="festival" ng-style="{'background-color':festival.field_color_background, 'color':festival.field_color_text}">
 
-  <img src="{{festival.field_image_background.file.url}}" class="background-img" />
+  <img ng-src="{{festival.field_image_background.file.url}}" class="background-img" />
 
   <div class="festival-name-bar-content">
     <div class="festival-name-bar-text">

@@ -81,6 +81,31 @@ angular.module('wowApp')
           });
         }
 
+      },
+
+      /**
+       * @ngdoc method
+       * @methodOf wowApp.factory:personFactory
+       * @name wowApp.factory:personFactory#getPersonCount
+       * @returns {undefined} Undefined
+       * @param {function} callbackSuccess The function to call when the HTTP request succeeds
+       * @param {function} callbackError The function to call when the HTTP request fails
+       *
+       * @description
+       * For getting the count of all published persons for this festival
+       */
+      getPersonCount: function(callbackSuccess, callbackError) {
+
+        $http.get('/json/node.count?type=person&field_festival='+$rootScope.festivalId)
+
+          .success(function(personCount) {
+
+            callbackSuccess(personCount.count);
+
+          })
+
+          .error(callbackError);
+
       }
 
     };

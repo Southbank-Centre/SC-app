@@ -1,0 +1,23 @@
+<div class="page-loading" ng-hide="homepage" style="position: absolute;"></div>
+
+<div data-ng-repeat="person_list in homepage.component_list_person" ng-show="homepage.component_list_person" class="container featured-persons-container">
+
+  <h2>{{ person_list.title }} <a ng-show="personCount" href="#/speakers-artists">(see all {{ personCount }} speakers)</a></h2>
+
+  <article class="featured-person" 
+      data-ng-repeat="person in person_list.field_person_list | limitTo:2">
+
+      <a ng-href="/#/person/{{ person.nid }}" class="featured-thumbnail">
+        <img ng-src="{{ person.field_photo.field_image_file.field_image.file.url }}" alt="">
+      </a>
+      <div class="featured-content">
+        <h3><a ng-href="/#/person/{{ person.nid }}">{{ person.title }}</a></h3>
+        <div class="person-credentials" ng-show="person.field_credentials">{{ person.field_credentials }}</div>
+
+        <a ng-href="/#/person/{{ person.nid }}" class="read-more-link">Read more</a>
+
+      </div>
+
+  </article>
+
+</div>
