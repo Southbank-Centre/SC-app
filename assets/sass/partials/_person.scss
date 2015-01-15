@@ -83,11 +83,9 @@
 
     .person-list-img { 
       @include span(3 of 6);
-      float: none; display: table-cell;
 
       @include breakpoint($bp-small-desktop) {
         @include span(3 of 6);
-        // float: none; display: table-cell;
         border-bottom: 0;
       }
       img { 
@@ -103,8 +101,8 @@
 
     .person-list-details {
       vertical-align: top;
-      @include span(3 of 6);
-      float: none; display: table-cell;
+      overflow:hidden;
+      @include span(3 of 6 last);
       
       @include adjust-font-size-to(12px);
 
