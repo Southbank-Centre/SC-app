@@ -101,6 +101,7 @@
 
     .person-list-details {
       vertical-align: top;
+      overflow:hidden;
       @include span(3 of 6 last);
       
       @include adjust-font-size-to(12px);
