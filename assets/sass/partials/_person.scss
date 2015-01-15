@@ -44,7 +44,11 @@
   }
 
   .page-heading {
-    margin-top:$margin*2.5;
+    margin-top:$margin;
+
+    @include breakpoint($bp-small-desktop) {
+      margin-top:$margin*2.5;
+    }
   }
 
   .person-surname-heading { 
