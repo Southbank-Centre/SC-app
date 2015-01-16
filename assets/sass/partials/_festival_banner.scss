@@ -1,34 +1,3 @@
-.headroom {
-
-  .festival-banner {
-
-      transition: max-height 200ms linear;
-
-  }
-
-}
-
-.headroom--top {
-
-  .festival-banner {
-
-      max-height:1000px;
-      transition-delay:200ms;
-
-  }
-
-}
-
-.headroom--not-top {
-
-  .festival-banner {
-
-      max-height:0;
-
-  }
-
-}
-
 .festival-banner {
 
   overflow:hidden;

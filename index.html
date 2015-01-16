@@ -24,9 +24,9 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
+    <div class="container" data-ng-controller='CoreCtrl'>
 
-      <headroom tolerance='0' offset='0' classes="{pinned:'headroom--pinned',unpinned:'headroom--unpinned',initial:'headroom'}" class="container">
+      <headroom tolerance='0' offset='0' classes="{pinned:'headroom--pinned',unpinned:'headroom--unpinned',initial:'headroom'}" class="container" ng-class="{nothomepageheader: !isActiveNav('/')}">
 
           <div ui-view="scNav"></div>
           <div ui-view="festivalBanner"></div>
@@ -34,7 +34,7 @@
 
       </headroom>
 
-      <article class="base-article">
+      <article class="base-article" ng-class="{nothomepagebasearticle: !isActiveNav('/')}">
           <div ui-view></div>
       </article>
 
@@ -119,6 +119,7 @@
     <script src="app/app.filter.js"></script>
     <script src="app/app.run.js"></script>
     <script src="app/components/core/directives.js"></script>
+    <script src="app/components/core/coreController.js"></script>
 
     <!-- Festival -->
     <script src="app/components/festival/festivalFactory.js"></script>
