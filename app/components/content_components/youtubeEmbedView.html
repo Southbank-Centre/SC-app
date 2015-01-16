@@ -1,0 +1,14 @@
+<div class="page-loading" ng-hide="homepage" style="position: absolute;"></div>
+
+<div ng-repeat="paragraph in homepage.field_component">
+
+    <div ng-switch="paragraph.bundle == 'youtube_embed'">
+        <div ng-switch-when="true">
+            <div class="youtube-container-landing">
+                <div data-ng-bind-html="paragraph.field_youtube_embed_code.value | unsafe" class="youtube-player"></div>
+                <div class="caption" data-ng-bind-html="paragraph.field_caption.value"></div>
+            </div>
+        </div>
+    </div>
+
+</div>

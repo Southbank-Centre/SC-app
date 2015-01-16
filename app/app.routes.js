@@ -32,6 +32,9 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
           'componentFeaturedPages@wow.home': { 
             templateUrl: 'app/components/content_components/featuredPagesView.html' 
           },
+          'componentYoutubeEmbed@wow.home': {
+            templateUrl: 'app/components/content_components/youtubeEmbedView.html'
+          },
           '@': {
             templateUrl: 'app/components/home/homeView.html',
             controller: 'HomeCtrl'
