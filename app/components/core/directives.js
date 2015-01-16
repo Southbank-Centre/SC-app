@@ -40,9 +40,8 @@ angular.module('wowApp')
       link: function (scope, element) {
           $timeout(function() { 
             element.lazyload({
-                threshold : 0,
-                effect : 'fadeIn',
-                skip_invisible : false
+                threshold : 300,
+                effect : 'fadeIn'
             }); 
           }, 0); 
       }

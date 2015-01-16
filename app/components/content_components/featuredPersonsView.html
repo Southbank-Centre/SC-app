@@ -8,7 +8,7 @@
       data-ng-repeat="person in person_list.field_person_list | limitTo:2">
 
       <a ng-href="/#/person/{{ person.nid }}" class="featured-thumbnail">
-        <img ng-src="{{ person.field_photo.field_image_file.field_image.file.url }}" alt="">
+        <img ng-src="{{ person.field_photo.field_image_file.field_image.file.url }}" alt="{{ person.field_photo.field_image_file.field_image.alt }}" title="{{ person.field_photo.field_image_file.field_image.title }}">
       </a>
       <div class="featured-content">
         <h3><a ng-href="/#/person/{{ person.nid }}">{{ person.title }}</a></h3>

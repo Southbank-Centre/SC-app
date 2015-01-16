@@ -77,7 +77,9 @@
     }
 
     .featured-content {
-      background: $white; padding: $padding;
+      background: $white; 
+      padding: $padding;
+      word-wrap:break-word;
     }
 
   }

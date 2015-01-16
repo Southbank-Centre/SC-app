@@ -24,7 +24,9 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
+    <div class="page-loading" ng-hide="festival" style="position: absolute;"></div>
+    
+    <div class="container" ng-show="festival">
 
       <div ui-view="scNav"></div>
       
