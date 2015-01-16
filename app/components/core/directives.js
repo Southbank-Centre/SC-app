@@ -41,7 +41,8 @@ angular.module('wowApp')
           $timeout(function() { 
             element.lazyload({
                 threshold : 0,
-                effect : 'fadeIn'
+                effect : 'fadeIn',
+                skip_invisible : false
             }); 
           }, 0); 
       }
