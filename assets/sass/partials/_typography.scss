@@ -20,24 +20,14 @@ body {
 }
 
 // FONTS
-@font-face {
-  font-family: 'SC Akkurat';
-  src: url('../fonts/sbcakkrgpro1.eot');
-  src: url('../fonts/sbcakkrgpro1.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/sbcakkrgpro1.svg') format('svg'), // load svg first to fix Chrome antialias bug: http://www.fontspring.com/blog/smoother-web-font-rendering-chrome
-  url('../fonts/sbcakkrgpro1.woff') format('woff'),
-  url('../fonts/sbcakkrgpro1.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
 @font-face {
   font-family: 'SC AkkuratBold';
   src: url('../fonts/sbcakkbdpro1.eot');
   src: url('../fonts/sbcakkbdpro1.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/sbcakkbdpro1.svg') format('svg'),
   url('../fonts/sbcakkbdpro1.woff') format('woff'),
-  url('../fonts/sbcakkbdpro1.ttf') format('truetype');
+  url('../fonts/sbcakkbdpro1.ttf') format('truetype'),
+    url('../fonts/sbcakkbdpro1.svg') format('svg');
   font-weight: bold;
   font-style: normal;
 }
@@ -46,9 +36,9 @@ body {
   font-family: 'SC AkkuratLight';
   src: url('../fonts/lineto-akkurat-pro-light.eot');
   src: url('../fonts/lineto-akkurat-pro-light.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/lineto-akkurat-pro-light.svg') format('svg'),
   url('../fonts/lineto-akkurat-pro-light.woff') format('woff'),
-  url('../fonts/lineto-akkurat-pro-light.ttf') format('truetype');
+  url('../fonts/lineto-akkurat-pro-light.ttf') format('truetype'),
+  url('../fonts/lineto-akkurat-pro-light.svg') format('svg');
   font-weight: bold;
   font-style: normal;
 }

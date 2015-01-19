@@ -1,11 +1,9 @@
-<div class="page-loading" ng-hide="homepage" style="position: absolute;"></div>
+<div ng-show="component" class="container featured-pages-container">
 
-<div data-ng-repeat="page_list in homepage.component_list_content_page" ng-show="homepage.component_list_content_page" class="container featured-pages-container">
-
-  <h2>{{ page_list.title }}</h2>
+  <h2>{{ component.field_list_content_page.title }}</h2>
 
   <article class="featured-page" 
-      data-ng-repeat="page in page_list.field_content_page_list | limitTo:4">
+      data-ng-repeat="page in component.field_list_content_page.field_content_page_list | limitTo:4">
 
       <div class="featured-content">
         <h3><a ng-href="/#/page/{{ page.field_content_page.nid }}">{{ page.field_content_page.title }}</a></h3>
@@ -14,7 +12,7 @@
       </div>
 
       <a ng-href="/#/page/{{ page.field_content_page.nid }}" ng-show="page.field_content_page.field_image_file.field_image" class="featured-thumbnail">
-        <img ng-src="{{ page.field_content_page.field_image_file.field_image.file.url }}" alt="">
+        <img ng-src="{{ page.field_content_page.field_image_file.field_image.file.url }}" alt="{{ page.field_content_page.field_image_file.field_image.alt }}" title="{{ page.field_content_page.field_image_file.field_image.title }}">
       </a>
 
   </article>

@@ -1,8 +1,23 @@
-<div class="home" data-ng-controller='HomeCtrl'>
+<div class="home hide-fade" data-ng-controller='HomeCtrl' ng-show="homepage.field_component">
 
-  <div ui-view="componentYoutubeEmbed" class="component-youtube-embed"></div>
-  <div ui-view="componentFeaturedEvents" class="component-featured component-featured-events"></div>
-  <div ui-view="componentFeaturedPersons" class="component-featured component-featured-persons"></div>
-  <div ui-view="componentFeaturedPages" class="component-featured component-featured-pages"></div>
+  <div ng-repeat="component in homepage.field_component">
+
+    <div ng-if="component.field_list_performance" class="component-featured component-featured-events">
+      <div event-list></div>
+    </div>
+
+    <div ng-if="component.field_list_person" class="component-featured component-featured-persons">
+      <div person-list></div>
+    </div>
+
+    <div ng-if="component.field_list_content_page" class="component-featured component-featured-pages">
+      <div page-list></div>
+    </div>
+
+    <div ng-if="component.field_youtube_embed_code" class="component-featured component-youtube-promo">
+      <div youtube-promo></div>
+    </div>
+
+  </div>
 
 </div>

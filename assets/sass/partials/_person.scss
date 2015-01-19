@@ -18,7 +18,7 @@
     background-color:white;
     padding: $padding;
     margin-bottom:0;
-    word-wrap:break-word
+    word-wrap:break-word;
   }
 
   .person-bio-container {
@@ -44,7 +44,11 @@
   }
 
   .page-heading {
-    margin-top:$margin*2.5;
+    margin-top:$margin;
+
+    @include breakpoint($bp-small-desktop) {
+      margin-top:$margin*2.5;
+    }
   }
 
   .person-surname-heading { 
@@ -65,25 +69,18 @@
   }
 
   .person-list-container {
-    @include breakpoint($bp-mobile) {
+    @include breakpoint($bp-small-desktop) {
       @include span(6);
       &:nth-of-type(even) { @include span(6 last); }
     }
     clear: none;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     background: $white;
-    @include breakpoint($bp-small-desktop) {
-      // display: table; width: 100%; // set equal height columns for multi-column breakpoints
-      margin-bottom: 2px;
-    }
 
     .person-list-img { 
       @include span(3 of 6);
-      float: none; display: table-cell;
-
       @include breakpoint($bp-small-desktop) {
         @include span(3 of 6);
-        // float: none; display: table-cell;
         border-bottom: 0;
       }
       img { 
@@ -99,27 +96,14 @@
 
     .person-list-details {
       vertical-align: top;
-      @include span(3 of 6);
-      float: none; display: table-cell;
+      word-wrap: break-word;
+      @include span(3 of 6 last);
       
       @include adjust-font-size-to(12px);
 
       @include breakpoint($bp-mobile) { 
         @include adjust-font-size-to(14px);      
       }
-
-      /* @include breakpoint($bp-small-desktop) {
-        @include span(5 wide);
-        float: none; display: table-cell; // set equal height columns for multi-column breakpoints
-        border-left: 2px solid $bg-color;
-        border-bottom: 0;
-      }
-      @include breakpoint($bp-desktop) {
-        @include span(6 wide);
-        float: none; display: table-cell; // set equal height columns for multi-column breakpoints
-        border-left: 2px solid $bg-color;
-        border-bottom: 0;
-      } */
 
       background-color: white;
       padding: $padding $padding $padding/2;
@@ -134,9 +118,6 @@
       h3 {
         @include adjust-font-size-to(15px);
           font-weight: normal; 
-      }
-      p {
-        // @include adjust-font-size-to(16px);
       }
       .event-list-type {
         margin: 0 0 0.5em;

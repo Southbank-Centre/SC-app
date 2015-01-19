@@ -24,15 +24,22 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
 
-      <div ui-view="scNav"></div>
-      
-      <div ui-view="festivalBanner"></div>
+    <div class="page-loading" ng-hide="festival" style="position: absolute;"></div>
+    
+    <div class="container" data-ng-controller='CoreCtrl'>
 
-      <div ui-view="festivalNav" class="festival-nav-view-container"></div>
+      <headroom tolerance='0' offset='0' classes="{pinned:'headroom--pinned',unpinned:'headroom--unpinned',initial:'headroom'}" class="container" ng-class="{nothomepageheader: !isActiveNav('/')}">
 
-      <div ui-view></div>
+          <div ui-view="scNav"></div>
+          <div ui-view="festivalBanner"></div>
+          <div ui-view="festivalNav" class="festival-nav-view-container"></div>
+
+      </headroom>
+
+      <article class="base-article" ng-class="{nothomepagebasearticle: !isActiveNav('/')}">
+          <div ui-view></div>
+      </article>
 
     </div>
 
@@ -100,6 +107,9 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-scroll/angular-scroll.min.js"></script>
     <script src="bower_components/angular-filter/dist/angular-filter.js"></script>
+    <script src="bower_components/headroom.js/dist/headroom.js"></script>
+    <script src="bower_components/headroom.js/dist/jQuery.headroom.js"></script>
+    <script src="bower_components/headroom.js/dist/angular.headroom.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -112,6 +122,7 @@
     <script src="app/app.filter.js"></script>
     <script src="app/app.run.js"></script>
     <script src="app/components/core/directives.js"></script>
+    <script src="app/components/core/coreController.js"></script>
 
     <!-- Festival -->
     <script src="app/components/festival/festivalFactory.js"></script>

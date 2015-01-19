@@ -69,8 +69,6 @@
 
   .featured-persons-container {
 
-    display:inline-block;
-
     .featured-thumbnail {
       position: relative;
       display: block; 
@@ -79,7 +77,9 @@
     }
 
     .featured-content {
-      background: $white; padding: $padding;
+      background: $white; 
+      padding: $padding;
+      word-wrap:break-word;
     }
 
   }
@@ -199,7 +199,7 @@
   .caption { background: $white; padding: $padding; }
 }
 
-.youtube-container-landing {
+.youtube-promo-container {
   margin: 0 0 $margin*2;
 
   .youtube-player {

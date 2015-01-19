@@ -15,5 +15,13 @@ angular.module('wowApp')
       $location.hash(id);
       $anchorScroll();
     };
+
+    $scope.isActiveNav = function(path) {
+      if ($location.path() === path.replace(/#/g, "")) {
+        return "active"
+      } else {
+        return ""
+      }
+    }
     
 });
