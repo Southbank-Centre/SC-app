@@ -12,7 +12,7 @@
 
 </div>
 
-<div class="container festival-nav" ng-init="navOpen = false">
+<div class="container festival-nav" ng-show="festival" ng-init="navOpen = false">
 
   <nav ng-class="{'navOpen':navOpen === true}">
     <a class="hamburger" ng-click="navOpen = !navOpen"></a>
