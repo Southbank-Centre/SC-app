@@ -86,7 +86,6 @@ angular.module('wowApp')
           var tpl = 'app/components/content_components/featuredEventsView.html';
           $http.get(tpl)
             .then(function(response) {
-              console.log(scope.component);
               element.html($compile(response.data)(scope));
             });
 
