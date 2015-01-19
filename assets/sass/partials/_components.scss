@@ -5,9 +5,9 @@
 
   min-height: 50px;
   @include clearfix;
-  margin: 0 0 $margin;
+  margin-bottom: $section-margin-top;
   h2 {
-    margin: $section-margin-top $margin $margin;
+    margin: 0 $margin $margin;
   }
 
 }
@@ -200,7 +200,6 @@
 }
 
 .youtube-promo-container {
-  margin: 0 0 $margin*2;
 
   .youtube-player {
     // responsive embeds - see http://www.smashingmagazine.com/2014/02/27/making-embedded-content-work-in-responsive-design/
