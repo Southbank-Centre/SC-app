@@ -1,27 +1,20 @@
 <div class="home hide-fade" data-ng-controller='HomeCtrl' ng-show="homepage.field_component">
 
-  <div ui-view="componentFeaturedEvents" ng-show="homepage.component_list_performance" class="component-featured component-featured-events"></div>
-  <div ui-view="componentFeaturedPersons" ng-show="homepage.component_list_person" class="component-featured component-featured-persons"></div>
-  <div ui-view="componentFeaturedPages" ng-show="homepage.component_list_content_page" class="component-featured component-featured-pages"></div>
-
-  <!--
-
   <div ng-repeat="component in homepage.field_component">
 
-	  <div ng-if="component.field_list_performance" class="component-featured component-featured-events">
-	  	<div ng-include="'app/components/content_components/featuredEventsView.html'"></div>
-	  </div>
+    <div ng-if="component.field_list_performance" class="component-featured component-featured-events">
+      <div event-list></div>
+    </div>
 
-	  <div ng-if="component.field_list_person" class="component-featured component-featured-persons">
-	  	<div ng-include="'app/components/content_components/featuredPersonsView.html'"></div>
-	  </div>
+    <div ng-if="component.field_list_person" class="component-featured component-featured-persons">
+      <div person-list></div>
+    </div>
 
-		<div ng-if="component.field_list_content_page" class="component-featured component-featured-pages">
-	  	<div ng-include="'app/components/content_components/featuredPagesView.html'"></div>
-	  </div>
+    <div ng-if="component.field_list_content_page" class="component-featured component-featured-pages">
+      <div page-list></div>
+    </div>
 
-	</div>
+  </div>
 
-  -->
 
 </div>
