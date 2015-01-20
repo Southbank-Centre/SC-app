@@ -5,6 +5,9 @@ angular
   
   .run(['$rootScope', '$state', 'festivalFactory', 'utilitiesFactory', function (scope, state, festivalFactory, utilitiesFactory) {
 
+    // ID of WOW Festival stored in the backend
+    scope.festivalId = 1;
+
     // Setup pageNotFound event
     scope.$on('event:pageNotFound', function() {
       // Show 404 state
@@ -17,8 +20,9 @@ angular
       state.go('wow.error');
     });
 
-    // ID of WOW Festival stored in the backend
-    scope.festivalId = 1;
+    scope.$on('$stateChangeSuccess', function() {
+      angular.element('html').scroll();
+    });
 
     /**
      * Method for getting one festival from the API
