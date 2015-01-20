@@ -33,8 +33,6 @@ angular.module('wowApp')
             // Loop through component perfomance list (featured events) JSON and correct date format for event start and end dates
             .success(function(components) {
 
-              console.log(components);
-
               angular.forEach(components.field_component, function(fieldComponent) {
 
                 if (fieldComponent.hasOwnProperty('field_list_performance')) {
