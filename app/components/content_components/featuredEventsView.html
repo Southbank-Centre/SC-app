@@ -5,12 +5,12 @@
   <article class="featured-event" 
       data-ng-repeat="event in component.field_list_performance.field_performance_list | limitTo:3">
 
-      <a ng-href="/#/event/{{ event.nid }}" class="featured-thumbnail">
+      <a ui-sref="wow.eventSingle({ eventId: event.nid })" class="featured-thumbnail">
         <img ng-src="{{ event.field_production.field_image.file.url }}" alt="">
         <h4 class="featured">Featured</h4>
       </a>
       <div class="featured-content">
-        <h3><a ng-href="/#/event/{{ event.nid }}">{{ event.title }}</a></h3>
+        <h3><a ui-sref="wow.eventSingle({ eventId: event.nid })">{{ event.title }}</a></h3>
 
         <div class="event-list-date" ng-show="event.field_start_time">
           {{ event.field_start_time | date:'EEEE d MMMM' }},
@@ -19,7 +19,7 @@
 
         <div class="event-list-type">{{ event.field_production.field_event_type.name }}</div>
 
-        <a ng-href="/#/event/{{ event.nid }}" class="read-more-link">Read more</a>
+        <a ui-sref="wow.eventSingle({ eventId: event.nid })" class="read-more-link">Read more</a>
 
       </div>
 
