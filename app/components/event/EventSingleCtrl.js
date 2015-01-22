@@ -10,7 +10,7 @@
  */
 
 angular.module('wowApp')
-  .controller('EventSingleCtrl', function ($rootScope, $scope, $stateParams, eventFactory, utilitiesFactory) {
+  .controller('EventSingleCtrl', function ($rootScope, $scope, $stateParams, $state, eventFactory, utilitiesFactory) {
 
     /**
      * Method for getting one event from the API
@@ -26,6 +26,13 @@ angular.module('wowApp')
       // SUCCESS
       // Attach the event data to the scope
       $scope.event = data;
+      
+      // If the state parameter does not match event title, then display a 404 page
+      /* if ($stateParams.eventTitle !== $scope.event.title) {
+        $state.go('wow.404')
+      } */
+
+      // console.log($stateParams.eventTitle);
 
     }, utilitiesFactory.genericHTTPCallbackError);
 
