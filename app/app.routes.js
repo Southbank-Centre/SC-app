@@ -1,8 +1,11 @@
 'use strict';
 
-angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
+angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $locationProvider) {
 
     $urlRouterProvider.when('', '/');
+
+    // Enable HTML5 mode to remove # from URL in browsers that support history API
+    $locationProvider.html5Mode(true);
 
     $stateProvider
       .state('wow', {
