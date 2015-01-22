@@ -30,7 +30,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
         }
       })
       .state('wow.eventSingle', {
-        url: '^/event/:eventId',
+        url: '^/whats-on/:eventId',
         views: {
           '@': {
             templateUrl: 'app/components/event/eventSingleView.html',
@@ -48,7 +48,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider) {
         }
       })
       .state('wow.person', {
-        url: '^/person/:personId',
+        url: '^/speakers-artists/:personId',
         views: {
           '@': {
             templateUrl: 'app/components/person/personSingleView.html',
