@@ -6,12 +6,12 @@
       data-ng-repeat="page in component.field_list_content_page.field_content_page_list | limitTo:4">
 
       <div class="featured-content">
-        <h3><a ng-href="/#/page/{{ page.field_content_page.nid }}">{{ page.field_content_page.title }}</a></h3>
+        <h3><a ng-href="/page/{{ page.field_content_page.nid }}">{{ page.field_content_page.title }}</a></h3>
         <p ng-show="page.field_subtitle" class="subtitle">{{ page.field_subtitle }}</p>
-        <a ng-href="/#/page/{{ page.field_content_page.nid }}" class="read-more-link">Read more</a>
+        <a ng-href="/page/{{ page.field_content_page.nid }}" class="read-more-link">Read more</a>
       </div>
 
-      <a ng-href="/#/page/{{ page.field_content_page.nid }}" ng-show="page.field_content_page.field_image_file.field_image" class="featured-thumbnail">
+      <a ng-href="/page/{{ page.field_content_page.nid }}" ng-show="page.field_content_page.field_image_file.field_image" class="featured-thumbnail">
         <img ng-src="{{ page.field_content_page.field_image_file.field_image.file.url }}" alt="{{ page.field_content_page.field_image_file.field_image.alt }}" title="{{ page.field_content_page.field_image_file.field_image.title }}">
       </a>
 
