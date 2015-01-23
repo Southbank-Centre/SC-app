@@ -10,6 +10,9 @@
 // Import the grunt-connect-proxy
 var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
 
+// Import connect-modrewrite
+var modRewrite = require('connect-modrewrite');
+
 module.exports = function (grunt) {
 
   // Load grunt tasks automatically
@@ -94,6 +97,7 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               proxySnippet,
+              modRewrite (['!\\.html|\\.js|\\.css|\\.svg|\\.png|\\.jpg|\\.jpeg|\\.eot|\\.ttf|\\.woff$ /index.html [L]']),
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
