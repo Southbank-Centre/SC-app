@@ -3,7 +3,7 @@
 angular
   .module('wowApp')
   
-  .run(['$rootScope', '$state', 'festivalFactory', 'utilitiesFactory', function (scope, state, festivalFactory, utilitiesFactory) {
+  .run(['$rootScope', '$state', 'festivalFactory', 'utilitiesFactory', '$window', function (scope, state, festivalFactory, utilitiesFactory, $window) {
 
     // ID of WOW Festival stored in the backend
     scope.festivalId = 1;
@@ -21,7 +21,7 @@ angular
     });
 
     scope.$on('$stateChangeSuccess', function() {
-      angular.element('html').scroll();
+      $window.scroll();
     });
 
     /**
