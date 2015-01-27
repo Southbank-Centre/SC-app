@@ -23,12 +23,17 @@ angular.module('wowApp')
        * @param {function} callbackError The function to call when the HTTP request fails
        *
        * @description
-       * For getting data for a single homepage based on the landing page id stored in $rootScope.festival.field_homepage.id
+       * For getting data for a single homepage based on the landing page url stored in $rootScope.festival.field_homepage.url
        */
       getHomepageSingle: function (callbackSuccess, callbackError) {
 
         var loadData = function() {
-          $http.get('/json/api/landing/'+$rootScope.festival.field_homepage.id)
+
+          // Get homepage alias 
+          var homeUrl = $rootScope.festival.field_homepage.url;
+          var homeAlias = homeUrl.substr(homeUrl.lastIndexOf('/') + 1);
+          
+          $http.get('/json/api/landing/'+homeAlias)
 
             // Loop through component perfomance list (featured events) JSON and correct date format for event start and end dates
             .success(function(components) {
