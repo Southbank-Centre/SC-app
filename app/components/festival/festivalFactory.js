@@ -80,6 +80,8 @@ angular.module('wowApp')
                 festivalNav: data.list[0].field_navigation_link,
                 festivalFooter: data.list[0].field_footer
               };
+
+              console.log(navigation);
               
               callbackSuccess(navigation);
 

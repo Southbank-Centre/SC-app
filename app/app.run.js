@@ -59,6 +59,11 @@ angular
         for (var i in data) {
           scope[i] = data[i];
         }
+        if (typeof scope.festivalFooter !== 'undefined') {
+          if (typeof scope.festivalFooter.field_component !== 'undefined' && scope.festivalFooter.field_component.length > 0) {
+            scope.festivalFooter.field_component.reverse();
+          }
+        }
       } else {
         // Broadcast the serverError event
         scope.$broadcast('event:error');

@@ -17,6 +17,9 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
           'festivalNav' : {
             templateUrl: 'app/components/festival/festivalNavView.html',
             controller: 'FestivalNavCtrl'
+          },
+          'festivalFooter' : {
+            templateUrl: 'app/components/festival/festivalFooterView.html'
           }
         }
       })
