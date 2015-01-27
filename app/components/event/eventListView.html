@@ -59,7 +59,7 @@
 
             <div data-ng-bind-html="event.field_teaser.value"></div>
 
-            <a ng-href="/event/{{ event.nid }}" class="read-more-link">Read more</a>
+            <a ui-sref="wow.eventSingle({ eventId: event.alias_json })" class="read-more-link">Read more</a>
 
           </div>
 

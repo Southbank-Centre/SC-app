@@ -5,8 +5,13 @@ angular
   
   .run(['$rootScope', '$state', 'festivalFactory', 'utilitiesFactory', '$window', function (scope, state, festivalFactory, utilitiesFactory, $window) {
 
-    // ID of WOW Festival stored in the backend
-    scope.festivalId = 1;
+    // Alias of WOW Festival stored in the backend
+    scope.festivalAlias = 'wow-women-world-1';
+
+    // Get ID of WOW Festival (should be last part of Alias above)
+    scope.festivalId = scope.festivalAlias.substr(scope.festivalAlias.lastIndexOf('-') + 1);
+
+    //console.log(festId);
 
     // Setup pageNotFound event
     scope.$on('event:pageNotFound', function() {

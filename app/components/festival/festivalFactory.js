@@ -27,7 +27,8 @@ angular.module('wowApp')
        */
       getFestivalSingle: function (callbackSuccess, callbackError) {
 
-        $http.get('/json/api/festival/'+$rootScope.festivalId)
+        $http.get('/json/api/festival/'+$rootScope.festivalAlias)
+
           .success(function(festival) {
 
             // Correct date format for start and end dates
