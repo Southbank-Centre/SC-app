@@ -26,7 +26,7 @@ angular
     });
 
     scope.$on('$stateChangeSuccess', function() {
-      $window.scroll();
+      $window.scrollBy(0,0);
     });
 
     /**
