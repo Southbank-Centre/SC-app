@@ -40,4 +40,58 @@ angular
 
     };
 
+  })
+  /**
+   * @ngdoc filter
+   * @name wowApp.filter:betterLimitTo
+   * @filter
+   *
+   * @description
+   * Angular's 'limitTo' filter only limits strings and arrays.
+   * This filter also limits objects
+   */
+  .filter('betterLimitTo', function() {
+
+    return function(input, limit) {
+
+      if (Math.abs(Number(limit)) === Infinity) {
+        limit = Number(limit);
+      } else {
+        limit = parseInt(limit, 10);
+      }
+
+      if (isNaN(limit)) {
+        return input;
+      }
+
+      if ((typeof input === 'number')) {
+        input = input.toString();
+      }
+
+      if ((input.constructor === Object)) {
+        var keys = Object.keys(input);
+        if (keys.length < 1) {
+          return [];
+        }
+
+        var ret = {}, count = 0;
+        angular.forEach(keys, function(key){
+          if (count >= limit) {
+            return false;
+          }
+          ret[key] = input[key];
+          count++;
+        });
+
+        return ret;
+      }
+
+      if (input.constructor !== Array && typeof input !== 'string' && input.constructor !== Object) {
+        return input;
+      }
+
+      return limit >= 0 ? input.slice(0, limit) : input.slice(limit);
+
+    };
+
   });
