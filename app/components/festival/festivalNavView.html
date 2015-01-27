@@ -16,7 +16,7 @@
 
   <nav ng-class="{'navOpen':navOpen === true}">
     <a class="hamburger" ng-click="navOpen = !navOpen"></a>
-    <a data-ng-repeat="navItem in menus.festivalNav" ng-class="{active: isActiveNav(navItem.url)}" href="{{ navItem.url }}">{{ navItem.title }}</a>
+    <a data-ng-repeat="navItem in festivalNav" ng-class="{active: isActiveNav(navItem.url)}" href="{{ navItem.url }}">{{ navItem.title }}</a>
   </nav>
 
   <div ng-show="festival" class="twitter-hashtag" ng-style="{'color':festival.field_color_background}">
