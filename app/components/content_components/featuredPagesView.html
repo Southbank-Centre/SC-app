@@ -3,7 +3,7 @@
   <h2>{{ component.field_list_content_page.title }}</h2>
 
   <article class="featured-page" 
-      data-ng-repeat="page in component.field_list_content_page.field_content_page_list | limitTo:4">
+      data-ng-repeat="page in component.field_list_content_page.field_content_page_list | betterLimitTo:4">
 
       <div class="featured-content">
         <h3><a ng-href="/page/{{ page.field_content_page.nid }}">{{ page.field_content_page.title }}</a></h3>
