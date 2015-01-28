@@ -1,3 +1,5 @@
+$footer-heead-height: 50px;
+
 .festival-footer {
 
   .footer-head {
@@ -8,14 +10,16 @@
 
       padding:$padding;
       border-bottom:2px solid $bg-color;
+      line-height:$footer-heead-height;
 
       @include breakpoint($bp-desktop) {
-        @include span(first 9);
+        @include span(first 6);
         border-bottom:0px;
       }
 
       img {
         vertical-align:middle;
+        max-height:$footer-heead-height;
       }
 
     }
@@ -24,10 +28,12 @@
       padding:$padding;
       padding-bottom:0px;
       font-weight:bold;
+      line-height:$footer-heead-height;
 
       @include breakpoint($bp-desktop) {
-        @include span(last 3);
+        @include span(last 6);
         border-bottom:0px;
+        text-align:right;
       }
     }
 
@@ -55,7 +61,7 @@
       @include breakpoint($bp-desktop) {
         @include span(last 2);
         float:right;
-        padding:$padding;
+        padding:$padding $padding/2;
         &:last-of-type {
           @include span(2);
           float:right;
