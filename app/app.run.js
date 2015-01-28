@@ -34,7 +34,7 @@ angular
       virtualUrl = absUrl.substring(absUrl.indexOf(path));
 
       // Push url to GTM dataLayer
-      dataLayer.push({ 
+      $window.dataLayer.push({ 
         event: 'pageview',
         virtualUrl: virtualUrl 
       });
