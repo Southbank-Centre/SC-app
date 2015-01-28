@@ -3,7 +3,7 @@
 angular
   .module('wowApp')
   
-  .run(['$rootScope', '$state', 'festivalFactory', 'utilitiesFactory', '$window', function (scope, state, festivalFactory, utilitiesFactory, $window) {
+  .run(['$rootScope', '$state', '$window', '$location', 'festivalFactory', 'utilitiesFactory', function (scope, state, $window, $location, festivalFactory, utilitiesFactory) {
 
     // Alias of WOW Festival stored in the backend
     scope.festivalAlias = 'wow-women-world-1';
@@ -27,6 +27,18 @@ angular
 
     scope.$on('$stateChangeSuccess', function() {
       $window.scrollBy(0,0);
+
+      // Get virtual url for Google Tag Manager pageview
+      var path = $location.path(),
+      absUrl = $location.absUrl(),
+      virtualUrl = absUrl.substring(absUrl.indexOf(path));
+
+      // Push url to GTM dataLayer
+      dataLayer.push({ 
+        event: 'pageview',
+        virtualUrl: virtualUrl 
+      });
+
     });
 
     /**
