@@ -51,12 +51,19 @@ angular
     /**
      * Method for getting the menus for the festival from the API
      */
-    festivalFactory.getMenus(function(data) {
+    festivalFactory.getNavigation(function(data) {
 
       // Failure
       // If there is no menu for this festival, show website error
       if (data.festivalNav.length > 0) {
-        scope.menus = data;
+        for (var i in data) {
+          scope[i] = data[i];
+        }
+        if (typeof scope.festivalFooter !== 'undefined') {
+          if (typeof scope.festivalFooter.field_component !== 'undefined' && scope.festivalFooter.field_component.length > 0) {
+            scope.festivalFooter.field_component.reverse();
+          }
+        }
       } else {
         // Broadcast the serverError event
         scope.$broadcast('event:error');

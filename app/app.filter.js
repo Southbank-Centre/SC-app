@@ -68,6 +68,14 @@ angular
         input = input.toString();
       }
 
+      if (typeof input === 'undefined') {
+        return input;
+      }
+
+      if (input.constructor !== Array && typeof input !== 'string' && input.constructor !== Object) {
+        return input;
+      }
+
       if ((input.constructor === Object)) {
         var keys = Object.keys(input);
         if (keys.length < 1) {
@@ -84,10 +92,6 @@ angular
         });
 
         return ret;
-      }
-
-      if (input.constructor !== Array && typeof input !== 'string' && input.constructor !== Object) {
-        return input;
       }
 
       return limit >= 0 ? input.slice(0, limit) : input.slice(limit);

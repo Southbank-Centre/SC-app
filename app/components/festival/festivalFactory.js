@@ -62,25 +62,26 @@ angular.module('wowApp')
       /**
        * @ngdoc method
        * @methodOf wowApp.factory:festivalFactory
-       * @name wowApp.factory:festivalFactory#getMenus
+       * @name wowApp.factory:festivalFactory#getNavigation
        * @returns {undefined} Undefined
        * @param {function} callbackSuccess The function to call when the HTTP request succeeds
        * @param {function} callbackError The function to call when the HTTP request fails
        *
        * @description
-       * For getting menu data for the app's festival
+       * For getting navigation data for the app's festival
        */
-      getMenus: function (callbackSuccess, callbackError) {
+      getNavigation: function (callbackSuccess, callbackError) {
 
         $http.get('/json/node.json?type=navigation&field_festival='+$rootScope.festivalId)
           .success(function(data) {
 
             if (data.list[0]) {
-              var menus = {
-                festivalNav: data.list[0].field_navigation_link
+              var navigation = {
+                festivalNav: data.list[0].field_navigation_link,
+                festivalFooter: data.list[0].field_footer
               };
-              
-              callbackSuccess(menus);
+
+              callbackSuccess(navigation);
 
             } else {
 

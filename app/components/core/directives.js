@@ -173,4 +173,58 @@ angular.module('wowApp')
         };
       }
     };
+  })
+  /**
+   * @ngdoc directive
+   * @name wowApp.directive:linkList
+   * @directive
+   *
+   * @description
+   * Renders link list component using link list view template
+   *
+   */
+  .directive('linkList', function($http, $compile) {
+    return {
+      restrict: 'A',
+      scope: true,
+      compile: function(element, attrs) {
+
+        return function(scope, element, attrs) {
+
+          var tpl = 'app/components/content_components/linkListView.html';
+          $http.get(tpl)
+            .then(function(response) {
+              element.html($compile(response.data)(scope));
+            });
+
+        };
+      }
+    };
+  })
+  /**
+   * @ngdoc directive
+   * @name wowApp.directive:htmlBlock
+   * @directive
+   *
+   * @description
+   * Renders HTML block component using HTML block view template
+   *
+   */
+  .directive('htmlBlock', function($http, $compile) {
+    return {
+      restrict: 'A',
+      scope: true,
+      compile: function(element, attrs) {
+
+        return function(scope, element, attrs) {
+
+          var tpl = 'app/components/content_components/htmlBlockView.html';
+          $http.get(tpl)
+            .then(function(response) {
+              element.html($compile(response.data)(scope));
+            });
+
+        };
+      }
+    };
   });
