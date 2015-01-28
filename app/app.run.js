@@ -28,8 +28,7 @@ angular
     scope.$on('$stateChangeSuccess', function() {
       $window.scrollBy(0,0);
 
-      // Get virtual url for Google Tag Manager page view
-      // - which should include search parameters once we add them to URLs
+      // Get virtual url for Google Tag Manager pageview
       var path = $location.path(),
       absUrl = $location.absUrl(),
       virtualUrl = absUrl.substring(absUrl.indexOf(path));
@@ -39,9 +38,6 @@ angular
         event: 'pageview',
         virtualUrl: virtualUrl 
       });
-
-      // Debug - use in conjunction with GTM Preview/Debug mode
-      console.log(dataLayer);
 
     });
 
