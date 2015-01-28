@@ -81,8 +81,6 @@ angular.module('wowApp')
                 festivalFooter: data.list[0].field_footer
               };
 
-              console.log(navigation);
-              
               callbackSuccess(navigation);
 
             } else {
