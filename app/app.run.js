@@ -29,7 +29,7 @@ angular
       $window.scrollBy(0,0);
 
       // Get virtual url for Google Tag Manager pageview
-      virtualUrl = $location.path();
+      var virtualUrl = $location.path();
 
       // Push url to GTM dataLayer
       $window.dataLayer.push({ 
