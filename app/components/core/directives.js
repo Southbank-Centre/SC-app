@@ -227,4 +227,19 @@ angular.module('wowApp')
         };
       }
     };
-  });
+  })
+  /**
+   * @ngdoc directive
+   * @name wowApp.directive:festivalPlanner
+   * @directive
+   *
+   * @description
+   * Embed sched.org festival planner
+   *
+   */
+   .directive('festivalPlanner', function() {
+      return {
+        restrict: 'A',
+        template: "<a id='sched-embed' href='http://sctest2015.sched.org/''>View the SCTest schedule & directory.</a><script type='text/javascript-lazy' src='http://sctest2015.sched.org/js/embed.js'></script>"
+      };
+    });
