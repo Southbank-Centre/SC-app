@@ -10,7 +10,7 @@
   <div class="footer-main-container">
     <div class="container footer-main">
       <div class="footer-subheading">
-        <h2>{{ festivalFooter.field_subheading }}</h2>
+        <h2 data-ng-bind-html="festivalFooter.field_subheading.value"></h2>
       </div>
 
       <div class="footer-element-container" ng-repeat="component in festivalFooter.field_component | betterLimitTo:4">
