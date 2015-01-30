@@ -4,130 +4,145 @@ footer {
 
   display:inline-block;
   margin-top:$footer-head-height + ($margin*2);
+  background-color:white;
+  width:100%;
 
   .festival-footer {
 
-    .footer-head {
+    .footer-head-container {
 
-      background-color:white;
-
-      .sponsor {
-
-        padding:$padding;
-        border-bottom:2px solid $bg-color;
-        line-height:$footer-head-height;
-
-        @include breakpoint($bp-desktop) {
-          @include span(first 6);
-          border-bottom:0px;
-        }
-
-        img {
-          vertical-align:middle;
-          max-height:$footer-head-height;
-        }
-
-      }
-
-      .footer-festival-dates {
-        padding:$padding;
-        padding-bottom:0px;
-        font-weight:bold;
-        line-height:$footer-head-height;
-
-        @include breakpoint($bp-desktop) {
-          @include span(last 6);
-          border-bottom:0px;
-          text-align:right;
-        }
-      }
+      width:100%;
 
       @include breakpoint($bp-desktop) {
         border-bottom:2px solid $bg-color;
       }
 
-    }
+      .footer-head {
 
-    .footer-main {
+        .sponsor {
 
-      background-color:white;
-
-      .footer-subheading {
-        padding:$padding;
-        @include breakpoint($bp-desktop) {
-          @include span(first 4);
-        }
-      }
-
-      .footer-element-container {
-
-        padding-bottom:$padding;
-
-        @include breakpoint($bp-desktop) {
-          @include span(last 2);
-          float:right;
-          padding:$padding $padding/2;
-          &:last-of-type {
-            @include span(2);
-            float:right;
-          }
-        }
-
-        .footer-element {
-          position:relative;
           padding:$padding;
-          padding-bottom:0px;
-          border-top:1px solid $bg-color;
-          cursor:pointer;
+          border-bottom:2px solid $bg-color;
+          line-height:$footer-head-height;
 
           @include breakpoint($bp-desktop) {
-            cursor:default;
-            border-top:0;
-            position:inherit;
-            padding:0;
+            @include span(first 6);
+            border-bottom:0px;
           }
 
-          h4 {
-            margin:0;
+          img {
+            vertical-align:middle;
+            max-height:$footer-head-height;
           }
 
-          &:after {
-            position:absolute;
-            content:"";
-            top:0;
-            right:$padding;
-            height:66px;
-            width:13px;
-            background-repeat:no-repeat;
-            background-position:center center;
-            background-image:url('/assets/imgs/disclosure-toggle-down.png');
+        }
 
-            @include breakpoint($bp-desktop) {
-              display:none;
+        .footer-festival-dates {
+          padding:$padding;
+          padding-bottom:0px;
+          font-weight:bold;
+          line-height:$footer-head-height;
+
+          @include breakpoint($bp-desktop) {
+            @include span(last 6);
+            border-bottom:0px;
+            text-align:right;
+          }
+        }
+
+      }
+
+    }
+
+    .footer-main-container {
+
+      width:100%;
+
+      .footer-main {
+
+        .footer-subheading {
+          padding:$padding;
+          @include breakpoint($bp-desktop) {
+            @include span(first 4);
+          }
+
+          h2 {
+            @include adjust-font-size-to(26px);
+          }
+        }
+
+        .footer-element-container {
+
+          padding-bottom:$padding;
+
+          @include breakpoint($bp-desktop) {
+            @include span(last 2);
+            float:right;
+            padding:$padding $padding/2;
+            &:last-of-type {
+              @include span(2);
+              float:right;
             }
           }
 
-          .footer-element-body {
-            max-height:0px;
-            overflow:hidden;
-            @include transition(all 0.4s ease-in-out);
-            cursor:default;
+          .footer-element {
+            position:relative;
+            padding:$padding;
+            padding-bottom:0px;
+            border-top:1px solid $bg-color;
+            cursor:pointer;
 
             @include breakpoint($bp-desktop) {
-              max-height:inherit;
-              padding-top:$padding;
+              cursor:default;
+              border-top:0;
+              position:inherit;
+              padding:0;
             }
-          }
 
-          &.open {
+            h4 {
+              margin:0;
+              @include adjust-font-size-to(16px);
+            }
 
             &:after {
-              background-image:url('/assets/imgs/disclosure-toggle-up.png');
+              position:absolute;
+              content:"";
+              top:0;
+              right:$padding;
+              height:66px;
+              width:13px;
+              background-repeat:no-repeat;
+              background-position:center center;
+              background-image:url('/assets/imgs/disclosure-toggle-down.png');
+
+              @include breakpoint($bp-desktop) {
+                display:none;
+              }
             }
 
             .footer-element-body {
-              padding-top:$padding;
-              max-height: 500px;
+              max-height:0px;
+              overflow:hidden;
+              @include transition(all 0.4s ease-in-out);
+              cursor:default;
+
+              @include breakpoint($bp-desktop) {
+                max-height:inherit;
+                padding-top:$padding;
+              }
+            }
+
+            &.open {
+
+              &:after {
+                background-image:url('/assets/imgs/disclosure-toggle-up.png');
+              }
+
+              .footer-element-body {
+                padding-top:$padding;
+                max-height: 500px;
+              }
+
             }
 
           }
