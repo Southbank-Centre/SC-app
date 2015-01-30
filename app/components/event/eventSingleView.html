@@ -18,10 +18,10 @@
 
       <div class="ticket-box">
         <div data-ng-repeat='field_wristband_ticket in event.field_wristband_ticket' class="ticket-option">
-          Ticket type: {{ field_wristband_ticket.name }}
-          <a ng-href="{{ field_wristband_ticket.field_ticket_url.url }}" class="book-now-btn">
-            Book Now <span>£{{ field_wristband_ticket.field_ticket_price | twoDecimalPlacesIfFixed }}</span>
-          </a>
+          {{ field_wristband_ticket | formatTicketHelpText }} <a class="ticket-help-more-info" ui-sref="wow.page({ pageId: festival.field_ticket_information_page.alias_json })">more&nbsp;info</a>
+            <a ng-href="{{ field_wristband_ticket.field_ticket_url.url }}" class="book-now-btn">
+              Book {{ field_wristband_ticket.field_button_label }} <span>£{{ field_wristband_ticket.field_ticket_price | twoDecimalPlacesIfFixed }}</span>
+            </a>
         </div>
       </div>
 

@@ -19,3 +19,9 @@
   transform: translateY(-50%);
   -ms-transform: translateY(-50%);
 }
+
+@mixin special-link {
+  background-color:transparent;
+  font-weight:bold;
+  color:black;
+}

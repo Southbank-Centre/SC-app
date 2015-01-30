@@ -29,57 +29,65 @@
 
   </div>
 
-    <article>
-  
-      <div class="repeat-animation" ng-repeat="(field_start_hour, event) in events.list | filter:search:strictOrAll | groupBy: 'field_start_hour'" id="event-name">
+  <div class="container">
 
-        <div class="event-hour">{{ field_start_hour }}</div>
+    <div class="ticket-info-page-link-container">
+      <a ui-sref="wow.page({ pageId: festival.field_ticket_information_page.alias_json })">{{ festival.field_ticket_information_page.title }}</a>
+    </div>
 
-        <div class="event-list-container container" ng-repeat="event in event">
+  </div>
 
-          <div class="event-list-img">
-            <img ng-src="{{ event.field_production.field_image.file.url }}" alt="">
+  <article>
+
+    <div class="repeat-animation" ng-repeat="(field_start_hour, event) in events.list | filter:search:strictOrAll | groupBy: 'field_start_hour'" id="event-name">
+
+      <div class="event-hour">{{ field_start_hour }}</div>
+
+      <div class="event-list-container container" ng-repeat="event in event">
+
+        <div class="event-list-img">
+          <img ng-src="{{ event.field_production.field_image.file.url }}" alt="">
+        </div>
+
+        <div class="event-list-details">
+
+          <h2>{{ event.title }}</h2>
+          <h3 ng-show="event.field_production.field_subheading">{{ event.field_production.field_subheading }}</h3>
+
+          <div ng-show="event.field_production.field_venue">
+              {{ event.field_production.field_venue.name }} <span data-ng-repeat='parent in event.field_production.field_venue.parent'> at {{ parent.name }}</span>
           </div>
 
-          <div class="event-list-details">
-
-            <h2>{{ event.title }}</h2>
-            <h3 ng-show="event.field_production.field_subheading">{{ event.field_production.field_subheading }}</h3>
-
-            <div ng-show="event.field_production.field_venue">
-                {{ event.field_production.field_venue.name }} <span data-ng-repeat='parent in event.field_production.field_venue.parent'> at {{ parent.name }}</span>
-            </div>
-
-            <div class="event-list-date" ng-show="event.field_start_time">
-              <strong>{{ event.field_start_time | date:'EEEE d MMMM yyyy' }}</strong>
-              {{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }}<span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span>
-            </div>
-
-            <div class="event-list-type"><a href="">{{ event.field_production.field_event_type.name }}</a></div>
-
-            <div data-ng-bind-html="event.field_teaser.value"></div>
-
-            <a ui-sref="wow.eventSingle({ eventId: event.alias_json })" class="read-more-link">Read more</a>
-
+          <div class="event-list-date" ng-show="event.field_start_time">
+            <strong>{{ event.field_start_time | date:'EEEE d MMMM yyyy' }}</strong>
+            {{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }}<span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span>
           </div>
 
-          <div class="ticket-box">
+          <div class="event-list-type"><a href="">{{ event.field_production.field_event_type.name }}</a></div>
 
-            <div data-ng-repeat='field_wristband_ticket in event.field_wristband_ticket' class="ticket-option" ng-show="field_wristband_ticket">
-              Ticket type: {{ field_wristband_ticket.name }}
-              <a ng-href="{{ field_wristband_ticket.field_ticket_url.url }}" class="book-now-btn">
-                Book Now <span>£{{ field_wristband_ticket.field_ticket_price | twoDecimalPlacesIfFixed }}</span>
-              </a>
-            </div>
+          <div data-ng-bind-html="event.field_teaser.value"></div>
 
+          <a ui-sref="wow.eventSingle({ eventId: event.alias_json })" class="read-more-link">Read more</a>
+
+        </div>
+
+        <div class="ticket-box">
+
+          <div data-ng-repeat='field_wristband_ticket in event.field_wristband_ticket' class="ticket-option" ng-show="field_wristband_ticket">
+            {{ field_wristband_ticket | formatTicketHelpText }} <a class="ticket-help-more-info" ui-sref="wow.page({ pageId: festival.field_ticket_information_page.alias_json })">more&nbsp;info</a>
+            <a ng-href="{{ field_wristband_ticket.field_ticket_url.url }}" class="book-now-btn">
+              Book {{ field_wristband_ticket.field_button_label }} <span>£{{ field_wristband_ticket.field_ticket_price | twoDecimalPlacesIfFixed }}</span>
+            </a>
           </div>
 
         </div>
 
       </div>
 
-      <div class="no-results repeat-animation" ng-show="(events.list | filter:search:strictOrAll).length == 0">No events found.</div>
-    
-    </article>
+    </div>
+
+    <div class="no-results repeat-animation" ng-show="(events.list | filter:search:strictOrAll).length == 0">No events found.</div>
+  
+  </article>
 
 </div>

@@ -98,4 +98,21 @@ angular
 
     };
 
+  })
+  /**
+   * @ngdoc filter
+   * @name wowApp.filter:formatTicketHelpText
+   * @filter
+   *
+   * @description
+   * Replaces [TICKET NAME] in ticket help text with the name of the ticket
+   */
+  .filter('formatTicketHelpText', function() {
+
+    return function (ticket) {
+
+      return ticket.field_help_text.replace(/\[TICKET NAME\]/g, ticket.name);
+
+    };
+
   });

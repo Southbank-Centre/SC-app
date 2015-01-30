@@ -11,8 +11,6 @@ angular
     // Get ID of WOW Festival (should be last part of Alias above)
     scope.festivalId = scope.festivalAlias.substr(scope.festivalAlias.lastIndexOf('-') + 1);
 
-    //console.log(festId);
-
     // Setup pageNotFound event
     scope.$on('event:pageNotFound', function() {
       // Show 404 state
