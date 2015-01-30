@@ -106,6 +106,8 @@ angular.module('wowApp')
 
             });
 
+            console.log(performances);
+
             callbackSuccess(performances);
 
           })
