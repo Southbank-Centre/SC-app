@@ -18,7 +18,7 @@
 
       <div class="ticket-box">
         <div data-ng-repeat='field_wristband_ticket in event.field_wristband_ticket' class="ticket-option">
-          {{ field_wristband_ticket | formatTicketHelpText }} <a class="ticket-help-more-info" ui-sref="wow.page({ pageId: festival.field_ticket_information_page.alias_json })">more&nbsp;info</a>
+          {{ field_wristband_ticket | formatTicketHelpText }} <a class="ticket-help-more-info" ui-sref="wow.page({ pageId: festival.field_ticket_information_page.alias_json })" ng-show="festival.field_ticket_information_page">more&nbsp;info</a>
             <a ng-href="{{ field_wristband_ticket.field_ticket_url.url }}" class="book-now-btn">
               Book {{ field_wristband_ticket.field_button_label }} <span>£{{ field_wristband_ticket.field_ticket_price | twoDecimalPlacesIfFixed }}</span>
             </a>

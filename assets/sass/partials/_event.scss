@@ -287,9 +287,15 @@
   }
 
   .ticket-info-page-link-container {
-    padding-top:26px;
-    margin-bottom:-100%;
+    padding-top:$padding;
+    padding-right:$padding;
     text-align:right;
+
+    @include breakpoint($bp-small-desktop) {
+      padding-top:26px;
+      padding-right:0;
+      margin-bottom:-100%;
+    }
 
     a {
       @include special-link;
