@@ -32,8 +32,6 @@ angular.module('wowApp')
         $state.go('wow.404')
       } */
 
-      // console.log($stateParams.eventTitle);
-
     }, utilitiesFactory.genericHTTPCallbackError);
 
   });
