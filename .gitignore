@@ -4,3 +4,5 @@
 .bundle
 /dist/
 /docs/
+*.sublime-project
+*.sublime-workspace
