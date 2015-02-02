@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc controller
  * @name wowApp.controller:PageCtrl
@@ -10,16 +8,16 @@
  */
 
 angular.module('wowApp')
-  .controller('PlannerCtrl', function ($rootScope, $scope) {
+  .controller('PlannerCtrl', function ($rootScope, $scope, $http) {
 
-    $scope.$on('$viewContentLoaded', function() {
+    $scope.$on('$stateChangeSuccess', function() {
       
-      if(document.getElementById('sched-embed').style.display==='none'){
-        //console.log('iframe loaded');
-      } else {
-        //console.log('not loaded');
-        window.location.reload();
-      }
+      $http.get('/app/components/planner/plannerEmbed.js')
+        .then(function(response) {
+
+          eval(response.data);
+
+        });
 
     });
 
