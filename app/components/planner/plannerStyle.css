@@ -1,1 +1,20 @@
-.event { border-radius: 0; }
+#sched-body {
+	border-radius: 0;
+}
+.container {
+	margin: 0;
+	max-width: none;
+}
+#sched-body-inner {
+	padding: 0 !important;
+}
+#sched-demodata-cta, #sched-header-extra {
+	border-radius: 0;
+}
+.event { 
+	border-radius: 0; 
+}
+.popover .popover-content {
+	background-image: none;
+	padding: 0;
+}
