@@ -80,6 +80,14 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
           }
         }
       })
+      .state('wow.festivalPLanner', {
+        url: '^/festival-planner',
+        views: {
+          '@': {
+            templateUrl: 'app/components/planner/plannerView.html'
+          }
+        }
+      })
       .state('wow.error', {
         views: {
           '@': {
