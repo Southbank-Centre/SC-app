@@ -83,7 +83,7 @@
     }
   }
 
-  a.book-now-btn {
+  .book-now-btn {
     max-width: 100%;
     margin-top: $margin/2;
     max-height:42px;
@@ -95,6 +95,10 @@
 
     @include breakpoint($bp-small-desktop) {
       max-width: 100%;
+    }
+
+    &.no-booking {
+      background-image:none;
     }
   }
 }

@@ -41,9 +41,9 @@ a {
 
 }
 
-a.book-now-btn, 
-a.book-now-btn[href^="http://"], 
-a.book-now-btn[href^="https://"] {
+.book-now-btn, 
+.book-now-btn[href^="http://"], 
+.book-now-btn[href^="https://"] {
   display: block;
   margin-top: 3px;
   background-color: $link-color;
