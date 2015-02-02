@@ -1,10 +1,10 @@
 /**
  * @ngdoc controller
- * @name wowApp.controller:PageCtrl
+ * @name wowApp.controller:PlannerCtrl
  * @controller
  *
  * @description
- * Defines the state and behaviour of the $scope for the pageView state
+ * Loads the Sched js file for embedding the festival planner
  */
 
 angular.module('wowApp')
