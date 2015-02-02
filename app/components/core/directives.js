@@ -237,9 +237,54 @@ angular.module('wowApp')
    * Embed sched.org festival planner
    *
    */
-   .directive('festivalPlanner', function() {
+   .directive('festivalPlanner', function($http, $compile, $state, $window) {
       return {
         restrict: 'A',
-        template: "<a id='sched-embed' href='http://sctest2015.sched.org/''>View the SCTest schedule & directory.</a><script type='text/javascript-lazy' src='http://sctest2015.sched.org/js/embed.js'></script>"
+        //replace: true,
+        // template: "<a id='sched-embed' href='http://wowtestv012015.sched.org/''>View the SCTest schedule & directory.</a><script type='text/javascript-lazy' src='http://wowtestv012015.sched.org/js/embed.js'></script>",
+
+        compile: function() {
+
+          return function(scope, element) {
+
+            //scope.$on('$stateChangeSuccess', function() {
+              //$state.go('wow.festivalPLanner');
+              //$state.go($state.current, {}, {reload: true});
+              var tpl = '<a id="sched-embed" href="http://wowtestv012015.sched.org/">View the SCTest schedule & directory.</a><script type="text/javascript" src="http://wowtestv012015.sched.org/js/embed.js"></script>';
+              //tpl.then(function(response) {
+                  element.html($compile(tpl)(scope));
+                //});
+
+            // });
+
+              scope.$on('$stateChangeSuccess', function() {    
+
+                  // location.reload();
+
+                  //$state.go('wow.planner');
+
+                  //$window.location.reload();
+                  //$window.location.href = '/festival-planner';
+
+                  
+              });
+
+              $compile(element.contents())(scope);
+
+          };
+        }
+
       };
+
     });
+    /* .directive('festivalPlanner', function($compile) {
+      return {
+        restrict: 'A',
+        link: function (scope, element, template){
+          template = '<iframe src="http://wowtestv012015.sched.org" width="100%" height="400"></iframe>';
+          template = '<a id="sched-embed" href="http://wowtestv012015.sched.org/">View the SCTest schedule & directory.</a><script type="text/javascript" src="http://wowtestv012015.sched.org/js/embed.js"></script>';
+          element.html(template);
+          $compile(element.contents())(scope); 
+        }
+      };
+    }); */
