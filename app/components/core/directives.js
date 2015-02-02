@@ -237,7 +237,7 @@ angular.module('wowApp')
    * Embed sched.org festival planner
    *
    */
-   .directive('festivalPlanner', function($http, $compile, $state, $window) {
+   .directive('festivalPlanner', function($http, $compile, $state, $templateCache) {
       return {
         restrict: 'A',
         //replace: true,
@@ -247,29 +247,22 @@ angular.module('wowApp')
 
           return function(scope, element) {
 
-            //scope.$on('$stateChangeSuccess', function() {
-              //$state.go('wow.festivalPLanner');
-              //$state.go($state.current, {}, {reload: true});
-              var tpl = '<a id="sched-embed" href="http://wowtestv012015.sched.org/">View the SCTest schedule & directory.</a><script type="text/javascript" src="http://wowtestv012015.sched.org/js/embed.js"></script>';
-              //tpl.then(function(response) {
-                  element.html($compile(tpl)(scope));
-                //});
+            //$templateCache.removeAll();
 
-            // });
+            var tpl = '<a id="sched-embed" href="http://wowtestv012015.sched.org/">View the SCTest schedule & directory.</a><script type="text/javascript" src="http://wowtestv012015.sched.org/js/embed.js"><div id="sched-script"></div></script>';
+            element.html($compile(tpl)(scope));
 
-              scope.$on('$stateChangeSuccess', function() {    
+            scope.$on('$stateChangeSuccess', function() {  
 
-                  // location.reload();
+              // $state.reload();  
+              // location.reload();
+              // $state.go('wow.home');
+              //window.location.reload();
+              //$window.location.href = '/festival-planner';
+                
+            });
 
-                  //$state.go('wow.planner');
-
-                  //$window.location.reload();
-                  //$window.location.href = '/festival-planner';
-
-                  
-              });
-
-              $compile(element.contents())(scope);
+            $compile(element.contents())(scope);
 
           };
         }
