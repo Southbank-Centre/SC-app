@@ -84,17 +84,13 @@
     height:40px;
     overflow:hidden;
 
-    @include breakpoint($bp-small-desktop) {
-      @include span(9 of 12);
+    @include breakpoint($bp-desktop) {
+      @include span(10 of 12);
       position:static;
       padding:0 $padding;
       width:auto;
       height:auto;
       overflow:visible;
-    }
-
-    @include breakpoint($bp-desktop) {
-      @include span(10 of 12);
     }
 
     a {
@@ -107,7 +103,7 @@
         padding-bottom:$padding;
       }
       
-      @include breakpoint($bp-small-desktop) {
+      @include breakpoint($bp-desktop) {
         display:inline-block;
         padding:0;
         margin-right:$margin*2;
@@ -131,7 +127,7 @@
         height:40px;
         width:60px;
 
-        @include breakpoint($bp-small-desktop) {
+        @include breakpoint($bp-desktop) {
           display:none;
         }
 
@@ -157,10 +153,6 @@
   }
 
   .twitter-hashtag {
-
-    @include breakpoint($bp-small-desktop) {
-      @include span(3 of 12 last);
-    }
     
     @include breakpoint($bp-desktop) {
       @include span(2 of 12 last);
