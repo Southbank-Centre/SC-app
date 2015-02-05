@@ -23,11 +23,21 @@ body {
 
 @font-face {
   font-family: 'SC AkkuratBold';
-  src: url('../fonts/sbcakkbdpro1.eot');
-  src: url('../fonts/sbcakkbdpro1.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/sbcakkbdpro1.woff') format('woff'),
-  url('../fonts/sbcakkbdpro1.ttf') format('truetype'),
-    url('../fonts/sbcakkbdpro1.svg') format('svg');
+  src: url('../fonts/lineto-akkurat-pro-bold.eot');
+  src: url('../fonts/lineto-akkurat-pro-bold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/lineto-akkurat-pro-bold.woff') format('woff'),
+  url('../fonts/lineto-akkurat-pro-bold.ttf') format('truetype'),
+    url('../fonts/lineto-akkurat-pro-bold.svg') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SC AkkuratBoldItalic';
+  src: url('../fonts/lineto-akkurat-pro-bolditalic.eot');
+  src: url('../fonts/lineto-akkurat-pro-bolditalic.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/lineto-akkurat-pro-bolditalic.woff') format('woff'),
+  url('../fonts/lineto-akkurat-pro-bolditalic.ttf') format('truetype'),
+    url('../fonts/lineto-akkurat-pro-bolditalic.svg') format('svg');
   font-weight: bold;
   font-style: normal;
 }
@@ -43,12 +53,28 @@ body {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'SC AkkuratLightItalic';
+  src: url('../fonts/lineto-akkurat-pro-lightitalic.eot');
+  src: url('../fonts/lineto-akkurat-pro-lightitalic.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/lineto-akkurat-pro-lightitalic.woff') format('woff'),
+  url('../fonts/lineto-akkurat-pro-lightitalic.ttf') format('truetype'),
+  url('../fonts/lineto-akkurat-pro-lightitalic.svg') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
 h1 {
   @include adjust-font-size-to(26px);
   font-family: 'SC AkkuratBold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: normal;
   letter-spacing: $letter-spacing;
   margin: 0 0 0.5em;
+
+  em {
+    font-style: normal;
+    font-family: 'SC AkkuratBoldItalic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
 
   @include breakpoint($bp-mobile) {
     @include adjust-font-size-to(40px);
@@ -69,6 +95,11 @@ h2 {
   font-weight: normal;
   letter-spacing: $letter-spacing; 
 
+  em {
+    font-style: normal;
+    font-family: 'SC AkkuratLightItalic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
   @include breakpoint($bp-mobile) {
     @include adjust-font-size-to(26px);
   }
@@ -81,6 +112,11 @@ h3 {
   font-weight: normal;
   letter-spacing: $letter-spacing;
   margin: 0 0 0.5em;
+
+  em {
+    font-style: normal;
+    font-family: 'SC AkkuratBoldItalic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
 
   @include breakpoint($bp-mobile) {
     @include adjust-font-size-to(21px);
