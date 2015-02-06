@@ -65,7 +65,7 @@
             {{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }}<span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span>
           </div>
 
-          <div class="event-list-type"><a href="">{{ event.field_production.field_event_type.name }}</a></div>
+          <div class="event-list-type">{{ event.field_production.field_event_type.name }}</div>
 
           <div data-ng-bind-html="event.field_teaser.value"></div>
 
