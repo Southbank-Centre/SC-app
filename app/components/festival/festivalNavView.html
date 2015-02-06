@@ -1,4 +1,4 @@
-<div class="festival-name-bar" id="navTop" ng-class="{homepagenav: isActiveNav('/')}" ng-show="festival" ng-style="{'background-color':festival.field_color_background, 'color':festival.field_color_text}">
+<div class="festival-name-bar" id="navTop" data-ng-controller='FestivalNavCtrl' ng-class="{homepagenav: isActiveNav('/')}" ng-show="festival" ng-style="{'background-color':festival.field_color_background, 'color':festival.field_color_text}">
 
   <img ng-src="{{festival.field_image_background.file.url}}" class="background-img" />
 
