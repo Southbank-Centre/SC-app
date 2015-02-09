@@ -63,6 +63,9 @@ a {
   background-repeat: no-repeat;
   background-position: right 5px top;
   line-height: 40px;
+  &.free-btn {
+    background-image: none;
+  }
 }
 
 .scroll-link {
