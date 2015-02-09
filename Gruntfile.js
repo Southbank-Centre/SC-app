@@ -222,7 +222,6 @@ module.exports = function (grunt) {
         generatedImagesDir: '.tmp/assets/imgs/generated',
         imagesDir: 'assets/imgs',
         javascriptsDir: 'assets/js',
-        //javascriptsDir: '<%= yeoman.dist %>/scripts.js',
         fontsDir: 'assets/fonts',
         importPath: './bower_components',
         httpImagesPath: '/assets/imgs',
@@ -267,7 +266,6 @@ module.exports = function (grunt) {
           html: {
             steps: {
               js: ['concat', 'uglifyjs'],
-              //js: ['concat'],
               css: ['cssmin']
             },
             post: {}
@@ -486,8 +484,6 @@ module.exports = function (grunt) {
     if (target === 'dist') {
       //return grunt.task.run(['build', 'connect:dist:keepalive']);
       return grunt.task.run([
-        //'build', 
-
         'clean:' + target,
         'wiredep',
         'configureProxies',
@@ -505,7 +501,6 @@ module.exports = function (grunt) {
         'usemin',
         'htmlmin',
         'connect:dist:keepalive'
-
       ]);
     }
 
