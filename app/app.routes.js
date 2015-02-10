@@ -15,8 +15,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
             templateUrl: 'app/components/festival/scNavView.html'
           },
           'festivalNav' : {
-            templateUrl: 'app/components/festival/festivalNavView.html',
-            controller: 'FestivalNavCtrl'
+            templateUrl: 'app/components/festival/festivalNavView.html'
           },
           'festivalFooter' : {
             templateUrl: 'app/components/festival/festivalFooterView.html'
@@ -39,8 +38,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
         url: '^/whats-on/:eventId',
         views: {
           '@': {
-            templateUrl: 'app/components/event/eventSingleView.html',
-            controller: 'EventSingleCtrl',
+            templateUrl: 'app/components/event/eventSingleView.html'
           }
         }
       })
@@ -48,8 +46,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
         url: '^/whats-on',
         views: {
           '@': {
-            templateUrl: 'app/components/event/eventListView.html',
-            controller: 'EventListCtrl'
+            templateUrl: 'app/components/event/eventListView.html'
           }
         }
       })
@@ -57,8 +54,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
         url: '^/speakers-artists/:personId',
         views: {
           '@': {
-            templateUrl: 'app/components/person/personSingleView.html',
-            controller: 'PersonSingleCtrl'
+            templateUrl: 'app/components/person/personSingleView.html'
           }
         }
       })
@@ -66,8 +62,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
         url: '^/speakers-artists',
         views: {
           '@': {
-            templateUrl: 'app/components/person/personListView.html',
-            controller: 'PersonListCtrl'
+            templateUrl: 'app/components/person/personListView.html'
           }
         }
       })
@@ -75,8 +70,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
         url: '^/page/:pageId',
         views: {
           '@': {
-            templateUrl: 'app/components/page/pageView.html',
-            controller: 'PageCtrl',
+            templateUrl: 'app/components/page/pageView.html'
           }
         }
       })

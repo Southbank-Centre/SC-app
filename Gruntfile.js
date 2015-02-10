@@ -97,7 +97,7 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               proxySnippet,
-              modRewrite (['!\\.html|\\.js|\\.css|\\.svg|\\.png|\\.jpg|\\.jpeg|\\.eot|\\.ttf|\\.woff$ /index.html [L]']),
+              modRewrite (['!\\.html|\\.js|\\.css|\\.svg|\\.png|\\.jpg|\\.jpeg|\\.gif|\\.eot|\\.ttf|\\.woff$ /index.html [L]']),
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -127,8 +127,17 @@ module.exports = function (grunt) {
       dist: {
         options: {
           open: true,
-          base: '<%= yeoman.dist %>'
+          base: '<%= yeoman.dist %>',
+          middleware: function (connect) {
+            return [
+              proxySnippet,
+              modRewrite (['!\\.html|\\.js|\\.css|\\.svg|\\.png|\\.jpg|\\.jpeg|\\.gif|\\.eot|\\.ttf|\\.woff$ /index.html [L]']),
+              connect.static('.tmp'),
+              connect.static(appConfig.dist)
+            ];
+          }
         }
+
       }
     },
 
@@ -346,9 +355,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/concat/assets/js',
-          src: ['*.js', '!oldieshim.js'],
-          dest: '.tmp/concat/assets/js'
+          cwd: '.tmp/concat/scripts',
+          src: ['**/*.js', '!oldieshim.js'],
+          dest: '.tmp/concat/scripts'
         }]
       }
     },
@@ -473,7 +482,26 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
+      //return grunt.task.run(['build', 'connect:dist:keepalive']);
+      return grunt.task.run([
+        'clean:' + target,
+        'wiredep',
+        'configureProxies',
+        'ngdocs',
+        'useminPrepare',
+        'concurrent:server',
+        'autoprefixer',
+        'concat',
+        'ngAnnotate',
+        'copy:' + target,
+        'cdnify',
+        'cssmin',
+        'uglify',
+        'filerev',
+        'usemin',
+        'htmlmin',
+        'connect:dist:keepalive'
+      ]);
     }
 
     grunt.task.run([
