@@ -41,7 +41,7 @@
 
     <div class="repeat-animation" ng-repeat="(field_start_hour, event) in events.list | filter:search:strictOrAll | groupBy: 'field_start_hour'" id="event-name">
 
-      <div class="event-hour">{{ field_start_hour }}</div>
+      <div class="event-hour">{{ field_start_hour | date : 'ha' }}</div>
 
       <div class="event-list-container container" ng-repeat="event in event">
 
