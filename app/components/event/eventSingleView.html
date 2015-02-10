@@ -31,7 +31,7 @@
           </a>
 
           <a ng-switch-when='Stand Alone Event' ng-href="{{ event.field_performance_ticket_url }}" class="book-now-btn">
-            {{ field_wristband_ticket.field_button_label }} <span>£{{ event.field_performance_ticket_price }}</span>
+            {{ field_wristband_ticket.field_button_label }} <span>{{ event.field_performance_ticket_price }}</span>
           </a>
 
           <a ng-switch-when='Free ticketed' ng-href="{{ event.field_performance_ticket_url }}" class="book-now-btn">
