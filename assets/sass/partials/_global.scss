@@ -54,7 +54,8 @@ a {
   span {
     font-weight: normal;
     font-family: 'SC Akkurat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    margin-left: 40px;
+    float: right;
+    width: 50px;
     margin-right: 20px;
   }
   background-image: url(../imgs/icon-sprite.png);
@@ -62,6 +63,9 @@ a {
   background-repeat: no-repeat;
   background-position: right 5px top;
   line-height: 40px;
+  &.free-btn {
+    background-image: none;
+  }
 }
 
 .scroll-link {
