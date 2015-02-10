@@ -46,12 +46,14 @@
       <div class="event-list-container container" ng-repeat="event in event">
 
         <div class="event-list-img">
-          <img ng-src="{{ event.field_production.field_image.file.url }}" alt="">
+          <a ui-sref="wow.eventSingle({ eventId: event.alias_json })">
+            <img ng-src="{{ event.field_production.field_image.file.url }}" alt="">
+          </a>
         </div>
 
         <div class="event-list-details">
 
-          <h2>{{ event.title }}</h2>
+          <h2><a ui-sref="wow.eventSingle({ eventId: event.alias_json })">{{ event.title }}</a></h2>
           <h3 ng-show="event.field_production.field_subheading">{{ event.field_production.field_subheading }}</h3>
 
           <div ng-show="event.field_production.field_venue">
@@ -63,7 +65,7 @@
             {{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }}<span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span>
           </div>
 
-          <div class="event-list-type"><a href="">{{ event.field_production.field_event_type.name }}</a></div>
+          <div class="event-list-type">{{ event.field_production.field_event_type.name }}</div>
 
           <div data-ng-bind-html="event.field_teaser.value"></div>
 

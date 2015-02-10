@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict'; - Disabled to allow the festival planner to load (otherwise Uglify adds this to the top fo the minified scripts.js file)
 
 /**
  * @ngdoc overview

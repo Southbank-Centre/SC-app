@@ -24,7 +24,7 @@ angular
     });
 
     scope.$on('$stateChangeSuccess', function() {
-      $window.scrollBy(0,0);
+      $window.scrollTo(0,0);
 
       // Get virtual url for Google Tag Manager pageview
       var virtualUrl = $location.path();
