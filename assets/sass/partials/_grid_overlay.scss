@@ -59,10 +59,11 @@
   
 }
 
-.toggle-grid {
+a.toggle-grid {
   font-size: 0.8em;
   position: fixed;
   right: 1em;
   top: 0.5em;
   z-index: 999;
+  background: none;
 }

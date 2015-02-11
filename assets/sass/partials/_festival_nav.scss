@@ -1,62 +1,51 @@
-.festival-name-bar {
-
+.festival-header {
   position:relative;
+  height: 70px;
+  color: $white;
+  background-color: $black;
 
-  &.homepagenav {
-    display:none;
+  .festival-logo {
+    @include span(2);
+    position: relative;
+    background: none;
+    img {
+      display: block;
+      height: 110px;
+      width: auto;
+    }
   }
 
-  @include adjust-font-size-to(18px);
-
-  @include breakpoint($bp-mobile) {
-    @include adjust-font-size-to(26px);
-  }
-
-  font-family: 'SC AkkuratLight';
-  letter-spacing: $letter-spacing;
-  background-repeat: no-repeat;
-  background-attachment:top center;
-  background-size:100% auto;
-  overflow:hidden;
-
-  .background-img {
-    position:absolute;
-    max-width:100%;
-    opacity:0.4;
-    z-index:1;
-  }
-
-  .festival-name-bar-content {
-
-    position:relative;
-    z-index:2;
-
-    .festival-name-bar-logo-container {
-
-      float:left;
-
-      .festival-name-bar-logo {
-        max-height: 75px;
-        margin:2px $margin;
-        vertical-align:middle;
+  .festival-details {
+    @include span(10 last);
+    overflow: hidden;
+    padding: $padding/2 0;
+    
+    .festival-title {
+      @include span(8);
+      @include adjust-font-size-to(32px);
+      @include breakpoint($bp-small-desktop) {
+        
       }
-
     }
 
-    .festival-name-bar-text {
-
-      overflow:hidden;
-      padding: $padding/2 $padding;
-
-      .festival-name-bar-name {
-        font-family: 'SC AkkuratBold';
+    .festival-date {
+      @include span(2 last);
+      clear: both;
+      @include breakpoint($bp-small-desktop) {
+        //@include span(first 4);
+        clear: none;
       }
-
+      padding: $padding/2 $padding;
+      // margin-right:gutter(8);
+      // margin-bottom:rhythm(0.25);
+      margin-bottom: 2px;
+      font-weight: bold;
     }
 
   }
 
 }
+
 
 .festival-nav {
 
@@ -66,31 +55,32 @@
   // overflow:hidden;
 
   a {
-    background:white;
-    color:black;
-    padding-right:0;
+    background: $white;
+    color: $black;
+    padding-right: 0;
 
     &:hover {
-      text-decoration:underline;
+      text-decoration: underline;
     }
   }
 
   nav {
-
+    @include span(9);
+    // @include push(2);
     position:absolute;
-    z-index:1;
+    z-index:100;
     top:0px;
     left:0px;
     height:40px;
     overflow:hidden;
 
     @include breakpoint($bp-desktop) {
-      @include span(10 of 12);
-      position:static;
-      padding:0 $padding;
-      width:auto;
-      height:auto;
-      overflow:visible;
+      //@include span(10 of 12);
+      position: static;
+      padding: 0;
+      width: auto;
+      height: auto;
+      overflow: visible;
     }
 
     a {
