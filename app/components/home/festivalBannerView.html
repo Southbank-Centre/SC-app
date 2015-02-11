@@ -1,41 +1,16 @@
 <div class="festival-banner hide-fade" ng-show="festival">
 
-  <header class="container" ng-style="{'background-color':festival.field_color_background, 'background-image':'url(\''+festival.field_image_background.file.url+'\')', 'color':festival.field_color_text}">
+  <header>
 
     <div class="container">
 
-      <div class="festival-logo-container" ng-show="festival.field_image_logo_large.file.url">
-        <img ng-src="{{festival.field_image_logo_large.file.url}}" class="festival-logo" alt="{{festival.title}} Logo" />
-      </div>
-
-      <h1 class="large-heading" id="large-heading" ng-show="festival.title">
-        <span class="festival-name-large">{{ festival.title }} Festival: </span>
-        <span class="festival-location">London</span>
-        <span class="festival-year">{{ festival.field_date_start | date:'y' }}</span>
-      </h1>
-
-    </div>
-
-    <div class="container">
-
-      <div class="festival-date" ng-style="{'background-color':festival.field_color_highlight, 'color':festival.field_color_text_highlight}">
-        {{ festival.field_date_start | date:'EEEE d MMMM' }} <span ng-show="festival.field_date_end">&mdash; {{ festival.field_date_end | date:'EEEE d MMMM y' }}</span>
-      </div>
-
-    </div>
-
-    <div class="container">
-
-      <div class="festival-description-container" ng-style="{'background-color':festival.field_color_highlight, 'color':festival.field_color_text_highlight}">
+      <div class="festival-description-container" ng-style="{'background-color':festival.field_color_background, 'color':festival.field_color_text_highlight}">
         <h2 class="festival-description-home" ng-show="festival.field_description.value" data-ng-bind-html="festival.field_description.value"></h2>
-        <div>
-
-          <a ui-sref="wow.eventList" class="read-more-link">Full events listing</a>
-
-        </div>
       </div>
 
     </div>
+
+    <img ng-src="{{festival.field_image_background.file.url}}" class="festival-img" />
 
   </header>
 
