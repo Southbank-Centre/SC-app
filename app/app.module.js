@@ -17,5 +17,6 @@ angular
     'ui.router',
     'angular.filter',
     'duScroll',
-    'headroom'
+    'headroom',
+    'angularMoment'
   ]); 

@@ -10,7 +10,7 @@
  */
 
 angular.module('wowApp')
-  .factory('festivalFactory', function ($http, $rootScope, utilitiesFactory) {
+  .factory('festivalFactory', function ($http, $rootScope, utilitiesFactory, angularMomentConfig) {
 
     return {
 
@@ -36,17 +36,15 @@ angular.module('wowApp')
             festival.field_date_end = utilitiesFactory.timestampSecondsToMS(festival.field_date_end);
 
             // Convert festival duration into array of days for use by events list filter
-            var s = new Date(Number(festival.field_date_start));
-            var e = new Date(Number(festival.field_date_end));
+            var s = moment(festival.field_date_start).tz(angularMomentConfig.timezone);
+            var e = moment(festival.field_date_end).tz(angularMomentConfig.timezone);
             var a = [];
 
-            while (s <= e) {
-              a.push({ 
-                'day' : new Date(s.toDateString()).getTime().toString()
+            while (!s.isAfter(e)) {
+              a.push({
+                'day' : moment(s)
               });
-              s = new Date(s.setDate(
-                s.getDate() + 1
-              ));
+              s = s.add(1, 'days');
             }
 
             festival.festivalDays = a;

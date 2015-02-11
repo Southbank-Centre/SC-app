@@ -3,7 +3,7 @@
   <div class="footer-head-container">
     <div class="container footer-head">
       <div class="sponsor">Supported by: <img src="/assets/imgs/bloomberg-logo.png" /></div>
-      <div class="footer-festival-dates" ng-style="{'color':festival.field_color_background}">Festival Dates: {{ festival.field_date_start | date:'d' }} - {{ festival.field_date_end | date:'d MMMM y' }}</div>
+      <div class="footer-festival-dates" ng-style="{'color':festival.field_color_background}">Festival Dates: {{ festival.field_date_start | amDateFormat:'D' }} - {{ festival.field_date_end | amDateFormat:'D MMMM YYYY' }}</div>
     </div>
   </div>
 
