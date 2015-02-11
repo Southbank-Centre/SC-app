@@ -6,7 +6,7 @@
     <div class="festival-name-bar-text">
       <span class="festival-name-bar-name">{{ festival.title }} Festival: </span>
       <span class="festival-name-bar-location">London</span>
-      <span class="festival-name-bar-year">{{ festival.field_date_start | date:'y' }}</span>
+      <span class="festival-name-bar-year">{{ festival.field_date_start | amDateFormat:'YYYY' }}</span>
     </div>
   </div>
 

@@ -32,7 +32,7 @@ angular.module('wowApp')
         // Only convert timestamp to milliseconds if the string
         // represents a 10 digit integer
         if (/^\d+$/.test(timestamp) && timestamp.length === 10) {
-          timestampMS = Number(timestamp * 1000).toString();
+          timestampMS = Number(timestamp * 1000);
         }
 
         return timestampMS;

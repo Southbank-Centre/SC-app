@@ -9,7 +9,7 @@
  */
 
 angular.module('wowApp')
-  .factory('eventFactory', function($http, $rootScope, $filter, utilitiesFactory) {
+  .factory('eventFactory', function($http, $rootScope, $filter, utilitiesFactory, angularMomentConfig) {
 
     return {
 
@@ -84,18 +84,14 @@ angular.module('wowApp')
                 
                 // Get time from event start time for use in view filters
                 if (item.field_start_time) {
-                  
-                  // Use angular date filters
 
                   // add event day to scope for use in event list view filter  
                   var eventTimestamp = item.field_start_time;
-                  var eventStartDate = $filter('date')(eventTimestamp, 'EEEE d MMMM yyyy');
-                  item.field_start_day = new Date(eventStartDate).getTime().toString();
+                  item.field_start_day = moment(eventTimestamp).tz(angularMomentConfig.timezone).startOf('day');
 
-                  // add event hour to scope for use in event list hour grouping
-                  // round event start time down to nearest hour
-                  var eventHourTimestamp = ((Math.floor((((eventTimestamp) / 1000) / 60) / 60) * 60) * 60) * 1000;
-                  item.field_start_hour = eventHourTimestamp;
+                  // add event hour to scope for use in event list hour grouping  
+                  var eventHour = $filter('amDateFormat')(eventTimestamp, 'ha');
+                  item.field_start_hour = eventHour;
 
                   // *temporary* - add event type to first level of scope as cannot access from nested json
                   var eventType = item.field_production.field_event_type.name;

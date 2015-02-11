@@ -5,9 +5,9 @@
   <article ng-show="event">
 
     <div class="date">
-      <strong>{{ event.field_start_time | date:'EEEE d MMMM yyyy' }}</strong>
-      {{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }}
-      <span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span>
+      <strong>{{ event.field_start_time | amDateFormat:'dddd D MMMM YYYY' }}</strong>
+      {{ event.field_start_time | amDateFormat:'h:mm' }}{{ event.field_start_time | amDateFormat:'a' | lowercase }}
+      <span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | amDateFormat:'h:mm' }}{{ event.field_end_time | amDateFormat:'a' | lowercase }}</span>
     </div>
 
     <header class="container">
@@ -65,10 +65,10 @@
           </dd>
 
           <dt ng-show="event.field_start_time">Time</dt>
-          <dd ng-show="event.field_start_time">{{ event.field_start_time | date:'h:mm' }}{{ event.field_start_time | date:'a' | lowercase }}<span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | date:'h:mm' }}{{ event.field_end_time | date:'a' | lowercase }}</span></dd>
+          <dd ng-show="event.field_start_time">{{ event.field_start_time | amDateFormat:'h:mm' }}{{ event.field_start_time | amDateFormat:'a' | lowercase }}<span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | amDateFormat:'h:mm' }}{{ event.field_end_time | amDateFormat:'a' | lowercase }}</span></dd>
 
           <dt ng-show="event.field_start_time">Date</dt>
-          <dd ng-show="event.field_start_time">{{ event.field_start_time | date:'EEEE d MMMM yyyy' }}</dd>
+          <dd ng-show="event.field_start_time">{{ event.field_start_time | amDateFormat:'dddd D MMMM YYYY' }}</dd>
 
           <dt ng-show="event.festival.length > 0">Festival</dt>
           <dd ng-show="event.festival.length > 0"><span ng-show="festival.name" data-ng-repeat='festival in event.festival'>{{festival.name}}{{{true: '', false: ', '}[$last]}}</span></dd>

@@ -1,8 +1,11 @@
 'use strict';
 
 angular
-  .module('wowApp')
-  
+  .module('wowApp').constant('angularMomentConfig', {
+
+    timezone: 'Europe/London'
+    
+  })  
   .run(['$rootScope', '$state', '$window', '$location', 'festivalFactory', 'utilitiesFactory', function (scope, state, $window, $location, festivalFactory, utilitiesFactory) {
 
     // Alias of WOW Festival stored in the backend
@@ -50,6 +53,7 @@ angular
       // Success
       // Attach the festival data to the scope
       scope.festival = data;
+      console.log(scope.festival);
 
       // Set festivalDataLoaded to true and broadcast the festivalDataLoaded event
       scope.festivalDataLoaded = true;

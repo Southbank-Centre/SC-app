@@ -76,7 +76,7 @@ angular
         return input;
       }
 
-      if ((input.constructor === Object)) {
+      if (input.constructor === Object) {
         var keys = Object.keys(input);
         if (keys.length < 1) {
           return [];

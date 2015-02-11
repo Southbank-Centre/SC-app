@@ -10,7 +10,7 @@
  */
 
 angular.module('wowApp')
-  .factory('pageFactory', function($http, $rootScope, $filter) {
+  .factory('pageFactory', function($http) {
 
     return {
 

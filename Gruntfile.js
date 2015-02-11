@@ -309,17 +309,6 @@ module.exports = function (grunt) {
     //   dist: {}
     // },
 
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/assets/imgs',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/assets/imgs'
-        }]
-      }
-    },
-
     svgmin: {
       dist: {
         files: [{
@@ -446,12 +435,10 @@ module.exports = function (grunt) {
       ],
       dist: [
         'compass:dist',
-        'imagemin',
         'svgmin'
       ],
       dev: [
         'compass:dist',
-        'imagemin',
         'svgmin'
       ]
     },
