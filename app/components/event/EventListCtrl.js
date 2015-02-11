@@ -37,16 +37,33 @@ angular.module('wowApp')
     * the filter option is not null
     */
     $scope.strictOrAll = function(expected, actual){
-     if (actual === null) {
+      
+      // If moment objects are passed in, format them as strings for comparison
+      if (typeof expected === 'object') {
+        if (expected.hasOwnProperty('_isAMomentObject')) {
+          if (expected._isAMomentObject) {
+            expected = expected.format('YYYYMMDDhhmmss');
+          }
+        }
+      }
+      if (typeof actual === 'object') {
+        if (actual.hasOwnProperty('_isAMomentObject')) {
+          if (actual._isAMomentObject) {
+            actual = actual.format('YYYYMMDDhhmmss');
+          }
+        }
+      }
+
+      if (actual === null) {
 
        return true;
 
-     // Only compare strings and numbers
-     } else if (typeof expected !== 'string' && typeof expected !== 'number') {
+      // Only compare strings and numbers
+      } else if (typeof expected !== 'string' && typeof expected !== 'number') {
 
        return false;
 
-     } else {
+      } else {
 
        // Convert numbers to strings so that they can be compared
        if (typeof expected === 'number') {
@@ -55,7 +72,7 @@ angular.module('wowApp')
 
        // Search for a match
        return expected.match(new RegExp(actual, 'i')) !== null;
-     }
+      }
    }
 
   });
