@@ -88,13 +88,13 @@
         <h4>Booking Information</h4>
         <dl>
           <dt ng-show="event.field_production.field_ticket_prices">Price</dt>
-          <dd ng-show="event.field_production.field_ticket_prices" data-ng-bind-html="event.field_production.field_ticket_prices"></dd>
+          <dd ng-show="event.field_production.field_ticket_prices" data-ng-bind-html="event.field_production.field_ticket_prices.value"></dd>
 
           <dt ng-show="event.field_production.premiumPrice">Premium seats</dt>
           <dd ng-show="event.field_production.premiumPrice">{{ event.field_production.premiumPrice }}</dd>
 
           <dt ng-show="event.field_production.field_concessions">Concessions</dt>
-          <dd ng-show="event.field_production.field_concessions" data-ng-bind-html="event.field_production.field_concessions"></dd>
+          <dd ng-show="event.field_production.field_concessions" data-ng-bind-html="event.field_production.field_concessions.value"></dd>
         </dl>
       </div>
 
