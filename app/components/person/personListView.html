@@ -1,4 +1,4 @@
-<div class="person-list container" data-ng-controller='PersonListCtrl'>
+<div class="person-list" data-ng-controller='PersonListCtrl'>
 
   <div class="page-loading" ng-hide="persons || !festival"></div>
   
@@ -18,7 +18,7 @@
           <span>{{ characterHeading }}</span>
         </h3>
 
-        <article class="person-list-container" ng-repeat="person in person">
+        <article class="person-list-container container" ng-repeat="person in person">
 
           <div class="person-list-img">
 

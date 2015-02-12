@@ -25,12 +25,6 @@ headroom {
 main {
   margin-top: 247px;
   &.homepage {
-    margin-top: 210px;
-    @include breakpoint($bp-small-desktop) {
-      margin-top: 230px;
-    }
-    @include breakpoint($bp-desktop) {
-      margin-top: 190px;
-    }
+    margin-top: 0;
   }
 }
