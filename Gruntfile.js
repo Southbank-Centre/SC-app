@@ -382,11 +382,6 @@ module.exports = function (grunt) {
           src: ['generated/*']
         }, {
           expand: true,
-          cwd: '<%= yeoman.app %>/assets/imgs',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/assets/imgs'
-        }, {
-          expand: true,
           cwd: 'assets/fonts',
           dest: '<%= yeoman.dist %>/assets/fonts',
           src: ['*']
@@ -409,12 +404,6 @@ module.exports = function (grunt) {
             'docs/**'
           ]
         }, {
-          expand: true,
-          cwd: '<%= yeoman.app %>/assets/imgs',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/assets/imgs'
-        },
-        {
           expand: true,
           cwd: 'assets/fonts',
           dest: '<%= yeoman.dist %>/assets/fonts',
