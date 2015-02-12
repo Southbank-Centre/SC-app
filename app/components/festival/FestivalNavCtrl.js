@@ -9,9 +9,9 @@
  * Defines the state and behaviour of the $scope for the festivalNavView state
  */
 angular.module('wowApp')
-  .controller('FestivalNavCtrl', function ($scope, $location) {
+  .controller('FestivalNavCtrl', function ($scope) {
 
-    $scope.$on('$locationChangeSuccess', function() {
+    $scope.$on('$stateChangeSuccess', function() {
       // Close mobile version of nav on location change
       $scope.navOpen = false;
     });
