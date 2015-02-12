@@ -2,6 +2,8 @@
 
 .person-single {
 
+  min-height: 200px;
+
   .person-name-container {
     @include breakpoint($bp-small-desktop) {
       @include span(9);
@@ -38,6 +40,8 @@
 // Person List
  
 .person-list {
+
+  min-height: 200px;
 
   @include breakpoint($bp-mobile) {
     .person-list-repeat:first-child { margin-top: -$margin*3; }

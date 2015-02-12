@@ -1,30 +1,34 @@
-<header class="festival-header" id="navTop" data-ng-controller='FestivalNavCtrl' ng-show="festival">
+<div class="festival-nav-container" data-ng-controller='FestivalNavCtrl'>
 
-  <div class="container">
+  <header class="festival-header" id="navTop" data-ng-controller='FestivalNavCtrl' ng-show="festival">
 
-    <a ui-sref="wow.home" class="festival-logo"><img ng-src="{{festival.field_image_logo_small.file.url}}" alt="{{festival.title}} Logo" ng-show="festival.field_image_logo_small.file.url" /></a>
+    <div class="container">
 
-    <h2 class="festival-title">{{ festival.title }}</h2>
-    <div class="festival-date">{{ festival.field_date_start | amDateFormat:'D' }} &ndash; {{ festival.field_date_end | amDateFormat:'D MMMM YYYY' }}</div>
-    <div class="festival-sponsor">Supported by <span></span></div>
+      <a ui-sref="wow.home" class="festival-logo"><img ng-src="{{festival.field_image_logo_small.file.url}}" alt="{{festival.title}} Logo" ng-show="festival.field_image_logo_small.file.url" /></a>
 
-  </div>
+      <h2 class="festival-title">{{ festival.title }}</h2>
+      <div class="festival-date">{{ festival.field_date_start | amDateFormat:'D' }} &ndash; {{ festival.field_date_end | amDateFormat:'D MMMM YYYY' }}</div>
+      <div class="festival-sponsor">Supported by <span></span></div>
 
-</header>
-
-
-<div class="festival-nav" ng-show="festival" ng-init="navOpen = false">
-
-  <div class="container">
-
-    <nav ng-class="{'navOpen':navOpen === true}">
-      <a class="hamburger" ng-click="navOpen = !navOpen"></a>
-      <a data-ng-repeat="navItem in festivalNav" ng-class="{active: isActiveNav(navItem.url)}" href="{{ navItem.url }}">{{ navItem.title }}</a>
-    </nav>
-
-    <div ng-show="festival" class="twitter-hashtag" ng-style="{'color':festival.field_color_highlight}">
-      #WOWLDN
     </div>
 
+  </header>
+
+
+  <div class="festival-nav" ng-show="festival" ng-init="navOpen = false">
+
+    <div class="container">
+
+      <nav ng-class="{'navOpen':navOpen === true}">
+        <a class="hamburger" ng-click="navOpen = !navOpen"></a>
+        <a data-ng-repeat="navItem in festivalNav" ng-class="{active: isActiveNav(navItem.url)}" href="{{ navItem.url }}">{{ navItem.title }}</a>
+      </nav>
+
+      <!-- <div ng-show="festival" class="twitter-hashtag" ng-style="{'color':festival.field_color_highlight}">
+        #WOWLDN
+      </div> -->
+
+    </div>
   </div>
+
 </div>

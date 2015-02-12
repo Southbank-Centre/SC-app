@@ -1,5 +1,9 @@
 // GLOBAL STYLES
 
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: $bg-color;
 }
@@ -175,13 +179,46 @@ a[href^="https://"] {
 
 /* page loading spinner */
 .page-loading {
-  position:fixed;
-  z-index:99999;
-  top:0px;
-  left:0px;
-  width:100%;
-  height:100%;
-  background:url('../imgs/spinner.gif') no-repeat center center;
+  position: absolute;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  margin-left: -16px;
+  margin-top: -16px;
+  width: 32px;
+  height: 32px;
+  background: url('../imgs/spinner.png');
+  background-size: 100%;
+  -webkit-animation: ani 1s steps(19) infinite reverse;
+  -moz-animation: ani 1s steps(19) infinite reverse;
+  -ms-animation: ani 1s steps(19) infinite reverse;
+  -o-animation: ani 1s steps(19) infinite reverse;
+  animation: ani 1s steps(19) infinite reverse;
+}
+
+@-webkit-keyframes ani {
+  0%{background-position:0 0;}
+  100%{background-position:0 1216px;}
+}
+@-moz-keyframes ani {
+  0%{background-position:0 0;}
+  100%{background-position:0 1216px;}
+}
+@-ms-keyframes ani {
+  0%{background-position:0 0;}
+  100%{background-position:0 1216px;}
+}
+@-o-keyframes ani {
+  0%{background-position:0 0;}
+  100%{background-position:0 1216px;}
+}
+@keyframes ani {
+  0%{background-position:0 0;}
+  100%{background-position:0 1216px;}
+}
+
+.lt-ie10 .page-loading { 
+  background: url('../imgs/spinner.gif');
 }
 
 /* container of festival nav view on base template */

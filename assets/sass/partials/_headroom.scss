@@ -1,19 +1,17 @@
 headroom {
 
-  display:block;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  transition: transform 200ms linear;
 
-  &.nothomepageheader {
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:1;
-    width:100%;
-    transition: transform 200ms linear;
-  }
-  &.headroom--pinned.nothomepageheader {
+  &.headroom--pinned {
     transform: translateY(0px);
   }
-  &.headroom--unpinned.nothomepageheader {
+  &.headroom--unpinned {
 
     transform: translateY(-60px);
 
@@ -24,6 +22,12 @@ headroom {
 
 }
 
-.base-article.nothomepagebasearticle {
+main {
   margin-top: 247px;
+  &.homepage {
+    margin-top: 230px;
+    @include breakpoint($bp-desktop) {
+      margin-top: 190px;
+    }
+  }
 }

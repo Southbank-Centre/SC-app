@@ -1,6 +1,6 @@
-<div class="event-single" data-ng-controller='EventSingleCtrl'>
+<div class="event-single container" data-ng-controller='EventSingleCtrl'>
 
-<div class="page-loading" ng-hide="event"></div>
+<div class="page-loading" ng-hide="event || !festival"></div>
 
   <article ng-show="event">
 
@@ -10,7 +10,7 @@
       <span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | amDateFormat:'h:mm' }}{{ event.field_end_time | amDateFormat:'a' | lowercase }}</span>
     </div>
 
-    <header class="container">
+    <header>
 
       <div class="event-name" id="event-name">
         <h1>{{ event.title }}</h1>

@@ -24,6 +24,8 @@
 
 .event-single {
 
+  min-height: 200px;
+
   article header {
     margin-bottom: 2px;
     clear: both;
@@ -285,6 +287,8 @@
 // Events List
  
 .events-list {
+
+  min-height: 200px;
 
   .page-heading {
     margin-top:$margin;

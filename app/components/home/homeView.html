@@ -1,8 +1,8 @@
-<div class="page-loading" ng-hide="homepage"></div>
+<div id="home-components" class="home-components">
 
-<div id="home-components" class="home" ng-show="homepage">
+  <div class="page-loading" ng-hide="homepage || !festival"></div>
 
-  <div ng-repeat="component in homepage.field_component">
+  <div ng-repeat="component in homepage.field_component" ng-show="homepage">
 
     <div ng-if="component.field_list_performance" class="component-featured component-featured-events">
       <div event-list></div>
