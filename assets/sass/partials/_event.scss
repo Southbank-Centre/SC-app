@@ -299,13 +299,12 @@
   }
 
   .ticket-info-page-link-container {
-    padding-top:$padding;
-    padding-right:$padding;
+    padding-top: $padding;
+    padding-right: $padding;
     text-align:right;
 
     @include breakpoint($bp-small-desktop) {
       padding-top:26px;
-      padding-right:0;
       margin-bottom:-100%;
     }
 
