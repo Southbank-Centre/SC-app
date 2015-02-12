@@ -22,6 +22,8 @@ angular.module('wowApp')
       } else {
         return ""
       }
-    }
+    };
+
+    $scope.scroll = 0;
     
 });
