@@ -90,7 +90,7 @@ angular.module('wowApp')
                   item.field_start_day = moment(eventTimestamp).tz(angularMomentConfig.timezone).startOf('day');
 
                   // add event hour to scope for use in event list hour grouping  
-                  var eventHour = $filter('amDateFormat')(eventTimestamp, 'ha');
+                  var eventHour = moment(eventTimestamp).tz(angularMomentConfig.timezone).startOf('hour');
                   item.field_start_hour = eventHour;
 
                   // *temporary* - add event type to first level of scope as cannot access from nested json
