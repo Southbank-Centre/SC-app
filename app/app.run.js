@@ -53,7 +53,6 @@ angular
       // Success
       // Attach the festival data to the scope
       scope.festival = data;
-      console.log(scope.festival);
 
       // Set festivalDataLoaded to true and broadcast the festivalDataLoaded event
       scope.festivalDataLoaded = true;

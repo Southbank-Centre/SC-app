@@ -41,7 +41,7 @@
 
     <div class="repeat-animation" ng-repeat="(field_start_hour, event) in events.list | filter:search:strictOrAll | groupBy: 'field_start_hour'" id="event-name">
 
-      <div class="event-hour">{{ field_start_hour }}</div>
+      <div class="event-hour">{{ field_start_hour | amDateFormat : 'ha' }}</div>
 
       <div class="event-list-container container" ng-repeat="event in event">
 
@@ -56,10 +56,6 @@
           <h2><a ui-sref="wow.eventSingle({ eventId: event.alias_json })">{{ event.title }}</a></h2>
           <h3 ng-show="event.field_production.field_subheading">{{ event.field_production.field_subheading }}</h3>
 
-          <div ng-show="event.field_production.field_venue">
-              {{ event.field_production.field_venue.name }} <span data-ng-repeat='parent in event.field_production.field_venue.parent'> at {{ parent.name }}</span>
-          </div>
-
           <div class="event-list-date" ng-show="event.field_start_time">
             <strong>{{ event.field_start_time | amDateFormat:'dddd D MMMM YYYY' }}</strong>
             {{ event.field_start_time | amDateFormat:'h:mm' }}{{ event.field_start_time | amDateFormat:'a' | lowercase }}<span ng-show="event.field_end_time"> &ndash; {{ event.field_end_time | amDateFormat:'h:mm' }}{{ event.field_end_time | amDateFormat:'a' | lowercase }}</span>
@@ -68,8 +64,6 @@
           <div class="event-list-type">{{ event.field_production.field_event_type.name }}</div>
 
           <div data-ng-bind-html="event.field_teaser.value"></div>
-
-          <a ui-sref="wow.eventSingle({ eventId: event.alias_json })" class="read-more-link">Read more</a>
 
         </div>
 
@@ -86,7 +80,7 @@
             </a>
 
             <a ng-switch-when='Stand Alone Event' ng-href="{{ event.field_performance_ticket_url }}" class="book-now-btn">
-              {{ field_wristband_ticket.field_button_label }} <span>£{{ event.field_performance_ticket_price }}</span>
+              {{ field_wristband_ticket.field_button_label }} <span>{{ event.field_performance_ticket_price }}</span>
             </a>
 
             <a ng-switch-when='Free ticketed' ng-href="{{ event.field_performance_ticket_url }}" class="book-now-btn">

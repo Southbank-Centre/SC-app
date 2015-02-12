@@ -31,7 +31,7 @@
           </a>
 
           <a ng-switch-when='Stand Alone Event' ng-href="{{ event.field_performance_ticket_url }}" class="book-now-btn">
-            {{ field_wristband_ticket.field_button_label }} <span>£{{ event.field_performance_ticket_price }}</span>
+            {{ field_wristband_ticket.field_button_label }} <span>{{ event.field_performance_ticket_price }}</span>
           </a>
 
           <a ng-switch-when='Free ticketed' ng-href="{{ event.field_performance_ticket_url }}" class="book-now-btn">
@@ -88,13 +88,13 @@
         <h4>Booking Information</h4>
         <dl>
           <dt ng-show="event.field_production.field_ticket_prices">Price</dt>
-          <dd ng-show="event.field_production.field_ticket_prices">{{ event.field_production.field_ticket_prices }}</dd>
+          <dd ng-show="event.field_production.field_ticket_prices" data-ng-bind-html="event.field_production.field_ticket_prices.value"></dd>
 
           <dt ng-show="event.field_production.premiumPrice">Premium seats</dt>
           <dd ng-show="event.field_production.premiumPrice">{{ event.field_production.premiumPrice }}</dd>
 
           <dt ng-show="event.field_production.field_concessions">Concessions</dt>
-          <dd ng-show="event.field_production.field_concessions">{{ event.field_production.field_concessions }}</dd>
+          <dd ng-show="event.field_production.field_concessions" data-ng-bind-html="event.field_production.field_concessions.value"></dd>
         </dl>
       </div>
 
