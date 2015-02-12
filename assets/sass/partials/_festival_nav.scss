@@ -1,151 +1,174 @@
-.festival-name-bar {
+.festival-header {
+  
+  position: relative;
+  height: 70px;
+  color: $white;
+  background-color: $black;
 
-  position:relative;
-
-  &.homepagenav {
-    display:none;
-  }
-
-  @include adjust-font-size-to(18px);
-
-  @include breakpoint($bp-mobile) {
-    @include adjust-font-size-to(26px);
-  }
-
-  font-family: 'SC AkkuratLight';
-  letter-spacing: $letter-spacing;
-  background-repeat: no-repeat;
-  background-attachment:top center;
-  background-size:100% auto;
-  overflow:hidden;
-
-  .background-img {
-    position:absolute;
-    max-width:100%;
-    opacity:0.4;
-    z-index:1;
-  }
-
-  .festival-name-bar-content {
-
-    position:relative;
-    z-index:2;
-
-    .festival-name-bar-logo-container {
-
-      float:left;
-
-      .festival-name-bar-logo {
-        max-height: 75px;
-        margin:2px $margin;
-        vertical-align:middle;
-      }
-
+  .festival-logo {
+    position: absolute;
+    top: -55px;
+    right: 10px;
+    background: none;
+    img {
+      display: block;
+      height: 50px;
+      width: auto;
+      margin-left: 10px;
     }
-
-    .festival-name-bar-text {
-
-      overflow:hidden;
-      padding: $padding/2 $padding;
-
-      .festival-name-bar-name {
-        font-family: 'SC AkkuratBold';
+    @include breakpoint($bp-desktop) {
+      position: relative;
+      @include span(2);
+      top: 0;
+      img {
+        height: 110px;
       }
-
     }
+  }
 
+    
+  .festival-title {
+    @include adjust-font-size-to(23px);
+    padding: 15px 0 15px $padding;
+    @include breakpoint($bp-mobile) {
+      @include adjust-font-size-to(32px);
+    }
+    @include breakpoint($bp-tablet) {
+      padding-bottom: 10px;
+    }
+    @include breakpoint($bp-desktop) {
+      @include span(7);
+      padding: 15px 0 0;
+    }
+  }
+
+  .festival-date {
+    text-align: right;
+    padding: 8px $padding 8px 0;
+    color: $black;
+    @include breakpoint($bp-desktop) {
+      @include span(3 last);
+      padding-top: 3px;
+      padding-bottom: 0;
+      color: $white;
+    }
+  }
+
+  .festival-sponsor {
+    clear: right;
+    text-align: right;
+    padding: 5px $padding 5px 0;
+    color: $black;
+    background-color: $bg-color;
+    span {
+      vertical-align: top;
+      display: inline-block;
+      width: 95px;
+      height: 26px;
+      margin-left: 3px;
+      background: url(/assets/imgs/bloomberg-logo.png) no-repeat;
+      background-size: 100%;
+    }
+    @include breakpoint($bp-desktop) {
+      @include span(3 last);
+      padding-top: 0;
+      color: $white;
+      background-color: transparent;
+      span {
+        background-image: url(/assets/imgs/bloomberg-logo-white.png);
+      }
+    }
   }
 
 }
 
+
 .festival-nav {
 
-  background-color:white;
-  height:41px;
-  border-bottom:1px solid $bg-color;
+  background-color: $white;
+  height: 41px;
+  border-bottom: 1px solid $bg-color;
   // overflow:hidden;
 
   a {
-    background:white;
-    color:black;
-    padding-right:0;
+    background: $white;
+    color: $black;
+    padding-right: 0;
 
     &:hover {
-      text-decoration:underline;
+      text-decoration: underline;
     }
   }
 
   nav {
-
-    position:absolute;
-    z-index:1;
-    top:0px;
-    left:0px;
-    height:40px;
-    overflow:hidden;
+    @include span(9);
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    height: 40px;
+    overflow: hidden;
 
     @include breakpoint($bp-desktop) {
-      @include span(10 of 12);
-      position:static;
-      padding:0 $padding;
-      width:auto;
-      height:auto;
-      overflow:visible;
+      position: static;
+      padding: 0;
+      width: auto;
+      height: auto;
+      overflow: visible;
     }
 
     a {
-      display:block;
-      padding:$padding;
-      padding-bottom:0;
-      line-height:2.5em;
+      display: block;
+      padding: $padding;
+      padding-bottom: 0;
+      line-height: 2.5em;
 
       &:last-of-type {
-        padding-bottom:$padding;
+        padding-bottom: $padding;
       }
       
       @include breakpoint($bp-desktop) {
-        display:inline-block;
-        padding:0;
-        margin-right:$margin*2;
+        display: inline-block;
+        padding: 0;
+        margin-right: $margin*2;
 
         &:last-of-type {
-          padding-bottom:0;
+          padding-bottom: 0;
         }
 
       }
 
       &.active {
-        text-decoration:underline;
-        font-weight:bold;
+        text-decoration: underline;
+        font-weight: bold;
       }
 
       &.hamburger {
-        cursor:pointer;
-        background:url('../imgs/mobile-burger.png') no-repeat center center;
-        padding:$padding;
-        margin-bottom:1px;
-        height:40px;
-        width:60px;
+        cursor: pointer;
+        background: url('../imgs/mobile-burger.png') no-repeat center center;
+        padding: $padding;
+        margin-bottom: 1px;
+        height: 40px;
+        width: 60px;
 
         @include breakpoint($bp-desktop) {
-          display:none;
+          display: none;
         }
 
         &:hover {
-          text-decoration:none;
+          text-decoration: none;
         }
       }
     }
 
     &.navOpen {
-      height:auto;
-      overflow:visible;
-      width:100%;
+      height: auto;
+      overflow: visible;
+      width: 100%;
 
       a {
-
         &.hamburger {
-          background-image:url('../imgs/mobile-x.png');
+          background-image: url('../imgs/mobile-x.png');
         }
 
       }
@@ -153,15 +176,16 @@
   }
 
   .twitter-hashtag {
-    
+    display: none;
     @include breakpoint($bp-desktop) {
-      @include span(2 of 12 last);
+      display: block;
     }
-    padding:0 $padding;
-    font-size:16px;
-    line-height:2.5em;
-    text-align:right;
-    border-left:solid 1px $bg-color;
+    @include span(2 of 12 last);
+    padding: 0 $padding;
+    font-size: 16px;
+    line-height: 2.5em;
+    text-align: right;
+    border-left: solid 1px $bg-color;
   }
 
 }
