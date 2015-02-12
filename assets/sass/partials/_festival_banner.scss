@@ -2,6 +2,10 @@
 
   clear:both;
   overflow:hidden;
+  margin-top: 40px;
+  @include breakpoint($bp-desktop) {
+    margin-top: 0;
+  }
 
   header {
 
@@ -26,7 +30,6 @@
         clear: none;
         padding: $padding 0;
       }
-      // margin-right:gutter(4);
 
       .festival-description-home {
         @include breakpoint($bp-mobile) {
@@ -40,6 +43,7 @@
     }
 
     .festival-img {
+      display: block;
       width:100%;
       height: auto;
       margin-top: -20%;
@@ -52,6 +56,13 @@
       @include breakpoint($bp-fullwidth) {
         margin-top: -15%;
       }
+    }
+
+    .arrow-down {
+      display: block;
+      width: 50px;
+      height: auto;
+      margin: -25px auto 0;
     }
 
   }

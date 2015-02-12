@@ -14,11 +14,14 @@
     display:inline-block;
   }
 
-  img {
-    width: 125px;
-    height: auto;
-    margin: 0 $margin;
-    @include valign-center;
+  .sc-logo {
+    background: none;
+    img {
+      width: 125px;
+      height: auto;
+      margin: 0 $margin;
+      @include valign-center;
+    }
   }
 
 }
