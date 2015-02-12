@@ -6,7 +6,7 @@ angular
   .run(['$rootScope', '$state', '$window', '$location', 'festivalFactory', 'utilitiesFactory', function (scope, state, $window, $location, festivalFactory, utilitiesFactory) {
 
     // Alias of WOW Festival stored in the backend
-    scope.festivalAlias = 'women-world-festival-10';
+    scope.festivalAlias = 'women-world-festival-1';
 
     // Get ID of WOW Festival (should be last part of Alias above)
     scope.festivalId = scope.festivalAlias.substr(scope.festivalAlias.lastIndexOf('-') + 1);
