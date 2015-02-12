@@ -1,21 +1,22 @@
 $margin: 20px;
 $padding: 20px;
 $section-margin-top: 80px;
-$letter-spacing: -0.02em;
+$letter-spacing: -.02em;
 
-// SITE COLOURS
-$bg-color: #ECEDEA;
+// Colours
+$bg-color: #ecedea;
 $black: #000;
-$white: #FFF;
-$light-grey: #F7F7F7;
+$white: #fff;
+$light-grey: #f7f7f7;
 $dark-grey: #323232;
-$link-color: #0080FF;
-$secondary-highlight: #2CD1B3;
+$link-color: #0080ff;
+$secondary-highlight: #2cd1b3;
 
-// SITE BREAKPOINTS
+// Breakpoints
 $bp-mobile: 480px;
 $bp-mobile-max: max-width 667px;
+$bp-small-tablet: 600px;
 $bp-tablet: 700px;
 $bp-small-desktop: 768px;
 $bp-desktop: 960px;
-$bp-fullwidth: 1174px;
+$bp-fullwidth: 1280px;

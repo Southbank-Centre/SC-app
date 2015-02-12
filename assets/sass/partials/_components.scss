@@ -5,7 +5,7 @@
 
   min-height: 50px;
   @include clearfix;
-  margin-bottom: $section-margin-top;
+  margin-top: $section-margin-top;
   h2 {
     margin: 0 $margin $margin;
   }
