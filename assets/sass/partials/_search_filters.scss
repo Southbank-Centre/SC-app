@@ -22,11 +22,11 @@
     }
 
     select { 
-      //@include adjust-font-size-to(20px);
       font-size: inherit;
-
       font-family: 'SC AkkuratBold';
       -webkit-appearance: none;
+      -moz-appearance: none;
+      -moz-user-select: none;
       margin: 0;
       padding: 0 $padding*2 0 $padding/2;
       border: 0;
@@ -39,7 +39,6 @@
       background-repeat: no-repeat;
       background-position: right -40px;
       border-right: 10px solid $bg-color;
-      // width: 100%;
       vertical-align: top;
     }
 
