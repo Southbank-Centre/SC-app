@@ -39,14 +39,14 @@ angular.module('wowApp')
     $scope.strictOrAll = function(expected, actual){
       
       // If moment objects are passed in, format them as strings for comparison
-      if (typeof expected === 'object') {
+      if (typeof expected === 'object' && actual !== null) {
         if (expected.hasOwnProperty('_isAMomentObject')) {
           if (expected._isAMomentObject) {
             expected = expected.format('YYYYMMDDhhmmss');
           }
         }
       }
-      if (typeof actual === 'object') {
+      if (typeof actual === 'object' && actual !== null) {
         if (actual.hasOwnProperty('_isAMomentObject')) {
           if (actual._isAMomentObject) {
             actual = actual.format('YYYYMMDDhhmmss');
