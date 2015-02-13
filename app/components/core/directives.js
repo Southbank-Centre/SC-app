@@ -251,4 +251,23 @@ angular.module('wowApp')
         handler();
       }
     };
+  })/**
+   * @ngdoc directive
+   * @name wowApp.directive:websiteTitle
+   * @directive
+   *
+   * @description
+   * Adds the title of the website into the element
+   *
+   */
+  .directive('websiteTitle', function($rootScope) {
+    return {
+      restrict: 'A',
+      scope: true,
+      link: function(scope, element, attrs) {
+        scope.$on('event:festivalDataLoaded', function() {
+          element.html($rootScope.festival.title + ' at Southbank Centre');
+        });   
+      }
+    };
   });

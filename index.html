@@ -1,11 +1,11 @@
 <!doctype html>
-<!--[if IE 7 ]>    <html class="ie lt-ie10 lt-ie9 lt-ie8 ie7 no-js"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie lt-ie10 lt-ie9 ie8 no-js"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie lt-ie10 ie9 no-js"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class="not-ie9 no-js"> <!--<![endif]-->
+<!--[if IE 7 ]>    <html class="ie lt-ie10 lt-ie9 lt-ie8 ie7 no-js" ng-app="wowApp"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie lt-ie10 lt-ie9 ie8 no-js" ng-app="wowApp"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie lt-ie10 ie9 no-js" ng-app="wowApp"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="not-ie9 no-js" ng-app="wowApp"  data-ng-controller='CoreCtrl'> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <title>Southbank Centre presents WOW - Women of the World festival</title>
+    <title website-title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="/">
@@ -47,7 +47,7 @@
     <!-- <meta name="fragment" content="!" /> --> <!-- for search bots -->
     <!-- endbuild -->
   </head>
-  <body ng-app="wowApp">
+  <body>
 
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -57,7 +57,7 @@
 
     <div class="page-loading" ng-hide="festival"></div>
     
-    <div data-ng-controller='CoreCtrl'>
+    <div>
 
       <headroom tolerance='0' offset='0' classes="{pinned:'headroom--pinned',unpinned:'headroom--unpinned',initial:'headroom'}">
 
@@ -147,7 +147,7 @@
     <script src="app/app.filter.js"></script>
     <script src="app/app.run.js"></script>
     <script src="app/components/core/directives.js"></script>
-    <script src="app/components/core/coreController.js"></script>
+    <script src="app/components/core/CoreCtrl.js"></script>
 
     <script src="app/components/festival/festivalFactory.js"></script>
     <script src="app/components/festival/FestivalNavCtrl.js"></script>
