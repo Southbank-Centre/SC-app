@@ -54,9 +54,14 @@ angular
       // Attach the festival data to the scope
       scope.festival = data;
 
+      // Set the website title and description meta tag
+      scope.websiteTitle = scope.festival.title + ' at Southbank Centre';
+      scope.websiteDescription = scope.festival.field_description.value;
+
       // Set festivalDataLoaded to true and broadcast the festivalDataLoaded event
       scope.festivalDataLoaded = true;
       scope.$broadcast('event:festivalDataLoaded');
+
     }, utilitiesFactory.genericHTTPCallbackError);
 
     /**

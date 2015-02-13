@@ -251,13 +251,14 @@ angular.module('wowApp')
         handler();
       }
     };
-  })/**
+  })
+  /**
    * @ngdoc directive
    * @name wowApp.directive:websiteTitle
    * @directive
    *
    * @description
-   * Adds the title of the website into the element
+   * Adds the title of the website into the title element
    *
    */
   .directive('websiteTitle', function($rootScope) {
@@ -266,8 +267,37 @@ angular.module('wowApp')
       scope: true,
       link: function(scope, element, attrs) {
         scope.$on('event:festivalDataLoaded', function() {
-          element.html($rootScope.festival.title + ' at Southbank Centre');
+          element.html($rootScope.websiteTitle);
         });   
+      }
+    };
+  })
+  /**
+   * @ngdoc directive
+   * @name wowApp.directive:websiteMetaDescription
+   * @directive
+   *
+   * @description
+   * Adds the wesbite description meta tag
+   *
+   */
+  .directive('websiteMetaDescription', function($rootScope) {
+    return {
+      restrict: 'A',
+      scope: true,
+      link: function(scope, element, attrs) {
+        scope.$on('event:festivalDataLoaded', function() {
+          element.attr('content', $rootScope.websiteDescription);
+        });
+
+        scope.$on('event:displayingEventPage', function() {
+          element.attr('content', $rootScope.eventDescription);
+        });
+
+        scope.$on('$stateChangeStart', function() {
+          $rootScope.eventDescription = '';
+          element.attr('content', $rootScope.websiteDescription);
+        });
       }
     };
   });

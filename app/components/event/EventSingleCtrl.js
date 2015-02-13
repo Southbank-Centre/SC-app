@@ -17,20 +17,13 @@ angular.module('wowApp')
      */
     eventFactory.getEventSingle($stateParams.eventId, function(data) {
 
-      // Validation
-      // Location, event name and start date must be present for the event to display
-      /* if (!data.location || !data.startDate || !data.nameTitle) {
-        $rootScope.$broadcast('event:pageNotFound');
-      } */
-
       // SUCCESS
       // Attach the event data to the scope
       $scope.event = data;
       
-      // If the state parameter does not match event title, then display a 404 page
-      /* if ($stateParams.eventTitle !== $scope.event.title) {
-        $state.go('wow.404')
-      } */
+      // Set description meta tag to event short description
+      $rootScope.eventDescription = $scope.event.field_teaser.value;
+      $rootScope.$broadcast('event:displayingEventPage');
 
     }, utilitiesFactory.genericHTTPCallbackError);
 
