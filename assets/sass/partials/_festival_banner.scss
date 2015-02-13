@@ -1,8 +1,8 @@
 .festival-banner {
 
-  margin-top: 210px;
+  margin-top: 160px;
   @include breakpoint($bp-small-desktop) {
-    margin-top: 230px;
+    margin-top: 190px;
   }
   @include breakpoint($bp-desktop) {
     margin-top: 190px;

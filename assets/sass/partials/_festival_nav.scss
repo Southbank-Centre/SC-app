@@ -1,7 +1,10 @@
 .festival-header {
   
   position: relative;
-  height: 70px;
+  height: 60px;
+  @include breakpoint($bp-tablet) {
+    height: 70px;
+  }
   color: $white;
   background-color: $black;
 
@@ -29,12 +32,12 @@
     
   .festival-title {
     @include adjust-font-size-to(23px);
-    padding: 15px 0 15px $padding;
+    padding: 10px 0 10px $padding;
     @include breakpoint($bp-mobile) {
       @include adjust-font-size-to(32px);
     }
     @include breakpoint($bp-tablet) {
-      padding-bottom: 10px;
+      padding: 15px 0 10px $padding;
     }
     @include breakpoint($bp-desktop) {
       @include span(7);
@@ -54,32 +57,34 @@
     }
   }
 
-  .festival-sponsor {
-    clear: right;
-    text-align: right;
-    padding: 5px $padding 5px 0;
-    color: $black;
-    background-color: $bg-color;
+}
+
+a.festival-sponsor {
+  display: none;
+  clear: right;
+  text-align: right;
+  padding: 5px $padding 5px 0;
+  color: $black;
+  background-color: $bg-color;
+  span {
+    vertical-align: top;
+    display: inline-block;
+    width: 95px;
+    height: 26px;
+    margin-left: 3px;
+    background: url(/assets/imgs/bloomberg-logo.png) no-repeat;
+    background-size: 100%;
+  }
+  @include breakpoint($bp-desktop) {
+    display: block;
+    @include span(3 last);
+    padding-top: 0;
+    color: $white;
+    background-color: transparent;
     span {
-      vertical-align: top;
-      display: inline-block;
-      width: 95px;
-      height: 26px;
-      margin-left: 3px;
-      background: url(/assets/imgs/bloomberg-logo.png) no-repeat;
-      background-size: 100%;
-    }
-    @include breakpoint($bp-desktop) {
-      @include span(3 last);
-      padding-top: 0;
-      color: $white;
-      background-color: transparent;
-      span {
-        background-image: url(/assets/imgs/bloomberg-logo-white.png);
-      }
+      background-image: url(/assets/imgs/bloomberg-logo-white.png);
     }
   }
-
 }
 
 
@@ -119,9 +124,11 @@
 
     a {
       display: block;
-      padding: $padding;
-      padding-bottom: 0;
-      line-height: 2.5em;
+      padding: $padding/2 $padding;
+      line-height: 1.5em;
+      @include breakpoint($bp-desktop) {
+        line-height: 2.5em;
+      }
 
       &:last-of-type {
         padding-bottom: $padding;
@@ -159,12 +166,27 @@
           text-decoration: none;
         }
       }
+
+      &.festival-sponsor {
+        text-align: left;
+        float: none; 
+        width: auto;
+        @include breakpoint($bp-desktop) {
+          display: none;
+        }
+        span { 
+          margin-top: -4px; 
+        }
+      }
     }
 
     &.navOpen {
       height: auto;
       overflow: visible;
       width: 100%;
+      @include breakpoint($bp-desktop) {
+        width: auto;
+      }
 
       a {
         &.hamburger {
