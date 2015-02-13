@@ -204,8 +204,11 @@
 }
 .youtube-promo-container {
 
-  @include span(8);
+  @include span(12);
   position: relative;
+  @include breakpoint($bp-small-desktop) {
+    @include span(8);
+  }
 
   .youtube-player {
     // responsive embeds - see http://www.smashingmagazine.com/2014/02/27/making-embedded-content-work-in-responsive-design/
