@@ -49,10 +49,12 @@
     text-align: right;
     padding: 8px $padding 8px 0;
     color: $black;
+    margin-right: 120px; 
     @include breakpoint($bp-desktop) {
       @include span(3 last);
       padding-top: 3px;
       padding-bottom: 0;
+      margin-right: 0;
       color: $white;
     }
   }
@@ -198,11 +200,8 @@ a.festival-sponsor {
   }
 
   .twitter-hashtag {
-    display: none;
-    @include breakpoint($bp-desktop) {
-      display: block;
-    }
     @include span(2 of 12 last);
+    width: 120px;
     padding: 0 $padding;
     font-size: 16px;
     line-height: 2.5em;
