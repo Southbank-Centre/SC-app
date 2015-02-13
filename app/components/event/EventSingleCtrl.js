@@ -22,7 +22,7 @@ angular.module('wowApp')
       $scope.event = data;
       
       // Set description meta tag to event short description
-      $rootScope.eventDescription = $scope.event.field_teaser.value;
+      $rootScope.eventDescription = $scope.event.field_teaser.value.replace(/(<([^>]+)>)/ig,"");
       $rootScope.$broadcast('event:displayingEventPage');
 
     }, utilitiesFactory.genericHTTPCallbackError);
