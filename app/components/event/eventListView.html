@@ -20,6 +20,7 @@
     <label class="festival-day-filter-label" for="event-day-filter">on
       <select 
         class="event-day-filter"
+        id="event-day-filter"
         ng-model="search.field_start_day"
         ng-options="festivalDay.day as festivalDay.day | amDateFormat:'dddd D MMMM YYYY' for festivalDay in festival.festivalDays"
       >

@@ -99,8 +99,10 @@ footer {
               padding:0;
             }
 
-            h4 {
+            h3 {
               margin:0;
+              font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+              font-weight:bold;
               @include adjust-font-size-to(16px);
             }
 
