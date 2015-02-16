@@ -174,8 +174,10 @@ angular.module('wowApp')
               var iframe = angular.element(scope.component.field_youtube_embed_code.value);
               var url = iframe.attr('src');
               url = url + '&enablejsapi=1';
-              url.replace(/http:/g, window.location.protocol);
-              url.replace(/https:/g, window.location.protocol);
+              console.log(url);
+              url = url.replace(/http:/g, '');
+              url = url.replace(/https:/g, '');
+              console.log(url);
               iframe.attr('src', url);
               scope.component.field_youtube_embed_code.value = iframe[0].outerHTML;
 
