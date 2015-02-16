@@ -52,4 +52,4 @@ angular.module('wowApp')
     // See: http://lawsonry.com/p?11040
     // 
     // $scope.htmlReady();
-});
+  });
