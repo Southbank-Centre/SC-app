@@ -274,8 +274,7 @@ AddDefaultCharset utf-8
 
 <IfModule mod_rewrite.c>
     RewriteBase     /
-    RewriteCond     %{REQUEST_URI} ^(/#/event|/#/events)
-    RewriteRule     (.*) /#/whats-on [NE,R,L]
+    RewriteRule     ^(events|event) /whats-on [L]
 </IfModule>
 
 # ##############################################################################
