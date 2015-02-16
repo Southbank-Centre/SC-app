@@ -199,7 +199,16 @@
   .caption { background: $white; padding: $padding; }
 }
 
+.component-youtube-promo {
+  background: $dark-grey;
+}
 .youtube-promo-container {
+
+  @include span(12);
+  position: relative;
+  @include breakpoint($bp-small-desktop) {
+    @include span(8);
+  }
 
   .youtube-player {
     // responsive embeds - see http://www.smashingmagazine.com/2014/02/27/making-embedded-content-work-in-responsive-design/
@@ -215,6 +224,18 @@
       width: 100%;
     }
   }
+  .play {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    margin-top: -80px;
+    margin-left: -50px; 
+    width: 100px; 
+    height: auto;
+    cursor: pointer;
+  }
+
   .caption { background: $dark-grey; padding: $padding; color: $light-grey;}
 }
 

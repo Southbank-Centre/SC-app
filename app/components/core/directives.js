@@ -167,7 +167,56 @@ angular.module('wowApp')
           var tpl = 'app/components/content_components/youtubePromoView.html';
           $http.get(tpl)
             .then(function(response) {
+
+
+              // Add &enablejsapi=1 to youtube url
+              var iframe = angular.element(scope.component.field_youtube_embed_code.value);
+              var url = iframe.attr('src');
+              url = url + '&enablejsapi=1';
+              iframe.attr('src', url);
+              scope.component.field_youtube_embed_code.value = iframe[0].outerHTML;
+
               element.html($compile(response.data)(scope));
+
+              var waitForYouTubeIframeAPI = function() {
+
+                setTimeout(function() {
+
+                  // If the YouTube Iframe API is ready, wait again
+                  if (!window.youTubeIframeAPIReady) {
+
+                    waitForYouTubeIframeAPI();
+
+                  } else {
+
+                    var player;
+
+                    player = new YT.Player(element.find('iframe')[0], {
+                      events: {
+                        onReady: function() {
+                          // Attach playVideo to scope, which is used on
+                          // big play button
+                          scope.playVideo = function(el) {
+                            player.playVideo();
+                          }
+                        },
+                        onStateChange: function(state) {
+                          // Remove big play button when user has clicked play
+                          if (state.data === 3 || state.data === 1) {
+                            element.find('#play-button').remove();
+                          }
+                        }
+                      }
+                    });
+
+                  }
+                  
+                }, 200);
+
+              };
+
+              waitForYouTubeIframeAPI();
+
             });
 
         };
