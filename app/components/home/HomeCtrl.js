@@ -9,7 +9,7 @@
  * Defines the state and behaviour of the $scope for the homeView state
  */
 angular.module('wowApp')
-  .controller('HomeCtrl', function ($rootScope, $scope, $window, homeFactory, eventFactory, personFactory, utilitiesFactory) {
+  .controller('HomeCtrl', function ($rootScope, $scope, homeFactory, eventFactory, personFactory, utilitiesFactory) {
 
     /**
      * Method for getting the homepage landing page for this festival from the API
@@ -52,5 +52,4 @@ angular.module('wowApp')
     // See: http://lawsonry.com/p?11040
     // 
     // $scope.htmlReady();
-
 });

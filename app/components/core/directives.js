@@ -156,7 +156,7 @@ angular.module('wowApp')
    * Renders youtube embed component using youtube promo view template
    *
    */
-  .directive('youtubePromo', function($http, $compile, $window) {
+  .directive('youtubePromo', function($http, $compile) {
     return {
       restrict: 'A',
       scope: true,
