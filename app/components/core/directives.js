@@ -173,7 +173,9 @@ angular.module('wowApp')
               var iframe = angular.element(scope.component.field_youtube_embed_code.value);
               var url = iframe.attr('src');
               url = url + '&enablejsapi=1';
+              var player_id = 'player_' Date.now();
               iframe.attr('src', url);
+              iframe.attr('id', player_id);
               scope.component.field_youtube_embed_code.value = iframe[0].outerHTML;
 
               element.html($compile(response.data)(scope));
@@ -191,7 +193,7 @@ angular.module('wowApp')
 
                     var player;
 
-                    player = new YT.Player(element.find('iframe')[0], {
+                    player = new YT.Player(player_id, {
                       events: {
                         onReady: function() {
                           // Attach playVideo to scope, which is used on
