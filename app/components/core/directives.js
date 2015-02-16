@@ -198,11 +198,12 @@ angular.module('wowApp')
                           // big play button
                           scope.playVideo = function(el) {
                             player.playVideo();
+                            element.find('#play-button').remove();
                           }
                         },
                         onStateChange: function(state) {
-                          // Remove big play button when user has clicked play
-                          if (state.data === 3 || state.data === 1) {
+                          // Remove big play button when video starts playing for first time
+                          if (state.data === 1) {
                             element.find('#play-button').remove();
                           }
                         }
