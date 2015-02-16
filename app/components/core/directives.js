@@ -156,7 +156,7 @@ angular.module('wowApp')
    * Renders youtube embed component using youtube promo view template
    *
    */
-  .directive('youtubePromo', function($http, $compile) {
+  .directive('youtubePromo', function($http, $compile, $window) {
     return {
       restrict: 'A',
       scope: true,
@@ -168,6 +168,38 @@ angular.module('wowApp')
           $http.get(tpl)
             .then(function(response) {
               element.html($compile(response.data)(scope));
+
+              var waitForYouTubeIframeAPI = function() {
+
+                setTimeout(function() {
+
+                  // If the YouTube Iframe API is ready, wait again
+                  if (!window.youTubeIframeAPIReady) {
+
+                    waitForYouTubeIframeAPI();
+
+                  } else {
+
+                    var player;
+
+                    player = new YT.Player(element.find('iframe')[0], {
+                      events: {
+                        onReady: function() {
+                          scope.playVideo = function(el) {
+                            player.playVideo();
+                            element.find('#play-button').remove();
+                          }
+                        }
+                      }
+                    });
+
+                  }
+                  
+                }, 200);
+
+              };
+
+              waitForYouTubeIframeAPI();
             });
 
         };
