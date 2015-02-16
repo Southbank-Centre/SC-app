@@ -61,6 +61,7 @@
     }
     clear: both;
     @include adjust-font-size-to(24px);
+    font-family: 'SC AkkuratBold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     margin: 0;
     padding: $padding*3 $padding $padding;

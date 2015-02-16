@@ -14,9 +14,9 @@
   
       <div class="person-list-repeat repeat-animation" ng-repeat="(characterHeading, person) in persons.list | filter:search | groupBy: 'characterHeading'">
 
-        <h3 class="person-surname-heading">
+        <h2 class="person-surname-heading">
           <span>{{ characterHeading }}</span>
-        </h3>
+        </h2>
 
         <article class="person-list-container container" ng-repeat="person in person">
 
