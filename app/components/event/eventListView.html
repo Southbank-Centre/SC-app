@@ -6,23 +6,24 @@
 
   <div class="search-filters" ng-show="events">
 
-    <label class="event-type-filter-label">I want to see
-      <select class="event-type-filter" 
+    <label class="event-type-filter-label" for="event-type-filter">I want to see
+      <select 
+        class="event-type-filter"
+        id="event-type-filter"  
         ng-model="search.eventType"
         ng-options="event.field_production.field_event_type.name as event.field_production.field_event_type.name for event in events.list | unique: 'field_production.field_event_type.name'"
         >
           <option value="">all events</option> 
-          <!-- <option value="{{ event.field_production.field_event_type.name }}" ng-repeat="event in events.list | unique: 'field_production.field_event_type.name'">{{ event.field_production.field_event_type.name }}</option> -->
       </select>
     </label>
 
-    <label class="festival-day-filter-label">on
+    <label class="festival-day-filter-label" for="event-day-filter">on
       <select 
+        class="event-day-filter"
         ng-model="search.field_start_day"
         ng-options="festivalDay.day as festivalDay.day | amDateFormat:'dddd D MMMM YYYY' for festivalDay in festival.festivalDays"
       >
-    </select>
-
+      </select>
     </label>
 
     <!-- <input ng-model="search.$" placeholder="Search for events" class="search-filter"> -->
@@ -47,7 +48,7 @@
 
         <div class="event-list-img">
           <a ui-sref="wow.eventSingle({ eventId: event.alias_json })">
-            <img ng-src="{{ event.field_production.field_image.file.url }}" alt="">
+            <img ng-src="{{ event.field_production.field_image.file.url }}" alt="{{ event.field_production.field_image.alt }}">
           </a>
         </div>
 
