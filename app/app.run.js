@@ -56,7 +56,7 @@ angular
 
       // Set the website title and description meta tag
       scope.websiteTitle = scope.festival.title + ' at Southbank Centre';
-      scope.websiteDescription = scope.festival.field_description.value.replace(/(<([^>]+)>)/ig,"");
+      scope.websiteDescription = scope.festival.field_description.value.replace(/(<([^>]+)>)/ig,'');
 
       // Set festivalDataLoaded to true and broadcast the festivalDataLoaded event
       scope.festivalDataLoaded = true;
