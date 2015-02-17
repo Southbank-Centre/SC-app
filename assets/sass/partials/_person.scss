@@ -56,9 +56,6 @@
   }
 
   .person-surname-heading { 
-    @include breakpoint($bp-small-desktop) {
-      // @include span(3);
-    }
     clear: both;
     @include adjust-font-size-to(24px);
     font-family: 'SC AkkuratBold', 'Helvetica Neue', Helvetica, Arial, sans-serif;

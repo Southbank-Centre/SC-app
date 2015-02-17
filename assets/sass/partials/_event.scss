@@ -384,9 +384,6 @@
         @include adjust-font-size-to(15px);
           font-weight: normal; 
       }
-      p {
-        // @include adjust-font-size-to(16px);
-      }
       .event-list-type {
         margin: 0 0 0.5em;
       }

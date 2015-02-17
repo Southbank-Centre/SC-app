@@ -133,9 +133,6 @@ a[href^="https://"] {
   -moz-transition: all linear 0.5s;
   -o-transition: all linear 0.5s;
   transition: all linear 0.5s;
-    
-  // position:relative;
-  // left:5px;
 }
 .repeat-animation.ng-enter {
   opacity: 0;
@@ -150,11 +147,9 @@ a[href^="https://"] {
   opacity: 0;
 }
 .repeat-animation.ng-move {
-  // left:2px;
   opacity: 0.5;
 }
 .repeat-animation.ng-move.ng-move-active {
-  // left:0;
   opacity: 1;
 }
 

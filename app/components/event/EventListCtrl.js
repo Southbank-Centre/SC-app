@@ -17,12 +17,6 @@ angular.module('wowApp')
      */
     eventFactory.getEventList( function(data) {
 
-      // Validation
-      // Location, event name and start date must be present for the event to display
-      // if (!data.location || !data.startDate || !data.nameTitle) {
-      //   $rootScope.$broadcast('event:pageNotFound');
-      // }
-
       // Success
       // Attach the event data to the scope
       $scope.events = data;
