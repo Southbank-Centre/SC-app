@@ -85,7 +85,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
       .state('wow.error', {
         views: {
           '@': {
-            template: '<div ui-view="festivalMenu"></div><div>It looks like something went wrong...</div>'
+            template: '<div ui-view="festivalMenu"></div><h2 style="padding:20px">We&apos;re undergoing maintenance at the moment. Please check back a bit later.</h2>'
           }
         }
       })
@@ -93,7 +93,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
         url: '{path:.*}',
         views: {
           '@': {
-            template: '<div ui-view="festivalMenu"></div><div>NOT FOUND!</div>'
+            template: '<div ui-view="festivalMenu"></div><h1 style="padding-left:20px">Page not found.</h1>'
           }
         }
       });
