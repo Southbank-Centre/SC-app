@@ -17,14 +17,14 @@
       display: block;
       height: 50px;
       width: auto;
-      margin-left: 20px;
+      margin-left: 7px;
     }
     @include breakpoint($bp-desktop) {
       position: relative;
       @include span(2);
-      top: 0;
+      top: -5px;
       img {
-        height: 110px;
+        height: 130px;
       }
     }
   }
