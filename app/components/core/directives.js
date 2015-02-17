@@ -168,7 +168,7 @@ angular.module('wowApp')
           $http.get(tpl)
             .then(function(response) {
 
-
+              /*
               // Add &enablejsapi=1 to youtube url
               // Use same protocol for youtube embed as page
               var iframe = angular.element(scope.component.field_youtube_embed_code.value);
@@ -178,9 +178,11 @@ angular.module('wowApp')
               url = url.replace(/https:/g, '');
               iframe.attr('src', url);
               scope.component.field_youtube_embed_code.value = iframe[0].outerHTML;
+              */
 
               element.html($compile(response.data)(scope));
 
+              /*
               var waitForYouTubeIframeAPI = function() {
 
                 setTimeout(function() {
@@ -219,6 +221,7 @@ angular.module('wowApp')
               };
 
               waitForYouTubeIframeAPI();
+              */
 
             });
 
