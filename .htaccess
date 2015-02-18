@@ -255,9 +255,9 @@ AddDefaultCharset utf-8
 #    RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # </IfModule>
 
-# ------------------------------------------------------------------------------
+# -------------------------------------------
 # | Route /event* and /events* to /whats-on |
-# ------------------------------------------------------------------------------
+# -------------------------------------------
 
 <IfModule mod_rewrite.c>
     RewriteBase /
@@ -266,6 +266,14 @@ AddDefaultCharset utf-8
     RewriteRule ^(events|event) /whats-on [NE,R,L]
 </IfModule>
 
+# ----------------------------------------------
+# | Route /humans.txt to humans.txt on backend |
+# ----------------------------------------------
+
+<IfModule mod_rewrite.c>
+    RewriteBase /
+    RewriteRule ^(humans.txt) /json/humans.txt [NE,R,L]
+</IfModule>
 
 # ------------------------------------------------------------------------------
 # | Re-routing URLs to include hash for browsers that don't support HTML5 mode |
