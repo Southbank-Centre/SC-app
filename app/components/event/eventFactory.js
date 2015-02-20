@@ -88,6 +88,7 @@ angular.module('wowApp')
                   // add event day to scope for use in event list view filter  
                   var eventTimestamp = item.field_start_time;
                   item.field_start_day = moment(eventTimestamp).tz(angularMomentConfig.timezone).startOf('day');
+                  item.field_start_day_display = moment(item.field_start_day).format('dddd D MMMM YYYY');
 
                   // add event hour to scope for use in event list hour grouping  
                   var eventHour = moment(eventTimestamp).tz(angularMomentConfig.timezone).startOf('hour');

@@ -313,15 +313,9 @@
     }
   }
 
-  .event-hour { 
-    @include breakpoint($bp-small-desktop) {
-      @include span(3);
-    }
+  .event-list-heading { 
     @include adjust-font-size-to(24px);
-    text-transform: lowercase;
-    padding: $padding/4 $padding;
-    background: $white;
-    margin: $margin 0 $margin/4;
+    padding: 70px $padding $padding $padding;
   }
 
   .event-list-container {

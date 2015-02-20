@@ -3,51 +3,62 @@
 .search-filters {
     @include clearfix;
 
-    background: $white;
+    background: $yellow-highlight;
     padding: $padding/4*3 0 0;
-    line-height: 40px;
+    line-height: 50px;
+
+    h2 {
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      @include adjust-font-size-to(14px);
+      font-weight:bold;
+
+      @include breakpoint($bp-mobile) {
+        @include adjust-font-size-to(16px);
+        line-height: 50px;
+      }
+
+      float: left;
+      line-height: 50px;
+      margin: 0 0 $margin*0.75 $margin;
+    }
 
     label {
-      font-family: 'SC AkkuratLight';
+      visibility:hidden;
+      float:left;
+      height:0px;
+      width:0px;
+    }
+
+    select { 
       @include adjust-font-size-to(14px);
 
       @include breakpoint($bp-mobile) {
         @include adjust-font-size-to(20px);
-        line-height: 40px;
+        line-height: 50px;
       }
-
-      float: left;
-      line-height: 40px;
-      margin: 0 0 $margin/4*3 $margin;
-    }
-
-    select { 
-      font-size: inherit;
+      float:left;
+      line-height: 50px;
+      margin: 0 0 $margin*0.75 $margin;
       font-family: 'SC AkkuratBold';
       -webkit-appearance: none;
       -moz-appearance: none;
       -moz-user-select: none;
-      margin: 0;
-      padding: 0 $padding*2 0 $padding/2;
+      padding: 0 $padding*2 0 $padding;
       border: 0;
       border-radius: 0;
       cursor: pointer;
-      height: 40px;
-      background-color: $bg-color;
+      height: 50px;
+      background-color: white;
       background-image: url('../imgs/icon-sprite.png');
       background-size: 20px auto;
       background-repeat: no-repeat;
-      background-position: right -40px;
-      border-right: 10px solid $bg-color;
+      background-position: right -35px;
+      border-right: 10px solid white;
       vertical-align: top;
     }
 
     select::-ms-expand {
       display: none;
-    }
-
-    .event-type-filter {
-      text-transform: lowercase;
     }
 
     input {
@@ -61,12 +72,12 @@
       float: left;
       height: 40px;
       color: $black;
-      background-color: $bg-color;
+      background-color: white;
       background-image: url(../imgs/icon-sprite.png);
       background-size: 20px auto;
       background-repeat: no-repeat;
       background-position: right -120px;
-      border-right: 10px solid $bg-color;
+      border-right: 10px solid white;
       // width: 100%;
       vertical-align: top;
       margin: 0 0 $margin/4*3 $margin;

@@ -21,8 +21,6 @@ angular.module('wowApp')
       // Attach the event data to the scope
       $scope.events = data;
 
-      $scope.search = {field_start_day: $rootScope.festival.festivalDays[0].day};
-
     }, utilitiesFactory.genericHTTPCallbackError);
 
     /**
@@ -67,6 +65,12 @@ angular.module('wowApp')
        // Search for a match
        return expected.match(new RegExp(actual, 'i')) !== null;
       }
-   }
+    }
+
+    $scope.showAllDays = function() {
+
+      if (angular.element('#event-day-filter').val() === "") return true;
+
+    };
 
   });
