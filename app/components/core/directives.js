@@ -167,11 +167,6 @@ angular.module('wowApp')
           var tpl = 'app/components/content_components/youtubePromoView.html';
           $http.get(tpl)
             .then(function(response) {
-
-              // Only if mobile browser detected
-              if(typeof window.orientation == 'undefined') {
-
-                alert('desktop detected');
                 
                 // Add &enablejsapi=1 to youtube url
                 // Use same protocol for youtube embed as page
@@ -185,6 +180,12 @@ angular.module('wowApp')
                 
 
                 element.html($compile(response.data)(scope));
+
+
+              // Only if mobile browser detected
+              if(typeof window.orientation == 'undefined') {
+
+                //alert('desktop detected');
 
                 
                 var waitForYouTubeIframeAPI = function() {
@@ -227,10 +228,12 @@ angular.module('wowApp')
                 };
 
                 waitForYouTubeIframeAPI();
-               
-              } else {
-                alert('mobile detected');
+
+
+                } else {
+                //alert('mobile detected');
               }
+               
 
             });
 
