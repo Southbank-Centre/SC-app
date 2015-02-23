@@ -182,11 +182,8 @@ angular.module('wowApp')
                 element.html($compile(response.data)(scope));
 
 
-              // Only if mobile browser detected
+              // If not mobile device
               if(typeof window.orientation == 'undefined') {
-
-                //alert('desktop detected');
-
                 
                 var waitForYouTubeIframeAPI = function() {
 
@@ -231,7 +228,7 @@ angular.module('wowApp')
 
 
                 } else {
-                //alert('mobile detected');
+                // remove play button if mobile
                 element.find('#play-button').remove();
               }
                

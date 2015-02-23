@@ -139,18 +139,19 @@
 
     <!-- endbuild -->
 
-    <!-- YouTube iFrame API -->
-    <script src="//www.youtube.com/iframe_api"></script>
 
+    <!-- YouTube iFrame API -->
     <script>
-    // Only if mobile browser detected
-    if(typeof window.orientation == 'undefined') {
+    // If not mobile device
+    if(typeof window.orientation == 'undefined') {  
+      document.write('<script type="text/javascript" src="//www.youtube.com/iframe_api"><\/script>');
       window.onYouTubeIframeAPIReady = function() {
-          window.youTubeIframeAPIReady = true;
+        window.youTubeIframeAPIReady = true;
       };
     }
     </script>
     <!-- End YouTube iFrame API -->
+
 
     <!-- Google Tag Manager -->
     <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PPHZ66"
