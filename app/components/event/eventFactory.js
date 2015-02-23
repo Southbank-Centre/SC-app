@@ -32,9 +32,11 @@ angular.module('wowApp')
 
             // Correct date format for start and end dates
             if (performance.alias_json == 'feminista-jones-conversation-243') {
+              console.log('start');
               console.log(performance.field_start_time);
+              console.log('end');
             }
-            
+
             if (performance.field_start_time) {
               performance.field_start_time = utilitiesFactory.timestampSecondsToMS(performance.field_start_time);
             }
