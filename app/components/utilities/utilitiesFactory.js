@@ -24,7 +24,6 @@ angular.module('wowApp')
        * Converts timestamp given in seconds to timestamp given in milliseconds
        */
       timestampSecondsToMS: function(timestamp) {
-        console.log(timestamp);
         var timestampMS = timestamp;
 
         // Convert to string for validation
@@ -36,7 +35,6 @@ angular.module('wowApp')
           timestampMS = Number(timestamp * 1000);
         }
 
-        console.log(timestampMS);
         return timestampMS;
       },
 

@@ -31,12 +31,6 @@ angular.module('wowApp')
           .success(function(performance) {
 
             // Correct date format for start and end dates
-            if (performance.alias_json == 'feminista-jones-conversation-243') {
-              console.log('start');
-              console.log(performance.field_start_time);
-              console.log('end');
-            }
-
             if (performance.field_start_time) {
               performance.field_start_time = utilitiesFactory.timestampSecondsToMS(performance.field_start_time);
             }
@@ -90,6 +84,12 @@ angular.module('wowApp')
                 
                 // Get time from event start time for use in view filters
                 if (item.field_start_time) {
+
+                  if (item.alias_json == 'feminista-jones-conversation-243') {
+                    console.log('start');
+                    console.log(item.field_start_time);
+                    console.log('end');
+                  }
 
                   // add event day to scope for use in event list view filter  
                   var eventTimestamp = item.field_start_time;
