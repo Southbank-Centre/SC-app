@@ -373,8 +373,6 @@ angular.module('wowApp')
 
         return function(scope, element, attrs) {
 
-          console.log(scope.event.field_wristband_ticket);
-
           var tpl = 'app/components/event/eventListItemView.html';
           $http.get(tpl)
             .then(function(response) {

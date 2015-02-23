@@ -191,6 +191,11 @@ a[href^="https://"] {
   animation: ani 1s steps(19) infinite reverse;
 }
 
+.infinite-scroll-spinner-container {
+  height:200px;
+  position:relative;
+}
+
 @-webkit-keyframes ani {
   0%{background-position:0 0;}
   100%{background-position:0 1216px;}

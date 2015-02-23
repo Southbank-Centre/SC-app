@@ -9,10 +9,11 @@
   <h2>Filter by:</h2>
   <label class="event-type-filter-label" for="event-type-filter">Filter by event type</label>
     <select 
-      class="event-type-filter"
+      class="event-filter event-type-filter"
       id="event-type-filter"  
       ng-model="search.eventType"
-      ng-options="event.field_production.field_event_type.name as event.field_production.field_event_type.name for event in events.list | unique: 'field_production.field_event_type.name'"
+      ng-options="event.field_production.field_event_type.name as event.field_production.field_event_type.name for event in allEvents | unique: 'field_production.field_event_type.name'" 
+      ng-change="resetEvents()"
       >
         <option value="">All events</option> 
     </select>
@@ -20,10 +21,11 @@
 
   <label class="festival-day-filter-label" for="event-day-filter">Filter by day</label>
     <select 
-      class="event-day-filter"
+      class="event-filter event-day-filter"
       id="event-day-filter"
       ng-model="search.field_start_day"
-      ng-options="festivalDay.day as festivalDay.day | amDateFormat:'dddd D MMMM YYYY' for festivalDay in festival.festivalDays"
+      ng-options="festivalDay.day as festivalDay.day | amDateFormat:'dddd D MMMM YYYY' for festivalDay in festival.festivalDays" 
+      ng-change="resetEvents()"
     >
     <option value="">All days</option>
     </select>
@@ -41,25 +43,29 @@
 
   </div>
 
-  <article>
+  <article infinite-scroll='loadNextEvents()' infinite-scroll-distance='0'>
 
-    <div class="repeat-animation" ng-if="showAllDays()" ng-repeat="(field_start_day, eventsDay) in events.list | filter:search:strictOrAll | groupBy: 'field_start_day' | toArray:true | orderBy:'eventsDay.$key'" id="event-name">
+    <div class="repeat-animation" ng-if="showAllDays()" ng-repeat="(field_start_day, eventsDay) in events | filter:search:strictOrAll | groupBy: 'field_start_day' | toArray:true | orderBy:'eventsDay.$key'" id="event-name">
 
       <h2 class="event-list-heading">{{ eventsDay.$key | amDateFormat: 'dddd D MMMM YYYY' }}</h2>
 
-      <div class="event-list-container container" ng-repeat="event in eventsDay" ng-include="'app/components/event/eventListItemView.html'"></div>
+      <div class="event-list-container container" ng-repeat="event in eventsDay track by event.nid" ng-include="'app/components/event/eventListItemView.html'"></div>
 
     </div>
 
-    <div class="repeat-animation" ng-if="!showAllDays()" ng-repeat="(field_start_hour, eventsHour) in events.list | filter:search:strictOrAll | groupBy: 'field_start_hour'" id="event-name">
+    <div class="repeat-animation" ng-if="!showAllDays()" ng-repeat="(field_start_hour, eventsHour) in events | filter:search:strictOrAll | groupBy: 'field_start_hour'" id="event-name">
 
       <h2 class="event-list-heading">{{ field_start_hour | amDateFormat : 'ha' }}</h2>
 
-      <div class="event-list-container container" ng-repeat="event in eventsHour" ng-include="'app/components/event/eventListItemView.html'"></div>
+      <div class="event-list-container container" ng-repeat="event in eventsHour track by event.nid" ng-include="'app/components/event/eventListItemView.html'"></div>
 
     </div>
 
-    <h2 class="no-results repeat-animation" ng-show="(events.list | filter:search:strictOrAll).length == 0">No events found.</h2>
+    <h2 class="no-results repeat-animation" ng-show="(events | filter:search:strictOrAll).length == 0">No events found.</h2>
+
+    <div ng-hide="selectFiltersApplied()" class="container infinite-scroll-spinner-container">
+      <div class="page-loading" ng-hide="allEvents.length === events.length"></div>
+    </div>
 
   </article>
 
