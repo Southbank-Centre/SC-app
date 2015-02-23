@@ -168,62 +168,69 @@ angular.module('wowApp')
           $http.get(tpl)
             .then(function(response) {
 
-              
-              // Add &enablejsapi=1 to youtube url
-              // Use same protocol for youtube embed as page
-              var iframe = angular.element(scope.component.field_youtube_embed_code.value);
-              var url = iframe.attr('src');
-              url = url + '&enablejsapi=1';
-              url = url.replace(/http:/g, '');
-              url = url.replace(/https:/g, '');
-              iframe.attr('src', url);
-              scope.component.field_youtube_embed_code.value = iframe[0].outerHTML;
-              
+              // Only if mobile browser detected
+              if(typeof window.orientation == 'undefined') {
 
-              element.html($compile(response.data)(scope));
+                alert('desktop detected');
+                
+                // Add &enablejsapi=1 to youtube url
+                // Use same protocol for youtube embed as page
+                var iframe = angular.element(scope.component.field_youtube_embed_code.value);
+                var url = iframe.attr('src');
+                url = url + '&enablejsapi=1';
+                url = url.replace(/http:/g, '');
+                url = url.replace(/https:/g, '');
+                iframe.attr('src', url);
+                scope.component.field_youtube_embed_code.value = iframe[0].outerHTML;
+                
 
-              
-              var waitForYouTubeIframeAPI = function() {
+                element.html($compile(response.data)(scope));
 
-                setTimeout(function() {
+                
+                var waitForYouTubeIframeAPI = function() {
 
-                  // If the YouTube Iframe API is ready, wait again
-                  if (!window.youTubeIframeAPIReady) {
+                  setTimeout(function() {
 
-                    waitForYouTubeIframeAPI();
+                    // If the YouTube Iframe API is ready, wait again
+                    if (!window.youTubeIframeAPIReady) {
 
-                  } else {
+                      waitForYouTubeIframeAPI();
 
-                    var player;
+                    } else {
 
-                    player = new YT.Player(element.find('iframe')[0], {
-                      events: {
-                        onReady: function() {
-                          // Attach playVideo to scope, which is used on
-                          // big play button
-                          scope.playVideo = function(el) {
-                            player.playVideo();
-                            element.find('#play-button').remove();
-                          }
-                        },
-                        onStateChange: function(state) {
-                          if (state.data === 1) {
-                            element.find('#play-button').remove();
+                      var player;
+
+                      player = new YT.Player(element.find('iframe')[0], {
+                        events: {
+                          onReady: function() {
+                            // Attach playVideo to scope, which is used on
+                            // big play button
+                            scope.playVideo = function(el) {
+                              player.playVideo();
+                              element.find('#play-button').remove();
+                            }
+                          },
+                          onStateChange: function(state) {
+                            if (state.data === 1) {
+                              element.find('#play-button').remove();
+                            }
                           }
                         }
-                      }
-                    });
+                      });
 
-                    console.log(player);
+                      console.log(player);
 
-                  }
-                  
-                }, 200);
+                    }
+                    
+                  }, 200);
 
-              };
+                };
 
-              waitForYouTubeIframeAPI();
-              
+                waitForYouTubeIframeAPI();
+               
+              } else {
+                alert('mobile detected');
+              }
 
             });
 
