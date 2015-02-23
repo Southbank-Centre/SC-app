@@ -85,12 +85,6 @@ angular.module('wowApp')
                 // Get time from event start time for use in view filters
                 if (item.field_start_time) {
 
-                  if (item.alias_json == 'feminista-jones-conversation-243') {
-                    console.log('start');
-                    console.log(item.field_start_time);
-                    console.log('end');
-                  }
-
                   // add event day to scope for use in event list view filter  
                   var eventTimestamp = item.field_start_time;
                   item.field_start_day = moment(eventTimestamp).tz(angularMomentConfig.timezone).startOf('day');
