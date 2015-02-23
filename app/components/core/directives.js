@@ -231,7 +231,7 @@ angular.module('wowApp')
 
 
                 } else {
-                //alert('mobile detected');
+                alert('mobile detected');
               }
                
 

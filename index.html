@@ -143,9 +143,12 @@
     <script src="//www.youtube.com/iframe_api"></script>
 
     <script>
+    // Only if mobile browser detected
+    if(typeof window.orientation == 'undefined') {
       window.onYouTubeIframeAPIReady = function() {
           window.youTubeIframeAPIReady = true;
       };
+    }
     </script>
     <!-- End YouTube iFrame API -->
 

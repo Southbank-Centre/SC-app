@@ -225,6 +225,7 @@
     }
   }
   .play {
+    display: none;
     position: absolute;
     z-index: 1;
     top: 50%;
@@ -234,6 +235,9 @@
     width: 100px; 
     height: auto;
     cursor: pointer;
+    @include breakpoint($bp-small-desktop) {
+      display: block;
+    }
   }
 
   .caption { background: $dark-grey; padding: $padding; color: $light-grey;}
