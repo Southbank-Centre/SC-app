@@ -31,6 +31,10 @@ angular.module('wowApp')
           .success(function(performance) {
 
             // Correct date format for start and end dates
+            if (performance.alias_json == 'feminista-jones-conversation-243') {
+              console.log(performance.field_start_time);
+            }
+            
             if (performance.field_start_time) {
               performance.field_start_time = utilitiesFactory.timestampSecondsToMS(performance.field_start_time);
             }
