@@ -9,7 +9,7 @@
         <img ng-src="{{ person.field_photo.field_image_file.field_image.file.url }}" alt="{{ person.field_photo.field_image_file.field_image.alt }}" title="{{ person.field_photo.field_image_file.field_image.title }}">
       </a>
       <div class="featured-content">
-        <h3><a ui-sref="wow.person({ personId: person.alias_json })">{{ person.title }}</a></h3>
+        <h3><a ui-sref="wow.person({ personId: person.alias_json })">{{ person.field_first_name }} {{ person.field_last_name }}</a></h3>
         <div class="person-credentials" ng-show="person.field_credentials">{{ person.field_credentials }}</div>
 
         <a ui-sref="wow.person({ personId: person.alias_json })" class="read-more-link">Read more</a>
