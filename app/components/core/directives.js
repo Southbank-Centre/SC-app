@@ -168,18 +168,18 @@ angular.module('wowApp')
           $http.get(tpl)
             .then(function(response) {
                 
-                // Add &enablejsapi=1 to youtube url
-                // Use same protocol for youtube embed as page
-                var iframe = angular.element(scope.component.field_youtube_embed_code.value);
-                var url = iframe.attr('src');
-                url = url + '&enablejsapi=1';
-                url = url.replace(/http:/g, '');
-                url = url.replace(/https:/g, '');
-                iframe.attr('src', url);
-                scope.component.field_youtube_embed_code.value = iframe[0].outerHTML;
-                
+              // Add &enablejsapi=1 to youtube url
+              // Use same protocol for youtube embed as page
+              var iframe = angular.element(scope.component.field_youtube_embed_code.value);
+              var url = iframe.attr('src');
+              url = url + '&enablejsapi=1';
+              url = url.replace(/http:/g, '');
+              url = url.replace(/https:/g, '');
+              iframe.attr('src', url);
+              scope.component.field_youtube_embed_code.value = iframe[0].outerHTML;
+              
 
-                element.html($compile(response.data)(scope));
+              element.html($compile(response.data)(scope));
 
 
               // If not mobile device
@@ -215,8 +215,6 @@ angular.module('wowApp')
                           }
                         }
                       });
-
-                      console.log(player);
 
                     }
                     
