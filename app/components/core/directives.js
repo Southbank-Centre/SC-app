@@ -167,8 +167,7 @@ angular.module('wowApp')
           var tpl = 'app/components/content_components/youtubePromoView.html';
           $http.get(tpl)
             .then(function(response) {
-
-              /*
+                
               // Add &enablejsapi=1 to youtube url
               // Use same protocol for youtube embed as page
               var iframe = angular.element(scope.component.field_youtube_embed_code.value);
@@ -178,50 +177,59 @@ angular.module('wowApp')
               url = url.replace(/https:/g, '');
               iframe.attr('src', url);
               scope.component.field_youtube_embed_code.value = iframe[0].outerHTML;
-              */
+              
 
               element.html($compile(response.data)(scope));
 
-              /*
-              var waitForYouTubeIframeAPI = function() {
 
-                setTimeout(function() {
+              // If not mobile device
+              if(typeof window.orientation == 'undefined') {
+                
+                var waitForYouTubeIframeAPI = function() {
 
-                  // If the YouTube Iframe API is ready, wait again
-                  if (!window.youTubeIframeAPIReady) {
+                  setTimeout(function() {
 
-                    waitForYouTubeIframeAPI();
+                    // If the YouTube Iframe API is ready, wait again
+                    if (!window.youTubeIframeAPIReady) {
 
-                  } else {
+                      waitForYouTubeIframeAPI();
 
-                    var player;
+                    } else {
 
-                    player = new YT.Player(element.find('iframe')[0], {
-                      events: {
-                        onReady: function() {
-                          // Attach playVideo to scope, which is used on
-                          // big play button
-                          scope.playVideo = function(el) {
-                            player.playVideo();
-                            element.find('#play-button').remove();
-                          }
-                        },
-                        onStateChange: function(state) {
-                          if (state.data === 1) {
-                            element.find('#play-button').remove();
+                      var player;
+
+                      player = new YT.Player(element.find('iframe')[0], {
+                        events: {
+                          onReady: function() {
+                            // Attach playVideo to scope, which is used on
+                            // big play button
+                            scope.playVideo = function(el) {
+                              player.playVideo();
+                              element.find('#play-button').remove();
+                            }
+                          },
+                          onStateChange: function(state) {
+                            if (state.data === 1) {
+                              element.find('#play-button').remove();
+                            }
                           }
                         }
-                      }
-                    });
+                      });
 
-                  }
-                  
-                }, 200);
+                    }
+                    
+                  }, 200);
 
-              };
+                };
 
-              waitForYouTubeIframeAPI();
-              */
+                waitForYouTubeIframeAPI();
+
+
+                } else {
+                // remove play button if mobile
+                element.find('#play-button').remove();
+              }
+               
 
             });
 
