@@ -69,12 +69,15 @@ angular.module('wowApp')
 
           .success(function(performances) {
 
+            var itemsToRemove = [];
+
             angular.forEach(performances.list, function(item, i) {
 
-              // Remove item if it isn't related to a production
+              // If item doesn't have an associated production,
+              // store index of item so it can be removed
               if (!item.field_production) {
 
-                performances.list.splice(i, 1);
+                itemsToRemove.push(i);
 
               } else {
 
@@ -101,6 +104,13 @@ angular.module('wowApp')
                 }
 
               }
+
+            });
+
+            // Remove items that don't have associated productions
+            angular.forEach(itemsToRemove, function(index) {
+
+              performances.list.splice(index, 1);
 
             });
 
