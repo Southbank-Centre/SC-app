@@ -315,7 +315,7 @@
 
   .event-list-heading { 
     @include adjust-font-size-to(24px);
-    padding: 70px $padding $padding $padding;
+    padding: $section-margin-top $padding $padding*0.75 $padding;
   }
 
   .event-list-container {
