@@ -79,8 +79,8 @@ angular.module('wowApp')
               } else {
 
                 // Correct date format for start and end dates
-                item.field_start_time = utilitiesFactory.timestampSecondsToMS(item.field_start_time);
-                item.field_end_time = utilitiesFactory.timestampSecondsToMS(item.field_end_time);
+                item.field_start_time = moment(utilitiesFactory.timestampSecondsToMS(item.field_start_time)).tz(angularMomentConfig.timezone);
+                item.field_end_time = moment(utilitiesFactory.timestampSecondsToMS(item.field_end_time)).tz(angularMomentConfig.timezone);
                 
                 // Get time from event start time for use in view filters
                 if (item.field_start_time) {
