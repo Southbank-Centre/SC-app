@@ -19,7 +19,7 @@ angular.module('wowApp')
 
       // Number of items to load each time
       // when infinite scroll point has been reached
-      var numToLoad = 20;
+      var numToLoad = 10;
 
       // Success
       // Attach the event data to the scope
