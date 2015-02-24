@@ -69,18 +69,21 @@ angular.module('wowApp')
 
           .success(function(performances) {
 
+            var itemsToRemove = [];
+
             angular.forEach(performances.list, function(item, i) {
 
-              // Remove item if it isn't related to a production
+              // If item doesn't have an associated production,
+              // store index of item so it can be removed
               if (!item.field_production) {
 
-                performances.list.splice(i, 1);
+                itemsToRemove.push(i);
 
               } else {
 
                 // Correct date format for start and end dates
-                item.field_start_time = utilitiesFactory.timestampSecondsToMS(item.field_start_time);
-                item.field_end_time = utilitiesFactory.timestampSecondsToMS(item.field_end_time);
+                item.field_start_time = moment(utilitiesFactory.timestampSecondsToMS(item.field_start_time)).tz(angularMomentConfig.timezone);
+                item.field_end_time = moment(utilitiesFactory.timestampSecondsToMS(item.field_end_time)).tz(angularMomentConfig.timezone);
                 
                 // Get time from event start time for use in view filters
                 if (item.field_start_time) {
@@ -88,6 +91,7 @@ angular.module('wowApp')
                   // add event day to scope for use in event list view filter  
                   var eventTimestamp = item.field_start_time;
                   item.field_start_day = moment(eventTimestamp).tz(angularMomentConfig.timezone).startOf('day');
+                  item.field_start_day_display = moment(item.field_start_day).format('dddd D MMMM YYYY');
 
                   // add event hour to scope for use in event list hour grouping  
                   var eventHour = moment(eventTimestamp).tz(angularMomentConfig.timezone).startOf('hour');
@@ -100,6 +104,13 @@ angular.module('wowApp')
                 }
 
               }
+
+            });
+
+            // Remove items that don't have associated productions
+            angular.forEach(itemsToRemove, function(index) {
+
+              performances.list.splice(index, 1);
 
             });
 

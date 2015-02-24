@@ -363,4 +363,31 @@ angular.module('wowApp')
         });
       }
     };
+  })
+  /**
+   * @ngdoc directive
+   * @name wowApp.directive:eventListItem
+   * @directive
+   *
+   * @description
+   * Renders event list item using it's relevant template
+   *
+   */
+  .directive('eventListItem', function($http, $compile) {
+    return {
+      restrict: 'A',
+      scope: true,
+      compile: function(element, attrs) {
+
+        return function(scope, element, attrs) {
+
+          var tpl = 'app/components/event/eventListItemView.html';
+          $http.get(tpl)
+            .then(function(response) {
+              element.html($compile(response.data)(scope));
+            });
+
+        };
+      }
+    };
   });

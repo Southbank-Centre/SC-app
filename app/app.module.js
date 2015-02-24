@@ -18,5 +18,6 @@ angular
     'angular.filter',
     'duScroll',
     'headroom',
-    'angularMoment'
+    'angularMoment',
+    'infinite-scroll'
   ]); 
