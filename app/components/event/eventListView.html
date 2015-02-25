@@ -45,7 +45,7 @@
 
   </div>
 
-  <article infinite-scroll='loadNextEvents()' infinite-scroll-distance='0'>
+  <article infinite-scroll='loadNextEvents()' infinite-scroll-distance='0' infinite-scroll-disabled='allEvents.length === events.length'>
 
     <div class="repeat-animation" ng-if="showAllDays()" ng-repeat="(field_start_day, eventsDay) in events | filter:search:strictOrAll | groupBy: 'field_start_day' | toArray:true | orderBy:'eventsDay.$key'" id="event-name">
 
@@ -67,8 +67,8 @@
 
   </article>
 
-  <div ng-hide="selectFiltersApplied()" class="container infinite-scroll-spinner-container">
-    <div class="page-loading" ng-hide="allEvents.length === events.length"></div>
+  <div ng-hide="selectFiltersApplied() || allEvents.length === events.length" class="container infinite-scroll-spinner-container">
+    <div class="page-loading"></div>
   </div>
 
 </div>
