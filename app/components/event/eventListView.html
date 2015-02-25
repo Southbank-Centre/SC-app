@@ -13,7 +13,7 @@
       id="event-type-filter"  
       ng-model="search.eventType"
       ng-options="event.field_production.field_event_type.name as event.field_production.field_event_type.name for event in allEvents | unique: 'field_production.field_event_type.name'" 
-      ng-change="resetEvents()"
+      ng-change="resetEvents(); updatePath()"
       >
         <option value="">All events</option> 
     </select>
@@ -24,7 +24,7 @@
       id="event-day-filter"
       ng-model="search.field_start_day"
       ng-options="festivalDay.day as festivalDay.day | amDateFormat:'dddd D MMMM YYYY' for festivalDay in festival.festivalDays" 
-      ng-change="resetEvents()"
+      ng-change="resetEvents(); updatePath()"
     >
     <option value="">All days</option>
     </select>
