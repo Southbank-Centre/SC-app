@@ -65,10 +65,10 @@
 
     <h2 class="no-results repeat-animation" ng-show="(events | filter:search:strictOrAll).length == 0">No events found.</h2>
 
-  </article>
+    <div ng-hide="selectFiltersApplied() || allEvents.length === events.length" class="container infinite-scroll-spinner-container">
+      <div class="page-loading"></div>
+    </div>
 
-  <div ng-hide="selectFiltersApplied() || allEvents.length === events.length" class="container infinite-scroll-spinner-container">
-    <div class="page-loading"></div>
-  </div>
+  </article>
 
 </div>

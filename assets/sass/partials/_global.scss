@@ -192,8 +192,13 @@ a[href^="https://"] {
 }
 
 .infinite-scroll-spinner-container {
-  height:200px;
+  height:100px;
   position:relative;
+
+  .page-loading {
+    top:auto;
+    bottom:16px;
+  }
 }
 
 @-webkit-keyframes ani {
