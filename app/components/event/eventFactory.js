@@ -75,8 +75,8 @@ angular.module('wowApp')
 
               // If item doesn't have an associated production,
               // store index of item so it can be removed
-              if (!item.field_production) {
-
+              if (!item.field_production || item.field_production.status === '0') {
+              
                 itemsToRemove.push(i);
 
               } else {
@@ -106,6 +106,10 @@ angular.module('wowApp')
               }
 
             });
+
+            // reverse the array so that when its are removed,
+            // the indexes that follow aren't changed
+            itemsToRemove.reverse();
 
             // Remove items that don't have associated productions
             angular.forEach(itemsToRemove, function(index) {
