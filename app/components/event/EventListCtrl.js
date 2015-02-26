@@ -124,11 +124,11 @@ angular.module('wowApp')
           if (typeof filterValue === 'string') {
             filterValue = filterValue.toLowerCase();
           }
-          
-          // Add the filter to the URL
-          $location.search($scope.filterFieldMapping[filterName].name, filterValue);
 
         }
+
+        // Add the filter to the URL
+        $location.search($scope.filterFieldMapping[filterName].name, filterValue);
         
       });
 
