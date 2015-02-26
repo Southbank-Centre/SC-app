@@ -12,26 +12,10 @@
 angular.module('wowApp')
   .controller('EventListCtrl', function ($rootScope, $scope, $stateParams, $location, eventFactory, utilitiesFactory, $filter) {
 
-      /* $scope.$on('$stateChangeSuccess', function() {
-        alert('hello');
-        var input = $('#event-type-filter');
-        input.val('xxx');
-        input.trigger('input');
-      }); */
-
     /**
      * Method for getting event list from the API
      */
     eventFactory.getEventList( function(data) {
-
-      // Number of items to load each time
-      // when infinite scroll point has been reached
-      var numToLoad = 10;
-
-      // Success
-      // Attach the event data to the scope
-      $scope.allEvents = data.list;
-      $scope.events = $scope.allEvents.slice(0, numToLoad);
 
       /**
        * Callback for infinite scroll mechanism.
@@ -47,14 +31,14 @@ angular.module('wowApp')
 
       /**
        * Sets the number of events loaded to just be the initial
-       * 20, so that infinite scrolling can be used
+       * numToLoad, so that infinite scrolling can be used
        * after filters are changed
        */
       $scope.resetEvents = function() {
 
         // If there are select box filters applied,
         // pass through all events
-        if ($scope.selectFiltersApplied()) {
+        if ($scope.filtersApplied()) {
 
           $scope.events = $scope.allEvents;
 
@@ -68,100 +52,72 @@ angular.module('wowApp')
 
       };
 
-      /* $scope.filters = {};
-      $scope.$watchCollection('filters', function(value) {
-          $location.hash($.param(value)); // a jQuery function
-      }); */
+      // Number of items to load each time
+      // when infinite scroll point has been reached
+      var numToLoad = 10;
 
-      // I don't like the function name() syntax - it hides what's really going on, which is this:
-      /* var getUrlVars = function() {
-        //technically i and len are initialized first due to variable hosisting anyways so Douglass Crockford recommends doing it here 
-        //I personally think its ok to declare your variables lower as long as you're comfortable with the concept
-        var i, len,  
-            params = {}, // no idea why the previous function used an array
-            hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      // Success
+      // Attach the event data to the scope
+      $scope.allEvents = data.list;
 
-        //Array.length is actually a very rare instance of a calculated property, this syntax ensures it is only calculated once at
-        //the beginning of looping.
-        // Also Crockford recommends not using ++ on account of it being a silly construct that can lead to bad practices
-        for(i = 0, len = hashes.length, len; i < len; i+=1) {
-          hash = hashes[i].split('=');
-          //no idea why there was a push here previously, it gets overridden by the next line
-          params[hash[0]] = hash[1];
-        }
-
-        return params;
-      } */
-
-      //var d = $scope.search.field_start_day;
-      //var t = $scope.search.eventType;
-
-
-      //console.dir($scope.search);
-
-      if ($location.search()) {
-        //console.log('url includes search params');
-        $scope.search = $location.search();
-        //$location.search() = $scope.search;
-      }
-
-      $scope.$watchCollection('search', function(value) {
-          // $location.search(value);
-          
-          var d = $scope.search.field_start_day;
-          //var day = $filter('slugify')(d);
-          //var day = (moment(d).format('dddd-D-MMMM-YYYY')).toLowerCase();
-          //var day = $filter('date')(d, "dddd-d-MMMM-yyyy");
-
-          var t = $scope.search.eventType;
-          //var type = $filter('slugify')(t);
-          //console.log(day);
-
-          $location.search({ 'day': d, 'type': t });
-          //$location.hash(value);
-      });
-
-      /* $scope.updatePath = function() {
-        //var dayParam = $scope.search.field_start_day | slugify;
-        //var eventTypeParam = $scope.search.eventType | slugify;
-        //var d = $scope.search.field_start_day;
-        //var t = $scope.search.eventType;
-        //var dayParam = slugify(c);
-        //var eventTypeParam = slugify(t);
-        var dayParam = $scope.search.field_start_day;
-        var eventTypeParam = $scope.search.eventType;
-        //$location.search('day', $scope.search.field_start_day);
-        //$location.search({ 'day': $scope.search.field_start_day, 'type': $scope.search.eventType });
-        
-        //$location.search({ 'day': dayParam, 'type': eventTypeParam });
-
-        $location.hash(dayParam);
-        // $location.search({dayParam, eventTypeParam});
-
-        //$location.path( '/events/'+eventTypeParam+'/'+dayParam );
-        
-        //$location.search({ 'day': $scope.search.field_start_day });
-        //$location.search({ 'type': $scope.search.eventType });
-        //$location.search() => {day: 'search.field_start_day', type: 'event.field_production.field_event_type.name'}
-      }; */
-
-      // filter items
-      /* $scope.field_start_day = items.field_start_day.filter(function (item){
-        if ($stateParams.field_start_day){
-          return item.toLowerCase().indexOf($stateParams.field_start_day) > -1 ||
-                 item.indexOf($stateParams.field_start_day) > -1
-        }
-      });
-      $scope.event.field_production.field_event_type.name = items.event.field_production.field_event_type.name.filter(function (item){
-        if ($stateParams.event.field_production.field_event_type.name){
-          return item.toLowerCase().indexOf($stateParams.event.field_production.field_event_type.name) > -1 ||
-                 item.indexOf($stateParams.event.field_production.field_event_type.name) > -1
-        }
-      }); */
-
-
+      // Load in the correct number of events
+      // depending on whether or not filters
+      // have been applied
+      $scope.resetEvents();
 
     }, utilitiesFactory.genericHTTPCallbackError);
+
+    // Set up an object that stores how a field that is filterable
+    // should be displayed in the URL when that filter is used
+    $scope.filterFieldMapping = {
+      'eventType': {
+        'name': 'type'
+      },
+      'field_start_day': {
+        'name': 'day',
+        'momentFormat': 'dddd-D-MMMM-YYYY'
+      }
+    };
+
+    // Update the search filters with any that
+    // have been passed into the URL.
+    $scope.search = {};
+    angular.forEach($location.search(), function(filterValue, filterName) {
+
+      angular.forEach($scope.filterFieldMapping, function(filter, fieldName) {
+
+        if (filter.name === filterName) {
+
+          // Convert the URL friendly date to a 
+          // moment object using the formet specified for the filter
+          if (filter.momentFormat) {
+            filterValue = moment(filterValue, filter.momentFormat).format('dddd D MMMM YYYY');
+          }
+
+          $scope.search[fieldName] = filterValue;
+        }
+
+      });
+
+    });
+
+    $scope.$watchCollection('search', function(search) {
+
+      // Loop through each filter
+      angular.forEach($scope.search, function(filterValue, filterName) {
+
+        // Convert the moment object to a URL friendly
+        // date format if filter value is not null
+        if ($scope.filterFieldMapping[filterName].momentFormat && filterValue) {
+          filterValue = moment(filterValue).format($scope.filterFieldMapping[filterName].momentFormat);
+        } 
+
+        // Add the filter to the URL       
+        $location.search($scope.filterFieldMapping[filterName].name, filterValue);
+        
+      });
+
+    });
 
     /**
      * Define filter comparator which includes all items
@@ -220,18 +176,9 @@ angular.module('wowApp')
     /**
      * Determines whether or not any of the select filters are applied
      */
-    $scope.selectFiltersApplied = function() {
+    $scope.filtersApplied = function() {
 
-      var selectFilterApplied = false;
-      angular.forEach(angular.element('.event-filter'), function(el) {
-        if (angular.element(el).val() !== "") {
-          selectFilterApplied = true;
-          return false;
-        }
-
-      });
-
-      return selectFilterApplied;
+      return !angular.equals({}, $scope.search);
 
     };
 

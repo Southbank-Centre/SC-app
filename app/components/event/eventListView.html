@@ -13,7 +13,7 @@
       id="event-type-filter"  
       ng-model="search.eventType"
       ng-options="event.field_production.field_event_type.name as event.field_production.field_event_type.name for event in allEvents | unique: 'field_production.field_event_type.name'" 
-      ng-change="resetEvents(); updatePath()"
+      ng-change="resetEvents()"
       >
         <option value="">All events</option> 
     </select>
@@ -23,8 +23,8 @@
       class="event-filter event-day-filter"
       id="event-day-filter"
       ng-model="search.field_start_day"
-      ng-options="festivalDay.day as festivalDay.day | amDateFormat:'dddd D MMMM YYYY' for festivalDay in festival.festivalDays" 
-      ng-change="resetEvents(); updatePath()"
+      ng-options="festivalDay.day | amDateFormat:'dddd D MMMM YYYY' as festivalDay.day | amDateFormat:'dddd D MMMM YYYY' for festivalDay in festival.festivalDays" 
+      ng-change="resetEvents()"
     >
     <option value="">All days</option>
     </select>
@@ -63,7 +63,7 @@
 
   </article>
 
-  <div ng-hide="selectFiltersApplied()" class="container infinite-scroll-spinner-container">
+  <div ng-hide="filtersApplied()" class="container infinite-scroll-spinner-container">
     <div class="page-loading" ng-hide="allEvents.length === events.length"></div>
   </div>
 
