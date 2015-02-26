@@ -130,7 +130,7 @@ angular.module('wowApp')
                   angular.forEach(item.field_wristband_ticket, function(ticketType) {
 
                     // Add to top level scope of the item
-                    item.ticketTypes.push(ticketType.name);
+                    item.ticketTypes.push($filter('slugify')(ticketType.name));
 
                   });
                 }

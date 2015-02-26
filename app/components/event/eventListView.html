@@ -14,7 +14,7 @@
       class="event-filter ticket-type-filter"
       id="ticket-type-filter"
       ng-model="search.ticketTypes"
-      ng-options="ticketType.name as ticketType.name for ticketType in ticketTypes.list" 
+      ng-options="ticketType.name | slugify as (ticketType.name + (ticketType.field_ticket_price !== '0' ? ' (£' + ticketType.field_ticket_price + ')' : '')) for ticketType in ticketTypes.list" 
       ng-change="resetEvents()"
     >
       <option value="">All ticket types</option>

@@ -76,6 +76,9 @@ angular.module('wowApp')
       'field_start_day': {
         'name': 'day',
         'momentFormat': 'dddd-D-MMMM-YYYY'
+      },
+      'ticketTypes': {
+        'name': 'ticket'
       }
     };
 

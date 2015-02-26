@@ -96,9 +96,12 @@ angular
     festivalFactory.getTicketTypes(function(data) {
 
       angular.forEach(data.list, function(ticketType, i) {
+
+        // Remove 'free ticketed' from list
         if (ticketType.name === 'Free ticketed') {
           data.list.splice(i, 1);
         }
+
       });
 
       // Add ticket types to root scope
