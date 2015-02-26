@@ -47,7 +47,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
         reloadOnSearch: false,
         views: {
           '@': {
-            templateUrl: 'app/components/event/eventListView.html',
+            templateUrl: 'app/components/event/eventListView.html'
           }
         }
       })
