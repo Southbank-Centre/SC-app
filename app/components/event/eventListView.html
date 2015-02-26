@@ -9,12 +9,24 @@
   <div class="search-filters" ng-show="events">
 
     <h2>Filter by:</h2>
+    <label class="ticket-type-filter-label" for="ticket-type-filter">Filter by ticket type</label>
+      <select 
+        class="event-filter ticket-type-filter"
+        id="ticket-type-filter"
+        ng-model="search.ticketTypes"
+        ng-options="ticketType.name as ticketType.name for ticketType in ticketTypes.list" 
+        ng-change="resetEvents()"
+      >
+      <option value="">All ticket types</option>
+      </select>
+    </label>
+
     <label class="event-type-filter-label" for="event-type-filter">Filter by event type</label>
       <select 
         class="event-filter event-type-filter"
         id="event-type-filter"  
         ng-model="search.eventType"
-        ng-options="event.field_production.field_event_type.name as event.field_production.field_event_type.name for event in allEvents | unique: 'field_production.field_event_type.name'" 
+        ng-options="event.field_production.field_event_type.name as event.field_production.field_event_type.name for event in allEvents.list | unique: 'field_production.field_event_type.name'" 
         ng-change="resetEvents()"
         >
           <option value="">All events</option> 
@@ -45,7 +57,7 @@
 
   </div>
 
-  <article infinite-scroll='loadNextEvents()' infinite-scroll-distance='0'>
+  <article infinite-scroll='loadNextEvents()' infinite-scroll-distance='0' infinite-scroll-disabled='allEvents.list.length === events.length'>
 
     <div class="repeat-animation" ng-if="showAllDays()" ng-repeat="(field_start_day, eventsDay) in events | filter:search:strictOrAll | groupBy: 'field_start_day' | toArray:true | orderBy:'eventsDay.$key'" id="event-name">
 
@@ -67,8 +79,8 @@
 
   </article>
 
-  <div ng-hide="selectFiltersApplied()" class="container infinite-scroll-spinner-container">
-    <div class="page-loading" ng-hide="allEvents.length === events.length"></div>
+  <div ng-hide="selectFiltersApplied() || allEvents.list.length === events.length" class="container infinite-scroll-spinner-container">
+    <div class="page-loading"></div>
   </div>
 
 </div>

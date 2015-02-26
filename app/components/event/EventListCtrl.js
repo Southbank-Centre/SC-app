@@ -23,8 +23,8 @@ angular.module('wowApp')
 
       // Success
       // Attach the event data to the scope
-      $scope.allEvents = data.list;
-      $scope.events = $scope.allEvents.slice(0, numToLoad);
+      $scope.allEvents = data;
+      $scope.events = $scope.allEvents.list.slice(0, numToLoad);
 
       /**
        * Callback for infinite scroll mechanism.
@@ -34,7 +34,7 @@ angular.module('wowApp')
       $scope.loadNextEvents = function() {
 
         var len = $scope.events.length;
-        $scope.events.push.apply($scope.events, $scope.allEvents.slice(len, len + numToLoad));
+        $scope.events.push.apply($scope.events, $scope.allEvents.list.slice(len, len + numToLoad));
 
       };
 
@@ -49,13 +49,13 @@ angular.module('wowApp')
         // pass through all events
         if ($scope.selectFiltersApplied()) {
 
-          $scope.events = $scope.allEvents;
+          $scope.events = $scope.allEvents.list;
 
         // If not, pass through the first 20 because
         // infinite scroll will be in use
         } else {
 
-          $scope.events = $scope.allEvents.slice(0, numToLoad);
+          $scope.events = $scope.allEvents.list.slice(0, numToLoad);
 
         }
 

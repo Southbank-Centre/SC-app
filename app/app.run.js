@@ -14,6 +14,9 @@ angular
     // Get ID of WOW Festival (should be last part of Alias above)
     scope.festivalId = scope.festivalAlias.substr(scope.festivalAlias.lastIndexOf('-') + 1);
 
+    // ID of the ticketing vocabulary in the backend
+    scope.ticketingVocabularyId = 4;
+
     // Setup pageNotFound event
     scope.$on('event:pageNotFound', function() {
       // Show 404 state
@@ -84,6 +87,26 @@ angular
         // Broadcast the serverError event
         scope.$broadcast('event:error');
       }
+
+    }, utilitiesFactory.genericHTTPCallbackError);
+
+    /**
+     * Method for getting the ticket types from the API
+     */
+    festivalFactory.getTicketTypes(function(data) {
+
+      angular.forEach(data.list, function(ticketType, i) {
+        if (ticketType.name === 'Free ticketed') {
+          data.list.splice(i, 1);
+        }
+      });
+
+      // Add ticket types to root scope
+      scope.ticketTypes = data;
+
+      // Set festivalDataLoaded to true and broadcast the festivalDataLoaded event
+      scope.ticketingDataLoaded = true;
+      scope.$broadcast('event:ticketingDataLoaded');
 
     }, utilitiesFactory.genericHTTPCallbackError);
 
