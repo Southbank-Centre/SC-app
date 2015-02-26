@@ -45,14 +45,15 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
       .state('wow.eventList', {
         url: '^/whats-on',
         //controller: 'EventListCtrl',
-        //reloadOnSearch: false,
+        reloadOnSearch: false,
         views: {
           '@': {
-            templateUrl: 'app/components/event/eventListView.html'
+            templateUrl: 'app/components/event/eventListView.html',
+            //controller: 'EventListCtrl'
           }
         }
       })
-      .state('wow.eventListsearchDay', {
+      /* .state('wow.eventListsearchDay', {
         url: '^/whats-on?day',
         //controller: 'EventListCtrl',
         //reloadOnSearch: false,
@@ -65,7 +66,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
             //console.log("OnEnter: contacts.content");
             //alert('search initiated');
         }
-      })
+      }) */
       /* .state('wow.eventList.searchType', {
         url: '?type',
         reloadOnSearch: false,

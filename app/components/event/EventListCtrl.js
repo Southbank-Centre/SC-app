@@ -96,11 +96,14 @@ angular.module('wowApp')
       //var d = $scope.search.field_start_day;
       //var t = $scope.search.eventType;
 
-      if ($location.search()) {
-        $scope.search = $location.search();
-      }
 
-      console.dir($scope.search);
+      //console.dir($scope.search);
+
+      if ($location.search()) {
+        //console.log('url includes search params');
+        $scope.search = $location.search();
+        //$location.search() = $scope.search;
+      }
 
       $scope.$watchCollection('search', function(value) {
           // $location.search(value);
@@ -108,13 +111,14 @@ angular.module('wowApp')
           var d = $scope.search.field_start_day;
           //var day = $filter('slugify')(d);
           //var day = (moment(d).format('dddd-D-MMMM-YYYY')).toLowerCase();
-          var day = $filter('date')(d, "dddd-d-MMMM-yyyy");
+          //var day = $filter('date')(d, "dddd-d-MMMM-yyyy");
 
           var t = $scope.search.eventType;
-          var type = $filter('slugify')(t);
+          //var type = $filter('slugify')(t);
           //console.log(day);
 
-          $location.search({ 'day': day, 'type': t });
+          $location.search({ 'day': d, 'type': t });
+          //$location.hash(value);
       });
 
       /* $scope.updatePath = function() {
