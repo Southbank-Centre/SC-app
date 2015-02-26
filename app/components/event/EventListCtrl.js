@@ -10,21 +10,12 @@
  */
 
 angular.module('wowApp')
-  .controller('EventListCtrl', function ($rootScope, $scope, $stateParams, eventFactory, utilitiesFactory, $filter) {
+  .controller('EventListCtrl', function ($rootScope, $scope, $stateParams, $location, eventFactory, utilitiesFactory, $filter) {
 
     /**
      * Method for getting event list from the API
      */
     eventFactory.getEventList( function(data) {
-
-      // Number of items to load each time
-      // when infinite scroll point has been reached
-      var numToLoad = 10;
-
-      // Success
-      // Attach the event data to the scope
-      $scope.allEvents = data.list;
-      $scope.events = $scope.allEvents.slice(0, numToLoad);
 
       /**
        * Callback for infinite scroll mechanism.
@@ -40,14 +31,14 @@ angular.module('wowApp')
 
       /**
        * Sets the number of events loaded to just be the initial
-       * 20, so that infinite scrolling can be used
+       * numToLoad, so that infinite scrolling can be used
        * after filters are changed
        */
       $scope.resetEvents = function() {
 
         // If there are select box filters applied,
         // pass through all events
-        if ($scope.selectFiltersApplied()) {
+        if ($scope.filtersApplied()) {
 
           $scope.events = $scope.allEvents;
 
@@ -61,7 +52,71 @@ angular.module('wowApp')
 
       };
 
+      // Number of items to load each time
+      // when infinite scroll point has been reached
+      var numToLoad = 10;
+
+      // Success
+      // Attach the event data to the scope
+      $scope.allEvents = data.list;
+
+      // Load in the correct number of events
+      // depending on whether or not filters
+      // have been applied
+      $scope.resetEvents();
+
     }, utilitiesFactory.genericHTTPCallbackError);
+
+    // Set up an object that stores how a field that is filterable
+    // should be displayed in the URL when that filter is used
+    $scope.filterFieldMapping = {
+      'eventTypeSlug': {
+        'name': 'type'
+      },
+      'field_start_day': {
+        'name': 'day',
+        'momentFormat': 'dddd-D-MMMM-YYYY'
+      }
+    };
+
+    // Update the search filters with any that
+    // have been passed into the URL.
+    $scope.search = {};
+    angular.forEach($location.search(), function(filterValue, filterName) {
+
+      angular.forEach($scope.filterFieldMapping, function(filter, fieldName) {
+
+        if (filter.name === filterName) {
+
+          // Convert the URL friendly date to a 
+          // moment object using the format specified for the filter
+          if (filter.momentFormat) {
+            filterValue = moment(filterValue, filter.momentFormat).format('dddd D MMMM YYYY');
+          }
+          $scope.search[fieldName] = filterValue;
+        }
+
+      });
+
+    });
+
+    $scope.$watchCollection('search', function(search) {
+
+      // Loop through each filter
+      angular.forEach($scope.search, function(filterValue, filterName) {
+
+        // Convert the moment object to a URL friendly
+        // date format if filter value is not null
+        if ($scope.filterFieldMapping[filterName].momentFormat && filterValue) {
+          filterValue = moment(filterValue).format($scope.filterFieldMapping[filterName].momentFormat);
+        } 
+
+        // Add the filter to the URL       
+        $location.search($scope.filterFieldMapping[filterName].name, filterValue.toLowerCase());
+        
+      });
+
+    });
 
     /**
      * Define filter comparator which includes all items
@@ -120,18 +175,9 @@ angular.module('wowApp')
     /**
      * Determines whether or not any of the select filters are applied
      */
-    $scope.selectFiltersApplied = function() {
+    $scope.filtersApplied = function() {
 
-      var selectFilterApplied = false;
-      angular.forEach(angular.element('.event-filter'), function(el) {
-        if (angular.element(el).val() !== "") {
-          selectFilterApplied = true;
-          return false;
-        }
-
-      });
-
-      return selectFilterApplied;
+      return !angular.equals({}, $scope.search);
 
     };
 

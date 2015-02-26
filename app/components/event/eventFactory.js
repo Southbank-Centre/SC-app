@@ -90,8 +90,7 @@ angular.module('wowApp')
 
                   // add event day to scope for use in event list view filter  
                   var eventTimestamp = item.field_start_time;
-                  item.field_start_day = moment(eventTimestamp).tz(angularMomentConfig.timezone).startOf('day');
-                  item.field_start_day_display = moment(item.field_start_day).format('dddd D MMMM YYYY');
+                  item.field_start_day = moment(eventTimestamp).tz(angularMomentConfig.timezone).startOf('day').format('dddd D MMMM YYYY');
 
                   // add event hour to scope for use in event list hour grouping  
                   var eventHour = moment(eventTimestamp).tz(angularMomentConfig.timezone).startOf('hour');
@@ -100,6 +99,7 @@ angular.module('wowApp')
                   // *temporary* - add event type to first level of scope as cannot access from nested json
                   var eventType = item.field_production.field_event_type.name;
                   item.eventType = eventType;
+                  item.eventTypeSlug = $filter('slugify')(eventType);
 
                 }
 
