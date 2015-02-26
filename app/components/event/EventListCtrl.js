@@ -89,11 +89,11 @@ angular.module('wowApp')
         if (filter.name === filterName) {
 
           // Convert the URL friendly date to a 
-          // moment object using the formet specified for the filter
+          // moment object using the format specified for the filter
           if (filter.momentFormat) {
             filterValue = moment(filterValue, filter.momentFormat).format('dddd D MMMM YYYY');
           }
-
+          
           $scope.search[fieldName] = filterValue;
         }
 
@@ -113,7 +113,7 @@ angular.module('wowApp')
         } 
 
         // Add the filter to the URL       
-        $location.search($scope.filterFieldMapping[filterName].name, filterValue);
+        $location.search($scope.filterFieldMapping[filterName].name, filterValue.toLowerCase());
         
       });
 
