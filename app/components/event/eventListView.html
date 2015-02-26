@@ -12,7 +12,7 @@
       class="event-filter event-type-filter"
       id="event-type-filter"  
       ng-model="search.eventType"
-      ng-options="event.field_production.field_event_type.name as event.field_production.field_event_type.name for event in allEvents | unique: 'field_production.field_event_type.name'" 
+      ng-options="event.field_production.field_event_type.name | slugify as event.field_production.field_event_type.name for event in allEvents | unique: 'field_production.field_event_type.name'" 
       ng-change="resetEvents()"
       >
         <option value="">All events</option> 
