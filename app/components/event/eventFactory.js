@@ -99,6 +99,7 @@ angular.module('wowApp')
                   // *temporary* - add event type to first level of scope as cannot access from nested json
                   var eventType = item.field_production.field_event_type.name;
                   item.eventType = eventType;
+                  item.eventTypeSlug = $filter('slugify')(eventType);
 
                 }
 

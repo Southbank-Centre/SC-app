@@ -11,8 +11,8 @@
     <select 
       class="event-filter event-type-filter"
       id="event-type-filter"  
-      ng-model="search.eventType"
-      ng-options="event.field_production.field_event_type.name as event.field_production.field_event_type.name for event in allEvents | unique: 'field_production.field_event_type.name'" 
+      ng-model="search.eventTypeSlug"
+      ng-options="event.eventTypeSlug as event.eventType for event in allEvents | unique: 'eventType'" 
       ng-change="resetEvents()"
       >
         <option value="">All events</option> 

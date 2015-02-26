@@ -70,7 +70,7 @@ angular.module('wowApp')
     // Set up an object that stores how a field that is filterable
     // should be displayed in the URL when that filter is used
     $scope.filterFieldMapping = {
-      'eventType': {
+      'eventTypeSlug': {
         'name': 'type'
       },
       'field_start_day': {
@@ -93,7 +93,6 @@ angular.module('wowApp')
           if (filter.momentFormat) {
             filterValue = moment(filterValue, filter.momentFormat).format('dddd D MMMM YYYY');
           }
-          
           $scope.search[fieldName] = filterValue;
         }
 
