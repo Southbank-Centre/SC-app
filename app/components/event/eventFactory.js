@@ -112,16 +112,16 @@ angular.module('wowApp')
 
                 // add event day to scope for use in event list view filter  
                 var eventTimestamp = item.field_start_time;
-                item.field_start_day = moment(eventTimestamp).tz(angularMomentConfig.timezone).startOf('day');
-                item.field_start_day_display = moment(item.field_start_day).format('dddd D MMMM YYYY');
+                item.field_start_day = moment(eventTimestamp).tz(angularMomentConfig.timezone).startOf('day').format('dddd D MMMM YYYY');
 
                 // add event hour to scope for use in event list hour grouping  
                 var eventHour = moment(eventTimestamp).tz(angularMomentConfig.timezone).startOf('hour');
                 item.field_start_hour = eventHour;
 
-                // *temporary* - add event type to first level of scope as cannot access from nested json
+                // add event type to first level of scope as cannot access from nested json
                 var eventType = item.field_production.field_event_type.name;
                 item.eventType = eventType;
+                item.eventTypeSlug = $filter('slugify')(eventType);
 
                 // add event ticket types to first level of scope
                 if (item.field_wristband_ticket !== null) {
@@ -139,6 +139,11 @@ angular.module('wowApp')
             }
 
           });
+
+          // reverse the array so that when its are removed,
+          // the indexes that follow aren't changed
+          itemsToRemove.reverse();
+
 
           // Remove items that don't have associated productions
           angular.forEach(itemsToRemove, function(index) {
