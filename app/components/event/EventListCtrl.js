@@ -106,23 +106,33 @@ angular.module('wowApp')
     $scope.$watchCollection('search', function(search) {
 
       // Loop through each filter
-      angular.forEach($scope.search, function(filterValue, filterName) {
+      angular.forEach(search, function(filterValue, filterName) {
 
-        // Convert the moment object to a URL friendly
-        // date format if filter value is not null
-        if ($scope.filterFieldMapping[filterName].momentFormat && filterValue) {
-          filterValue = moment(filterValue).format($scope.filterFieldMapping[filterName].momentFormat);
-        } 
+        if (filterValue === null) {
 
-        // Convert filter value to lowercase
-        if (typeof filterValue === 'string') {
-          filterValue = filterValue.toLowerCase();
+          delete $scope.search[filterName];
+
+        } else {
+
+          // Convert the moment object to a URL friendly
+          // date format if filter value is not null
+          if ($scope.filterFieldMapping[filterName].momentFormat && filterValue) {
+            filterValue = moment(filterValue).format($scope.filterFieldMapping[filterName].momentFormat);
+          } 
+
+          // Convert filter value to lowercase
+          if (typeof filterValue === 'string') {
+            filterValue = filterValue.toLowerCase();
+          }
+          
+          // Add the filter to the URL
+          $location.search($scope.filterFieldMapping[filterName].name, filterValue);
+
         }
         
-        // Add the filter to the URL
-        $location.search($scope.filterFieldMapping[filterName].name, filterValue);
-        
       });
+
+      console.log(search);
 
     });
 
@@ -185,7 +195,15 @@ angular.module('wowApp')
      */
     $scope.filtersApplied = function() {
 
-      return !angular.equals({}, $scope.search);
+      var filtersApplied = false;
+      angular.forEach($scope.search, function(filterValue) {
+        if (filterValue) {
+          filtersApplied = true;
+          return false;
+        }
+      });
+
+      return filtersApplied;
 
     };
 
