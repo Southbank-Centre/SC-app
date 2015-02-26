@@ -111,10 +111,13 @@ angular.module('wowApp')
           filterValue = moment(filterValue).format($scope.filterFieldMapping[filterName].momentFormat);
         } 
 
-        // Add the filter to the URL
+        // Convert filter value to lowercase
         if (typeof filterValue === 'string') {
-          $location.search($scope.filterFieldMapping[filterName].name, filterValue.toLowerCase());
+          filterValue = filterValue.toLowerCase();
         }
+        
+        // Add the filter to the URL
+        $location.search($scope.filterFieldMapping[filterName].name, filterValue);
         
       });
 
