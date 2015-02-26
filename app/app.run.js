@@ -6,13 +6,22 @@ angular
     timezone: 'Europe/London'
     
   })  
-  .run(['$rootScope', '$state', '$window', '$location', 'festivalFactory', 'utilitiesFactory', function (scope, state, $window, $location, festivalFactory, utilitiesFactory) {
+  .run(['$rootScope', '$state', '$window', '$location', 'festivalFactory', 'utilitiesFactory', '$http', 'DSCacheFactory', function (scope, state, $window, $location, festivalFactory, utilitiesFactory, $http, DSCacheFactory) {
 
     // Alias of WOW Festival stored in the backend
     scope.festivalAlias = 'women-world-festival-1';
 
     // Get ID of WOW Festival (should be last part of Alias above)
     scope.festivalId = scope.festivalAlias.substr(scope.festivalAlias.lastIndexOf('-') + 1);
+
+    // Configure all $http requests to use a cache created by DSCacheFactory by default:
+    DSCacheFactory('defaultCache', {
+        maxAge: 900000, // Items added to this cache expire after 15 minutes.
+        cacheFlushInterval: 6000000, // This cache will clear itself every hour.
+        deleteOnExpire: 'aggressive' // Items will be deleted from this cache right when they expire.
+    });
+
+    $http.defaults.cache = DSCacheFactory.get('defaultCache');
 
     // Setup pageNotFound event
     scope.$on('event:pageNotFound', function() {
