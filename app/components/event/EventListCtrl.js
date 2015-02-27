@@ -25,7 +25,7 @@ angular.module('wowApp')
       $scope.loadNextEvents = function() {
 
         var len = $scope.events.length;
-        $scope.events.push.apply($scope.events, $scope.allEvents.slice(len, len + numToLoad));
+        $scope.events.push.apply($scope.events, $scope.allEvents.list.slice(len, len + numToLoad));
 
       };
 
@@ -40,13 +40,13 @@ angular.module('wowApp')
         // pass through all events
         if ($scope.filtersApplied()) {
 
-          $scope.events = $scope.allEvents;
+          $scope.events = $scope.allEvents.list;
 
         // If not, pass through the first 20 because
         // infinite scroll will be in use
         } else {
 
-          $scope.events = $scope.allEvents.slice(0, numToLoad);
+          $scope.events = $scope.allEvents.list.slice(0, numToLoad);
 
         }
 
@@ -58,7 +58,7 @@ angular.module('wowApp')
 
       // Success
       // Attach the event data to the scope
-      $scope.allEvents = data.list;
+      $scope.allEvents = data;
 
       // Load in the correct number of events
       // depending on whether or not filters
@@ -76,6 +76,9 @@ angular.module('wowApp')
       'field_start_day': {
         'name': 'day',
         'momentFormat': 'dddd-D-MMMM-YYYY'
+      },
+      'ticketTypes': {
+        'name': 'ticket'
       }
     };
 
@@ -103,18 +106,33 @@ angular.module('wowApp')
     $scope.$watchCollection('search', function(search) {
 
       // Loop through each filter
-      angular.forEach($scope.search, function(filterValue, filterName) {
+      angular.forEach(search, function(filterValue, filterName) {
 
-        // Convert the moment object to a URL friendly
-        // date format if filter value is not null
-        if ($scope.filterFieldMapping[filterName].momentFormat && filterValue) {
-          filterValue = moment(filterValue).format($scope.filterFieldMapping[filterName].momentFormat);
-        } 
+        if (filterValue === null) {
 
-        // Add the filter to the URL       
-        $location.search($scope.filterFieldMapping[filterName].name, filterValue.toLowerCase());
+          delete $scope.search[filterName];
+
+        } else {
+
+          // Convert the moment object to a URL friendly
+          // date format if filter value is not null
+          if ($scope.filterFieldMapping[filterName].momentFormat && filterValue) {
+            filterValue = moment(filterValue).format($scope.filterFieldMapping[filterName].momentFormat);
+          } 
+
+          // Convert filter value to lowercase
+          if (typeof filterValue === 'string') {
+            filterValue = filterValue.toLowerCase();
+          }
+
+        }
+
+        // Add the filter to the URL
+        $location.search($scope.filterFieldMapping[filterName].name, filterValue);
         
       });
+
+      console.log(search);
 
     });
 
@@ -177,7 +195,15 @@ angular.module('wowApp')
      */
     $scope.filtersApplied = function() {
 
-      return !angular.equals({}, $scope.search);
+      var filtersApplied = false;
+      angular.forEach($scope.search, function(filterValue) {
+        if (filterValue) {
+          filtersApplied = true;
+          return false;
+        }
+      });
+
+      return filtersApplied;
 
     };
 

@@ -90,6 +90,25 @@ angular.module('wowApp')
           })
           .error(callbackError);
 
+      },
+
+      /**
+       * @ngdoc method
+       * @methodOf wowApp.factory:festivalFactory
+       * @name wowApp.factory:festivalFactory#getTicketTypes
+       * @returns {undefined} Undefined
+       * @param {function} callbackSuccess The function to call when the HTTP request succeeds
+       * @param {function} callbackError The function to call when the HTTP request fails
+       *
+       * @description
+       * For getting ticket type information
+       */
+      getTicketTypes: function(callbackSuccess, callbackError) {
+
+        $http.get('/json/taxonomy_term.json?vocabulary='+$rootScope.ticketingVocabularyId)
+          .success(callbackSuccess)
+          .error(callbackError);
+
       }
 
     };
