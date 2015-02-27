@@ -132,8 +132,6 @@ angular.module('wowApp')
         
       });
 
-      console.log(search);
-
     });
 
     /**
