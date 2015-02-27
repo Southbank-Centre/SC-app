@@ -1,0 +1,28 @@
+<div class="twitter-feed-container" ng-show="component">
+
+  <div data-ng-bind-html="component.field_twitter_feed.value | unsafe" class="twitter-feed"></div>
+
+  <li>
+		<div class="tweet-wrapper">
+			<div class="img">
+				<img src="<?php echo $img ?>" alt="">
+			</div>
+			<div class="text">
+				<p><?php echo $text ?></p>
+				<div class="info">
+
+					<a href="http://twitter.com/<?php echo $username,'/status/',$id?>"
+	                	class="date" target="_blank" title="Shared <?php echo $time?>"><?php echo $time?></a>
+
+					<a href="http://twitter.com/<?php echo $username ?>" class="user"
+						title="Go to <?php echo $username?>'s twitter page">by <?php echo $username ?></a>
+						
+					<?php // if($retweets > 0):?>
+						<!-- <span class="retweet" title="Retweet Count"><?php echo $retweets ?></span> -->
+					<?php // endif;?>
+				</div>
+			</div>
+    </div>  
+	</li>
+
+</div>
