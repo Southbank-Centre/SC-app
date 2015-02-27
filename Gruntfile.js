@@ -445,6 +445,21 @@ module.exports = function (grunt) {
         src: ['<%= yeoman.app %>/app/{,**/}*.js'],
         title: 'Angular App Documentation'
       }
+    },
+
+    // Cache bust 
+    cacheBust: {
+      options: {
+        encoding: 'utf8',
+        algorithm: 'md5',
+        length: 16,
+        deleteOriginals: true
+      },
+      assets: {
+        files: [{
+          src: ['index.html']
+        }]
+      }
     }
   });
 
@@ -518,7 +533,8 @@ module.exports = function (grunt) {
       'uglify',
       'filerev',
       'usemin',
-      'htmlmin'
+      'htmlmin',
+      'cacheBust'
     ]);
   });
 
