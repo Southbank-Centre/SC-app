@@ -83,6 +83,14 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
           }
         }
       })
+      .state('wow.blogSingle', {
+        url: '^/blog/:blogId',
+        views: {
+          '@': {
+            templateUrl: 'app/components/blog/blogSingleView.html'
+          }
+        }
+      })
       .state('wow.error', {
         views: {
           '@': {
