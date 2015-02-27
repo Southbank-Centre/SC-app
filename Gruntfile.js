@@ -248,9 +248,10 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= yeoman.dist %>/assets/js/{,*/}*.js',
+          '<%= yeoman.dist %>/app/js/{,*/}*.js',
           '<%= yeoman.dist %>/assets/css/{,*/}*.css',
-          '<%= yeoman.dist %>/assets/fonts/*'
+          '<%= yeoman.dist %>/assets/fonts/*',
+          '<%= yeoman.dist %>/assets/imgs/*'
         ]
       }
     },
@@ -321,7 +322,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'components/{,*/}*.html'],
+          src: ['*.html', 'app/components/{,*/}*.html'],
           dest: '<%= yeoman.dist %>'
         }]
       }
@@ -333,9 +334,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/concat/scripts',
+          cwd: '.tmp/concat/app/js',
           src: ['**/*.js', '!oldieshim.js'],
-          dest: '.tmp/concat/scripts'
+          dest: '.tmp/concat/app/js'
         }]
       }
     },
@@ -445,22 +446,8 @@ module.exports = function (grunt) {
         src: ['<%= yeoman.app %>/app/{,**/}*.js'],
         title: 'Angular App Documentation'
       }
-    },
-
-    // Cache bust 
-    cacheBust: {
-      options: {
-        encoding: 'utf8',
-        algorithm: 'md5',
-        length: 16,
-        deleteOriginals: true
-      },
-      assets: {
-        files: [{
-          src: ['index.html']
-        }]
-      }
     }
+
   });
 
 
@@ -533,8 +520,7 @@ module.exports = function (grunt) {
       'uglify',
       'filerev',
       'usemin',
-      'htmlmin',
-      'cacheBust'
+      'htmlmin'
     ]);
   });
 
