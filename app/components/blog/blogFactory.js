@@ -10,7 +10,7 @@
  */
 
 angular.module('wowApp')
-  .factory('blogFactory', function($http) {
+  .factory('blogFactory', function($http, utilitiesFactory) {
 
     return {
 
@@ -28,18 +28,13 @@ angular.module('wowApp')
        */
       getBlogSingle: function(blogId, callbackSuccess, callbackError) {
 
-        //------
-        // Currently set to the page route
-        // The blog content type isn't on Drupal yet
-        //
-        //
-        $http.get('/json/api/content-page/'+blogId)
+        $http.get('/json/api/blog-post/'+blogId)
           .success(function(blogPost) {
 
-            // Add the date and author data mock objects as the data response passes through this fn
-            blogPost.testPostDate = '1425055719';
-
-            blogPost.testPostAuthor = 'Some post author';
+            // Correct date format for start and end dates
+            if (blogPost.field_published_date) {
+              blogPost.field_published_date = utilitiesFactory.timestampSecondsToMS(blogPost.field_published_date);
+            }
 
             callbackSuccess(blogPost);
           })
