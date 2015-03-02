@@ -248,9 +248,11 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= yeoman.dist %>/assets/js/{,*/}*.js',
+          '<%= yeoman.dist %>/app/js/{,*/}*.js',
+          '<%= yeoman.dist %>/app/vendor/{,*/}*.js',
           '<%= yeoman.dist %>/assets/css/{,*/}*.css',
-          '<%= yeoman.dist %>/assets/fonts/*'
+          '<%= yeoman.dist %>/assets/fonts/*',
+          '<%= yeoman.dist %>/assets/imgs/*'
         ]
       }
     },
@@ -276,7 +278,7 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
+      html: ['<%= yeoman.dist %>/**/*.html'],
       css: ['<%= yeoman.dist %>/assets/css/{,*/}*.css'],
       options: {
         assetsDirs: ['<%= yeoman.dist %>','<%= yeoman.dist %>/assets/imgs']
@@ -321,7 +323,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'components/{,*/}*.html'],
+          src: ['*.html', 'app/components/{,*/}*.html'],
           dest: '<%= yeoman.dist %>'
         }]
       }
@@ -333,9 +335,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/concat/scripts',
+          cwd: '.tmp/concat/app/js',
           src: ['**/*.js', '!oldieshim.js'],
-          dest: '.tmp/concat/scripts'
+          dest: '.tmp/concat/app/js'
         }]
       }
     },
@@ -359,17 +361,14 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
-            'images/{,*/}*.{webp}',
-            'fonts/*',
-            'assets/imgs/*',
-            'app/**'
+            'app/**/*.{html,txt}',
+            'assets/sched/*'
           ]
         }, {
           expand: true,
-          cwd: '.tmp/assets/imgs',
+          cwd: 'assets/imgs',
           dest: '<%= yeoman.dist %>/assets/imgs',
-          src: ['generated/*']
+          src: ['*']
         }, {
           expand: true,
           cwd: 'assets/fonts',
@@ -387,14 +386,16 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
-            'images/{,*/}*.{webp}',
-            'fonts/*',
-            'assets/imgs/*',
             'app/**',
             'docs/**'
           ]
         }, {
+          expand: true,
+          cwd: 'assets/imgs',
+          dest: '<%= yeoman.dist %>/assets/imgs',
+          src: ['*']
+        },
+        {
           expand: true,
           cwd: 'assets/fonts',
           dest: '<%= yeoman.dist %>/assets/fonts',
@@ -446,6 +447,7 @@ module.exports = function (grunt) {
         title: 'Angular App Documentation'
       }
     }
+
   });
 
 

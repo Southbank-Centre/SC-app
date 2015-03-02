@@ -10,7 +10,7 @@
  */
 
 angular.module('wowApp')
-  .controller('EventListCtrl', function ($rootScope, $scope, $stateParams, $location, eventFactory, utilitiesFactory, $filter) {
+  .controller('EventListCtrl', function ($rootScope, $scope, $stateParams, $location, eventFactory, utilitiesFactory, $filter, $window) {
 
     /**
      * Method for getting event list from the API
@@ -130,6 +130,16 @@ angular.module('wowApp')
         // Add the filter to the URL
         $location.search($scope.filterFieldMapping[filterName].name, filterValue);
         
+      });
+
+      // Allow filter parameter change to be recorded in Google Analytics as a page view
+      // Get virtual url for Google Tag Manager pageview
+      var virtualUrl = $location.url();
+
+      // Push url to GTM dataLayer
+      $window.dataLayer.push({ 
+        event: 'pageview',
+        virtualUrl: virtualUrl 
       });
 
     });
