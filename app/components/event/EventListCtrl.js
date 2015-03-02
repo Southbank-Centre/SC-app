@@ -132,6 +132,17 @@ angular.module('wowApp')
         
       });
 
+      
+      // Get virtual url for Google Tag Manager pageview
+      var virtualUrl = $location.url();
+
+      // Push url to GTM dataLayer
+      $window.dataLayer.push({ 
+        event: 'pageview',
+        virtualUrl: virtualUrl 
+      });
+      console.log($location.url());
+
     });
 
     /**
