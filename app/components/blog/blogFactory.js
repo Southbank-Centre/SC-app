@@ -37,19 +37,13 @@ angular.module('wowApp')
           .success(function(blogPost) {
 
             // Add the date and author data mock objects as the data response passes through this fn
-            //
-            //
-            //
-            //
-            var testPostDate = {
+            blogPost.testPostDate = {
               postDate : "1425055719"
             };
 
-            var testPostAuthor = {
+            blogPost.testPostAuthor = {
               postAuthor : 'Some post author'
             };
-
-            blogPost
 
             callbackSuccess(blogPost);
           })
