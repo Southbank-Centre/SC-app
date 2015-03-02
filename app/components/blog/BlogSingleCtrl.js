@@ -19,7 +19,7 @@ angular.module('wowApp')
 
       // SUCCESS
       // Attach the event data to the scope
-      $scope.event = data;
+      $scope.blogPost = data;
 
       // Set description meta tag to event short description
       // $rootScope.eventDescription = $scope.event.field_teaser.value.replace(/(<([^>]+)>)/ig,"");
