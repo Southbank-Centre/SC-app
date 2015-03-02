@@ -304,3 +304,54 @@
   }
 }
 
+.twitter-feed {
+
+  a[href^="http://"],
+  a[href^="https://"] {
+    background:none;
+    padding:0;
+  }
+
+  .tweet {
+
+    padding:$padding;
+    margin-bottom:1px;
+    background-color:white;
+
+    .tweet-user {
+
+      display:inline-block;
+
+      .tweet-user-image {
+
+        float:left;
+        display:inline-block;
+
+      }
+
+      .tweet-info {
+
+        float:left;
+        display:inline-block;
+
+        .tweet-user-screen-name {
+
+          font-weight:bold;
+          padding-left:$padding;
+
+        }
+
+      }
+
+    }
+
+    .tweet-text {
+      @include adjust-font-size-to(18px);
+      font-family: 'SC AkkuratLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: normal;
+    }
+
+  }
+
+}
+

@@ -1,28 +1,20 @@
-<div class="twitter-feed-container" ng-show="component">
+<div class="twitter-feed container" ng-controller="TwitterFeedCtrl" ng-show="festival && tweets">
 
-  <div data-ng-bind-html="component.field_twitter_feed.value | unsafe" class="twitter-feed"></div>
+	<h2>Get involved on Twitter</h2>
 
-  <li>
-		<div class="tweet-wrapper">
-			<div class="img">
-				<img src="<?php echo $img ?>" alt="">
-			</div>
-			<div class="text">
-				<p><?php echo $text ?></p>
-				<div class="info">
+	<h2 ng-show="festival.field_twitter_hashtag"><a href="https://twitter.com/hashtag/{{ festival.field_twitter_hashtag }}">{{ festival.field_twitter_hashtag }}</a> <a href="https://twitter.com/hashtag/{{ festival.field_twitter_username}}">{{ festival.field_twitter_username }}</a></h2>
 
-					<a href="http://twitter.com/<?php echo $username,'/status/',$id?>"
-	                	class="date" target="_blank" title="Shared <?php echo $time?>"><?php echo $time?></a>
+	<div class="tweet" ng-repeat="tweet in tweets">
+		<div class="tweet-user">
+			<span class="tweet-user-image">
+				<a href="https://twitter.com/{{ tweet.user.screen_name }}"><img src="{{ tweet.user.profile_image_url }}" alt="{{ tweet.user.screen_name }} profile image"></a>
+			</span>
+			<span class="tweet-info">
+				<div class="tweet-user-screen-name">{{ tweet.user.screen_name }}</div>
+			</span>
+		</div>
+		<p ng-bind-html="tweet.text" class="tweet-text"></p>
 
-					<a href="http://twitter.com/<?php echo $username ?>" class="user"
-						title="Go to <?php echo $username?>'s twitter page">by <?php echo $username ?></a>
-						
-					<?php // if($retweets > 0):?>
-						<!-- <span class="retweet" title="Retweet Count"><?php echo $retweets ?></span> -->
-					<?php // endif;?>
-				</div>
-			</div>
     </div>  
-	</li>
 
 </div>
