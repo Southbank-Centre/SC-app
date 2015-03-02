@@ -10,7 +10,7 @@
  */
 
 angular.module('wowApp')
-  .controller('EventListCtrl', function ($rootScope, $scope, $stateParams, $location, eventFactory, utilitiesFactory, $filter) {
+  .controller('EventListCtrl', function ($rootScope, $scope, $stateParams, $location, eventFactory, utilitiesFactory, $filter, $window) {
 
     /**
      * Method for getting event list from the API
