@@ -6,12 +6,13 @@
         <h1>{{ blogPost.title }}</h1>
 
         <div class="blog-author">
-          {{ blogPost.testPostAuthor }}
+          {{ blogPost.field_author_name }}
         </div>
 
-        <div class="blog-list-date" ng-show="blogPost.testPostDate">
-          <strong>{{ blogPost.testPostDate | amDateFormat:'dddd D MMMM YYYY' }}</strong>{{ blogPost.testPostDate | amDateFormat:'h:mm' }}{{ blogPost.testPostDate | amDateFormat:'a' | lowercase }}
+        <div class="blog-list-date" ng-show="blogPost.field_published_date">
+          <strong>{{ blogPost.field_published_date | amDateFormat:'dddd D MMMM YYYY' }}</strong>{{ blogPost.field_published_date | amDateFormat:'h:mm' }}{{ blogPost.field_published_date | amDateFormat:'a' | lowercase }}
         </div>
+
       </div>
 
     </header>
