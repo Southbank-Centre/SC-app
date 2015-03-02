@@ -132,7 +132,7 @@ angular.module('wowApp')
         
       });
 
-      
+      // Allow filter parameter change to be recorded in Google Analytics as a page view
       // Get virtual url for Google Tag Manager pageview
       var virtualUrl = $location.url();
 
@@ -141,7 +141,6 @@ angular.module('wowApp')
         event: 'pageview',
         virtualUrl: virtualUrl 
       });
-      console.log($location.url());
 
     });
 
