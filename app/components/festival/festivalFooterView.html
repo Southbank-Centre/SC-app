@@ -2,8 +2,8 @@
 
   <div class="footer-head-container">
     <div class="container footer-head">
-      <div class="footer-festival-sponsor">Supported by: <img src="/assets/imgs/bloomberg-logo.png" alt="Supported by Bloomberg" /></div>
-      <div class="footer-festival-dates" ng-style="{'color':festival.field_color_highlight}">Festival Dates: {{ festival.field_date_start | amDateFormat:'D' }} - {{ festival.field_date_end | amDateFormat:'D MMMM YYYY' }}</div>
+    <div class="footer-festival-sponsor">Supported by<a ui-sref="wow.page({pageId: 'bloomberg-supports-wow-women-world-festival-303'})"><img src="/assets/imgs/bloomberg-logo.png" alt="Supported by Bloomberg" /></a></div>
+      <div class="footer-festival-dates" ng-style="{'color':festival.field_color_highlight}">Festival Dates: {{ festival.field_date_start | amDateFormat:'D' }} &ndash; {{ festival.field_date_end | amDateFormat:'D MMMM YYYY' }}</div>
     </div>
   </div>
 
