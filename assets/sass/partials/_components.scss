@@ -312,43 +312,114 @@
     padding:0;
   }
 
-  .tweet {
+  .twitter-links {
+
+    .twitter-logo {
+      margin-right:$margin/2;
+      vertical-align:middle;
+    }
+
+    a {
+      margin:0 $margin/4;
+    }
+
+  }
+
+  .tweet-container {
 
     padding:$padding;
     margin-bottom:1px;
     background-color:white;
+    display:inline-block;
+    width:100%;
 
-    .tweet-user {
+    .tweet {
 
       display:inline-block;
+      width:100%;
 
-      .tweet-user-image {
+      .tweet-user {
 
-        float:left;
         display:inline-block;
+        width:100%;
 
-      }
+        .tweet-user-image {
 
-      .tweet-info {
+          float:left;
+          display:inline-block;
 
-        float:left;
-        display:inline-block;
+        }
 
-        .tweet-user-screen-name {
+        .tweet-info {
 
-          font-weight:bold;
+          float:left;
+          display:inline-block;
           padding-left:$padding;
+          @include adjust-leading-to(1.4);
+
+          .tweet-user-name {
+
+            font-weight:bold;            
+
+            .tweet-user-screen-name {
+
+              font-weight:normal;
+
+            }
+
+            .tweet-intents {
+
+              margin-left:$margin*2;
+
+            }
+
+          }
+
+          .tweet-time {
+
+            color:$mid-grey;
+
+          }
 
         }
 
       }
 
-    }
+      .tweet-text {
 
-    .tweet-text {
-      @include adjust-font-size-to(18px);
-      font-family: 'SC AkkuratLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-weight: normal;
+        @include adjust-font-size-to(18px);
+        font-family: 'SC AkkuratLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        letter-spacing: $letter-spacing;
+
+        @include breakpoint($bp-desktop) {
+          @include span(6);
+        }
+
+        @include breakpoint($bp-desktop) {
+          &.has-media {
+            @include span(4);
+          }
+        }
+
+      }
+
+      .tweet-media {
+
+        display:none;
+
+        @include breakpoint($bp-desktop) {
+          display:block;
+          @include span(3);
+        }
+
+        img {
+          max-width:100%;
+          max-height:200px;
+        }
+
+      }
+
     }
 
   }
