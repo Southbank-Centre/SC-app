@@ -43,6 +43,30 @@ angular.module('wowApp')
             console.log(err);
           });
 
+      },
+
+      /**
+       * @ngdoc method
+       * @methodOf wowApp.factory:blogFactory
+       * @name wowApp.factory:blogFactory#getBlogList
+       * @returns {undefined} undefined
+       * @param {function} callbackSuccess The function to call when the HTTP request succeeds.
+       * @param {function} callbackError The function to call when the HTTP request fails.
+       *
+       * @description
+       * Get a list of published blog posts sorted by the value in the published_date field.
+       */
+      getBlogList: function(callbackSuccess, callbackError) {
+
+        var requestString = 'json/node.json?type=blog_post&status=1&sort=field_published_date&direction=DESC';
+
+        $http.get(requestString)
+            .success(function(blogListing) {
+              callbackSuccess(blogListing);
+            })
+            .error(function(err) {
+              console.log(err);
+            });
       }
 
     };
