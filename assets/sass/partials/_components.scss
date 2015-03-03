@@ -338,59 +338,7 @@
       display:inline-block;
       width:100%;
 
-      .tweet-user {
-
-        display:inline-block;
-        width:100%;
-
-        .tweet-user-image {
-
-          float:left;
-          display:inline-block;
-
-        }
-
-        .tweet-info {
-
-          float:left;
-          display:inline-block;
-          padding-left:$padding;
-          @include adjust-leading-to(1.4);
-
-          .tweet-user-name {
-
-            font-weight:bold;            
-
-            .tweet-user-screen-name {
-
-              font-weight:normal;
-
-            }
-
-            .tweet-intents {
-
-              margin-left:$margin*2;
-
-            }
-
-          }
-
-          .tweet-time {
-
-            color:$mid-grey;
-
-          }
-
-        }
-
-      }
-
-      .tweet-text {
-
-        @include adjust-font-size-to(18px);
-        font-family: 'SC AkkuratLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: normal;
-        letter-spacing: $letter-spacing;
+      .tweet-inner {
 
         @include breakpoint($bp-desktop) {
           @include span(6);
@@ -402,6 +350,69 @@
           }
         }
 
+        .tweet-user {
+
+          &.no-media {
+            @include breakpoint($bp-desktop) {
+              @include span(8);
+              @include post(4);
+            }
+          }
+
+          display:inline-block;
+          width:100%;
+
+          .tweet-user-image {
+
+            float:left;
+            display:inline-block;
+
+          }
+
+          .tweet-info {
+
+            float:left;
+            display:inline-block;
+            padding-left:$padding;
+            @include adjust-leading-to(1.4);
+
+            .tweet-user-name {
+
+              font-weight:bold;            
+
+              .tweet-user-screen-name {
+
+                font-weight:normal;
+
+              }
+
+            }
+
+            .tweet-time {
+
+              color:$mid-grey;
+
+            }
+
+          }
+
+          .tweet-intents {
+
+            float:right;
+
+          }
+
+        }
+
+        .tweet-text {
+
+          @include adjust-font-size-to(18px);
+          font-family: 'SC AkkuratLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+          font-weight: normal;
+          letter-spacing: $letter-spacing;
+
+        }
+
       }
 
       .tweet-media {
@@ -410,6 +421,7 @@
 
         @include breakpoint($bp-desktop) {
           display:block;
+          margin-left:$margin;
           @include span(3);
         }
 
