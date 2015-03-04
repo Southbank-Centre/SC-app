@@ -317,7 +317,7 @@
       @include adjust-font-size-to(21px);
       font-family: 'SC AkkuratBold';
     }
-
+    display: block;
     margin-bottom: 0.5em;
     background: none;
     color: $black;
@@ -342,6 +342,7 @@
 
     @include breakpoint($bp-desktop) {
       @include span(7);
+      // Undo @include last;
       float: left;
     }
 
