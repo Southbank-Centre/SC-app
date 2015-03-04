@@ -11,12 +11,12 @@
         <h2>{{ blogPost.title }}</h2>
     </a>
 
-    <div class="list-item__teaser">
-        {{ blogPost.field_teaser }}
-    </div>
-
     <div class="list-item__author-information">
         <h4 class="list-item__subtitle">Posted on {{ blogPost.field_published_date | amDateFormat:'dddd D MMMM YYYY'}}<span class="list-item__subtitle--light"> by </span>{{ blogPost.field_author_name }}</h4>
+    </div>
+    
+    <div class="list-item__teaser">
+        {{ blogPost.field_teaser }}
     </div>
 
 </div>
