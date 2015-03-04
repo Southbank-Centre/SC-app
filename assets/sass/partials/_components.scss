@@ -304,3 +304,54 @@
   }
 }
 
+/**
+ * Generic list/media object styles.
+ */
+
+.list-item {
+  @extend .container;
+
+  .list-item__title {
+
+    h2 {
+      @include adjust-font-size-to(21px);
+      font-family: 'SC AkkuratBold';
+    }
+
+    margin-bottom: 0.5em;
+    background: none;
+    color: $black;
+
+    &:hover {
+      color: $link-color;
+    }
+  }
+
+  .list-item__image {
+    @include span(3);
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .list-item__content {
+
+    @include span(9);
+    @include last;
+
+    @include breakpoint($bp-desktop) {
+      @include span(7);
+      float: left;
+    }
+
+
+    padding: gutter(1);
+    margin-bottom: 5px;
+
+    background-color: rgba(255, 255, 255, 1);
+
+    border-left: 2px solid #ecedea;
+    border-bottom: 2px solid #ecedea;
+  }
+}
