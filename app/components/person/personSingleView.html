@@ -12,7 +12,7 @@
       </div>
 
       <figure class="person-image-container" ng-show="person.field_photo.field_image_file.field_image.file.url">
-        <img src="{{ person.field_photo.field_image_file.field_image.file.url }}" alt="{{ person.field_photo.field_image_file.field_image.alt }}" title="{{ person.field_photo.field_image_file.field_image.title }}" />
+        <img ng-src="{{ person.field_photo.field_image_file.field_image.file.url }}" alt="{{ person.field_photo.field_image_file.field_image.alt }}" title="{{ person.field_photo.field_image_file.field_image.title }}" />
         <figcaption ng-show="person.field_photo.field_caption.value" data-ng-bind-html="person.field_photo.field_caption.value"></figcaption>
       </figure>
 
