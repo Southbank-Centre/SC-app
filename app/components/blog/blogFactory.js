@@ -40,7 +40,7 @@ angular.module('wowApp')
           })
           // .error(callbackError);
           .error(function(err) {
-            console.log(err);
+            callbackError()
           });
 
       },
@@ -61,12 +61,19 @@ angular.module('wowApp')
         var requestString = 'json/node.json?type=blog_post&status=1&sort=field_published_date&direction=DESC';
 
         $http.get(requestString)
-            .success(function(blogListing) {
-              callbackSuccess(blogListing);
-            })
-            .error(function(err) {
-              console.log(err);
+          .success(function(blogListing) {
+
+            angular.forEach(blogListing.list, function(blogItem){
+              if (blogItem.field_published_date) {
+                blogItem.field_published_date = utilitiesFactory.timestampSecondsToMS(blogItem.field_published_date);
+              }
             });
+
+            callbackSuccess(blogListing);
+          })
+          .error(function(err) {
+            callbackError();
+          });
       }
 
     };
