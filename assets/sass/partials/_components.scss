@@ -400,7 +400,38 @@
 
         a {
           float:right;
-          margin:0 2px;
+          margin:0 3px;
+          height:16px;
+          width:16px;
+          display:inline-block;
+
+          &.twitter-favourite {
+            background: transparent url('/assets/imgs/twitter_favourite.png') no-repeat center center;
+
+            &:hover {
+              background: transparent url('/assets/imgs/twitter_favourite_hover.png') no-repeat center center;
+            }
+
+          }
+
+          &.twitter-reply {
+            background: transparent url('/assets/imgs/twitter_reply.png') no-repeat center center;
+
+            &:hover {
+              background: transparent url('/assets/imgs/twitter_reply_hover.png') no-repeat center center;
+            }
+
+          }
+
+          &.twitter-retweet {
+            background: transparent url('/assets/imgs/twitter_retweet.png') no-repeat center center;
+
+            &:hover {
+              background: transparent url('/assets/imgs/twitter_retweet_hover.png') no-repeat center center;
+            }
+
+          }
+
         }
 
       }
