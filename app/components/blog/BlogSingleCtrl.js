@@ -27,15 +27,24 @@ angular.module('wowApp')
       $scope.blogPost = data;
       $rootScope.$broadcast('event:displayingBlogPage');
 
+      // Disqus setup
+      // Get the disqus shortname string
+      var disqusShortname = $rootScope.disqus_shortname;
+
       // Check the hostname so that we can load comments for the correct environment
       var host = $location.host();
 
-      // Check if the hostname start with 'dev', if so make the Disqus directive load the test comment stream
-      // otherwise load in the live sire comment stream
+      // Check the hostname to ensure that the Disqus directive will load the correct comment stream.
+      // This will prevent comments entered on a testing environment from loading on a live blog page.
       if(host.indexOf('dev') === 0) {
-        $scope.disqus.shortname = 'wow2015dev';
-      } else {
-        $scope.disqus.shortname = 'wow2015';
+        $scope.disqus.shortname = 'dev' + disqusShortname;
+      }
+      else if(host.indexOf('staging') === 0) {
+        $scope.disqus.shortname = 'staging' + disqusShortname;
+      }
+      // live
+      else if(host === $rootScope.hostName) {
+        $scope.disqus.shortname = disqusShortname;
       }
 
       // Set the Disqus unique identifier to the nid of the blog post.
