@@ -304,3 +304,178 @@
   }
 }
 
+.twitter-feed {
+
+  a[href^="http://"],
+  a[href^="https://"] {
+    background:none;
+    padding:0;
+  }
+
+  .get-involved-twitter {
+    margin-bottom:0;
+  }
+
+  .twitter-links {
+
+    .twitter-logo {
+      width: 30px;
+      height: 25px;
+      vertical-align:middle;
+    }
+
+    a {
+      margin:0 $margin/4;
+    }
+
+  }
+
+  .tweet-container {
+
+    padding:$padding;
+    margin-bottom:1px;
+    background-color:white;
+    display:inline-block;
+    width:100%;
+
+    .tweet {
+
+      display:inline-block;
+      width:100%;
+
+      .tweet-topline {
+
+        @include breakpoint($bp-desktop) {
+          @include span(6);
+          @include post(6);
+        }
+
+        .tweet-user {
+
+          display:inline-block;
+          @include breakpoint($bp-desktop) {
+            @include span(8);
+          }
+
+          .tweet-user-image {
+
+            float:left;
+            display:inline-block;
+
+          }
+
+          .tweet-info {
+
+            float:left;
+            display:inline-block;
+            padding-left:$padding;
+            @include adjust-leading-to(1.4);
+
+            .tweet-user-name {
+
+              font-weight:bold;            
+
+              .tweet-user-screen-name {
+
+                font-weight:normal;
+
+              }
+
+            }
+
+            .tweet-time {
+
+              color:$mid-grey;
+
+            }
+
+          }
+
+        }
+
+      }
+
+      .tweet-intents {
+
+        @include span(4 last);
+
+        a {
+          float:right;
+          margin:0 3px;
+          height:16px;
+          width:16px;
+          display:inline-block;
+
+          &.twitter-favourite {
+            background: transparent url('/assets/imgs/twitter_favourite.png') no-repeat center center;
+
+            &:hover {
+              background: transparent url('/assets/imgs/twitter_favourite_hover.png') no-repeat center center;
+            }
+
+          }
+
+          &.twitter-reply {
+            background: transparent url('/assets/imgs/twitter_reply.png') no-repeat center center;
+
+            &:hover {
+              background: transparent url('/assets/imgs/twitter_reply_hover.png') no-repeat center center;
+            }
+
+          }
+
+          &.twitter-retweet {
+            background: transparent url('/assets/imgs/twitter_retweet.png') no-repeat center center;
+
+            &:hover {
+              background: transparent url('/assets/imgs/twitter_retweet_hover.png') no-repeat center center;
+            }
+
+          }
+
+        }
+
+      }
+
+      .tweet-text {
+
+        @include breakpoint($bp-desktop) {
+          @include span(6);
+          @include post(6);
+
+          &.has-media {
+            @include span(4);
+          }
+        }
+        @include adjust-font-size-to(18px);
+        font-family: 'SC AkkuratLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        letter-spacing: $letter-spacing;
+
+      }
+
+    }
+
+    .tweet-media {
+
+      display:none;
+      text-align:right;
+      padding-left:$padding;
+      margin-top:-$margin;
+      @include span(2);
+
+      @include breakpoint($bp-desktop) {
+        display:block;
+      }
+
+      img {
+        max-width:100%;
+        max-height:160px;
+      }
+
+    }
+
+  }
+
+}
+
