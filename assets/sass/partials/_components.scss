@@ -329,6 +329,7 @@
 
   .list-item__image {
     @include span(3);
+    margin-right: 0;
 
     img {
       max-width: 100%;
@@ -348,11 +349,20 @@
 
 
     padding: gutter(1);
-//    margin-bottom: 2px;
 
     background-color: rgba(255, 255, 255, 1);
 
     border-left: 2px solid #ecedea;
     border-bottom: 2px solid #ecedea;
+  }
+
+  .list-item__teaser {
+    @include breakpoint($bp-desktop) {
+      @include span(10);
+    }
+  }
+
+  .list-item__read-more {
+    clear: both;
   }
 }
