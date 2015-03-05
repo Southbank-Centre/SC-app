@@ -351,9 +351,10 @@
 
         .tweet-user {
 
-
-          @include span(8);
           display:inline-block;
+          @include breakpoint($bp-desktop) {
+            @include span(8);
+          }
 
           .tweet-user-image {
 
