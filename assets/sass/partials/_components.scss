@@ -342,29 +342,18 @@
       display:inline-block;
       width:100%;
 
-      .tweet-inner {
+      .tweet-topline {
 
         @include breakpoint($bp-desktop) {
           @include span(6);
-        }
-
-        @include breakpoint($bp-desktop) {
-          &.has-media {
-            @include span(4);
-          }
+          @include post(6);
         }
 
         .tweet-user {
 
-          &.no-media {
-            @include breakpoint($bp-desktop) {
-              @include span(8);
-              @include post(4);
-            }
-          }
 
+          @include span(8);
           display:inline-block;
-          width:100%;
 
           .tweet-user-image {
 
@@ -400,40 +389,55 @@
 
           }
 
-          .tweet-intents {
-
-            float:right;
-
-          }
-
-        }
-
-        .tweet-text {
-
-          @include adjust-font-size-to(18px);
-          font-family: 'SC AkkuratLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-weight: normal;
-          letter-spacing: $letter-spacing;
-
         }
 
       }
 
-      .tweet-media {
+      .tweet-intents {
 
-        display:none;
+        @include span(4 last);
+
+        a {
+          float:right;
+          margin:0 2px;
+        }
+
+      }
+
+      .tweet-text {
 
         @include breakpoint($bp-desktop) {
-          display:block;
-          margin-left:$margin;
-          @include span(3);
-        }
+          @include span(6);
+          @include post(6);
 
-        img {
-          max-width:100%;
-          max-height:200px;
+          &.has-media {
+            @include span(4);
+          }
         }
+        @include adjust-font-size-to(18px);
+        font-family: 'SC AkkuratLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        letter-spacing: $letter-spacing;
 
+      }
+
+    }
+
+    .tweet-media {
+
+      display:none;
+      text-align:right;
+      padding-left:$padding;
+      margin-top:-$margin;
+      @include span(2);
+
+      @include breakpoint($bp-desktop) {
+        display:block;
+      }
+
+      img {
+        max-width:100%;
+        max-height:160px;
       }
 
     }
