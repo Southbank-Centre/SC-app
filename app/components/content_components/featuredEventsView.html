@@ -1,6 +1,6 @@
 <div ng-show="component" class="container featured-events-container">
 
-  <h2>{{ component.field_list_performance.title }} <a ui-sref="wow.eventList">({{ eventCount }} upcoming)</a></h2>
+  <h2>{{ component.field_list_performance.title }} <a ui-sref="wow.eventList">(See all)</a></h2>
 
   <article class="featured-event" 
       data-ng-repeat="event in component.field_list_performance.field_performance_list | betterLimitTo:3">
