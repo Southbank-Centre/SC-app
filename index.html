@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <title website-title>Southbank Centre</title>
     <meta name="description" content="" website-meta-description>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <base href="/">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -38,10 +38,6 @@
     <meta name="msapplication-wide310x150logo" content="mstile-310x150.png">
     <meta name="msapplication-square310x310logo" content="mstile-310x310.png">
 
-    <!-- build:css(.) assets/css/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
     <!-- build:css(.tmp) assets/css/main.css -->
     <link rel="stylesheet" href="assets/css/main.css">
     <!-- <meta name="fragment" content="!" /> --> <!-- for search bots -->
@@ -102,11 +98,13 @@
     <script src="bower_components/angular-moment/angular-moment.js"></script>
     <script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="bower_components/angular-cache/dist/angular-cache.js"></script>
+    <script src="bower_components/angular-utils-disqus/dirDisqus.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
 
-    <!-- build:js(.) scripts/scripts.js -->
+    <!-- build:js(.) app/js/scripts.js -->
     <script src="app/app.module.js"></script>
 
     <script src="app/components/utilities/utilitiesFactory.js"></script>

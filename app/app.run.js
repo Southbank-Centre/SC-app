@@ -4,15 +4,33 @@ angular
   .module('wowApp').constant('angularMomentConfig', {
 
     timezone: 'Europe/London'
-    
-  })  
-  .run(['$rootScope', '$state', '$window', '$location', 'festivalFactory', 'utilitiesFactory', function (scope, state, $window, $location, festivalFactory, utilitiesFactory) {
+
+  })
+  .run(['$rootScope', '$state', '$window', '$location', 'festivalFactory', 'utilitiesFactory', '$http', 'DSCacheFactory', function (scope, state, $window, $location, festivalFactory, utilitiesFactory, $http, DSCacheFactory) {
 
     // Alias of WOW Festival stored in the backend
     scope.festivalAlias = 'women-world-festival-1';
 
+    // The base string which will be used to distinguish between Disqus comments streams
+    // The shortnames must be added to Disqus with dev, staging and live. See BlogSingleCtrl.js.
+    // eg. devwow2015, stagingwow2015, wow2015
+    scope.disqus_shortname = 'wow2015';
+    scope.hostName = 'wow.southbankcentre.co.uk';
+
     // Get ID of WOW Festival (should be last part of Alias above)
     scope.festivalId = scope.festivalAlias.substr(scope.festivalAlias.lastIndexOf('-') + 1);
+
+    // ID of the ticketing vocabulary in the backend
+    scope.ticketingVocabularyId = 4;
+
+    // Configure all $http requests to use a cache created by DSCacheFactory by default:
+    new DSCacheFactory('defaultCache', {
+        maxAge: 900000, // Items added to this cache expire after 15 minutes.
+        cacheFlushInterval: 6000000, // This cache will clear itself every hour.
+        deleteOnExpire: 'aggressive' // Items will be deleted from this cache right when they expire.
+    });
+
+    $http.defaults.cache = DSCacheFactory.get('defaultCache');
 
     // Setup pageNotFound event
     scope.$on('event:pageNotFound', function() {
@@ -33,9 +51,9 @@ angular
       var virtualUrl = $location.path();
 
       // Push url to GTM dataLayer
-      $window.dataLayer.push({ 
+      $window.dataLayer.push({
         event: 'pageview',
-        virtualUrl: virtualUrl 
+        virtualUrl: virtualUrl
       });
 
     });
@@ -84,6 +102,29 @@ angular
         // Broadcast the serverError event
         scope.$broadcast('event:error');
       }
+
+    }, utilitiesFactory.genericHTTPCallbackError);
+
+    /**
+     * Method for getting the ticket types from the API
+     */
+    festivalFactory.getTicketTypes(function(data) {
+
+      angular.forEach(data.list, function(ticketType, i) {
+
+        // Remove 'free ticketed' from list
+        if (ticketType.name === 'Free ticketed') {
+          data.list.splice(i, 1);
+        }
+
+      });
+
+      // Add ticket types to root scope
+      scope.ticketTypes = data;
+
+      // Set festivalDataLoaded to true and broadcast the festivalDataLoaded event
+      scope.ticketingDataLoaded = true;
+      scope.$broadcast('event:ticketingDataLoaded');
 
     }, utilitiesFactory.genericHTTPCallbackError);
 

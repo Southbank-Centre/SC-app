@@ -10,21 +10,12 @@
  */
 
 angular.module('wowApp')
-  .controller('EventListCtrl', function ($rootScope, $scope, $stateParams, eventFactory, utilitiesFactory, $filter) {
+  .controller('EventListCtrl', function ($rootScope, $scope, $stateParams, $location, eventFactory, utilitiesFactory, $filter, $window) {
 
     /**
      * Method for getting event list from the API
      */
     eventFactory.getEventList( function(data) {
-
-      // Number of items to load each time
-      // when infinite scroll point has been reached
-      var numToLoad = 10;
-
-      // Success
-      // Attach the event data to the scope
-      $scope.allEvents = data.list;
-      $scope.events = $scope.allEvents.slice(0, numToLoad);
 
       /**
        * Callback for infinite scroll mechanism.
@@ -34,34 +25,124 @@ angular.module('wowApp')
       $scope.loadNextEvents = function() {
 
         var len = $scope.events.length;
-        $scope.events.push.apply($scope.events, $scope.allEvents.slice(len, len + numToLoad));
+        $scope.events.push.apply($scope.events, $scope.allEvents.list.slice(len, len + numToLoad));
 
       };
 
       /**
        * Sets the number of events loaded to just be the initial
-       * 20, so that infinite scrolling can be used
+       * numToLoad, so that infinite scrolling can be used
        * after filters are changed
        */
       $scope.resetEvents = function() {
 
         // If there are select box filters applied,
         // pass through all events
-        if ($scope.selectFiltersApplied()) {
+        if ($scope.filtersApplied()) {
 
-          $scope.events = $scope.allEvents;
+          $scope.events = $scope.allEvents.list;
 
         // If not, pass through the first 20 because
         // infinite scroll will be in use
         } else {
 
-          $scope.events = $scope.allEvents.slice(0, numToLoad);
+          $scope.events = $scope.allEvents.list.slice(0, numToLoad);
 
         }
 
       };
 
+      // Number of items to load each time
+      // when infinite scroll point has been reached
+      var numToLoad = 10;
+
+      // Success
+      // Attach the event data to the scope
+      $scope.allEvents = data;
+
+      // Load in the correct number of events
+      // depending on whether or not filters
+      // have been applied
+      $scope.resetEvents();
+
     }, utilitiesFactory.genericHTTPCallbackError);
+
+    // Set up an object that stores how a field that is filterable
+    // should be displayed in the URL when that filter is used
+    $scope.filterFieldMapping = {
+      'eventTypeSlug': {
+        'name': 'type'
+      },
+      'field_start_day': {
+        'name': 'day',
+        'momentFormat': 'dddd-D-MMMM-YYYY'
+      },
+      'ticketTypes': {
+        'name': 'ticket'
+      }
+    };
+
+    // Update the search filters with any that
+    // have been passed into the URL.
+    $scope.search = {};
+    angular.forEach($location.search(), function(filterValue, filterName) {
+
+      angular.forEach($scope.filterFieldMapping, function(filter, fieldName) {
+
+        if (filter.name === filterName) {
+
+          // Convert the URL friendly date to a 
+          // moment object using the format specified for the filter
+          if (filter.momentFormat) {
+            filterValue = moment(filterValue, filter.momentFormat).format('dddd D MMMM YYYY');
+          }
+          $scope.search[fieldName] = filterValue;
+        }
+
+      });
+
+    });
+
+    $scope.$watchCollection('search', function(search) {
+
+      // Loop through each filter
+      angular.forEach(search, function(filterValue, filterName) {
+
+        if (filterValue === null) {
+
+          delete $scope.search[filterName];
+
+        } else {
+
+          // Convert the moment object to a URL friendly
+          // date format if filter value is not null
+          if ($scope.filterFieldMapping[filterName].momentFormat && filterValue) {
+            filterValue = moment(filterValue).format($scope.filterFieldMapping[filterName].momentFormat);
+          } 
+
+          // Convert filter value to lowercase
+          if (typeof filterValue === 'string') {
+            filterValue = filterValue.toLowerCase();
+          }
+
+        }
+
+        // Add the filter to the URL
+        $location.search($scope.filterFieldMapping[filterName].name, filterValue);
+        
+      });
+
+      // Allow filter parameter change to be recorded in Google Analytics as a page view
+      // Get virtual url for Google Tag Manager pageview
+      var virtualUrl = $location.url();
+
+      // Push url to GTM dataLayer
+      $window.dataLayer.push({ 
+        event: 'pageview',
+        virtualUrl: virtualUrl 
+      });
+
+    });
 
     /**
      * Define filter comparator which includes all items
@@ -120,18 +201,17 @@ angular.module('wowApp')
     /**
      * Determines whether or not any of the select filters are applied
      */
-    $scope.selectFiltersApplied = function() {
+    $scope.filtersApplied = function() {
 
-      var selectFilterApplied = false;
-      angular.forEach(angular.element('.event-filter'), function(el) {
-        if (angular.element(el).val() !== "") {
-          selectFilterApplied = true;
+      var filtersApplied = false;
+      angular.forEach($scope.search, function(filterValue) {
+        if (filterValue) {
+          filtersApplied = true;
           return false;
         }
-
       });
 
-      return selectFilterApplied;
+      return filtersApplied;
 
     };
 

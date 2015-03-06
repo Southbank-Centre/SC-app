@@ -44,6 +44,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
       })
       .state('wow.eventList', {
         url: '^/whats-on',
+        reloadOnSearch: false,
         views: {
           '@': {
             templateUrl: 'app/components/event/eventListView.html'

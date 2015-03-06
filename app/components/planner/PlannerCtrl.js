@@ -12,7 +12,7 @@ angular.module('wowApp')
 
     $scope.$on('$stateChangeSuccess', function() {
       
-      $http.get('/app/components/planner/plannerEmbed.js')
+      $http.get('/assets/sched/sched-embed.js')
         .then(function(response) {
 
           eval(response.data);
