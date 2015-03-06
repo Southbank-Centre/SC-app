@@ -4,12 +4,18 @@ angular
   .module('wowApp').constant('angularMomentConfig', {
 
     timezone: 'Europe/London'
-    
-  })  
+
+  })
   .run(['$rootScope', '$state', '$window', '$location', 'festivalFactory', 'utilitiesFactory', '$http', 'DSCacheFactory', function (scope, state, $window, $location, festivalFactory, utilitiesFactory, $http, DSCacheFactory) {
 
     // Alias of WOW Festival stored in the backend
     scope.festivalAlias = 'women-world-festival-1';
+
+    // The base string which will be used to distinguish between Disqus comments streams
+    // The shortnames must be added to Disqus with dev, staging and live. See BlogSingleCtrl.js.
+    // eg. devwow2015, stagingwow2015, wow2015
+    scope.disqus_shortname = 'wow2015';
+    scope.hostName = 'wow.southbankcentre.co.uk';
 
     // Get ID of WOW Festival (should be last part of Alias above)
     scope.festivalId = scope.festivalAlias.substr(scope.festivalAlias.lastIndexOf('-') + 1);
@@ -45,9 +51,9 @@ angular
       var virtualUrl = $location.path();
 
       // Push url to GTM dataLayer
-      $window.dataLayer.push({ 
+      $window.dataLayer.push({
         event: 'pageview',
-        virtualUrl: virtualUrl 
+        virtualUrl: virtualUrl
       });
 
     });

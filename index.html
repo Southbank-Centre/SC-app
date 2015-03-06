@@ -50,7 +50,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    
+
     <div>
 
       <headroom tolerance='5' offset='0' classes="{pinned:'headroom--pinned',unpinned:'headroom--unpinned',initial:'headroom'}">
@@ -59,7 +59,7 @@
         <div ui-view="festivalNav" class="festival-nav-view-container"></div>
 
       </headroom>
-          
+
       <div ui-view="festivalBanner"></div>
 
       <main ng-class="{homepage: isActiveNav('/')}">
@@ -99,6 +99,7 @@
     <script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
     <script src="bower_components/angular-cache/dist/angular-cache.js"></script>
+    <script src="bower_components/angular-utils-disqus/dirDisqus.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -135,13 +136,17 @@
 
     <script src="app/components/content_components/HeadingCtrl.js"></script>
 
+    <script src="app/components/blog/blogFactory.js"></script>
+    <script src="app/components/blog/BlogSingleCtrl.js"></script>
+    <script src="app/components/blog/BlogListCtrl.js"></script>
+
     <!-- endbuild -->
 
 
     <!-- YouTube iFrame API -->
     <script>
     // If not mobile device
-    if(typeof window.orientation == 'undefined') {  
+    if(typeof window.orientation == 'undefined') {
       document.write('<script type="text/javascript" src="//www.youtube.com/iframe_api"><\/script>');
       window.onYouTubeIframeAPIReady = function() {
         window.youTubeIframeAPIReady = true;
