@@ -20,5 +20,6 @@ angular
     'headroom',
     'angularMoment',
     'infinite-scroll',
-    'angular-data.DSCacheFactory'
-  ]); 
+    'angular-data.DSCacheFactory',
+    'angularUtils.directives.dirDisqus'
+  ]);
