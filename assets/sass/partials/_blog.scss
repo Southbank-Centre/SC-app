@@ -74,4 +74,24 @@
       margin-bottom: 2px;
     }
   }
+
+  .blog-disqus-comments {
+
+    padding: 20px;
+    background-color: #ffffff;
+    float: left;
+    width: 100%;
+
+    @include breakpoint($bp-small-desktop) {
+      @include span(10);
+    }
+  }
+
+  .blog-disqus-comments-inner {
+
+    @include breakpoint($bp-small-desktop) {
+      @include span(7 of 10);
+    }
+  }
+
 }
