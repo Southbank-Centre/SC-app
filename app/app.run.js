@@ -15,8 +15,7 @@ angular
     // The shortnames must be added to Disqus with dev, staging and live. See BlogSingleCtrl.js.
     // eg. devwow2015, stagingwow2015, wow2015
     scope.disqus_shortname = 'wow2015';
-    // scope.hostName = 'wow.southbankcentre.co.uk';
-    scope.hostName = 'rain.office.cogapp.com';
+    scope.hostName = 'wow.southbankcentre.co.uk';
 
     // Get ID of WOW Festival (should be last part of Alias above)
     scope.festivalId = scope.festivalAlias.substr(scope.festivalAlias.lastIndexOf('-') + 1);
