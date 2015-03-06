@@ -79,6 +79,8 @@
 
     padding: 20px;
     background-color: #ffffff;
+    float: left;
+    width: 100%;
 
     @include breakpoint($bp-small-desktop) {
       @include span(10);
