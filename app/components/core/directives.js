@@ -390,4 +390,31 @@ angular.module('wowApp')
         };
       }
     };
+  })
+  /**
+   * @ngdoc directive
+   * @name wowApp.directive:twitterFeed
+   * @directive
+   *
+   * @description
+   * Renders twitter feed component using it's relevant template
+   *
+   */
+  .directive('twitterFeed', function($http, $compile) {
+    return {
+      restrict: 'A',
+      scope: true,
+      compile: function(element, attrs) {
+
+        return function(scope, element, attrs) {
+
+          var tpl = 'app/components/content_components/twitterFeedView.html';
+          $http.get(tpl)
+            .then(function(response) {
+              element.html($compile(response.data)(scope));
+            });
+
+        };
+      }
+    };
   });

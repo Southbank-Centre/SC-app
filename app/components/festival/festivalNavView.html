@@ -21,12 +21,12 @@
 
       <nav ng-class="{'navOpen':navOpen === true}">
         <a class="hamburger" ng-click="navOpen = !navOpen"></a>
-        <a data-ng-repeat="navItem in festivalNav" ng-class="{active: isActiveNav(navItem.url)}" href="{{ navItem.url }}">{{ navItem.title }}</a>
+        <a data-ng-repeat="navItem in festivalNav" ng-class="{active: isActiveNav(navItem.url)}" ng-href="{{ navItem.url }}">{{ navItem.title }}</a>
         <a ui-sref="wow.page({pageId: 'bloomberg-supports-wow-women-world-festival-303'})" class="festival-sponsor">Supported by<span></span></a>
       </nav>
 
       <a href="https://twitter.com/hashtag/wowldn" target="_blank" ng-show="festival" class="twitter-hashtag" ng-style="{'color':festival.field_color_highlight}">
-        #WOWLDN
+        #{{ festival.field_twitter_hashtag }}
       </a>
 
     </div>
