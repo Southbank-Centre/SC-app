@@ -17,7 +17,11 @@ angular.module('wowApp')
     };
 
     $scope.isActiveNav = function(path) {
-      if ($location.path() === path.replace(/#/g, "")) {
+      // match if on parent and not homepage
+      if ($location.path().substr(0, path.length) === path.replace(/#/g, "") && ($location.path().substr(0, path.length) !== '/')) {
+        return "active"
+      // match homepage
+      } else if ($location.path() === path.replace(/#/g, "")) {
         return "active"
       } else {
         return ""
