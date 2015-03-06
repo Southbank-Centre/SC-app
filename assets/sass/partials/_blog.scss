@@ -6,7 +6,7 @@
     }
     background: $white;
     margin: $margin*2 0 2px;
-    padding: $padding;
+//
     h1 {
       margin: 0;
       @include adjust_font_size_to(28px);
@@ -73,6 +73,25 @@
     .image-container {
       margin-bottom: 2px;
     }
+  }
+
+  .blog-post-name {
+    @include breakpoint($bp-desktop) {
+      @include span(7);
+      border-right: 2px solid #ecedea;
+      padding: $padding;
+    }
+
+    padding: $padding $padding 0 $padding
+  }
+
+  .blog-post-back-link {
+    @include breakpoint($bp-desktop) {
+      @include span(3);
+      padding: $padding;
+    }
+
+    padding: 0 $padding 14px $padding;
   }
 
   .blog-disqus-comments {

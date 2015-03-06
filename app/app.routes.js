@@ -91,6 +91,15 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
           }
         }
       })
+      .state('wow.blogList', {
+        url: '^/blog',
+        views: {
+          '@': {
+            templateUrl: 'app/components/blog/blogListView.html',
+            controller: 'BlogListCtrl'
+          }
+        }
+      })
       .state('wow.error', {
         views: {
           '@': {
