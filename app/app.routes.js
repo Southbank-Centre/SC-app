@@ -38,7 +38,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
         url: '^/whats-on/:eventId',
         views: {
           '@': {
-            templateUrl: 'app/components/event/eventSingleView.html'
+            templateUrl: 'bower_components/SC-app-event/release/eventSingleView.html'
           }
         }
       })
@@ -47,7 +47,7 @@ angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $lo
         reloadOnSearch: false,
         views: {
           '@': {
-            templateUrl: 'app/components/event/eventListView.html'
+            templateUrl: 'bower_components/SC-app-event/release/eventListView.html'
           }
         }
       })
