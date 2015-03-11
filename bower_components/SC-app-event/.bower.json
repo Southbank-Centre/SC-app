@@ -10,18 +10,17 @@
   "ignore": [
     "**/.*",
     "app",
-    "assets",
     "node_modules",
     "bower_components",
     "package.json",
     "Gruntfile.js"
   ],
   "homepage": "https://github.com/Southbank-Centre/SC-app-event",
-  "_release": "58c2ea681b",
+  "_release": "741700e2e8",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "58c2ea681b210ec3ea83459a6ba498bd7c0cbc9d"
+    "commit": "741700e2e86a07508b363948112f8cebbc0cd365"
   },
   "_source": "git@github.com:Southbank-Centre/SC-app-event.git",
   "_target": "*",
