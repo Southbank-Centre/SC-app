@@ -20,5 +20,6 @@ angular
     'infinite-scroll',
     'angular-data.DSCacheFactory',
     'angularUtils.directives.dirDisqus',
-    'SC-app-utils'
+    'SC-app-utils',
+    'SC-app-festival'
   ]);

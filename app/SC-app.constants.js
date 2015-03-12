@@ -33,6 +33,11 @@ angular
     // Used by disqus plugin
     disqus_shortname: 'wow2015',
 
+    // Module: SC-app-blog
+    // Hostname of the production app
+    // Used by disqus plugin
+    hostName: 'wow.southbankcentre.co.uk',
+
     // Module: SC-app-event
     // Vocabulary ID of the vocabulary that manages ticket types
     ticketingVocabularyId: 4,

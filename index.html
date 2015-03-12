@@ -45,27 +45,29 @@
   </head>
   <body>
 
-    <!--[if lt IE 7]>
+    <!--[if lt IE 9]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    <!-- Add your site or application content here -->
 
     <div>
 
       <headroom tolerance='5' offset='0' classes="{pinned:'headroom--pinned',unpinned:'headroom--unpinned',initial:'headroom'}">
 
+        <!-- Only displays if SC-app-header is installed -->
         <div ui-view="scNav"></div>
+        <!-- Only displays if SC-app-festival is installed and Festival Navigation view is included -->
         <div ui-view="festivalNav" class="festival-nav-view-container"></div>
 
       </headroom>
 
+      <!-- Only displays if SC-app-festival is installed and Festival Banner view is included -->
       <div ui-view="festivalBanner"></div>
 
       <main ng-class="{homepage: isActiveNav('/')}">
          <div ui-view></div>
       </main>
 
+      <!-- Only displays if SC-app-festival is installed and Festival Footer view is included -->
       <footer ui-view="festivalFooter"></footer>
 
     </div>
@@ -99,13 +101,16 @@
     <script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
     <script src="bower_components/angular-utils-disqus/dirDisqus.js"></script>
-    <script src="bower_components/SC-app-utils/release/SC-app-utils.min.js"></script>
+    <script src="bower_components/angular-cache/dist/angular-cache.js"></script>
+    <script src="bower_components/SC-app-utils/release/SC-app-utils.js"></script>
+    <script src="bower_components/SC-app-festival/release/SC-app-festival.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
 
     <!-- build:js(.) app/js/scripts.js -->
     <script src="app/SC-app.module.js"></script>
+    <script src="app/SC-app.constants.js"></script>
     <script src="app/SC-app.states.js"></script>
     <script src="app/SC-app.run.js"></script>
     <script src="app/AppCtrl.js"></script>

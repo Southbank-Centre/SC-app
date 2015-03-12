@@ -6,14 +6,14 @@ angular.module('SC-app').config(function($stateProvider) {
       .state('app', {
         url: '',
         views: {
-          'scNav' : {
-            templateUrl: 'app/components/festival/scNavView.html'
-          },
+          // 'scNav' : {
+          //   templateUrl: 'app/components/festival/scNavView.html'
+          // },
           'festivalNav' : {
-            templateUrl: 'app/components/festival/festivalNavView.html'
+            templateUrl: 'bower_components/SC-app-festival/release/festivalNavView.html'
           },
           'festivalFooter' : {
-            templateUrl: 'app/components/festival/festivalFooterView.html'
+            templateUrl: 'bower_components/SC-app-festival/release/festivalFooterView.html'
           }
         }
       })
@@ -21,10 +21,10 @@ angular.module('SC-app').config(function($stateProvider) {
         url: '/',
         views: {
           'festivalBanner@': {
-            templateUrl: 'app/components/home/festivalBannerView.html'
+            templateUrl: 'bower_components/SC-app-festival/release/festivalBannerView.html'
           },
           '@': {
-            templateUrl: 'app/components/home/homeView.html',
+            templateUrl: 'app/custom_components/home/homeView.html',
             controller: 'HomeCtrl'
           }
         }
