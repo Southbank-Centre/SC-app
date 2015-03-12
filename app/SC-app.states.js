@@ -3,7 +3,7 @@
 angular.module('SC-app').config(function($stateProvider) {
 
     $stateProvider
-      .state('wow', {
+      .state('app', {
         url: '',
         views: {
           'scNav' : {
@@ -17,7 +17,7 @@ angular.module('SC-app').config(function($stateProvider) {
           }
         }
       })
-      .state('wow.home', {
+      .state('app.home', {
         url: '/',
         views: {
           'festivalBanner@': {
