@@ -2,7 +2,7 @@
 <!--[if IE 7 ]>    <html class="ie lt-ie10 lt-ie9 lt-ie8 ie7 no-js" lang="en" ng-app="wowApp"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie lt-ie10 lt-ie9 ie8 no-js" lang="en" ng-app="wowApp"> <![endif]-->
 <!--[if IE 9 ]>    <html class="ie lt-ie10 ie9 no-js" lang="en" ng-app="wowApp"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class="not-ie9 no-js" lang="en" ng-app="wowApp"  data-ng-controller='CoreCtrl'> <!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="not-ie9 no-js" lang="en" ng-app="SC-app"  data-ng-controller='CoreCtrl'> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <title website-title>Southbank Centre</title>
@@ -100,51 +100,18 @@
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
     <script src="bower_components/angular-cache/dist/angular-cache.js"></script>
     <script src="bower_components/angular-utils-disqus/dirDisqus.js"></script>
-    <script src="bower_components/SC-app-event/release/SC-app-event.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
 
     <!-- build:js(.) app/js/scripts.js -->
-    <script src="app/app.module.js"></script>
-
-    <script src="app/components/utilities/utilitiesFactory.js"></script>
-
-    <script src="app/app.routes.js"></script>
-    <script src="app/app.filter.js"></script>
-    <script src="app/app.run.js"></script>
-    <script src="app/components/core/directives.js"></script>
-    <script src="app/components/core/CoreCtrl.js"></script>
-
-    <script src="app/components/festival/festivalFactory.js"></script>
-    <script src="app/components/festival/FestivalNavCtrl.js"></script>
-
-    <script src="app/components/home/homeFactory.js"></script>
-    <script src="app/components/home/HomeCtrl.js"></script>
-
-    <script src="app/components/event/eventFactory.js"></script>
-    <script src="app/components/event/EventSingleCtrl.js"></script>
-    <script src="app/components/event/EventListCtrl.js"></script>
-
-    <script src="app/components/person/personFactory.js"></script>
-    <script src="app/components/person/PersonSingleCtrl.js"></script>
-    <script src="app/components/person/PersonListCtrl.js"></script>
-
-    <script src="app/components/page/pageFactory.js"></script>
-    <script src="app/components/page/PageCtrl.js"></script>
-
-    <script src="app/components/planner/PlannerCtrl.js"></script>
-
-    <script src="app/components/content_components/HeadingCtrl.js"></script>
-    <script src="app/components/content_components/TwitterFeedCtrl.js"></script>
-
-    <script src="app/components/blog/blogFactory.js"></script>
-    <script src="app/components/blog/BlogSingleCtrl.js"></script>
-    <script src="app/components/blog/BlogListCtrl.js"></script>
-
+    <script src="app/SC-app.module.js"></script>
+    <script src="app/SC-app.routes.js"></script>
+    <script src="app/SC-app.run.js"></script>
+    <script src="app/AppCtrl.js"></script>
     <!-- endbuild -->
 
-
+    // !!! MOVE to content_components
     <!-- YouTube iFrame API -->
     <script>
     // If not mobile device

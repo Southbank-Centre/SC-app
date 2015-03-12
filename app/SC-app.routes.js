@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wowApp').config(function($urlRouterProvider, $stateProvider, $locationProvider) {
+angular.module('SC-app').config(function($urlRouterProvider, $stateProvider, $locationProvider) {
 
     $urlRouterProvider.when('', '/');
 

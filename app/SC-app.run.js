@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('wowApp').constant('angularMomentConfig', {
+  .module('SC-app').constant('angularMomentConfig', {
 
     timezone: 'Europe/London'
 
