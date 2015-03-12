@@ -9,14 +9,24 @@ angular
   })
   .constant('appConfig', {
 
-  	// Module SC-app-festival
-  	// JSON path alias for festival content item
+    // Module SC-app-festival
+    // JSON path alias for festival content item
     festivalAlias: 'women-world-festival-1',
 
     // Module SC-app-festival
     // Node ID of the festival content item, extract from the end of festivalAlias
     get festivalId() {
-    	return this.festivalAlias.substr(this.festivalAlias.lastIndexOf('-') + 1);
+
+      if (typeof this.festivalAlias === 'string') {
+
+        return this.festivalAlias.substr(this.festivalAlias.lastIndexOf('-') + 1);
+
+      } else {
+
+        return false;
+
+      }
+
     },
 
     // Module: SC-app-blog
