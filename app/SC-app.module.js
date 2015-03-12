@@ -19,5 +19,6 @@ angular
     'angularMoment',
     'infinite-scroll',
     'angular-data.DSCacheFactory',
-    'angularUtils.directives.dirDisqus'
+    'angularUtils.directives.dirDisqus',
+    'SC-app-utils'
   ]);

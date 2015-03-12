@@ -24,7 +24,7 @@ angular.module('SC-app')
         return 'active';
 
       // match homepage
-      } else if ($location.path() === path.replace(/#/g, "")) {
+      } else if ($location.path() === path.replace(/#/g, '')) {
 
         return 'active';
 

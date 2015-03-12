@@ -6,7 +6,7 @@ angular
     timezone: 'Europe/London'
 
   })
-  .run(['$rootScope', '$state', '$window', '$location', 'festivalFactory', 'utilitiesFactory', '$http', 'DSCacheFactory', function (scope, state, $window, $location, festivalFactory, utilitiesFactory, $http, DSCacheFactory) {
+  .run(['$rootScope', '$state', '$window', '$location', 'utilitiesFactory', '$http', 'DSCacheFactory', function (scope, state, $window, $location, utilitiesFactory, $http, DSCacheFactory) {
 
     // Alias of WOW Festival stored in the backend
     scope.festivalAlias = 'women-world-festival-1';
@@ -61,72 +61,74 @@ angular
     /**
      * Method for getting one festival from the API
      */
-    festivalFactory.getFestivalSingle(function(data) {
-      // Validation
-      // Location, event name and start date must be present for the event to display
-      if (!data.field_date_start || !data.title) {
-        scope.$broadcast('event:pageNotFound');
-      }
 
-      // Success
-      // Attach the festival data to the scope
-      scope.festival = data;
+    // !!! MOVE to festival module
+    // festivalFactory.getFestivalSingle(function(data) {
+    //   // Validation
+    //   // Location, event name and start date must be present for the event to display
+    //   if (!data.field_date_start || !data.title) {
+    //     scope.$broadcast('event:pageNotFound');
+    //   }
 
-      // Set the website title and description meta tag
-      scope.websiteTitle = scope.festival.title + ' at Southbank Centre';
-      scope.websiteDescription = scope.festival.field_description.value.replace(/(<([^>]+)>)/ig,'');
+    //   // Success
+    //   // Attach the festival data to the scope
+    //   scope.festival = data;
 
-      // Set festivalDataLoaded to true and broadcast the festivalDataLoaded event
-      scope.festivalDataLoaded = true;
-      scope.$broadcast('event:festivalDataLoaded');
+    //   // Set the website title and description meta tag
+    //   scope.websiteTitle = scope.festival.title + ' at Southbank Centre';
+    //   scope.websiteDescription = scope.festival.field_description.value.replace(/(<([^>]+)>)/ig,'');
 
-    }, utilitiesFactory.genericHTTPCallbackError);
+    //   // Set festivalDataLoaded to true and broadcast the festivalDataLoaded event
+    //   scope.festivalDataLoaded = true;
+    //   scope.$broadcast('event:festivalDataLoaded');
 
-    /**
-     * Method for getting the menus for the festival from the API
-     */
-    festivalFactory.getNavigation(function(data) {
+    // }, utilitiesFactory.genericHTTPCallbackError);
 
-      // Failure
-      // If there is no menu for this festival, show website error
-      if (data.festivalNav.length > 0) {
-        for (var i in data) {
-          scope[i] = data[i];
-        }
-        if (typeof scope.festivalFooter !== 'undefined') {
-          if (typeof scope.festivalFooter.field_component !== 'undefined' && scope.festivalFooter.field_component.length > 0) {
-            scope.festivalFooter.field_component.reverse();
-          }
-        }
-      } else {
-        // Broadcast the serverError event
-        scope.$broadcast('event:error');
-      }
+    // /**
+    //  * Method for getting the menus for the festival from the API
+    //  */
+    // festivalFactory.getNavigation(function(data) {
 
-    }, utilitiesFactory.genericHTTPCallbackError);
+    //   // Failure
+    //   // If there is no menu for this festival, show website error
+    //   if (data.festivalNav.length > 0) {
+    //     for (var i in data) {
+    //       scope[i] = data[i];
+    //     }
+    //     if (typeof scope.festivalFooter !== 'undefined') {
+    //       if (typeof scope.festivalFooter.field_component !== 'undefined' && scope.festivalFooter.field_component.length > 0) {
+    //         scope.festivalFooter.field_component.reverse();
+    //       }
+    //     }
+    //   } else {
+    //     // Broadcast the serverError event
+    //     scope.$broadcast('event:error');
+    //   }
 
-    /**
-     * Method for getting the ticket types from the API
-     */
-    festivalFactory.getTicketTypes(function(data) {
+    // }, utilitiesFactory.genericHTTPCallbackError);
 
-      angular.forEach(data.list, function(ticketType, i) {
+    // /**
+    //  * Method for getting the ticket types from the API
+    //  */
+    // festivalFactory.getTicketTypes(function(data) {
 
-        // Remove 'free ticketed' from list
-        if (ticketType.name === 'Free ticketed') {
-          data.list.splice(i, 1);
-        }
+    //   angular.forEach(data.list, function(ticketType, i) {
 
-      });
+    //     // Remove 'free ticketed' from list
+    //     if (ticketType.name === 'Free ticketed') {
+    //       data.list.splice(i, 1);
+    //     }
 
-      // Add ticket types to root scope
-      scope.ticketTypes = data;
+    //   });
 
-      // Set festivalDataLoaded to true and broadcast the festivalDataLoaded event
-      scope.ticketingDataLoaded = true;
-      scope.$broadcast('event:ticketingDataLoaded');
+    //   // Add ticket types to root scope
+    //   scope.ticketTypes = data;
 
-    }, utilitiesFactory.genericHTTPCallbackError);
+    //   // Set festivalDataLoaded to true and broadcast the festivalDataLoaded event
+    //   scope.ticketingDataLoaded = true;
+    //   scope.$broadcast('event:ticketingDataLoaded');
+
+    // }, utilitiesFactory.genericHTTPCallbackError);
 
   }]);
 

@@ -1,0 +1,28 @@
+{
+  "name": "SC-app-utils",
+  "dependencies": {
+    "angular": "~1.2.0",
+    "angular-moment": "~0.9.0",
+    "moment-timezone": "~0.3.0"
+  },
+  "appPath": "app",
+  "main": "./release/SC-app-utils.min.js",
+  "ignore": [
+    "**/.*",
+    "app",
+    "node_modules",
+    "bower_components",
+    "package.json",
+    "Gruntfile.js"
+  ],
+  "homepage": "https://github.com/samueljmurray/SC-app-utils",
+  "_release": "f0765b03b3",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "f0765b03b396226b3817f5d4a7b4409f7a6ffc56"
+  },
+  "_source": "git://github.com/samueljmurray/SC-app-utils.git",
+  "_target": "*",
+  "_originalSource": "samueljmurray/SC-app-utils"
+}
