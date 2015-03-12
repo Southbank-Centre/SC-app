@@ -51,14 +51,10 @@
 
     <div>
 
-      <headroom tolerance='5' offset='0' classes="{pinned:'headroom--pinned',unpinned:'headroom--unpinned',initial:'headroom'}">
+      <!-- Only displays if SC-app-header is installed -->
+      <header ui-view="header"></header>
 
-        <!-- Only displays if SC-app-header is installed -->
-        <div ui-view="scNav"></div>
-        <!-- Only displays if SC-app-festival is installed and Festival Navigation view is included -->
-        <div ui-view="festivalNav" class="festival-nav-view-container"></div>
-
-      </headroom>
+      
 
       <!-- Only displays if SC-app-festival is installed and Festival Banner view is included -->
       <div ui-view="festivalBanner"></div>
@@ -93,17 +89,11 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-scroll/angular-scroll.min.js"></script>
     <script src="bower_components/angular-filter/dist/angular-filter.js"></script>
-    <script src="bower_components/headroom.js/dist/headroom.js"></script>
-    <script src="bower_components/headroom.js/dist/jQuery.headroom.js"></script>
-    <script src="bower_components/headroom.js/dist/angular.headroom.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-moment/angular-moment.js"></script>
     <script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
     <script src="bower_components/angular-utils-disqus/dirDisqus.js"></script>
-    <script src="bower_components/angular-cache/dist/angular-cache.js"></script>
-    <script src="bower_components/SC-app-utils/release/SC-app-utils.js"></script>
-    <script src="bower_components/SC-app-festival/release/SC-app-festival.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

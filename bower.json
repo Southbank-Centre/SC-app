@@ -20,9 +20,7 @@
     "moment-timezone": "~0.3.0",
     "ngInfiniteScroll": "~1.2.0",
     "angular-utils-disqus": "~0.1.0",
-    "SC-app-utils": "samueljmurray/SC-app-utils",
-    "SC-app-festival": "samueljmurray/SC-app-festival",
-    "SC-app-header": "samueljmurray/SC-app-header"
+    "SC-app-utils": "samueljmurray/SC-app-utils"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",

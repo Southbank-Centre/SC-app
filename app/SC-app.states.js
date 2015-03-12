@@ -9,7 +9,10 @@ angular.module('SC-app').config(function($stateProvider) {
           // 'scNav' : {
           //   templateUrl: 'app/components/festival/scNavView.html'
           // },
-          'festivalNav' : {
+          'header' : {
+            templateUrl: 'bower_components/SC-app-header/release/headerView.html'
+          },
+          'festivalNav@app' : {
             templateUrl: 'bower_components/SC-app-festival/release/festivalNavView.html'
           },
           'festivalFooter' : {
@@ -20,9 +23,6 @@ angular.module('SC-app').config(function($stateProvider) {
       .state('app.home', {
         url: '/',
         views: {
-          'festivalBanner@': {
-            templateUrl: 'bower_components/SC-app-festival/release/festivalBannerView.html'
-          },
           '@': {
             templateUrl: 'app/custom_components/home/homeView.html',
             controller: 'HomeCtrl'
