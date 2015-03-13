@@ -1,5 +1,7 @@
 # README
 
+@TODO move SC-app-* repos into Southbank-Centre account.
+
 ## What is SC-app?
 
 SC-app is a basic [Angular.js](https://angularjs.org/) application that can be used to create Southbank Centre websites that interface with the Southbank Centre Content API.
@@ -12,23 +14,17 @@ It is designed to be feature-less and generic. Sites can be built up either by h
 
 The aim of this project is to allow content- and feature-rich websites to be built up as efficiently as possible. It has been structured to be a reusable as possible, so further development should be done with the following in mind:
 
-#### 1. As with Drupal, [Never Hack Core!](https://www.drupal.org/best-practices/do-not-hack-core)\*
+#### 1. Think modular
 
-<sup>\*(Although unlike Drupal there are some key exceptions)</sup>
+With every feature or enhancement, aim to build it in such a way that it can be added to another SC app. In practice this means creating a new module or releasing a new version of an existing module.
 
-@TODO Which files can be modified and why
+#### 2. Back-compatible and future-proof
 
-#### 2. Think modular
+As SC-app and SC-app-* modules develop, websites that use them may be updated with later releases. Bear this in mind to ensure that either:
 
-@TODO
+a) Changes won't break existing sites as they upgrade.
 
-#### 3. Compatible and future-proof
-
-@TODO
-
-#### 4. Testable and tested
-
-@TODO
+b) Breaking changes and upgrade paths are documented, and release numbers reflect this.
 
 ### Developing an app
 
