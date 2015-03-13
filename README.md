@@ -1,7 +1,44 @@
 # README
 
-## Setting up development environment
+## What is SC-app?
 
+SC-app is a basic [Angular.js](https://angularjs.org/) application that can be used to create Southbank Centre websites that interface with the Southbank Centre Content API.
+
+It is designed to be feature-less and generic. Sites can be built up either by having Southbank Centre App Modules (SC-app-\*) installed into them, or by having custom components written specifically for them.
+
+## Developing with the Southbank Centre App framework
+
+### App design
+
+The aim of this project is to allow content- and feature-rich websites to be built up as efficiently as possible. It has been structured to be a reusable as possible, so further development should be done with the following in mind:
+
+#### 1. As with Drupal, [Never Hack Core!](https://www.drupal.org/best-practices/do-not-hack-core)\*
+
+<sup>\*(Although unlike Drupal there are some key exceptions)</sup>
+
+@TODO Which files can be modified and why
+
+#### 2. Think modular
+
+@TODO
+
+#### 3. Compatible and future-proof
+
+@TODO
+
+#### 4. Testable and tested
+
+@TODO
+
+### Developing an app
+
+@TODO
+
+### Developing an app module
+
+@TODO
+
+## Setting up development environment
 
 ### Requirements
 
@@ -27,6 +64,10 @@ Run the following in the base directory:
     $ bower install
 
 
+## Development
+
+@TODO move to 'Developing with the Southbank Centre App framework'
+
 ### Running the app
 
 In the base directory, run the following command:
@@ -34,3 +75,23 @@ In the base directory, run the following command:
     $ grunt serve
 
 The app should open in your default browser, running at http://localhost:9000/
+
+The grunt task will watch the app files for changes. It will rebuild and reload the app when any changes are made.
+
+### Building the app
+
+To build the app in a distributable form, run the following from the base directory:
+
+    $ grunt build
+
+The files will be compiled into the `/dist` directory.
+
+### Installing SC-app-\* modules
+
+SC-app-\* modules can be installed using bower in the following way, using SC-app-event as an example:
+
+    $ bower install --save Southbank-Centre/SC-app-event
+
+The files will be installed into the `/bower_components` directory. Re-running `$ grunt serve` will include the module in the `index.html` file. You can then include it as a dependency of your app if your `*.module.js` file.
+
+*Most SC-app-\* modules also include other instructions to integrate their features into your app, so make sure you read their README files.*
