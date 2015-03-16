@@ -30,6 +30,18 @@ b) Breaking changes and upgrade paths are documented, and release numbers reflec
 
 @TODO
 
+#### Renaming the app
+
+@TODO. Change app name everywhere, including documentation. This could be automated.
+
+#### App config constants
+
+@TODO. SC-app.constants.js
+
+#### Adding a homepage
+
+@TODO. Adding view to app.home state.
+
 ### Developing an app module
 
 @TODO
