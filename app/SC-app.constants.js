@@ -48,6 +48,10 @@ angular
 
     // Module: SC-app-utils
     // Defines whether or not angular caching is enabled
-    angularCache: true
+    angularCache: true,
+
+    // Module: SC-app-planner
+    // Defines the shortname of the Sched planner
+    schedPlannerShortname: ''
 
   });
