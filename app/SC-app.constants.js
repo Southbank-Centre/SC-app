@@ -11,7 +11,7 @@ angular
 
     // Module SC-app-festival
     // JSON path alias for festival content item
-    festivalAlias: 'women-world-festival-1',
+    festivalAlias: '',
 
     // Module SC-app-festival
     // Node ID of the festival content item, extract from the end of festivalAlias
@@ -28,6 +28,10 @@ angular
       }
 
     },
+
+    // Module: SC-app-landing-page
+    // JSON path alias for the landing page that appears as the app's homepage
+    homeLandingPageAlias: '',
 
     // Module: SC-app-blog
     // Used by disqus plugin
