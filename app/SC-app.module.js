@@ -16,8 +16,5 @@ angular
     'angular.filter',
     'duScroll',
     'angularMoment',
-    'infinite-scroll',
-    'angular-data.DSCacheFactory',
-    'angularUtils.directives.dirDisqus',
     'SC-app-utils'
   ]);
