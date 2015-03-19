@@ -74,7 +74,7 @@ module.exports = function (grunt) {
         }
       },
       jsTest: {
-        files: ['test/spec/{,*/}*.js'],
+        files: ['test/**/*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
       compass: {
@@ -177,7 +177,8 @@ module.exports = function (grunt) {
         src: [
           'Gruntfile.js',
           '<%= yeoman.app %>/{,*/}*.js',
-          '!<%= yeoman.app %>/bower_components/{,*/}*.js'
+          '!<%= yeoman.app %>/bower_components/{,*/}*.js',
+          '!<%= yeoman.app %>/docs/{,*/}*.js'
         ]
       },
       test: {
@@ -492,7 +493,7 @@ module.exports = function (grunt) {
     // Test settings
     karma: {
       unit: {
-        configFile: 'test/karma.conf.js',
+        configFile: 'test/unit/karma.conf.js',
         singleRun: true
       }
     },
