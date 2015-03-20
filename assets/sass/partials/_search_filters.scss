@@ -9,11 +9,10 @@
 
     h2 {
       font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      @include adjust-font-size-to(14px);
+      @include font-size(16);
       font-weight:bold;
 
       @include breakpoint($bp-mobile) {
-        @include adjust-font-size-to(16px);
         line-height: 50px;
       }
 
@@ -30,13 +29,14 @@
     }
 
     select { 
-      @include adjust-font-size-to(14px);
+      @include font-size(21);
 
       @include breakpoint($bp-mobile) {
-        @include adjust-font-size-to(20px);
         line-height: 50px;
+        float:left;
+        width: auto;
       }
-      float:left;
+
       line-height: 50px;
       margin: 0 0 $margin*0.75 $margin;
       font-family: 'SC AkkuratBold';
@@ -65,29 +65,24 @@
       margin: 0;
       padding: 0 $padding*2 0 $padding/2;
       border: none;
-      @include adjust-font-size-to(12px);
-      @include breakpoint($bp-mobile) {
-        @include adjust-font-size-to(14px);
-      }
       float: left;
       height: 40px;
-      color: $black;
+      color: $dark-grey;
       background-color: white;
       background-image: url(../imgs/icon-sprite.png);
       background-size: 20px auto;
       background-repeat: no-repeat;
       background-position: right -120px;
       border-right: 10px solid white;
-      // width: 100%;
       vertical-align: top;
       margin: 0 0 $margin/4*3 $margin;
     }
 
     ::-webkit-input-placeholder {
-      color: $black;
+      color: $dark-grey;
     }
     ::-moz-input-placeholder {
-      color: $black;
+      color: $dark-grey;
     }
 
   }
@@ -108,27 +103,4 @@
 
     }
 
-}
-
-// Specific styling for person list search filters (may revert back to as above if more filters are added)
-
-.person-list .search-filters {
-  background: none;
-  padding: 0 $padding;
-  position: relative;
-  input { 
-    width: 100%;
-    float: none;
-    margin-left: 0;
-    margin-right: 0;
-    background-color: $white;
-    border-right-color: $white;
-    @include breakpoint($bp-mobile) {
-      position: absolute;
-      top: 0;
-      right: $padding;
-      width: 285px;
-      margin-bottom: 0;
-    }
-  }
 }

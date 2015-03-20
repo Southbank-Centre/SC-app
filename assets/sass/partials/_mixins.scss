@@ -1,15 +1,7 @@
-@mixin standard-font-style() {
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  color:black;
-  font-style:normal;
-  font-weight:400;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-
+// Mixin for REM units with pixel fallback
 @mixin font-size($sizeValue: 1.6) {
-  font-size: ($sizeValue * 10) + px;
-  font-size: $sizeValue + rem;
+  font-size: $sizeValue + px;
+  font-size: ($sizeValue / 10) + rem;
 }
 
 @mixin valign-center {
@@ -21,7 +13,7 @@
 }
 
 @mixin special-link {
-  background-color:transparent;
-  font-weight:bold;
-  color:black;
+  font-weight: bold;
+  color: $dark-grey;
+  letter-spacing: $header-letter-spacing;
 }
