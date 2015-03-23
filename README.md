@@ -12,7 +12,7 @@ It is designed to be feature-less and generic. Sites can be built up either by h
 
 ### App design
 
-The aim of this project is to allow content- and feature-rich websites to be built up as efficiently as possible. It has been structured to be a reusable as possible, so further development should be done with the following in mind:
+The aim of this project is to allow content-led and feature-rich websites to be built up as efficiently as possible. It has been structured to be a reusable as possible, so further development should be done with the following in mind:
 
 #### 1. Think modular
 
@@ -32,11 +32,19 @@ b) Breaking changes and upgrade paths are documented, and release numbers reflec
 
 #### Renaming the app
 
-@TODO. Change app name everywhere, including documentation. This could be automated.
+Once you've cloned the base SC-app, make sure to change app name everywhere, including documentation. 
+
+As a future step this could be automated as a Grunt task, where the app name need only be entered once as a global variable and then running grunt serve/build will update it everywhere (eg [https://github.com/yoniholmes/grunt-text-replace](https://github.com/yoniholmes/grunt-text-replace).
 
 #### App config constants
 
-@TODO. SC-app.constants.js
+Please update the following constants in SC-app.constants.js. These should match the data you are intending to get from the CMS. This can be gatehred from the CMS or examing the JSON output.
+- festivalAlias (the Drupal alias of a festival content type)
+- homeLandingPageAlias (the Drupal alias of a landing page content type)
+- disqus_shortname (used by the third party discussion tool Disqus)
+- hostName (used by the third party discussion tool Disqus)
+- ticketingVocabularyId (the taxonomy used for the ticketing model)
+- schedPlannerShortname (used by the third party planner tool Sched)
 
 #### Adding a homepage
 
