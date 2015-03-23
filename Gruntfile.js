@@ -545,11 +545,11 @@ module.exports = function (grunt) {
 
       // If -2 error it is because there are no module partials
       if (ex.errno === -2) {
-        grunt.log.writeln('No module partials to process.');
+        grunt.log.error('No module partials to process.');
 
       // Display error if not a -2
       } else {
-        grunt.error.writeln(ex);
+        grunt.log.error(ex);
       }
 
     }
