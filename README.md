@@ -39,12 +39,12 @@ As a future step this could be automated as a Grunt task, where the app name nee
 #### App config constants
 
 Please update the following constants in SC-app.constants.js. These should match the data you are intending to get from the CMS. This can be gatehred from the CMS or examing the JSON output.
-- festivalAlias (the Drupal alias of a festival content type)
-- homeLandingPageAlias (the Drupal alias of a landing page content type)
-- disqus_shortname (used by the third party discussion tool Disqus)
-- hostName (used by the third party discussion tool Disqus)
-- ticketingVocabularyId (the taxonomy used for the ticketing model)
-- schedPlannerShortname (used by the third party planner tool Sched)
+- __festivalAlias__ (the Drupal alias of a festival content type)
+- __homeLandingPageAlias__ (the Drupal alias of a landing page content type)
+- __disqus_shortname__ (used by the third party discussion tool Disqus)
+- __hostName__ (used by the third party discussion tool Disqus)
+- __ticketingVocabularyId__ (the taxonomy used for the ticketing model)
+- __schedPlannerShortname__ (used by the third party planner tool Sched)
 
 #### Adding a homepage
 
