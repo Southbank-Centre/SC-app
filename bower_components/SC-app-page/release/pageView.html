@@ -60,6 +60,12 @@
         </div>
       </div>
 
+      <div ng-switch="paragraph.bundle == 'storify_embed'">
+        <div ng-switch-when="true">
+          <div sc-storify></div>
+        </div>
+      </div>
+
     </div>
 
   </article>

@@ -22,7 +22,9 @@
     "SC-app-landing-page": "Southbank-Centre/SC-app-landing-page",
     "SC-app-event": "Southbank-Centre/SC-app-event",
     "SC-app-blog": "Southbank-Centre/SC-app-blog",
-    "SC-app-planner": "Southbank-Centre/SC-app-planner"
+    "SC-app-planner": "Southbank-Centre/SC-app-planner",
+    "SC-app-content-components": "Southbank-Centre/SC-app-content-components",
+    "SC-app-page": "Southbank-Centre/SC-app-page"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",

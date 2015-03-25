@@ -17,13 +17,14 @@
     "test"
   ],
   "homepage": "https://github.com/Southbank-Centre/SC-app-page",
-  "_release": "6a14cccf0c",
+  "_release": "4b7db8750b",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "6a14cccf0c3a5745f9620832f3e3759e14fb88c6"
+    "commit": "4b7db8750bad8ec5bbd8f0aa786ada34b09ec988"
   },
   "_source": "git://github.com/Southbank-Centre/SC-app-page.git",
   "_target": "*",
-  "_originalSource": "Southbank-Centre/SC-app-page"
+  "_originalSource": "Southbank-Centre/SC-app-page",
+  "_direct": true
 }
