@@ -1,0 +1,28 @@
+{
+  "name": "SC-app-content-components",
+  "dependencies": {
+    "angular": "~1.2.0",
+    "SC-app-utils": "Southbank-Centre/SC-app-utils"
+  },
+  "appPath": "app",
+  "main": "./release/SC-app-content-components.min.js",
+  "ignore": [
+    "**/.*",
+    "app",
+    "node_modules",
+    "bower_components",
+    "package.json",
+    "Gruntfile.js",
+    "test"
+  ],
+  "homepage": "https://github.com/Southbank-Centre/SC-app-content-components",
+  "_release": "be2c84ad61",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "be2c84ad61875de24d65a4a7bafc5c3f9e7b3469"
+  },
+  "_source": "git://github.com/Southbank-Centre/SC-app-content-components.git",
+  "_target": "*",
+  "_originalSource": "Southbank-Centre/SC-app-content-components"
+}

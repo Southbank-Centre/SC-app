@@ -1,0 +1,67 @@
+<div class="page container" data-ng-controller='PageCtrl'>
+
+  <article>
+
+    <header class="container">
+
+      <div class="page-name" id="page-name">
+        <h1>{{ page.title }}</h1>
+      </div>
+
+    </header>
+
+    <div ng-repeat="paragraph in page.field_component">
+
+      <div ng-switch="paragraph.bundle == 'subheading'">
+        <div ng-switch-when="true">
+          <div sc-heading></div>
+        </div>
+      </div>
+
+      <div ng-switch="paragraph.bundle == 'long_text'">
+        <div ng-switch-when="true">
+          <div sc-long-text></div>
+        </div>
+      </div>
+
+      <div ng-switch="paragraph.bundle == 'soundcloud_embed'">
+        <div ng-switch-when="true">
+          <div sc-soundcloud></div>
+        </div>
+      </div>
+
+      <div ng-switch="paragraph.bundle == 'youtube_embed'">
+        <div ng-switch-when="true">
+          <div sc-youtube></div>
+        </div>
+      </div>
+
+      <div ng-switch="paragraph.bundle == 'flickr_embed'">
+        <div ng-switch-when="true">
+          <div sc-flickr></div>
+        </div>
+      </div>
+
+      <div ng-switch="paragraph.bundle == 'pull_quote'">
+        <div ng-switch-when="true">
+          <div sc-pull-quote></div>
+        </div>
+      </div>
+
+      <div ng-switch="paragraph.bundle == 'link'">
+        <div ng-switch-when="true">
+          <div sc-link></div>
+        </div>
+      </div>
+
+      <div ng-switch="paragraph.bundle == 'image'">
+        <div ng-switch-when="true">
+          <div sc-image></div>
+        </div>
+      </div>
+
+    </div>
+
+  </article>
+  
+</div>

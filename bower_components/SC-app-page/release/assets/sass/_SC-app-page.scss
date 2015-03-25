@@ -1,0 +1,22 @@
+.page {
+  header {
+    @include breakpoint($bp-small-desktop) {
+      @include span(9);
+      @include post(3);
+    }
+    background: $white;
+    margin: $margin*2 0 2px;
+    padding: $padding;
+    h1 {
+      margin: 0;
+    }
+  }
+  ul {
+    margin-left: 1em;
+  }
+  figure {
+    img {
+      min-width:0;
+    }
+  }
+}

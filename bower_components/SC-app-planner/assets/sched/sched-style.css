@@ -1,0 +1,54 @@
+body#schedorg { 
+	font: 14px/1.6em "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+#sched-body {
+	border-radius: 0;
+}
+.container {
+	margin: 0;
+	max-width: none;
+}
+#sched-body-inner {
+	padding: 0 !important;
+}
+#sched-demodata-cta, #sched-header-extra {
+	border-radius: 0;
+}
+.event { 
+	border: 0;
+	border-radius: 0;
+	text-shadow: none;
+	box-shadow: none; 
+}
+.popover .popover-content {
+	background-image: none;
+	padding: 0;
+}
+#sched-container-header-menu li a {
+	border-radius: 0;
+}
+#sched-sidebar-search input#s {
+	border-radius: 0;
+}
+.sched-button-submit {
+	border-radius: 0;
+	margin-top: 10px;
+}
+.popover .popover-content {
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+.popover .popover-body {
+	border-radius: 0;
+}
+.popover-body-inner {
+	border-radius: 0;
+}
+#sched-views .sched-toggle li:first-child a {
+	border-top: 0;
+	border-radius: 0;
+}
+#sched-sidebar-filters li ul li:first-child a {
+	border-radius: 0;
+}

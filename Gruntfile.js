@@ -109,8 +109,8 @@ module.exports = function (grunt) {
       proxies: [
         {
           context: '/json/',
-          host: 'localhost',
-          port: 8181,
+          host: 'dev.api.southbankcentre.london',
+          port: 80,
           changeOrigin: true,
           rewrite: {
             '^/json' : ''

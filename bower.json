@@ -13,10 +13,16 @@
     "angular-animate": "~1.2.0",
     "angular-touch": "~1.2.0",
     "angular-ui-router": "~0.2.11",
-    "angular-ui-router": "~0.2.11",
     "breakpoint-sass": "~2.5.0",
     "angular-filter": "~0.5.1",
-    "SC-app-utils": "Southbank-Centre/SC-app-utils"
+    "SC-app-utils": "Southbank-Centre/SC-app-utils",
+    "SC-app-header": "Southbank-Centre/SC-app-header",
+    "SC-app-footer": "Southbank-Centre/SC-app-footer",
+    "SC-app-festival": "Southbank-Centre/SC-app-festival",
+    "SC-app-landing-page": "Southbank-Centre/SC-app-landing-page",
+    "SC-app-event": "Southbank-Centre/SC-app-event",
+    "SC-app-blog": "Southbank-Centre/SC-app-blog",
+    "SC-app-planner": "Southbank-Centre/SC-app-planner"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",

@@ -1,0 +1,34 @@
+{
+  "name": "SC-app-event",
+  "dependencies": {
+    "angular": "~1.2.0",
+    "angular-moment": "~0.9.0",
+    "moment-timezone": "~0.3.0",
+    "SC-app-utils": "Southbank-Centre/SC-app-utils",
+    "SC-app-festival": "Southbank-Centre/SC-app-festival",
+    "SC-app-page": "Southbank-Centre/SC-app-page",
+    "SC-app-person": "Southbank-Centre/SC-app-person"
+  },
+  "appPath": "app",
+  "main": "./release/SC-app-event.min.js",
+  "ignore": [
+    "**/.*",
+    "app",
+    "node_modules",
+    "bower_components",
+    "package.json",
+    "Gruntfile.js",
+    "test"
+  ],
+  "homepage": "https://github.com/Southbank-Centre/SC-app-event",
+  "_release": "34748381d1",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "34748381d1788954c070841bb8135a288443de7e"
+  },
+  "_source": "git://github.com/Southbank-Centre/SC-app-event.git",
+  "_target": "*",
+  "_originalSource": "Southbank-Centre/SC-app-event",
+  "_direct": true
+}

@@ -11,7 +11,7 @@ angular
 
     // Module SC-app-festival
     // JSON path alias for festival content item
-    // festivalAlias: '',
+    festivalAlias: 'women-world-festival-1',
 
     // Module SC-app-festival
     // Node ID of the festival content item, extract from the end of festivalAlias
@@ -31,20 +31,20 @@ angular
 
     // Module: SC-app-landing-page
     // JSON path alias for the landing page that appears as the app's homepage
-    // homeLandingPageAlias: '',
+    homeLandingPageAlias: 'wow-homepage-92',
 
     // Module: SC-app-blog
     // Used by disqus plugin
-    // disqus_shortname: '',
+    disqus_shortname: 'wow2015',
 
     // Module: SC-app-blog
     // Hostname of the production app
     // Used by disqus plugin
-    // hostName: '',
+    hostName: 'dev.wow.southbankcentre.london',
 
     // Module: SC-app-event
     // Vocabulary ID of the vocabulary that manages ticket types
-    // ticketingVocabularyId: 0,
+    ticketingVocabularyId: 4,
 
     // Module: SC-app-utils
     // Defines whether or not angular caching is enabled
@@ -52,6 +52,6 @@ angular
 
     // Module: SC-app-planner
     // Defines the shortname of the Sched planner
-    // schedPlannerShortname: ''
+    schedPlannerShortname: 'wowldn2015'
 
   });

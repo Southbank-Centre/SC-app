@@ -1,0 +1,19 @@
+{
+  "name": "SC-app-footer",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "~1.2.0",
+    "SC-app-utils": "Southbank-Centre/SC-app-utils"
+  },
+  "appPath": "app",
+  "main": "./release/SC-app-footer.min.js",
+  "ignore": [
+    "**/.*",
+    "app",
+    "node_modules",
+    "bower_components",
+    "package.json",
+    "Gruntfile.js",
+    "test"
+  ]
+}

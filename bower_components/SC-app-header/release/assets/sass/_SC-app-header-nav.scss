@@ -1,0 +1,27 @@
+.sc-nav {
+
+  background-color: $dark-grey;
+  height: 60px;
+  @include breakpoint($bp-small-desktop) {
+    height: 79px;
+  }
+
+  .search-button {
+    float: right;
+    background-color: $dark-grey;
+    width: 79px;
+    height: 79px;
+    display: inline-block;
+  }
+
+  .sc-logo {
+    background: none;
+    img {
+      width: 125px;
+      height: auto;
+      margin: 0 $margin;
+      @include valign-center;
+    }
+  }
+
+}

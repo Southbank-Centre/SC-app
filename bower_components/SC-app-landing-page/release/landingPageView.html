@@ -1,0 +1,29 @@
+<div id="home-components" class="home-components" data-ng-controller="LandingPageCtrl">
+
+  <div class="page-loading" ng-hide="landingPage"></div>
+
+  <div ng-repeat="component in landingPage.field_component" ng-show="landingPage">
+
+    <div ng-if="component.field_list_performance" class="component-featured component-featured-events">
+      <div sc-event-list></div>
+    </div>
+
+    <div ng-if="component.field_list_person" class="component-featured component-featured-persons">
+      <div sc-person-list></div>
+    </div>
+
+    <div ng-if="component.field_list_content_page" class="component-featured component-featured-pages">
+      <div sc-page-list></div>
+    </div>
+
+    <div ng-if="component.field_youtube_embed_code" class="component-featured component-youtube-promo">
+      <div sc-youtube-promo></div>
+    </div>
+
+    <div ng-if="component.bundle === 'twitter_favourites'" class="component-featured component-twitter-feed">
+      <div sc-twitter-feed></div>
+    </div>
+
+  </div>
+
+</div>
