@@ -27,12 +27,38 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+  // Function to be passed to 'rename' when globbing
+  // is used in 'src' in folder names
+  // It takes the filename from the src path and appends
+  // it to the dest path.
+  // E.g. for a copy task
+  // dest: 'move/files/here'
+  // src: ['look/in/**/these/folders']
+  // rename: stripSrcPath
+  //
+  // Without stripSrcPath, the files will be placed here:
+  // move/files/here/look/in/folder_name/these/folders/filename.ext
+  //
+  // With stripSrcPath, they will be placed here:
+  // move/files/here/filename.ext
+  var stripSrcPath = function(dest, src) {
+
+    var path = require('path');
+    var srcSplit = src.split(path.sep);
+    var filename = srcSplit[srcSplit.length - 1];
+
+    return path.join(dest, filename);
+
+  };
+
 
   // Define the configuration for all the tasks
   grunt.initConfig({
 
     // Project settings
     yeoman: appConfig,
+
+    sassDir: 'assets/sass',
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -48,7 +74,7 @@ module.exports = function (grunt) {
         }
       },
       jsTest: {
-        files: ['test/spec/{,*/}*.js'],
+        files: ['test/**/*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
       compass: {
@@ -151,7 +177,8 @@ module.exports = function (grunt) {
         src: [
           'Gruntfile.js',
           '<%= yeoman.app %>/{,*/}*.js',
-          '!<%= yeoman.app %>/bower_components/{,*/}*.js'
+          '!<%= yeoman.app %>/bower_components/{,*/}*.js',
+          '!<%= yeoman.app %>/docs/{,*/}*.js'
         ]
       },
       test: {
@@ -217,7 +244,7 @@ module.exports = function (grunt) {
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
       options: {
-        sassDir: 'assets/sass',
+        sassDir: '.tmp/sass/<%= sassDir %>',
         cssDir: '.tmp/assets/css',
         generatedImagesDir: '.tmp/assets/imgs/generated',
         imagesDir: 'assets/imgs',
@@ -374,6 +401,20 @@ module.exports = function (grunt) {
           cwd: 'assets/fonts',
           dest: '<%= yeoman.dist %>/assets/fonts',
           src: ['*']
+        }, {
+          expand: true,
+          cwd: 'bower_components',
+          dest: '<%= yeoman.dist %>/assets/imgs',
+          src: ['SC-app-*/release/assets/imgs/*'],
+          filter: 'isFile',
+          rename: stripSrcPath
+        }, {
+          expand: true,
+          cwd: 'bower_components',
+          dest: '<%= yeoman.dist %>/assets/fonts',
+          src: ['SC-app-*/release/assets/fonts/*'],
+          filter: 'isFile',
+          rename: stripSrcPath
         }]
       },
       dev: {
@@ -400,13 +441,36 @@ module.exports = function (grunt) {
           cwd: 'assets/fonts',
           dest: '<%= yeoman.dist %>/assets/fonts',
           src: ['*']
+        }, {
+          expand: true,
+          cwd: 'bower_components',
+          dest: '<%= yeoman.dist %>/assets/imgs',
+          src: ['SC-app-*/release/assets/imgs/*'],
+          filter: 'isFile',
+          rename: stripSrcPath
+        }, {
+          expand: true,
+          cwd: 'bower_components',
+          dest: '<%= yeoman.dist %>/assets/fonts',
+          src: ['SC-app-*/release/assets/fonts/*'],
+          filter: 'isFile',
+          rename: stripSrcPath
         }]
       },
-      styles: {
+      appStyles: {
         expand: true,
-        cwd: 'assets/sass',
-        dest: '.tmp/assets/css',
-        src: '{,*/}*.css'
+        dest: '.tmp/sass',
+        src: [
+          '<%= sassDir %>/**/*'
+        ]
+      },
+      moduleStyles: {
+        expand: true,
+        dest: '.tmp/sass/<%= sassDir %>/modulePartials',
+        src: [
+          'bower_components/SC-app-*/release/assets/sass/**/*'
+        ],
+        rename: stripSrcPath
       }
     },
 
@@ -429,7 +493,7 @@ module.exports = function (grunt) {
     // Test settings
     karma: {
       unit: {
-        configFile: 'test/karma.conf.js',
+        configFile: 'test/unit/karma.conf.js',
         singleRun: true
       }
     },
@@ -450,6 +514,55 @@ module.exports = function (grunt) {
 
   });
 
+  grunt.registerTask('prepareSASS', ['copy:appStyles', 'copy:moduleStyles', 'includeModuleSASS']);
+
+  grunt.registerTask('includeModuleSASS', 'Looks through the SC-app modules and imports any sass files it finds into the main.scss of the current app', function() {
+
+    var sassDir = grunt.config.data.sassDir;
+    var modulePartialsDir = '.tmp/sass/' + sassDir + '/modulePartials';
+    var fs = require('fs');
+
+    // Try opening the folder where module partials have been moved to
+    try {
+
+      var modulePartials = fs.readdirSync(modulePartialsDir);
+      var writeToSASS = '';
+
+      modulePartials.forEach(function(modulePartial) {
+
+        if (modulePartial.charAt(0) === '_') {
+          modulePartial = modulePartial.substring(1);
+        }
+
+        writeToSASS = writeToSASS + '@import "modulePartials/' + modulePartial + '";';
+
+      });
+
+      // Add the module SASS partial includes to the main sass file
+      fs.appendFileSync('.tmp/sass/' + sassDir + '/main.scss', writeToSASS);
+
+    } catch(ex) {
+
+      // If -2 error it is because there are no module partials
+      if (ex.errno === -2) {
+        grunt.log.error('No module partials to process.');
+
+      // Display error if not a -2
+      } else {
+        grunt.log.error(ex);
+      }
+
+    }
+    
+
+
+
+    // -> Append the @imports to that file
+
+    // Change sassDir so that compass reads from that instead
+    //grunt.config.sassDir = '.tmp/' + sassDir;
+
+  });
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -460,6 +573,7 @@ module.exports = function (grunt) {
         'configureProxies',
         'ngdocs',
         'useminPrepare',
+        'prepareSASS',
         'concurrent:server',
         'autoprefixer',
         'concat',
@@ -479,6 +593,7 @@ module.exports = function (grunt) {
       'clean:server',
       'wiredep',
       'configureProxies',
+      'prepareSASS',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -493,6 +608,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
+    'prepareSASS',
     'concurrent:test',
     'autoprefixer',
     'connect:test',
@@ -510,6 +626,7 @@ module.exports = function (grunt) {
       'wiredep',
       'ngdocs',
       'useminPrepare',
+      'prepareSASS',
       'concurrent:' + target,
       'autoprefixer',
       'concat',

@@ -1,18 +1,18 @@
 $margin: 20px;
 $padding: 20px;
 $section-margin-top: 60px;
-$letter-spacing: -.02em;
+$header-letter-spacing: -.02em;
+$bold-letter-spacing: -.01em;
+$body-letter-spacing: .03em;
 
 // Colours
-$bg-color: #ecedea;
-$black: #000;
 $white: #fff;
 $light-grey: #f7f7f7;
-$dark-grey: #323232;
 $mid-grey: #999999;
+$dark-grey: #262626;
 $link-color: #0080ff;
 $secondary-highlight: #2cd1b3;
-$yellow-highlight: #FFD800;
+$yellow-highlight: #ffd800;
 
 // Breakpoints
 $bp-mobile: 480px;

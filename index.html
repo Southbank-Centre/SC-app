@@ -1,12 +1,12 @@
 <!doctype html>
-<!--[if IE 7 ]>    <html class="ie lt-ie10 lt-ie9 lt-ie8 ie7 no-js" lang="en" ng-app="wowApp"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie lt-ie10 lt-ie9 ie8 no-js" lang="en" ng-app="wowApp"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie lt-ie10 ie9 no-js" lang="en" ng-app="wowApp"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class="not-ie9 no-js" lang="en" ng-app="wowApp"  data-ng-controller='CoreCtrl'> <!--<![endif]-->
+<!--[if IE 7 ]>    <html class="ie lt-ie10 lt-ie9 lt-ie8 ie7 no-js" lang="en" ng-app="SC-app"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie lt-ie10 lt-ie9 ie8 no-js" lang="en" ng-app="SC-app"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie lt-ie10 ie9 no-js" lang="en" ng-app="SC-app"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="not-ie9 no-js" lang="en" ng-app="SC-app"  data-ng-controller='AppCtrl'> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <title website-title>Southbank Centre</title>
-    <meta name="description" content="" website-meta-description>
+    <title ng-bind="websiteTitle">Southbank Centre</title>
+    <meta name="description" content="{{ websiteDescription }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <base href="/">
 
@@ -30,7 +30,7 @@
     <link rel="icon" type="image/png" href="/android-chrome-144x144.png" sizes="144x144">
     <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
     <meta name="theme-color" content="#ffffff">
-    <meta name="application-name" content="WOW"/>
+    <meta name="application-name" content="Southbank Centre"/>
     <meta name="msapplication-TileColor" content="#262626">
     <meta name="msapplication-TileImage" content="mstile-144x144.png">
     <meta name="msapplication-square70x70logo" content="mstile-70x70.png">
@@ -45,28 +45,36 @@
   </head>
   <body>
 
-    <!--[if lt IE 7]>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=XXX-XXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PPHZ66');</script>
+    <!-- End Google Tag Manager -->
+
+    <!--[if lt IE 9]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-
     <div>
 
-      <headroom tolerance='5' offset='0' classes="{pinned:'headroom--pinned',unpinned:'headroom--unpinned',initial:'headroom'}">
+      <!-- Only displays if SC-app-header is installed -->
+      <header ui-view="header"></header>
 
-        <div ui-view="scNav"></div>
-        <div ui-view="festivalNav" class="festival-nav-view-container"></div>
+      
 
-      </headroom>
-
+      <!-- Only displays if SC-app-festival is installed and Festival Banner view is included -->
       <div ui-view="festivalBanner"></div>
 
       <main ng-class="{homepage: isActiveNav('/')}">
          <div ui-view></div>
       </main>
 
-      <footer ui-view="festivalFooter"></footer>
+      <!-- Only displays if SC-app-festival is installed and Festival Footer view is included -->
+      <footer ui-view="footer"></footer>
 
     </div>
 
@@ -91,81 +99,22 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-scroll/angular-scroll.min.js"></script>
     <script src="bower_components/angular-filter/dist/angular-filter.js"></script>
-    <script src="bower_components/headroom.js/dist/headroom.js"></script>
-    <script src="bower_components/headroom.js/dist/jQuery.headroom.js"></script>
-    <script src="bower_components/headroom.js/dist/angular.headroom.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-moment/angular-moment.js"></script>
     <script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
-    <script src="bower_components/angular-cache/dist/angular-cache.js"></script>
     <script src="bower_components/angular-utils-disqus/dirDisqus.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
 
     <!-- build:js(.) app/js/scripts.js -->
-    <script src="app/app.module.js"></script>
-
-    <script src="app/components/utilities/utilitiesFactory.js"></script>
-
-    <script src="app/app.routes.js"></script>
-    <script src="app/app.filter.js"></script>
-    <script src="app/app.run.js"></script>
-    <script src="app/components/core/directives.js"></script>
-    <script src="app/components/core/CoreCtrl.js"></script>
-
-    <script src="app/components/festival/festivalFactory.js"></script>
-    <script src="app/components/festival/FestivalNavCtrl.js"></script>
-
-    <script src="app/components/home/homeFactory.js"></script>
-    <script src="app/components/home/HomeCtrl.js"></script>
-
-    <script src="app/components/event/eventFactory.js"></script>
-    <script src="app/components/event/EventSingleCtrl.js"></script>
-    <script src="app/components/event/EventListCtrl.js"></script>
-
-    <script src="app/components/person/personFactory.js"></script>
-    <script src="app/components/person/PersonSingleCtrl.js"></script>
-    <script src="app/components/person/PersonListCtrl.js"></script>
-
-    <script src="app/components/page/pageFactory.js"></script>
-    <script src="app/components/page/PageCtrl.js"></script>
-
-    <script src="app/components/planner/PlannerCtrl.js"></script>
-
-    <script src="app/components/content_components/HeadingCtrl.js"></script>
-    <script src="app/components/content_components/TwitterFeedCtrl.js"></script>
-
-    <script src="app/components/blog/blogFactory.js"></script>
-    <script src="app/components/blog/BlogSingleCtrl.js"></script>
-    <script src="app/components/blog/BlogListCtrl.js"></script>
-
+    <script src="app/SC-app.module.js"></script>
+    <script src="app/SC-app.constants.js"></script>
+    <script src="app/SC-app.states.js"></script>
+    <script src="app/SC-app.run.js"></script>
+    <script src="app/AppCtrl.js"></script>
     <!-- endbuild -->
-
-
-    <!-- YouTube iFrame API -->
-    <script>
-    // If not mobile device
-    if(typeof window.orientation == 'undefined') {
-      document.write('<script type="text/javascript" src="//www.youtube.com/iframe_api"><\/script>');
-      window.onYouTubeIframeAPIReady = function() {
-        window.youTubeIframeAPIReady = true;
-      };
-    }
-    </script>
-    <!-- End YouTube iFrame API -->
-
-
-    <!-- Google Tag Manager -->
-    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PPHZ66"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PPHZ66');</script>
-    <!-- End Google Tag Manager -->
 
 
 </body>

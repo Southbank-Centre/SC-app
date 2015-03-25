@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-  background-color: $bg-color;
+  background-color: $light-grey;
 }
 
 article {
@@ -31,14 +31,12 @@ a {
 
   &:link, 
   &:visited {
-    background-color: $light-grey;
     color: $link-color;
     text-decoration: none;
   }
 
   &:hover, 
   &:active {
-    background-color: $light-grey;
     color: $link-color;
     text-decoration: underline;
   }
@@ -53,11 +51,10 @@ a {
   background-color: $link-color;
   color: $white;
   padding: 0px 10px;
-  font-weight: normal;
-  font-family: 'SC AkkuratBold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: $bold-letter-spacing;
   span {
     font-weight: normal;
-    font-family: 'SC Akkurat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     float: right;
     margin-right: 40px;
   }
@@ -228,36 +225,4 @@ a[href^="https://"] {
 
 /* container of festival nav view on base template */
 .festival-nav-view-container {
-}
-
-/* Figure (image with caption) */
-figure {
-
-  position:relative;
-  overflow:hidden;
-  margin-bottom:$margin/2;
-
-  @include breakpoint($bp-small-desktop) {
-    @include span(8);
-  }
-
-  img {
-    max-width:100%;
-    min-width: 100%;
-    display:block;
-  }
-
-  figcaption {
-    background-color:white;
-    padding:$padding/2 $padding;
-    position:absolute;
-    bottom:0px;
-
-    @include span(6 of 8);
-
-    @include breakpoint($bp-desktop) {
-      @include span(3 of 8);
-    }
-  }
-
 }

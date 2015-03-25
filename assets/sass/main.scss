@@ -26,52 +26,9 @@
 /* Media */
 @import "partials/media";
 
-/**
- * Global Elements
- */
-
-/* Header headroom.js behaviour */
-@import "partials/headroom";
-
-/* Southbank Centre Navigation */
-@import "partials/sc_nav";
-
-/* Festival Navigation */
-@import "partials/festival_nav";
-
-/* Festival Footer */
-@import "partials/festival_footer";
-
-/**
- * Specific pages and elements
- */
-
 /* Search filters */
 @import "partials/search_filters";
 
-/* Home */
-@import "partials/home";
-
-/* Festival banner */
-@import "partials/festival_banner";
-
-/* Event */
-@import "partials/event";
-
-/* Person */
-@import "partials/person";
-
-/* Page */
-@import "partials/page";
-
-/* Planner */
-@import "partials/planner";
-
-/* Components */
-@import "partials/components";
-
-/* Blog posts */
-@import "partials/blog";
 
 //DEVELOPMENT
 /* Grid overlay */
