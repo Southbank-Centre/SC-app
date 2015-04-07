@@ -259,12 +259,12 @@ AddDefaultCharset utf-8
 # | Route /event* and /events* to /whats-on |
 # -------------------------------------------
 
-<IfModule mod_rewrite.c>
-    RewriteBase /
-    RewriteRule ^(#/events|#/event) /#/whats-on [NE,R]
-    RewriteRule ^(#events|#event) /#/whats-on [NE,R]
-    RewriteRule ^(events|event) /whats-on [NE,R,L]
-</IfModule>
+#<IfModule mod_rewrite.c>
+#    RewriteBase /
+#    RewriteRule ^(#/events|#/event) /#/whats-on [NE,R]
+#    RewriteRule ^(#events|#event) /#/whats-on [NE,R]
+#    RewriteRule ^(events|event) /whats-on [NE,R,L]
+#</IfModule>
 
 # ----------------------------------------------
 # | Route /humans.txt to humans.txt on backend |
