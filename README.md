@@ -57,6 +57,8 @@ b) Breaking changes and upgrade paths are documented, and release numbers reflec
 
 Once you've cloned the base SC-app, make sure to change app name everywhere, including documentation.
 
+You'll also need to updated any instance of SC-app-longname. Currently this is only in the `description` item in the main package.json object, and in the `longName` key in the `festival` hash in the main package.json object.
+
 _Note: If using app-wide find-and-replace to rename it everywhere, be sure to exclude __bower.json__ and do that by hand._
 
 As a future step this could be automated as a Grunt task, where the app name need only be entered once as a global variable and then running grunt serve/build will update it everywhere (eg [https://github.com/yoniholmes/grunt-text-replace](https://github.com/yoniholmes/grunt-text-replace).
