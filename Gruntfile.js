@@ -60,6 +60,12 @@ module.exports = function (grunt) {
 
     sassDir: 'assets/sass',
 
+    // Read in the package.json.
+    // We need ot do this now as we keep Festival metadata there.
+    pkg: grunt.file.readJSON('package.json'),
+
+    bowerrc: grunt.file.readJSON('.bowerrc'),
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -104,7 +110,7 @@ module.exports = function (grunt) {
         // Change this to '0.0.0.0' to access the server from outside.
         // hostname: 'localhost',
         hostname: 'localhost',
-        livereload: 35729,
+        livereload: 35729
       },
       proxies: [
         {
@@ -126,8 +132,8 @@ module.exports = function (grunt) {
               modRewrite (['!\\.html|\\.js|\\.css|\\.svg|\\.png|\\.jpg|\\.jpeg|\\.gif|\\.eot|\\.ttf|\\.woff$ /index.html [L]']),
               connect.static('.tmp'),
               connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
+                  '/<%= bowerrc.directory %>',
+                  connect.static('./<%= bowerrc.directory %>')
               ),
               connect.static(appConfig.app)
             ];
@@ -142,8 +148,8 @@ module.exports = function (grunt) {
               connect.static('.tmp'),
               connect.static('test'),
               connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
+                  '/<%= bowerrc.directory %>',
+                  connect.static('./<%= bowerrc.directory %>')
               ),
               connect.static(appConfig.app)
             ];
@@ -175,9 +181,11 @@ module.exports = function (grunt) {
       },
       all: {
         src: [
+          'package.json',
           'Gruntfile.js',
+          'grunt/{,**}/*.js',
           '<%= yeoman.app %>/{,*/}*.js',
-          '!<%= yeoman.app %>/bower_components/{,*/}*.js',
+          '!<%= yeoman.app %>/<%= bowerrc.directory %>/{,*/}*.js',
           '!<%= yeoman.app %>/docs/{,*/}*.js'
         ]
       },
@@ -250,13 +258,13 @@ module.exports = function (grunt) {
         imagesDir: 'assets/imgs',
         javascriptsDir: 'assets/js',
         fontsDir: 'assets/fonts',
-        importPath: './bower_components',
+        importPath: './<%= bowerrc.directory %>',
         httpImagesPath: '/assets/imgs',
         httpGeneratedImagesPath: '/assets/imgs/generated',
         httpFontsPath: '/assets/fonts',
         relativeAssets: false,
         assetCacheBuster: false,
-        raw: 'Sass::Script::Number.precision = 10\n'     
+        raw: 'Sass::Script::Number.precision = 10\n'
       },
       dist: {
         options: {
@@ -379,83 +387,106 @@ module.exports = function (grunt) {
     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
-        files: [{
-          expand: true,
-          dot: true,
-          cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>',
-          src: [
-            '*.{ico,png,txt}',
-            '.htaccess',
-            '*.html',
-            'app/**/*.{html,txt}',
-            'assets/sched/*'
-          ]
-        }, {
-          expand: true,
-          cwd: 'assets/imgs',
-          dest: '<%= yeoman.dist %>/assets/imgs',
-          src: ['*']
-        }, {
-          expand: true,
-          cwd: 'assets/fonts',
-          dest: '<%= yeoman.dist %>/assets/fonts',
-          src: ['*']
-        }, {
-          expand: true,
-          cwd: 'bower_components',
-          dest: '<%= yeoman.dist %>/assets/imgs',
-          src: ['SC-app-*/release/assets/imgs/*'],
-          filter: 'isFile',
-          rename: stripSrcPath
-        }, {
-          expand: true,
-          cwd: 'bower_components',
-          dest: '<%= yeoman.dist %>/assets/fonts',
-          src: ['SC-app-*/release/assets/fonts/*'],
-          filter: 'isFile',
-          rename: stripSrcPath
-        }]
+        files: [
+          {
+            expand: true,
+            dot: true,
+            cwd: '<%= yeoman.app %>',
+            dest: '<%= yeoman.dist %>',
+            src: [
+              '*.{ico,png,txt}',
+              '.htaccess',
+              '*.html',
+              'app/**/*.{html,txt}',
+              'assets/sched/*'
+            ]
+          },
+          {
+            expand: true,
+            cwd: 'assets/imgs',
+            dest: '<%= yeoman.dist %>/assets/imgs',
+            src: ['*']
+          },
+          {
+            expand: true,
+            cwd: 'assets/fonts',
+            dest: '<%= yeoman.dist %>/assets/fonts',
+            src: ['*']
+          },
+          {
+            expand: true,
+            cwd: '<%= bowerrc.directory %>',
+            dest: '<%= yeoman.dist %>/assets/imgs',
+            src: ['SC-app-*/release/assets/imgs/*'],
+            filter: 'isFile',
+            rename: stripSrcPath
+          },
+          {
+            expand: true,
+            cwd: '<%= bowerrc.directory %>',
+            dest: '<%= yeoman.dist %>/assets/fonts',
+            src: ['SC-app-*/release/assets/fonts/*'],
+            filter: 'isFile',
+            rename: stripSrcPath
+          },
+          {
+            expand: true,
+            cwd: '<%= bowerrc.directory %>',
+            src: 'SC-app-*/{,**}/*.html',
+            dest: '<%= yeoman.dist %>/<%= bowerrc.directory %>'
+          }
+        ]
       },
       dev: {
-        files: [{
-          expand: true,
-          dot: true,
-          cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>',
-          src: [
-            '*.{ico,png,txt}',
-            '.htaccess',
-            '*.html',
-            'app/**',
-            'docs/**'
-          ]
-        }, {
-          expand: true,
-          cwd: 'assets/imgs',
-          dest: '<%= yeoman.dist %>/assets/imgs',
-          src: ['*']
-        },
-        {
-          expand: true,
-          cwd: 'assets/fonts',
-          dest: '<%= yeoman.dist %>/assets/fonts',
-          src: ['*']
-        }, {
-          expand: true,
-          cwd: 'bower_components',
-          dest: '<%= yeoman.dist %>/assets/imgs',
-          src: ['SC-app-*/release/assets/imgs/*'],
-          filter: 'isFile',
-          rename: stripSrcPath
-        }, {
-          expand: true,
-          cwd: 'bower_components',
-          dest: '<%= yeoman.dist %>/assets/fonts',
-          src: ['SC-app-*/release/assets/fonts/*'],
-          filter: 'isFile',
-          rename: stripSrcPath
-        }]
+        files: [
+          {
+            expand: true,
+            dot: true,
+            cwd: '<%= yeoman.app %>',
+            dest: '<%= yeoman.dist %>',
+            src: [
+              '*.{ico,png,txt}',
+              '.htaccess',
+              '*.html',
+              'app/**',
+              'docs/**'
+            ]
+          },
+          {
+            expand: true,
+            cwd: 'assets/imgs',
+            dest: '<%= yeoman.dist %>/assets/imgs',
+            src: ['*']
+          },
+          {
+            expand: true,
+            cwd: 'assets/fonts',
+            dest: '<%= yeoman.dist %>/assets/fonts',
+            src: ['*']
+          },
+          {
+            expand: true,
+            cwd: '<%= bowerrc.directory %>',
+            dest: '<%= yeoman.dist %>/assets/imgs',
+            src: ['SC-app-*/release/assets/imgs/*'],
+            filter: 'isFile',
+            rename: stripSrcPath
+          },
+          {
+            expand: true,
+            cwd: '<%= bowerrc.directory %>',
+            dest: '<%= yeoman.dist %>/assets/fonts',
+            src: ['SC-app-*/release/assets/fonts/*'],
+            filter: 'isFile',
+            rename: stripSrcPath
+          },
+          {
+            expand: true,
+            cwd: '<%= bowerrc.directory %>',
+            src: 'SC-app-*/{,**}/*.html',
+            dest: '<%= yeoman.dist %>/<%= bowerrc.directory %>'
+          }
+        ]
       },
       appStyles: {
         expand: true,
@@ -468,7 +499,7 @@ module.exports = function (grunt) {
         expand: true,
         dest: '.tmp/sass/<%= sassDir %>/modulePartials',
         src: [
-          'bower_components/SC-app-*/release/assets/sass/**/*'
+          '<%= bowerrc.directory %>/SC-app-*/release/assets/sass/**/*'
         ],
         rename: stripSrcPath
       }
@@ -483,10 +514,10 @@ module.exports = function (grunt) {
         'compass'
       ],
       dist: [
-        'compass:dist',
+        'compass:dist'
       ],
       dev: [
-        'compass:dist',
+        'compass:dist'
       ]
     },
 
@@ -500,110 +531,17 @@ module.exports = function (grunt) {
 
     // Docular documentation
     ngdocs: {
-        options: {
+      options: {
         dest: 'docs',
         html5Mode: false,
-        title: 'WOW Festival Website Front-end Documentation',
-        bestMatch: true,
+        title: '<%= pkg.appDetails.longName %> Front-end Documentation',
+        bestMatch: true
       },
       api: {
         src: ['<%= yeoman.app %>/app/{,**/}*.js'],
         title: 'Angular App Documentation'
       }
     }
-
-  });
-
-  grunt.registerTask('prepareSASS', ['copy:appStyles', 'copy:moduleStyles', 'includeModuleSASS']);
-
-  grunt.registerTask('includeModuleSASS', 'Looks through the SC-app modules and imports any sass files it finds into the main.scss of the current app', function() {
-
-    var sassDir = grunt.config.data.sassDir;
-    var modulePartialsDir = '.tmp/sass/' + sassDir + '/modulePartials';
-    var fs = require('fs');
-
-    // Try opening the folder where module partials have been moved to
-    try {
-
-      var modulePartials = fs.readdirSync(modulePartialsDir);
-      var writeToSASS = '';
-
-      modulePartials.forEach(function(modulePartial) {
-
-        if (modulePartial.charAt(0) === '_') {
-          modulePartial = modulePartial.substring(1);
-        }
-
-        writeToSASS = writeToSASS + '@import "modulePartials/' + modulePartial + '";';
-
-      });
-
-      // Add the module SASS partial includes to the main sass file
-      fs.appendFileSync('.tmp/sass/' + sassDir + '/main.scss', writeToSASS);
-
-    } catch(ex) {
-
-      // If -2 error it is because there are no module partials
-      if (ex.errno === -2) {
-        grunt.log.error('No module partials to process.');
-
-      // Display error if not a -2
-      } else {
-        grunt.log.error(ex);
-      }
-
-    }
-    
-
-
-
-    // -> Append the @imports to that file
-
-    // Change sassDir so that compass reads from that instead
-    //grunt.config.sassDir = '.tmp/' + sassDir;
-
-  });
-
-  grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
-    if (target === 'dist') {
-      //return grunt.task.run(['build', 'connect:dist:keepalive']);
-      return grunt.task.run([
-        'clean:' + target,
-        'wiredep',
-        'configureProxies',
-        'ngdocs',
-        'useminPrepare',
-        'prepareSASS',
-        'concurrent:server',
-        'autoprefixer',
-        'concat',
-        'ngAnnotate',
-        'copy:' + target,
-        'cdnify',
-        'cssmin',
-        'uglify',
-        'filerev',
-        'usemin',
-        'htmlmin',
-        'connect:dist:keepalive'
-      ]);
-    }
-
-    grunt.task.run([
-      'clean:server',
-      'wiredep',
-      'configureProxies',
-      'prepareSASS',
-      'concurrent:server',
-      'autoprefixer',
-      'connect:livereload',
-      'watch'
-    ]);
-  });
-
-  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve:' + target]);
   });
 
   grunt.registerTask('test', [
@@ -615,35 +553,12 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
-  grunt.registerTask('build', 'Build the app for distribution', function(target) {
-
-    if (!target) {
-      target = 'dist';
-    }
-
-    grunt.task.run([
-      'clean:' + target,
-      'wiredep',
-      'ngdocs',
-      'useminPrepare',
-      'prepareSASS',
-      'concurrent:' + target,
-      'autoprefixer',
-      'concat',
-      'ngAnnotate',
-      'copy:' + target,
-      'cdnify',
-      'cssmin',
-      'uglify',
-      'filerev',
-      'usemin',
-      'htmlmin'
-    ]);
-  });
-
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
     'build'
   ]);
+
+  // Load in all tasks from a sub-folder to keep the Gruntfile cleaner.
+  grunt.loadTasks('grunt/tasks');
 };
