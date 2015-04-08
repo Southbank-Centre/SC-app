@@ -534,7 +534,7 @@ module.exports = function (grunt) {
       options: {
         dest: 'docs',
         html5Mode: false,
-        title: '<%= pkg.festival.longName %> Front-end Documentation',
+        title: '<%= pkg.appDetails.longName %> Front-end Documentation',
         bestMatch: true
       },
       api: {
