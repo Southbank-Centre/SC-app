@@ -41,7 +41,7 @@
   "scripts": {
     "test": "grunt test"
   },
-  "festival": {
+  "appDetails": {
     "longName": "SC-app-longname"
   }
 }
