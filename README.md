@@ -1,7 +1,5 @@
 # README
 
-@TODO move SC-app-* repos into Southbank-Centre account.
-
 ## What is SC-app?
 
 SC-app is a basic [Angular.js](https://angularjs.org/) application that can be used to create Southbank Centre websites that interface with the Southbank Centre Content API.
@@ -117,10 +115,35 @@ It is best to test SC-app-* modules from within an app as you develop it. Theref
 
 4. Make changes to the module. Make sure to always run `grunt build` after making changes.
 5. Commit your changes to your branch and push the changes up to GitHub.
-6. If your test app, run `bower update` to pull in the changes you just pushed up to GitHub.
-7. Once the module changes have been tested and accepted, create a new tag using the [SemVer](http://semver.org/) specification, and publish a new release with that tag.
-7. If any new modules require the updated module, run `bower install --save Southbank-Centre/<SC-app-module-name>#n.n.n` where _n.n.n_ is the latest version number, and create new releases for those apps.
+6. In your test app, run `bower update` to pull in the changes you just pushed up to GitHub.
+7. Once tested, create a pull request for the changes. **Don't** increment the app's version number in `bower.json` or `package.json`. This will be done as part of the release process (see 'Releasing an app module' below.
 
 #### Creating a new app module
 
 @TODO
+
+#### Releasing an app module
+
+When new versions of modules are released, modules that depend on them need to be updated so that they use the latest version. As a result, those dependant modules also need to be updated and released, as do their dependant modules, *ad infinitum*.
+
+1. Create a release branch in the module's repository and merge all of the code that is to be released into that branch.
+2. Test the module from this branch by installing it into a test app, e.g.: `bower install Southbank-Centre/SC-app-myapp#release-branch-name
+3. Make any necessary fixes in the release branch.
+4. When you are happy with the changes, update the version number of the module in the following files: `bower.json` and `package.json`. The version numbering follows the [SemVer](http://semver.org/) standard. Note that updates that consist only of documentation changes should be considered a 'patch' release.
+5. Create a new draft release with a tag using the new version number. Tag the release against the master branch.
+6. Issue a pull request to merge the release branch into the master branch.
+7. After the pull request has been reviewed and merged, publish the draft release you created in step (5).
+8. Identify all SC-app-* modules that list the module you just released as a dependency. Do this by looking in their `bower.json` files.
+9. For each of the modules you identified in step (8), do the following:
+	1. Create a new release branch in that module's repository, branching from its master branch.
+	2. Within that release branch, update the module's `bower.json` file, incrementing the version number of the dependency that you released in step (6) above.
+	3. Also update the version number of the module itself in the following files: `bower.json` and `package.json`. Increment the version number to the same level. For example, if the module you released in step (6) was a minor release from version 1.2.3 to version 1.3.0, this module's version should also be incremented as a minor release.
+	4. Create a new draft release with a tag using the new version number. Tag against the master branch.
+	5. Issue a pull request to merge the release branch into the master branch.
+	6. After the pull request has been reviewed and merged, publish the draft release you just created.
+	7. Go back to step (8) above so that modules that depend on the module you just released get updated to use the latest version.
+
+@TODO this process could potentially be automated.	
+	
+	
+
