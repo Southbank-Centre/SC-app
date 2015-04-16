@@ -1,7 +1,7 @@
 {
   "name": "SC-app",
   "description": "The AngularJS based front end for SC-app-longname.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {},
   "devDependencies": {
     "connect-modrewrite": "~0.7.9",
