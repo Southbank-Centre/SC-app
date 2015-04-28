@@ -85,7 +85,7 @@ module.exports = function (grunt) {
       },
       compass: {
         files: ['assets/sass/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer']
+        tasks: ['prepareSASS', 'compass:server', 'autoprefixer']
       },
       gruntfile: {
         files: ['Gruntfile.js']
