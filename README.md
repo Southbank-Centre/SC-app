@@ -111,7 +111,7 @@ It is best to test SC-app-* modules from within an app as you develop it. Theref
 2. Create a new branch in your module's repository and push it up to GitHub.
 3. In the base directory of an app that you can use for testing the module's development, run the following:
 
-    bower install --save Southbank-Centre/<SC-app-module-name>#<branch-name>
+		bower install --save Southbank-Centre/<SC-app-module-name>#<branch-name>
 
 4. Make changes to the module. Make sure to always run `grunt build` after making changes.
 5. Commit your changes to your branch and push the changes up to GitHub.
