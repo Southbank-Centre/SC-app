@@ -89,6 +89,8 @@ The files will be installed into the `/bower_components` directory. Re-running `
 
 *Most SC-app-\* modules also include other instructions to integrate their features into your app, so make sure you read their README files.*
 
+_**Always install a module's tests into your app.**_ See the section *Tests* below.
+
 #### App config constants
 
 Certain functionality requires that you define constants in SC-app.constants.js. These should match the data you are intending to get from the CMS. This can be gatehred from the CMS or examining the JSON output.
@@ -122,6 +124,25 @@ It is best to test SC-app-* modules from within an app as you develop it. Theref
 
 @TODO
 
+### Tests
+
+We're using the [Protractor](http://angular.github.io/protractor/) testing framework. See [this README](https://github.com/Southbank-Centre/SC-app/blob/master/test/functional/README.md) for information about using it on this project.
+
+On their own, SC-app-* modules don't display any functionality on a browser out of the box. This means that functional tests can't be run against a module until it has been installed into an app.
+
+As such, a module's tests will only be run if you copy them into an app you are building. _**You should always copy a module's tests into your app.**_
+
+#### Adding a module's tests to your app
+
+For each SC-app-* module you have installed in your app, do the following:
+
+1. Create a new folder in the tests/functional directory and name it after the module, e.g. SC-app-festival.
+2. In GitHub, view the files for the version of the module you have installed.
+3. Copy the contents of the tests/functional directory into the folder that you created in your app in step 1.
+4. Edit the variables for the module's tests in the *-vars.js file, (e.g. festival-vars.js), adapting them to your app-specific configuration.
+5. View the test specs and remove and sections that don't apply to your app. For example, the festival module contains tests for the festival header, which is an optional feature of that module.
+6. [Run the tests locally](https://github.com/Southbank-Centre/SC-app/blob/master/test/functional/README.md) to check that they work properly.
+
 #### Releasing an app module
 
 When new versions of modules are released, modules that depend on them need to be updated so that they use the latest version. As a result, those dependant modules also need to be updated and released, as do their dependant modules, *ad infinitum*.
@@ -143,7 +164,4 @@ When new versions of modules are released, modules that depend on them need to b
 	6. After the pull request has been reviewed and merged, publish the draft release you just created.
 	7. Go back to step (8) above so that modules that depend on the module you just released get updated to use the latest version.
 
-@TODO this process could potentially be automated.	
-	
-	
-
+@TODO this process could potentially be automated.

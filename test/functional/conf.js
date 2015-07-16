@@ -20,6 +20,10 @@ exports.config = {
     '**/*.js'
   ],
 
+  suites: {
+    example: ['example/*.js']
+  },
+
   // Single Browser
   // capability: [
   //   browserName: 'chrome',
@@ -40,7 +44,11 @@ exports.config = {
   ],
 
   params: {
-    url: ''
+    backUrl: 'http://api.sc.circle:8080',
+    frontUrl: 'http://sc.circle:8081'
+  },
+
+  framework: 'jasmine2',
   },
 
   // Options to be passed to jasmine-node.
@@ -49,6 +57,13 @@ exports.config = {
     showColors: true,
     // Default time to wait in ms before a test fails.
     defaultTimeoutInterval: 30000
+  },
+
+  onPrepare: function(){
+    // Syntactic sugar to set whether we're testing an angular site or not
+    global.isAngularSite = function(flag){
+      browser.ignoreSynchronization = !flag;
+    };
   }
 
 };

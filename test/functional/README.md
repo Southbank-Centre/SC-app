@@ -27,15 +27,17 @@ To run protractor test two things are needed. A configuration file for protracto
 
 The `conf.js` file used for the front-end accepts a URL command line parameter. This is used to direct the test to the different environments. Run the tests against a particular environment with:
 
-	protractor conf.js --params.url 'http://my-app.southbankcentre.org'
+	protractor conf.js --params.backUrl 'http://my-app-backend' --params.frontUrl 'http://my-app-frontend'
 
-for the live website. Do not use a trailing slash.
+Do not use a trailing slash.
 
 ### Directory structure
 
 A top level directory named `test` within the angular app contains all tests. These are split further in two directories for `unit` or `functional` tests. 
 
-The `conf.js` file is placed withn the `functional` directory. All specs are placed within `functional` too grouped together in page labeled directories (eg a `home` directory to group all tests for the homepage.)
+The `conf.js` file is placed withn the `functional` directory. All specs are placed within `functional` grouped together in feature-specific directories (e.g. a `blog` directory to group all tests for the blog.)
+
+Within SC-app-* module repositories, test files should be placed directly in `tests/functional`, not within a feature-specific directory. Furthermore, SC-app-* modules shouldn't have their own `conf.js` file. See more information about SC-app-* tests [here](https://github.com/Southbank-Centre/SC-app/blob/master/README.md).
 
 ### SauceLabs
 
