@@ -2,7 +2,7 @@
 
 ## What is SC-app?
 
-SC-app is a basic [Angular.js](https://angularjs.org/) application that can be used to create Southbank Centre websites that interface with the Southbank Centre Content API.
+SC-app is a basic [AngularJS](https://angularjs.org/) application that can be used to create Southbank Centre websites that interface with the Southbank Centre Content API.
 
 It is designed to be feature-less and generic. Sites can be built up either by having Southbank Centre App Modules (SC-app-\*) installed into them, or by having custom components written specifically for them.
 
@@ -19,15 +19,15 @@ It is designed to be feature-less and generic. Sites can be built up either by h
 
 ### Dependency installation
 
-Node mudules, Bower components and Ruby Gems are already included in this repository, so there is no need to install them. However if you do need to install them again please follow the steps below:
+Node modules, Bower components and Ruby Gems are already included in this repository, so there is no need to install them. However if you do need to install them again please follow the steps below:
 
 After installing the software listed in the requirements above and cloning a copy of this app, run the following to install the correct dependencies for the app.
 
 Run the following in the base directory:
 
-    $ npm install
-
     $ bundle install --deployment
+
+    $ npm install
 
     $ bower install
 
@@ -55,7 +55,7 @@ b) Breaking changes and upgrade paths are documented, and release numbers reflec
 
 Once you've cloned the base SC-app, make sure to change app name everywhere, including documentation.
 
-You'll also need to updated any instance of SC-app-longname. Currently this is only in the `description` item in the main package.json object, and in the `longName` key in the `appDetails` hash in the main package.json object.
+You'll also need to update any instance of SC-app-longname. Currently this is only referenced under `description` in the main bower.json file and `description` and `appDetails.longName` in the package.json file.
 
 _Note: If using app-wide find-and-replace to rename it everywhere, be sure to exclude __bower.json__ and do that by hand._
 
@@ -111,7 +111,7 @@ It is best to test SC-app-* modules from within an app as you develop it. Theref
 2. Create a new branch in your module's repository and push it up to GitHub.
 3. In the base directory of an app that you can use for testing the module's development, run the following:
 
-		bower install --save Southbank-Centre/<SC-app-module-name>#<branch-name>
+		$ bower install --save Southbank-Centre/<SC-app-module-name>#<branch-name>
 
 4. Make changes to the module. Make sure to always run `grunt build` after making changes.
 5. Commit your changes to your branch and push the changes up to GitHub.
